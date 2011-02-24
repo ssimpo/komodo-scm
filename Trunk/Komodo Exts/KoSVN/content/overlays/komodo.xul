@@ -9,13 +9,13 @@
 	<script type="application/x-javascript" src="overlay.js"/>  
 
 	<commandset id="allcommands">
-		<command id="Tasks:HelloWorld" oncommand="org.simpo.koSVN.hello();"/>
+		<command id="Tasks:RepoBrowser" oncommand="org.simpo.koSVN.repoBrowser();"/>
 	</commandset>
 
 	<menupopup id="popup_tools">
 		<menuitem id="menu_myextension"
-			label="My Extension"
-			observes="Tasks:HelloWorld"
+			label="Repo Browser"
+			observes="Tasks:RepoBrowser"
 			class="menu-iconic-wide"/>
 	</menupopup>
 	
