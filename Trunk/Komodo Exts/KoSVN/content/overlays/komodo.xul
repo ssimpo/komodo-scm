@@ -20,6 +20,39 @@
 		<command id="Tasks:ViewLog"
 			oncommand="org.simpo.koSVN.viewLog();"/>
 	</commandset>
+	
+	<toolbar id="toolsToolbar">
+		<toolbarbutton id="toolsToolbar_koSVN_RepoBrowser"
+			persist="buttonstyle"
+			buttonstyle="pictures"
+			label="Repo Browser"
+			oncommand="Tasks:RepoBrowser"
+			tooltiptext="Repo Browser for current project"/>
+		<toolbarbutton id="toolsToolbar_koSVN_CommitProject"
+			persist="buttonstyle"
+			buttonstyle="pictures"
+			label="Commit Project"
+			oncommand="Tasks:CommitProject"
+			tooltiptext="Commit current project to SVN"/>
+		<toolbarbutton id="toolsToolbar_koSVN_CompareDiff"
+			persist="buttonstyle"
+			buttonstyle="pictures"
+			label="Compare file"
+			oncommand="Tasks:CompareDiff"
+			tooltiptext="Compare current file to repository version"/>
+		<toolbarbutton id="toolsToolbar_koSVN_ViewProperties"
+			persist="buttonstyle"
+			buttonstyle="pictures"
+			label="View properties"
+			oncommand="Tasks:ViewProperties"
+			tooltiptext="View SVN properties of the current file"/>
+		<toolbarbutton id="toolsToolbar_koSVN_ViewLog"
+			persist="buttonstyle"
+			buttonstyle="pictures"
+			label="View file log"
+			oncommand="Tasks:ViewLog"
+			tooltiptext="View the SVN log for the current file"/>
+	</toolbar>
 
 	<menupopup id="popup_tools">
 		<menu id="popup_tools_koSVN" label="Tortoise SVN">
