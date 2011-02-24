@@ -2,12 +2,12 @@
 <RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:em="http://www.mozilla.org/2004/em-rdf#">
 	<Description about="urn:mozilla:install-manifest">
-	        <em:id>KoSVN@komodo.simpo.org</em:id>
+	        <em:id>me@simpo.org</em:id>
 	        <em:name>KoSVN</em:name>
 	        <em:version>0.1</em:version>
 	        <em:description></em:description>
 	        <em:creator>Stephen Simpson</em:creator>
-	        <em:homepageURL>http://simpo.org/komodo/koSVN</em:homepageURL>
+	        <em:homepageURL>http://simpo.org/komodo/ksvn</em:homepageURL>
 	        <em:type>2</em:type> <!-- type=extension -->
         
 	        <em:targetApplication>
