@@ -12,7 +12,7 @@
 
         <em:targetApplication>
             <Description>
-                Intergration of TortoiseSVN into Komodo Edit.  Adds a number of buttons to the iconbar, which hook into SVN and the current project. Easy browsing of SVN repository; with differences between current file and subversion copy; Commit project files from inside Komodo; ...etc.
+				Intergration of TortoiseSVN into Komodo Edit.  Adds a number of buttons to the iconbar, which hook into SVN and the current project. Easy browsing of SVN repository; with differences between current file and subversion copy; Commit project files from inside Komodo; ...etc.
                 <em:id>{36E66FA0-F259-11D9-850E-000D935D3368}</em:id>
                 <em:minVersion>6.0</em:minVersion>
                 <em:maxVersion>6.*</em:maxVersion>
