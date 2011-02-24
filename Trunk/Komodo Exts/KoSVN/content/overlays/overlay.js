@@ -8,17 +8,55 @@ org.simpo.koSVN = function() {
     var pub = {};
     
     pub.repoBrowser = function() {
-        alert("HELLO WORLD");
-        
         var project = this._getProject();
         if (project) {
             var path = this._getProjectPath(project);
-    
-            ko.run.runEncodedCommand(window, 'TortoiseProc.exe /command:repobrowser /path:\"'+path+'\" {\'cwd\': u\'%p\'}');
+            this._runTortoiseProc(path,'repobrowser');
         } else {
-            alert("Could not find current file in open projects.")
+            alert("Could not load the browser.");
         }
     };
+    
+    pub.commitProject = function() {
+        var project = this._getProject();
+        if (project) {
+            var path = this._getProjectPath(project);
+            this._runTortoiseProc(path,'commit');
+        } else {
+            alert("Could not load the browser.");
+        }
+    };
+    
+    pub.compareDiff = function() {
+        try {
+            var path = ko.views.manager.currentView.document.file.path;
+            this._runTortoiseProc(path,'diff');
+        } catch(e) {
+            alert("No current file.")
+        }
+    }
+    
+    pub.viewLog = function() {
+        try {
+            var path = ko.views.manager.currentView.document.file.path;
+            this._runTortoiseProc(path,'log');
+        } catch(e) {
+            alert("No current file.")
+        }
+    }
+    
+    pub.viewProperties = function() {
+        try {
+            var path = ko.views.manager.currentView.document.file.path;
+            this._runTortoiseProc(path,'properties');
+        } catch(e) {
+            alert("No current file.")
+        }
+    }
+    
+    pub._runTortoiseProc = function(path,command) {
+            ko.run.runEncodedCommand(window, 'TortoiseProc.exe /command:'+command+' /path:\"'+path+'\" {\'cwd\': u\'%p\'}');
+    }
     
     pub._getProject = function() {
         //  summary:
