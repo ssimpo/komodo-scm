@@ -1,0 +1,19 @@
+#toolsToolbar_koSVN_RepoBrowser, #popup_tools_koSVN_RepoBrowser {
+    list-style-image: url("chrome://koSVN/skin/default/images/RepoBrowser.ico");
+}
+
+#toolsToolbar_koSVN_CommitProject, #popup_tools_koSVN_CommitProject {
+    list-style-image: url("chrome://koSVN/skin/default/images/Commit.ico");
+}
+
+#toolsToolbar_koSVN_CompareDiff, #popup_tools_koSVN_CompareDiff {
+    list-style-image: url("chrome://koSVN/skin/default/images/Diff.ico");
+}
+
+#toolsToolbar_koSVN_ViewProperties, #popup_tools_koSVN_ViewProperties {
+    list-style-image: url("chrome://koSVN/skin/default/images/Properties.ico");
+}
+
+#toolsToolbar_koSVN_ViewLog, #popup_tools_koSVN_ViewLog {
+    list-style-image: url("chrome://koSVN/skin/default/images/Log.ico");
+}
