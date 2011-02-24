@@ -1,4 +1,0 @@
-content KoSVN jar:KoSVN.jar!/content/ xpcnativewrappers=yes
-
-#Komodo
-overlay chrome://komodo/content/komodo.xul chrome://KoSVN/content/overlays/komodo.xul
