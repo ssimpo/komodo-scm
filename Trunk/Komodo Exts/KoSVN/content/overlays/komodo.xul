@@ -22,26 +22,28 @@
 	</commandset>
 
 	<menupopup id="popup_tools">
-		<menuitem id="menu_koSVN_RepoBrowser"
-			label="Repo Browser"
-			observes="Tasks:RepoBrowser"
-			class="menu-iconic-wide"/>
-		<menuitem id="menu_koSVN_CommitProject"
-			label="Commit Project"
-			observes="Tasks:CommitProject"
-			class="menu-iconic-wide"/>
-		<menuitem id="menu_koSVN_CompareDiff"
-			label="Compare file to respository version"
-			observes="Tasks:CompareDiff"
-			class="menu-iconic-wide"/>
-		<menuitem id="menu_koSVN_ViewProperties"
-			label="View file SVN properties"
-			observes="Tasks:ViewProperties"
-			class="menu-iconic-wide"/>
-		<menuitem id="menu_koSVN_ViewLog"
-			label="View file log"
-			observes="Tasks:ViewLog"
-			class="menu-iconic-wide"/>
+		<menu id="popup_tools_koSVN" label="Tortoise SVN">
+			<menuitem id="popup_tools_koSVN_RepoBrowser"
+				label="Repo Browser"
+				observes="Tasks:RepoBrowser"
+				class="menu-iconic-wide"/>
+			<menuitem id="popup_tools_koSVN_CommitProject"
+				label="Commit Project"
+				observes="Tasks:CommitProject"
+				class="menu-iconic-wide"/>
+			<menuitem id="popup_tools_koSVN_CompareDiff"
+				label="Compare file to respository version"
+				observes="Tasks:CompareDiff"
+				class="menu-iconic-wide"/>
+			<menuitem id="popup_tools_koSVN_ViewProperties"
+				label="View file SVN properties"
+				observes="Tasks:ViewProperties"
+				class="menu-iconic-wide"/>
+			<menuitem id="popup_tools_koSVN_ViewLog"
+				label="View file log"
+				observes="Tasks:ViewLog"
+				class="menu-iconic-wide"/>
+		</menu>
 	</menupopup>
 	
 </overlay>
