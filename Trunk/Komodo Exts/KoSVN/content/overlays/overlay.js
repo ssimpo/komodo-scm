@@ -1,15 +1,18 @@
 //the advice given at http://blogger.ziesemer.com/2007/10/respecting-javascript-global-namespace.html has been followed
-if(!org) var com={};
-if(!org.simpo) org.simpo={};
+if (!org) var org={};
+if (!org.simpo) org.simpo={};
+
 
 org.simpo.koSVN = function() {
     //public object returned by this function
     var pub = {};
-  
+    
     pub.repoBrowser = function() {
-        var project = getProject();
+        alert("HELLO WORLD");
+        
+        var project = this._getProject();
         if (project) {
-            var path = getProjectPath(project);
+            var path = this._getProjectPath(project);
     
             ko.run.runEncodedCommand(window, 'TortoiseProc.exe /command:repobrowser /path:\"'+path+'\" {\'cwd\': u\'%p\'}');
         } else {
@@ -42,4 +45,4 @@ org.simpo.koSVN = function() {
     };
     
     return pub;
-}
+} ();
