@@ -9,13 +9,38 @@
 	<script type="application/x-javascript" src="overlay.js"/>  
 
 	<commandset id="allcommands">
-		<command id="Tasks:RepoBrowser" oncommand="org.simpo.koSVN.repoBrowser();"/>
+		<command id="Tasks:RepoBrowser"
+			oncommand="org.simpo.koSVN.repoBrowser();"/>
+		<command id="Tasks:CommitProject"
+			oncommand="org.simpo.koSVN.commitProject();"/>
+		<command id="Tasks:CompareDiff"
+			oncommand="org.simpo.koSVN.compareDiff();"/>
+		<command id="Tasks:ViewProperties"
+			oncommand="org.simpo.koSVN.viewProperties();"/>
+		<command id="Tasks:ViewLog"
+			oncommand="org.simpo.koSVN.viewLog();"/>
 	</commandset>
 
 	<menupopup id="popup_tools">
-		<menuitem id="menu_myextension"
+		<menuitem id="menu_koSVN_RepoBrowser"
 			label="Repo Browser"
 			observes="Tasks:RepoBrowser"
+			class="menu-iconic-wide"/>
+		<menuitem id="menu_koSVN_CommitProject"
+			label="Commit Project"
+			observes="Tasks:CommitProject"
+			class="menu-iconic-wide"/>
+		<menuitem id="menu_koSVN_CompareDiff"
+			label="Compare file to respository version"
+			observes="Tasks:CompareDiff"
+			class="menu-iconic-wide"/>
+		<menuitem id="menu_koSVN_ViewProperties"
+			label="View file SVN properties"
+			observes="Tasks:ViewProperties"
+			class="menu-iconic-wide"/>
+		<menuitem id="menu_koSVN_ViewLog"
+			label="View file log"
+			observes="Tasks:ViewLog"
 			class="menu-iconic-wide"/>
 	</menupopup>
 	
