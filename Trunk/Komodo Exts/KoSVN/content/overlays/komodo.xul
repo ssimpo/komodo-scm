@@ -5,16 +5,18 @@
 	 xmlns:html="http://www.w3.org/1999/xhtml"
 	 xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	 xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	
+	<script type="application/x-javascript" src="overlay.js"/>  
 
 	<commandset id="allcommands">
-		<command id="Tasks:HelloWorld" oncommand="alert('Hello World');"/>
+		<command id="Tasks:HelloWorld" oncommand="org.simpo.koSVN.hello();"/>
 	</commandset>
 
 	<menupopup id="popup_tools">
 		<menuitem id="menu_myextension"
-			  label="My Extension"
-			  observes="Tasks:HelloWorld"
-			  class="menu-iconic-wide"/>
+			label="My Extension"
+			observes="Tasks:HelloWorld"
+			class="menu-iconic-wide"/>
 	</menupopup>
-    
+	
 </overlay>
