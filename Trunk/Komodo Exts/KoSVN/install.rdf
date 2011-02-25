@@ -4,7 +4,7 @@
     <Description about="urn:mozilla:install-manifest">
         <em:id>kosvn@simp.org</em:id>
         <em:name>KoSVN</em:name>
-        <em:version>0.1</em:version>
+        <em:version>0.1.1</em:version>
         <em:description>Intergation of TortoiseSVN and Komodo</em:description>
         <em:creator>Stephen Simpson</em:creator>
         <em:homepageURL>http://simpo.org/komodo/KoSVN</em:homepageURL>

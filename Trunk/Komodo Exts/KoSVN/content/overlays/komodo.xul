@@ -18,6 +18,8 @@
 			oncommand="org.simpo.koSVN.compareDiff();"/>
 		<command id="Tasks:ViewProperties"
 			oncommand="org.simpo.koSVN.viewProperties();"/>
+		<command id="Tasks:ViewLogActiveFile"
+			oncommand="org.simpo.koSVN.viewLogActiveFile();"/>
 		<command id="Tasks:ViewLog"
 			oncommand="org.simpo.koSVN.viewLog();"/>
 	</commandset>
@@ -55,8 +57,8 @@
 			class="menuitem-iconic koSVN_Log_Icon"
 			persist="buttonstyle"
 			buttonstyle="pictures"
-			label="View file log"
-			observes="Tasks:ViewLog"
+			label="View SVN file log"
+			observes="Tasks:ViewLogActiveFile"
 			tooltiptext="View the SVN log for the current file"/>
 	</toolbar>
 
@@ -80,11 +82,18 @@
 					observes="Tasks:ViewProperties"
 					class="menuitem-iconic koSVN_Properties_Icon"/>
 				<menuitem id="popup_tools_koSVN_ViewLog"
-					label="View file log"
-					observes="Tasks:ViewLog"
+					label="View SVN file log"
+					observes="Tasks:ViewLogActiveFile"
 					class="menuitem-iconic koSVN_Log_Icon"/>
 			</menupopup>
 		</menu>
+	</menupopup>
+	
+	<menupopup id="places-files-popup">
+		<menuitem id="places-files-popup_koSVN_RepoBrowser"
+			label="View SVN file log"
+			observes="Tasks:ViewLog"
+			class="menuitem-iconic koSVN_Log_Icon"/>
 	</menupopup>
 	
 </overlay>

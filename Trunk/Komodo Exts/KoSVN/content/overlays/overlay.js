@@ -46,13 +46,23 @@ org.simpo.koSVN = {
         }
     },
     viewLog: function() {
+        try {
+            var paths = this._getSelectedPaths();
+            for (i in paths) {
+                var feedback = this._runTortoiseProc(paths[i],'log');
+            }
+        } catch (e) {
+            alert("Failed to view SVN Log for file.")
+        }
+    },
+    viewLogActiveFile: function() {
         // summary:
         //      View the SVN log for the current file.
         
         try {
             var path = this._getCurrentFilePath();
             if (path) {
-                var feedback = this._runTortoiseProc(path,'log');
+                 var feedback = this._runTortoiseProc(path,'log');
             } else {
                 alert("Could not find an active document");
             }
@@ -131,5 +141,14 @@ org.simpo.koSVN = {
     
         var projectFile = project.getFile();
         return projectFile.dirName;
+    },
+    _getSelectedPaths: function() {
+        var view = ko.places.viewMgr.view;
+        var selectedIndices = ko.treeutils.getSelectedIndices(view, false);
+        return selectedIndices.map( function(row) {
+            var uri = view.getURIForRow(selectedIndices[i]);
+            var path = ko.uriparse.URIToLocalPath(uri);
+            return path;
+        });
     }
 };
