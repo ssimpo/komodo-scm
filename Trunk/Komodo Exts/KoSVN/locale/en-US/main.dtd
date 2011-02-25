@@ -1,0 +1,21 @@
+<!ENTITY kosvn.label.repobrowser "Repo Browser">
+<!ENTITY kosvn.label.commitproject "Commit Project">
+<!ENTITY kosvn.label.commitpath "Commit path(s) to repository">
+<!ENTITY kosvn.label.comparefile "Compare file">
+<!ENTITY kosvn.label.comparefile.long "Compare file to respository version">
+<!ENTITY kosvn.label.viewproperties "View properties">
+<!ENTITY kosvn.label.viewproperties.long "View file SVN properties">
+<!ENTITY kosvn.label.viewproperties2.long "View file/folder SVN properties">
+<!ENTITY kosvn.label.viewlogfile "View SVN file log">
+<!ENTITY kosvn.label.viewlogfile2 "View SVN file/folder log">
+
+<!ENTITY kosvn.tooltip.viewlogfile "View the SVN log for the current file">
+<!ENTITY kosvn.tooltip.viewproperties "View SVN properties of the current file">
+<!ENTITY kosvn.tooltip.comparefile "Compare current file to repository version">
+<!ENTITY kosvn.tooltip.commitproject "Commit current project to SVN">
+<!ENTITY kosvn.tooltip.repobrowser "Repository Browser for current project">
+
+<!ENTITY kosvn.tooltip.selected.viewlogfile "View the SVN log for the selected files and folders">
+<!ENTITY kosvn.tooltip.selected.viewproperties "View SVN properties for the current files and folders">
+<!ENTITY kosvn.tooltip.commitpath "Commit selected files and folders to SVN">
+<!ENTITY kosvn.tooltip.selected.comparefile "Compare the selected file to repository version">
