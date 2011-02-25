@@ -13,7 +13,7 @@ org.simpo.koSVN = {
         var project = this._getProject();
         if (project) {
             var path = this._getProjectPath(project);
-            this._runTortoiseProc(path,'repobrowser');
+            var feedback = this._runTortoiseProc(path,'repobrowser');
         } else {
             alert("Could not load the browser.");
         }
@@ -25,7 +25,7 @@ org.simpo.koSVN = {
         var project = this._getProject();
         if (project) {
             var path = this._getProjectPath(project);
-            this._runTortoiseProc(path,'commit');
+            var feedback = this._runTortoiseProc(path,'commit');
         } else {
             alert("Could not load the browser.");
         }
@@ -37,7 +37,7 @@ org.simpo.koSVN = {
         try {
             var path = this._getCurrentFilePath();
             if (path) {    
-                this._runTortoiseProc(path,'diff');
+                var feedback = this._runTortoiseProc(path,'diff');
             } else {
                 alert("Could not find an active document");
             }
@@ -52,7 +52,7 @@ org.simpo.koSVN = {
         try {
             var path = this._getCurrentFilePath();
             if (path) {
-                this._runTortoiseProc(path,'log');
+                var feedback = this._runTortoiseProc(path,'log');
             } else {
                 alert("Could not find an active document");
             }
@@ -67,7 +67,7 @@ org.simpo.koSVN = {
         try {
             var path = this._getCurrentFilePath();
             if (path) {
-                this._runTortoiseProc(path,'properties');
+                var feedback = this._runTortoiseProc(path,'properties');
             } else {
                 alert("Could not find an active document");
             }
@@ -83,7 +83,21 @@ org.simpo.koSVN = {
         // command: string
         //      The TortoiseProc command to run
         
-            ko.run.runEncodedCommand(window, 'TortoiseProc.exe /command:'+command+' /path:\"'+path+'\" {\'cwd\': u\'%p\'}');
+        var RunService = Components.classes["@activestate.com/koRunService;1"].getService(Components.interfaces.koIRunService);
+        var cmd = 'TortoiseProc.exe /command:'+command+' /path:\"'+path+'\"';
+        var output = new Object();
+        var error = new Object();
+            
+        try {
+            var process = RunService.RunAndCaptureOutput(cmd,'',null,null,output,error);
+            if (error.value != '') {
+                return {error:true,value:error.value};
+            } else {
+                return {error:false,value:output.value};
+            }
+        } catch(e) {
+            return {error:true,value:e};
+        }
     },
     _getCurrentFilePath: function() {
         //  summary:

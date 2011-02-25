@@ -7,5 +7,6 @@
 </file>
 <preference-set idref="3831d49c-0922-45c9-b6ed-88e5edaffa49">
   <boolean id="configured">1</boolean>
+  <string id="spellcheckLangID">en-US</string>
 </preference-set>
 </project>
