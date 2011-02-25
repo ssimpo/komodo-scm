@@ -3,6 +3,10 @@ if (!org.simpo) org.simpo={};
 
 
 org.simpo.koSVN = {
+    stringBundle: function(stringToGet) {
+        var strings = document.getElementById("strings_koSVN");
+        return strings.getString(stringToGet);
+    },
     repoBrowser: function() {
         // summary:
         //      Open the repository browser for the current project.
@@ -12,7 +16,7 @@ org.simpo.koSVN = {
             var path = this._getProjectPath(project);
             var feedback = this._runTortoiseProc(path,'repobrowser');
         } else {
-            alert("Could not load the browser.");
+            alert(this.stringBundle("ErrorBrowserLoad"));
         }
     },
     commitPath: function() {
@@ -24,7 +28,7 @@ org.simpo.koSVN = {
             var paths = this._getSelectedPaths();
             var feedback = this._runTortoiseProc(paths.join('*'),'commit');
         } catch (e) {
-            alert("Could not commit the selected content.")
+            alert(this.stringBundle("ErrorCommitSelect"));
         }
     },
     commitProject: function() {
@@ -36,7 +40,7 @@ org.simpo.koSVN = {
             var path = this._getProjectPath(project);
             var feedback = this._runTortoiseProc(path,'commit');
         } else {
-            alert("Could not commit the current project.");
+            alert(this.stringBundle("ErrorCommitProject"));
         }
     },
     compareDiff: function() {
@@ -50,7 +54,7 @@ org.simpo.koSVN = {
                 var feedback = this._runTortoiseProc(paths[i],'diff');
             }
         } catch (e) {
-            alert("Failed to compare the selected file.")
+            alert(this.stringBundle("ErrorCompareSelected"));
         }
     },
     compareDiffActiveFile: function() {
@@ -62,10 +66,10 @@ org.simpo.koSVN = {
             if (path) {    
                 var feedback = this._runTortoiseProc(path,'diff');
             } else {
-                alert("Could not find an active document");
+                alert(this.stringBundle("ErrorFindActiveDocument"));
             }
         } catch(e) {
-            alert("No current file.")
+            alert(this.stringBundle("ErrorNoCurrentFile"));
         }
     },
     viewLog: function() {
@@ -78,7 +82,7 @@ org.simpo.koSVN = {
                 var feedback = this._runTortoiseProc(paths[i],'log');
             }
         } catch (e) {
-            alert("Failed to view SVN Log for file.")
+            alert(this.stringBundle("ErrorFailedSVNLog"));
         }
     },
     viewLogActiveFile: function() {
@@ -90,10 +94,10 @@ org.simpo.koSVN = {
             if (path) {
                  var feedback = this._runTortoiseProc(path,'log');
             } else {
-                alert("Could not find an active document");
+                alert(this.stringBundle("ErrorFindActiveDocument"));
             }
         } catch(e) {
-            alert("No current file.")
+            alert(this.stringBundle("ErrorNoCurrentFile"));
         }
     },
     viewProperties: function() {
@@ -107,7 +111,7 @@ org.simpo.koSVN = {
                 var feedback = this._runTortoiseProc(paths[i],'properties');
             }
         } catch (e) {
-            alert("Failed to view SVN properties for file.")
+            alert(this.stringBundle("ErrorFailedSVNProperties"));
         }
     },
     viewPropertiesActiveFile: function() {
@@ -119,10 +123,10 @@ org.simpo.koSVN = {
             if (path) {
                 var feedback = this._runTortoiseProc(path,'properties');
             } else {
-                alert("Could not find an active document");
+                alert(this.stringBundle("ErrorFindActiveDocument"));
             }
         } catch(e) {
-            alert("No current file.")
+            alert(this.stringBundle("ErrorNoCurrentFile"));
         }
     },
     _runTortoiseProc: function(path,command) {
