@@ -2,13 +2,13 @@ if (!org) var org={};
 if (!org.simpo) org.simpo={};
 
 
-org.simpo.koSVN = function() {
+org.simpo.koSVN = {
     //public object returned by this function
-    var pub = {};
+    //var pub = {};
     
-    pub.repoBrowser = function() {
+    repoBrowser: function() {
         // summary:
-        //      Open the respository browser for the current project.
+        //      Open the repository browser for the current project.
         
         var project = this._getProject();
         if (project) {
@@ -17,9 +17,8 @@ org.simpo.koSVN = function() {
         } else {
             alert("Could not load the browser.");
         }
-    };
-    
-    pub.commitProject = function() {
+    },
+    commitProject: function() {
         // summary:
         //      Open the commit interface for the current project.
         
@@ -30,9 +29,8 @@ org.simpo.koSVN = function() {
         } else {
             alert("Could not load the browser.");
         }
-    };
-    
-    pub.compareDiff = function() {
+    },
+    compareDiff: function() {
         // summary:
         //      Compare the current file to its versioned copy in SVN
         
@@ -46,9 +44,8 @@ org.simpo.koSVN = function() {
         } catch(e) {
             alert("No current file.")
         }
-    }
-    
-    pub.viewLog = function() {
+    },
+    viewLog: function() {
         // summary:
         //      View the SVN log for the current file.
         
@@ -62,9 +59,8 @@ org.simpo.koSVN = function() {
         } catch(e) {
             alert("No current file.")
         }
-    }
-    
-    pub.viewProperties = function() {
+    },
+    viewProperties: function() {
         // summary:
         //      View the SVN file properties for the current file.
         
@@ -78,9 +74,8 @@ org.simpo.koSVN = function() {
         } catch(e) {
             alert("No current file.")
         }
-    }
-    
-    pub._runTortoiseProc = function(path,command) {
+    },
+    _runTortoiseProc: function(path,command) {
         // summary:
         //      Run a specified TortoiseProc command against the given path.
         // path: string
@@ -89,9 +84,8 @@ org.simpo.koSVN = function() {
         //      The TortoiseProc command to run
         
             ko.run.runEncodedCommand(window, 'TortoiseProc.exe /command:'+command+' /path:\"'+path+'\" {\'cwd\': u\'%p\'}');
-    }
-    
-    pub._getCurrentFilePath = function() {
+    },
+    _getCurrentFilePath: function() {
         //  summary:
         //      Get the path of the currently open file
         //  returns: string
@@ -101,9 +95,8 @@ org.simpo.koSVN = function() {
         } catch(e) {
             return false;   
         }
-    };
-    
-    pub._getProject = function() {
+    },
+    _getProject: function() {
         //  summary:
         //      Get the project, the current file is attached to (will assume first
         //      which it find the current file in).
@@ -114,9 +107,8 @@ org.simpo.koSVN = function() {
         } catch(e) {
             return false;   
         }
-    };
-    
-    pub._getProjectPath = function(project) {
+    },
+    _getProjectPath: function(project) {
         // summary:
         //      Get the path of a project.
         // project: object KomodoProject
@@ -125,7 +117,5 @@ org.simpo.koSVN = function() {
     
         var projectFile = project.getFile();
         return projectFile.dirName;
-    };
-    
-    return pub;
-} ();
+    }
+};
