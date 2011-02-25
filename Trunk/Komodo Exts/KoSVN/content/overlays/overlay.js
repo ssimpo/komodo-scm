@@ -1,4 +1,3 @@
-//the advice given at http://blogger.ziesemer.com/2007/10/respecting-javascript-global-namespace.html has been followed
 if (!org) var org={};
 if (!org.simpo) org.simpo={};
 
@@ -8,6 +7,9 @@ org.simpo.koSVN = function() {
     var pub = {};
     
     pub.repoBrowser = function() {
+        // summary:
+        //      Open the respository browser for the current project.
+        
         var project = this._getProject();
         if (project) {
             var path = this._getProjectPath(project);
@@ -18,6 +20,9 @@ org.simpo.koSVN = function() {
     };
     
     pub.commitProject = function() {
+        // summary:
+        //      Open the commit interface for the current project.
+        
         var project = this._getProject();
         if (project) {
             var path = this._getProjectPath(project);
@@ -28,35 +33,75 @@ org.simpo.koSVN = function() {
     };
     
     pub.compareDiff = function() {
+        // summary:
+        //      Compare the current file to its versioned copy in SVN
+        
         try {
-            var path = ko.views.manager.currentView.document.file.path;
-            this._runTortoiseProc(path,'diff');
+            var path = this._getCurrentFilePath();
+            if (path) {    
+                this._runTortoiseProc(path,'diff');
+            } else {
+                alert("Could not find an active document");
+            }
         } catch(e) {
             alert("No current file.")
         }
     }
     
     pub.viewLog = function() {
+        // summary:
+        //      View the SVN log for the current file.
+        
         try {
-            var path = ko.views.manager.currentView.document.file.path;
-            this._runTortoiseProc(path,'log');
+            var path = this._getCurrentFilePath();
+            if (path) {
+                this._runTortoiseProc(path,'log');
+            } else {
+                alert("Could not find an active document");
+            }
         } catch(e) {
             alert("No current file.")
         }
     }
     
     pub.viewProperties = function() {
+        // summary:
+        //      View the SVN file properties for the current file.
+        
         try {
-            var path = ko.views.manager.currentView.document.file.path;
-            this._runTortoiseProc(path,'properties');
+            var path = this._getCurrentFilePath();
+            if (path) {
+                this._runTortoiseProc(path,'properties');
+            } else {
+                alert("Could not find an active document");
+            }
         } catch(e) {
             alert("No current file.")
         }
     }
     
     pub._runTortoiseProc = function(path,command) {
+        // summary:
+        //      Run a specified TortoiseProc command against the given path.
+        // path: string
+        //      The path to run the command against.
+        // command: string
+        //      The TortoiseProc command to run
+        
             ko.run.runEncodedCommand(window, 'TortoiseProc.exe /command:'+command+' /path:\"'+path+'\" {\'cwd\': u\'%p\'}');
     }
+    
+    pub._getCurrentFilePath = function() {
+        //  summary:
+        //      Get the path of the currently open file
+        //  returns: string
+
+        try {
+            return ko.views.manager.currentView.document.file.path;
+        } catch(e) {
+            return false;   
+        }
+    };
     
     pub._getProject = function() {
         //  summary:
