@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://KoSVN/skin/KoSVN.css" type="text/css"?>
+<!DOCTYPE window PUBLIC "-//MOZILLA//DTD XUL V1.0//EN" "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" [
+  <!ENTITY % koSVNDTD SYSTEM "chrome://KoSVN/locale/main.dtd">
+  %koSVNDTD;
+]>
+<overlay id="koSVNOverlay"
+	 xmlns:html="http://www.w3.org/1999/xhtml"
+	 xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	 xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	
+	<script type="application/x-javascript" src="chrome://KoSVN/content/overlays/overlay.js"/>
+
+	<commandset id="allcommands">
+		<command id="Tasks:RepoBrowser"
+			oncommand="org.simpo.koSVN.repoBrowser();"/>
+		<command id="Tasks:CommitProject"
+			oncommand="org.simpo.koSVN.commitProject();"/>
+		<command id="Tasks:CommitPath"
+			oncommand="org.simpo.koSVN.commitPath();"/>
+		
+		<command id="Tasks:CompareDiffActiveFile"
+			oncommand="org.simpo.koSVN.compareDiffActiveFile();"/>
+		<command id="Tasks:CompareDiff"
+			oncommand="org.simpo.koSVN.compareDiff();"/>
+		
+		<command id="Tasks:ViewPropertiesActiveFile"
+			oncommand="org.simpo.koSVN.viewPropertiesActiveFile();"/>
+		<command id="Tasks:ViewProperties"
+			oncommand="org.simpo.koSVN.viewProperties();"/>
+		
+		<command id="Tasks:ViewLogActiveFile"
+			oncommand="org.simpo.koSVN.viewLogActiveFile();"/>
+		<command id="Tasks:ViewLog"
+			oncommand="org.simpo.koSVN.viewLog();"/>
+	</commandset>
+	
+	<!-- Komodo toolbar items -->
+	<toolbar id="toolsToolbar">
+		<toolbarbutton id="toolsToolbar_koSVN_RepoBrowser"
+			class="menuitem-iconic koSVN_RepoBrowser_Icon"
+			persist="buttonstyle"
+			buttonstyle="pictures"
+			label="&kosvn.label.repobrowser;"
+			observes="Tasks:RepoBrowser"
+			tooltiptext="&kosvn.tooltip.repobrowser;"/>
+		<toolbarbutton id="toolsToolbar_koSVN_CommitProject"
+			class="menuitem-iconic koSVN_Commit_Icon"
+			persist="buttonstyle"
+			buttonstyle="pictures"
+			label="&kosvn.label.commitproject;"
+			observes="Tasks:CommitProject"
+			tooltiptext="&kosvn.tooltip.commitproject;"/>
+		<toolbarbutton id="toolsToolbar_koSVN_CompareDiff"
+			class="menuitem-iconic koSVN_Diff_Icon"
+			persist="buttonstyle"
+			buttonstyle="pictures"
+			label="&kosvn.label.comparefile;"
+			observes="Tasks:CompareDiffActiveFile"
+			tooltiptext="&kosvn.tooltip.comparefile;"/>
+		<toolbarbutton id="toolsToolbar_koSVN_ViewProperties"
+			class="menuitem-iconic koSVN_Properties_Icon"
+			persist="buttonstyle"
+			buttonstyle="pictures"
+			label="&kosvn.label.viewproperties;"
+			observes="Tasks:ViewPropertiesActiveFile"
+			tooltiptext="&kosvn.tooltip.viewproperties;"/>
+		<toolbarbutton id="toolsToolbar_koSVN_ViewLogActiveFile"
+			class="menuitem-iconic koSVN_Log_Icon"
+			persist="buttonstyle"
+			buttonstyle="pictures"
+			label="&kosvn.label.viewlogfile;"
+			observes="Tasks:ViewLogActiveFile"
+			tooltiptext="&kosvn.tooltip.viewlogfile;"/>
+	</toolbar>
+	
+	<!-- Tools menu -->
+	<menupopup id="popup_tools">
+		<menu id="popup_tools_koSVN" label="Tortoise SVN">
+			<menupopup id="popup_tools_koSVN">
+				<menuitem id="popup_tools_koSVN_RepoBrowser"
+					label="&kosvn.label.repobrowser;"
+					observes="Tasks:RepoBrowser"
+					class="menuitem-iconic koSVN_RepoBrowser_Icon"
+					tooltiptext="&kosvn.tooltip.repobrowser;"/>
+				<menuitem id="popup_tools_koSVN_CommitProject"
+					label="&kosvn.label.commitproject;"
+					observes="Tasks:CommitProject"
+					class="menuitem-iconic koSVN_Commit_Icon"
+					tooltiptext="&kosvn.tooltip.commitproject;"/>
+				<menuitem id="popup_tools_koSVN_CompareDiff"
+					label="&kosvn.label.comparefile.long;"
+					observes="Tasks:CompareDiffActiveFile"
+					class="menuitem-iconic koSVN_Diff_Icon"
+					tooltiptext="&kosvn.tooltip.comparefile;"/>
+				<menuitem id="popup_tools_koSVN_ViewProperties"
+					label="&kosvn.label.viewproperties.long;"
+					observes="Tasks:ViewPropertiesActiveFile"
+					class="menuitem-iconic koSVN_Properties_Icon"
+					tooltiptext="&kosvn.tooltip.viewproperties;"/>
+				<menuitem id="popup_tools_koSVN_ViewLog"
+					label="&kosvn.label.viewlogfile;"
+					observes="Tasks:ViewLogActiveFile"
+					class="menuitem-iconic koSVN_Log_Icon"
+					tooltiptext="&kosvn.tooltip.viewlogfile;"/>
+			</menupopup>
+		</menu>
+	</menupopup>
+	
+	<!-- Context-menu for files and folders in the places view -->
+	<menupopup id="places-files-popup">
+		<menu id="places-files-popup_koSVN" label="Tortoise SVN">
+			<menupopup id="places-files-popup_popup_koSVN">
+				<menuitem id="places-files-popup_koSVN_Commit"
+					label="&kosvn.label.commitpath;"
+					observes="Tasks:CommitPath"
+					hideUnless="file folder"
+					class="menuitem-iconic koSVN_Commit_Icon"
+					tooltiptext="&kosvn.tooltip.commitpath;"/>
+				<menuitem id="places-files-popup_koSVN_CompareDiff"
+					label="&kosvn.label.comparefile.long;"
+					observes="Tasks:CompareDiff"
+					hideUnless="file"
+					testHideIf="t:multipleSelection"
+					class="menuitem-iconic koSVN_Diff_Icon"
+					tooltiptext="&kosvn.tooltip.selected.comparefile;"/>
+				<menuitem id="places-files-popup_koSVN_ViewProperties"
+					label="&kosvn.label.viewproperties2.long;"
+					observes="Tasks:ViewProperties"
+					hideUnless="file folder"
+					testHideIf="t:multipleSelection"
+					class="menuitem-iconic koSVN_Properties_Icon"
+					tooltiptext="&kosvn.tooltip.selected.viewproperties;"/>
+				<menuitem id="places-files-popup_koSVN_ViewLog"
+					label="&kosvn.label.viewlogfile2;"
+					observes="Tasks:ViewLog"
+					hideUnless="file folder"
+					testHideIf="t:multipleSelection"
+					class="menuitem-iconic koSVN_Log_Icon"
+					tooltiptext="&kosvn.tooltip.selected.viewlogfile;"/>
+			</menupopup>
+		</menu>
+	</menupopup>
+</overlay>

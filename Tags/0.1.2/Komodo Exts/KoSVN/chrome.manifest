@@ -1,0 +1,6 @@
+content KoSVN jar:KoSVN.jar!/content/ xpcnativewrappers=yes
+skin KoSVN default jar:KoSVN.jar!/skin/default/
+locale KoSVN en-US jar:KoSVN.jar!/locale/en-US/
+
+#Komodo
+overlay chrome://komodo/content/komodo.xul chrome://KoSVN/content/overlays/komodo.xul
