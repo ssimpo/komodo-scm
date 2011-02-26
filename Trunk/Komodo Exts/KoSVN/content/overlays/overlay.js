@@ -3,9 +3,19 @@ if (!org.simpo) org.simpo={};
 
 
 org.simpo.koSVN = {
+    // strings: string
+    //      The locale stringbundle
+    strings: Components.classes["@mozilla.org/intl/stringbundle;1"].getService(Components.interfaces.nsIStringBundleService).createBundle("chrome://KoSVN/locale/main.properties"),
+    
     stringBundle: function(stringToGet) {
-        var strings = document.getElementById("strings_koSVN");
-        return strings.getString(stringToGet);
+        // summary:
+        //      Get the requested string from the stringbundle locale.
+        // stringToGet: string
+        //      The string you are looking for
+        // returns: string
+        //      The local string requested
+        
+        return this.strings.GetStringFromName(stringToGet);
     },
     repoBrowser: function() {
         // summary:

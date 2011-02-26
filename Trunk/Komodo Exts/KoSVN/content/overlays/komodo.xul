@@ -9,9 +9,6 @@
 	 xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	 xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 	
-	<stringbundleset id="stringbundleset_koSVN">
-		<stringbundle id="strings_koSVN" src="chrome://KoSVN/locale/main.properties"/>
-	</stringbundleset>
 	<script type="application/x-javascript" src="chrome://KoSVN/content/overlays/overlay.js"/>
 
 	<commandset id="allcommands">
@@ -144,5 +141,4 @@
 			</menupopup>
 		</menu>
 	</menupopup>
-	
 </overlay>
