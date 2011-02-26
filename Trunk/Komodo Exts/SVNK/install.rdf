@@ -9,7 +9,7 @@
         <em:creator>Stephen Simpson</em:creator>
         <em:homepageURL>http://simpo.org/komodo/SVNK</em:homepageURL>
         <em:type>2</em:type> <!-- type=extension --> 
-
+	<em:targetPlatform>WINNT</em:targetPlatform>
         <em:targetApplication>
             <Description>
 		Intergration of TortoiseSVN into Komodo Edit.  Adds a number of buttons to the iconbar, which hook into SVN and the current project. Easy browsing of SVN repository; with differences between current file and subversion copy; Commit project files from inside Komodo; ...etc.
