@@ -4,6 +4,19 @@
 	<!ENTITY % SVNKDTD SYSTEM "chrome://SVNK/locale/main.dtd">
 	%SVNKDTD;
 ]>
+<!--
+summary:
+	The main ovelay for the SVN-K addon.
+description:
+	The overlay, works by overlaying the main komodo.xul file.  It also adds against
+	content, which is added via the places addon.
+author:
+	Stephen Simpson <me@simpo.org>
+license:
+	LGPL <http://www.gnu.org/licenses/lgpl.html>
+version:
+	1.0.3
+-->
 <overlay id="SVNKOverlay"
 	xmlns:html="http://www.w3.org/1999/xhtml"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -25,6 +38,7 @@
 	
 	<!-- Main Komodo Toolbar options -->
 	<toolbar id="toolsToolbar">
+		<toolbarseparator />
 		<toolbarbutton
 			id="toolsToolbar-SVNK-RepoBrowser"
 			observes="Tasks:SVNK-RepoBrowser"
@@ -55,6 +69,7 @@
 			label="&svnk.label.viewlogfile;"
 			tooltiptext="&svnk.tooltip.viewlogfile;"
 			class="menuitem-iconic SVNK-Log-Icon"/>
+		<toolbarseparator />
 	</toolbar>
 	
 	<!-- Create a submenu in the tools menu for TortoiseSVN actions -->
