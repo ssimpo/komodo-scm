@@ -1,6 +1,14 @@
+// summary:
+//      Main javascript content for SVN-K.
+// author:
+//      Stephen Simpson <me@simpo.org>
+// license:
+//      LGPL <http://www.gnu.org/licenses/lgpl.html>
+// version:
+//      1.0.3
+
 if (!org) var org={};
 if (!org.simpo) org.simpo={};
-
 
 org.simpo.svnk = {
     // strings: string
