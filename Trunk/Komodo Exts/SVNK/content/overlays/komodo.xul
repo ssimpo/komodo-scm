@@ -30,41 +30,31 @@
 			observes="Tasks:SVNK-RepoBrowser"
 			label="&svnk.label.repobrowser;"
 			tooltiptext="&svnk.tooltip.repobrowser;"
-			class="menuitem-iconic SVNK-RepoBrowser-Icon"
-			persist="buttonstyle"
-			buttonstyle="pictures"/>
+			class="menuitem-iconic SVNK-RepoBrowser-Icon"/>
 		<toolbarbutton
 			id="toolsToolbar-SVNK-CommitProject"
 			observes="Tasks:SVNK-CommitProject"
 			label="&svnk.label.commitproject;"
 			tooltiptext="&svnk.tooltip.commitproject;"
-			class="menuitem-iconic SVNK-Commit-Icon"
-			persist="buttonstyle"
-			buttonstyle="pictures"/>
+			class="menuitem-iconic SVNK-Commit-Icon"/>
 		<toolbarbutton
 			id="toolsToolbar-SVNK-CompareDiffActiveFile"
 			observes="Tasks:SVNK-CompareDiffActiveFile"
 			label="&svnk.label.comparefile;"
 			tooltiptext="&svnk.tooltip.comparefile;"
-			class="menuitem-iconic SVNK-Diff-Icon"
-			persist="buttonstyle"
-			buttonstyle="pictures"/>
+			class="menuitem-iconic SVNK-Diff-Icon"/>
 		<toolbarbutton
 			id="toolsToolbar-SVNK-ViewPropertiesActiveFile"
 			observes="Tasks:SVNK-ViewPropertiesActiveFile"
 			label="&svnk.label.viewproperties;"
 			tooltiptext="&svnk.tooltip.viewproperties;"
-			class="menuitem-iconic SVNK-Properties-Icon"
-			persist="buttonstyle"
-			buttonstyle="pictures"/>
+			class="menuitem-iconic SVNK-Properties-Icon"/>
 		<toolbarbutton
 			id="toolsToolbar-SVNK-ViewLogActiveFile"
 			observes="Tasks:SVNK-ViewLogActiveFile"
 			label="&svnk.label.viewlogfile;"
 			tooltiptext="&svnk.tooltip.viewlogfile;"
-			class="menuitem-iconic SVNK-Log-Icon"
-			persist="buttonstyle"
-			buttonstyle="pictures"/>
+			class="menuitem-iconic SVNK-Log-Icon"/>
 	</toolbar>
 	
 	<!-- Create a submenu in the tools menu for TortoiseSVN actions -->
