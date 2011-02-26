@@ -3,3 +3,7 @@ Version 1.0.1:
 
 Version 1.0.2:
 * Add locale support; only local is en-GB.
+
+Version 1.0.3:
+* Changed the icons so that it is using its own icons rather than stealing
+from TortoiseSVN
