@@ -3,7 +3,7 @@
      xmlns:em="http://www.mozilla.org/2004/em-rdf#">
     <Description about="urn:mozilla:install-manifest">
         <em:id>svnk@simp.org</em:id>
-        <em:name>svnk</em:name>
+        <em:name>SVN-K</em:name>
         <em:version>0.1.3</em:version>
         <em:description>Intergation of TortoiseSVN and Komodo</em:description>
         <em:creator>Stephen Simpson</em:creator>

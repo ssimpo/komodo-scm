@@ -2,7 +2,7 @@
 <!ENTITY svnk.label.commitproject "Commit Project">
 <!ENTITY svnk.label.commitpath "Commit path(s) to repository">
 <!ENTITY svnk.label.comparefile "Compare file">
-<!ENTITY svnk.label.comparefile.long "Compare file to respository version">
+<!ENTITY svnk.label.comparefile.long "Compare file to repository version">
 <!ENTITY svnk.label.viewproperties "View properties">
 <!ENTITY svnk.label.viewproperties.long "View file SVN properties">
 <!ENTITY svnk.label.viewproperties2.long "View file/folder SVN properties">
