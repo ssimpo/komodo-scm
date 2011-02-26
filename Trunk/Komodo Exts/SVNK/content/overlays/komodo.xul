@@ -28,43 +28,43 @@
 		<toolbarbutton
 			id="toolsToolbar_SVNK_RepoBrowser"
 			observes="Tasks:SVNK-RepoBrowser"
+			label="&svnk.label.repobrowser;"
+			tooltiptext="&svnk.tooltip.repobrowser;"
 			class="menuitem-iconic SVNK_RepoBrowser_Icon"
 			persist="buttonstyle"
-			buttonstyle="pictures"
-			label="&svnk.label.repobrowser;"
-			tooltiptext="&svnk.tooltip.repobrowser;"/>
+			buttonstyle="pictures"/>
 		<toolbarbutton
 			id="toolsToolbar_SVNK_CommitProject"
 			observes="Tasks:SVNK-CommitProject"
+			label="&svnk.label.commitproject;"
+			tooltiptext="&svnk.tooltip.commitproject;"
 			class="menuitem-iconic SVNK_Commit_Icon"
 			persist="buttonstyle"
-			buttonstyle="pictures"
-			label="&svnk.label.commitproject;"
-			tooltiptext="&svnk.tooltip.commitproject;"/>
+			buttonstyle="pictures"/>
 		<toolbarbutton
 			id="toolsToolbar_SVNK_CompareDiff"
 			observes="Tasks:SVNK-CompareDiffActiveFile"
+			label="&svnk.label.comparefile;"
+			tooltiptext="&svnk.tooltip.comparefile;"
 			class="menuitem-iconic SVNK_Diff_Icon"
 			persist="buttonstyle"
-			buttonstyle="pictures"
-			label="&svnk.label.comparefile;"
-			tooltiptext="&svnk.tooltip.comparefile;"/>
+			buttonstyle="pictures"/>
 		<toolbarbutton
 			id="toolsToolbar_SVNK_ViewProperties"
 			observes="Tasks:SVNK-ViewPropertiesActiveFile"
+			label="&svnk.label.viewproperties;"
+			tooltiptext="&svnk.tooltip.viewproperties;"
 			class="menuitem-iconic SVNK_Properties_Icon"
 			persist="buttonstyle"
-			buttonstyle="pictures"
-			label="&svnk.label.viewproperties;"
-			tooltiptext="&svnk.tooltip.viewproperties;"/>
+			buttonstyle="pictures"/>
 		<toolbarbutton
 			id="toolsToolbar_SVNK_ViewLogActiveFile"
 			observes="Tasks:SVNK-ViewLogActiveFile"
+			label="&svnk.label.viewlogfile;"
+			tooltiptext="&svnk.tooltip.viewlogfile;"
 			class="menuitem-iconic SVNK_Log_Icon"
 			persist="buttonstyle"
-			buttonstyle="pictures"
-			label="&svnk.label.viewlogfile;"
-			tooltiptext="&svnk.tooltip.viewlogfile;"/>
+			buttonstyle="pictures"/>
 	</toolbar>
 	
 	<!-- Create a submenu in the tools menu for TortoiseSVN actions -->
@@ -75,32 +75,32 @@
 					id="popup_tools_SVNK_RepoBrowser"
 					observes="Tasks:SVNK-RepoBrowser"
 					label="&svnk.label.repobrowser;"
-					class="menuitem-iconic SVNK_RepoBrowser_Icon"
-					tooltiptext="&svnk.tooltip.repobrowser;"/>
+					tooltiptext="&svnk.tooltip.repobrowser;"
+					class="menuitem-iconic SVNK_RepoBrowser_Icon"/>
 				<menuitem
 					id="popup_tools_SVNK_CommitProject"
 					observes="Tasks:SVNK-CommitProject"
 					label="&svnk.label.commitproject;"
-					class="menuitem-iconic SVNK_Commit_Icon"
-					tooltiptext="&svnk.tooltip.commitproject;"/>
+					tooltiptext="&svnk.tooltip.commitproject;"
+					class="menuitem-iconic SVNK_Commit_Icon"/>
 				<menuitem
 					id="popup_tools_SVNK_CompareDiff"
 					observes="Tasks:SVNK-CompareDiffActiveFile"
 					label="&svnk.label.comparefile.long;"
-					class="menuitem-iconic SVNK_Diff_Icon"
-					tooltiptext="&svnk.tooltip.comparefile;"/>
+					tooltiptext="&svnk.tooltip.comparefile;"
+					class="menuitem-iconic SVNK_Diff_Icon"/>
 				<menuitem
 					id="popup_tools_SVNK_ViewProperties"
 					label="&svnk.label.viewproperties.long;"
 					observes="Tasks:SVNK-ViewPropertiesActiveFile"
-					class="menuitem-iconic SVNK_Properties_Icon"
-					tooltiptext="&svnk.tooltip.viewproperties;"/>
+					tooltiptext="&svnk.tooltip.viewproperties;"
+					class="menuitem-iconic SVNK_Properties_Icon"/>
 				<menuitem
 					id="popup_tools_SVNK_ViewLog"
 					observes="Tasks:SVNK-ViewLogActiveFile"
 					label="&svnk.label.viewlogfile;"
-					class="menuitem-iconic SVNK_Log_Icon"
-					tooltiptext="&svnk.tooltip.viewlogfile;"/>
+					tooltiptext="&svnk.tooltip.viewlogfile;"
+					class="menuitem-iconic SVNK_Log_Icon"/>
 			</menupopup>
 		</menu>
 	</menupopup>
@@ -114,33 +114,33 @@
 					id="places-files-popup_SVNK_Commit"
 					observes="Tasks:SVNK-CommitPath"
 					label="&svnk.label.commitpath;"
-					hideUnless="file folder"
+					tooltiptext="&svnk.tooltip.commitpath;"
 					class="menuitem-iconic SVNK_Commit_Icon"
-					tooltiptext="&svnk.tooltip.commitpath;"/>
+					hideUnless="file folder"/>
 				<menuitem
 					id="places-files-popup_SVNK_CompareDiff"
 					observes="Tasks:SVNK-CompareDiff"
 					label="&svnk.label.comparefile.long;"
-					hideUnless="file"
-					testHideIf="t:multipleSelection"
+					tooltiptext="&svnk.tooltip.selected.comparefile;"
 					class="menuitem-iconic SVNK_Diff_Icon"
-					tooltiptext="&svnk.tooltip.selected.comparefile;"/>
+					hideUnless="file"
+					testHideIf="t:multipleSelection"/>
 				<menuitem
 					id="places-files-popup_SVNK_ViewProperties"
 					observes="Tasks:SVNK-ViewProperties"
 					label="&svnk.label.viewproperties2.long;"
-					hideUnless="file folder"
-					testHideIf="t:multipleSelection"
+					tooltiptext="&svnk.tooltip.selected.viewproperties;"
 					class="menuitem-iconic SVNK_Properties_Icon"
-					tooltiptext="&svnk.tooltip.selected.viewproperties;"/>
+					hideUnless="file folder"
+					testHideIf="t:multipleSelection"/>
 				<menuitem
 					id="places-files-popup_SVNK_ViewLog"
 					observes="Tasks:SVNK-ViewLog"
 					label="&svnk.label.viewlogfile2;"
-					hideUnless="file folder"
-					testHideIf="t:multipleSelection"
+					tooltiptext="&svnk.tooltip.selected.viewlogfile;"
 					class="menuitem-iconic SVNK_Log_Icon"
-					tooltiptext="&svnk.tooltip.selected.viewlogfile;"/>
+					hideUnless="file folder"
+					testHideIf="t:multipleSelection"/>
 			</menupopup>
 		</menu>
 	</menupopup>
