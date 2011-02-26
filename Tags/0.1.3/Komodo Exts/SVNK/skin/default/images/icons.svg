@@ -1,0 +1,929 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.47 r22583"
+   sodipodi:docname="icons.svg">
+  <defs
+     id="defs4">
+    <linearGradient
+       id="linearGradient3725">
+      <stop
+         style="stop-color:#0086ff;stop-opacity:0.43298969;"
+         offset="0"
+         id="stop3727" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="1"
+         id="stop3729" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3709">
+      <stop
+         style="stop-color:#ff8839;stop-opacity:1;"
+         offset="0"
+         id="stop3711" />
+      <stop
+         id="stop3723"
+         offset="0.60145408"
+         style="stop-color:#d4651c;stop-opacity:1;" />
+      <stop
+         id="stop3721"
+         offset="0.89061469"
+         style="stop-color:#a94300;stop-opacity:1;" />
+      <stop
+         style="stop-color:#993d00;stop-opacity:1;"
+         offset="1"
+         id="stop3713" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3649">
+      <stop
+         id="stop3665"
+         offset="0"
+         style="stop-color:#00d400;stop-opacity:1;" />
+      <stop
+         style="stop-color:#009c00;stop-opacity:1;"
+         offset="0.79220778"
+         id="stop3683" />
+      <stop
+         style="stop-color:#006500;stop-opacity:1;"
+         offset="1"
+         id="stop3653" />
+    </linearGradient>
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="NaN : NaN : 1"
+       inkscape:vp_y="NaN : NaN : 0"
+       inkscape:vp_z="NaN : NaN : 1"
+       inkscape:persp3d-origin="NaN : NaN : 1"
+       id="perspective10" />
+    <inkscape:perspective
+       id="perspective3621"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3621-1"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3649"
+       id="radialGradient3671"
+       cx="670.19989"
+       cy="566.08594"
+       fx="670.19989"
+       fy="566.08594"
+       r="309.51562"
+       gradientTransform="matrix(1,0,0,1.6192639,0,-350.55659)"
+       gradientUnits="userSpaceOnUse" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3649"
+       id="radialGradient3685"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1,0,0,1.6192639,574.66896,613.84737)"
+       cx="670.19989"
+       cy="566.08594"
+       fx="670.19989"
+       fy="566.08594"
+       r="309.51562" />
+    <inkscape:perspective
+       id="perspective3779"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3831"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3900"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3709-3"
+       id="linearGradient3886-6"
+       gradientUnits="userSpaceOnUse"
+       x1="-94.895355"
+       y1="748.85303"
+       x2="23.676077"
+       y2="748.85303"
+       gradientTransform="matrix(0.73318153,0,0,0.73318153,-123.66666,324.37984)" />
+    <linearGradient
+       id="linearGradient3709-3">
+      <stop
+         style="stop-color:#ff8839;stop-opacity:1;"
+         offset="0"
+         id="stop3711-8" />
+      <stop
+         id="stop3723-3"
+         offset="0.60145408"
+         style="stop-color:#d4651c;stop-opacity:1;" />
+      <stop
+         id="stop3721-4"
+         offset="0.89061469"
+         style="stop-color:#a94300;stop-opacity:1;" />
+      <stop
+         style="stop-color:#993d00;stop-opacity:1;"
+         offset="1"
+         id="stop3713-2" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3725-8"
+       id="radialGradient3747-7"
+       gradientUnits="userSpaceOnUse"
+       cx="151.42857"
+       cy="263.79074"
+       fx="151.42857"
+       fy="263.79074"
+       r="187.85715" />
+    <linearGradient
+       id="linearGradient3725-8">
+      <stop
+         style="stop-color:#0086ff;stop-opacity:0.43298969;"
+         offset="0"
+         id="stop3727-9" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="1"
+         id="stop3729-0" />
+    </linearGradient>
+    <radialGradient
+       r="187.85715"
+       fy="263.79074"
+       fx="151.42857"
+       cy="263.79074"
+       cx="151.42857"
+       gradientUnits="userSpaceOnUse"
+       id="radialGradient3917"
+       xlink:href="#linearGradient3725-8"
+       inkscape:collect="always" />
+    <inkscape:perspective
+       id="perspective3962"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3709"
+       id="linearGradient4048"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.73318153,0,0,0.73318153,-123.66666,324.37984)"
+       x1="-94.895353"
+       y1="748.85304"
+       x2="23.676076"
+       y2="748.85304" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3725"
+       id="radialGradient4050"
+       gradientUnits="userSpaceOnUse"
+       cx="151.42857"
+       cy="263.79074"
+       fx="151.42857"
+       fy="263.79074"
+       r="187.85715" />
+    <inkscape:perspective
+       id="perspective4158"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <linearGradient
+       id="linearGradient3709-3-8">
+      <stop
+         style="stop-color:#ff8839;stop-opacity:1;"
+         offset="0"
+         id="stop3711-8-4" />
+      <stop
+         id="stop3723-3-3"
+         offset="0.60145408"
+         style="stop-color:#d4651c;stop-opacity:1;" />
+      <stop
+         id="stop3721-4-9"
+         offset="0.89061469"
+         style="stop-color:#a94300;stop-opacity:1;" />
+      <stop
+         style="stop-color:#993d00;stop-opacity:1;"
+         offset="1"
+         id="stop3713-2-9" />
+    </linearGradient>
+    <radialGradient
+       r="187.85715"
+       fy="263.79074"
+       fx="151.42857"
+       cy="263.79074"
+       cx="151.42857"
+       gradientUnits="userSpaceOnUse"
+       id="radialGradient3917-6"
+       xlink:href="#linearGradient3725-8-9"
+       inkscape:collect="always" />
+    <linearGradient
+       id="linearGradient3725-8-9">
+      <stop
+         style="stop-color:#0086ff;stop-opacity:0.43298969;"
+         offset="0"
+         id="stop3727-9-7" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="1"
+         id="stop3729-0-7" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3709-3-8"
+       id="linearGradient4224"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.73318153,0,0,0.73318153,-123.66666,324.37984)"
+       x1="-94.895355"
+       y1="748.85303"
+       x2="23.676077"
+       y2="748.85303" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3725-8-9"
+       id="radialGradient4226"
+       gradientUnits="userSpaceOnUse"
+       cx="151.42857"
+       cy="263.79074"
+       fx="151.42857"
+       fy="263.79074"
+       r="187.85715" />
+    <inkscape:perspective
+       id="perspective4238"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective4286"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective4317"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective4348"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective4379"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective4432"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective4547"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective4779"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective4779-7"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective4825"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective4886"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective4908"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective4932"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective4932-0"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.24748737"
+     inkscape:cx="1098.8236"
+     inkscape:cy="364.79662"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:snap-bbox="false"
+     inkscape:window-width="1366"
+     inkscape:window-height="718"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1">
+    <sodipodi:guide
+       orientation="0,1"
+       position="-228.57143,-128.57143"
+       id="guide2826" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g3608"
+       transform="matrix(0.1820905,0.15159022,-0.15159022,0.1820905,559.26921,543.45879)">
+      <path
+         style="fill:#00ff00;fill-opacity:1;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-opacity:1"
+         d="m 974.71551,503.39847 -194.5,0.0312 0,558.84373 -221.03125,0 0,-558.84373 -193.5,-0.625 152.5625,-216.4375 152.59375,-216.468745 151.9375,216.749995 151.9375,216.75 z"
+         id="path2820"
+         sodipodi:nodetypes="cccccccccc" />
+    </g>
+    <g
+       id="g3608-7"
+       transform="matrix(0.1440726,0.194183,0.17306033,-0.16165721,-88.87706,750.69259)"
+       inkscape:export-filename="H:\KomodoEdit\Komodo Exts\SVNK\skin\default\images\commit.png"
+       inkscape:export-xdpi="5.7567582"
+       inkscape:export-ydpi="5.7567582"
+       style="fill:url(#radialGradient3671);fill-opacity:1;stroke:#005d00;stroke-opacity:1">
+      <path
+         style="fill:url(#radialGradient3685);fill-opacity:1;stroke:#005d00;stroke-width:10;stroke-miterlimit:4;stroke-opacity:1"
+         d="m 1549.3845,1467.8024 -194.5,0.031 c 34.266,198.9346 116.328,398.3753 -16.82,543.1053 l -204.2113,15.7385 c 80.2339,-191.5748 89.7283,-341.1484 0,-558.8438 l -193.49998,-0.625 152.56248,-216.4375 152.5938,-216.4687 151.9375,216.75 151.9375,216.75 0,0 z"
+         id="path2820-4"
+         sodipodi:nodetypes="ccccccccccc"
+         inkscape:export-filename="H:\KomodoEdit\Komodo Exts\SVNK\skin\default\images\update.png"
+         inkscape:export-xdpi="5.7567582"
+         inkscape:export-ydpi="5.7567582" />
+    </g>
+    <g
+       id="g4015"
+       transform="matrix(0.47423931,0,0,0.397903,270.17786,-32.903418)"
+       inkscape:export-filename="H:\KomodoEdit\Komodo Exts\SVNK\skin\default\images\diff.png"
+       inkscape:export-xdpi="7.1962848"
+       inkscape:export-ydpi="7.1962848">
+      <g
+         transform="translate(-32.047239,174.28571)"
+         id="g3808-9">
+        <rect
+           style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3749-6"
+           width="325.71426"
+           height="440"
+           x="209.19011"
+           y="143.79076"
+           ry="74.285713" />
+        <flowRoot
+           xml:space="preserve"
+           id="flowRoot3751-9"
+           style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:#000000;font-family:Courier New;-inkscape-font-specification:Courier New"
+           transform="matrix(0.13454345,0,0,0.18229356,180.36487,22.239744)"><flowRegion
+             id="flowRegion3753-3"><rect
+               id="rect3755-3"
+               width="2097.1436"
+               height="1194.2858"
+               x="388.57141"
+               y="840.93359"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:#000000;font-family:Courier New;-inkscape-font-specification:Courier New" /></flowRegion><flowPara
+             style="font-size:144px"
+             id="flowPara3759-1">SVN-K is a subversion addon-on for Komodo Edit</flowPara><flowPara
+             style="font-size:36px"
+             id="flowPara3763-4"> </flowPara><flowPara
+             style="font-size:144px"
+             id="flowPara3767-1">It means that TortoiseSVN is hooked in with the IDE. </flowPara></flowRoot>        <flowRoot
+           xml:space="preserve"
+           id="flowRoot3751-7-4"
+           style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:#000000;font-family:Courier New;-inkscape-font-specification:Courier New"
+           transform="matrix(0.13454345,0,0,0.18229356,180.36487,204.94081)"><flowRegion
+             id="flowRegion3753-9-5"><rect
+               id="rect3755-1-7"
+               width="2097.1436"
+               height="1194.2858"
+               x="388.57141"
+               y="840.93359"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:#000000;font-family:Courier New;-inkscape-font-specification:Courier New" /></flowRegion><flowPara
+             style="font-size:144px"
+             id="flowPara3759-9-6">SVN-K is a subversion addon-on for Komodo Edit</flowPara><flowPara
+             style="font-size:36px"
+             id="flowPara3763-5-3"> </flowPara><flowPara
+             style="font-size:144px"
+             id="flowPara3767-8-4">It means that TortoiseSVN is hooked in with the IDE. </flowPara></flowRoot>      </g>
+      <g
+         transform="translate(-154.28571,60)"
+         id="g3808">
+        <rect
+           style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3749"
+           width="325.71426"
+           height="440"
+           x="209.19011"
+           y="143.79076"
+           ry="74.285713" />
+        <flowRoot
+           xml:space="preserve"
+           id="flowRoot3751"
+           style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:#000000;font-family:Courier New;-inkscape-font-specification:Courier New"
+           transform="matrix(0.13454345,0,0,0.18229356,180.36487,22.239744)"><flowRegion
+             id="flowRegion3753"><rect
+               id="rect3755"
+               width="2097.1436"
+               height="1194.2858"
+               x="388.57141"
+               y="840.93359"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:#000000;font-family:Courier New;-inkscape-font-specification:Courier New" /></flowRegion><flowPara
+             style="font-size:144px"
+             id="flowPara3759">SVN-K is a subversion addon-on for Komodo Edit</flowPara><flowPara
+             style="font-size:36px"
+             id="flowPara3763"> </flowPara><flowPara
+             style="font-size:144px"
+             id="flowPara3767">It means that TortoiseSVN is hooked in with the IDE. </flowPara></flowRoot>        <flowRoot
+           xml:space="preserve"
+           id="flowRoot3751-7"
+           style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:#000000;font-family:Courier New;-inkscape-font-specification:Courier New"
+           transform="matrix(0.13454345,0,0,0.18229356,180.36487,204.94081)"><flowRegion
+             id="flowRegion3753-9"><rect
+               id="rect3755-1"
+               width="2097.1436"
+               height="1194.2858"
+               x="388.57141"
+               y="840.93359"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:#000000;font-family:Courier New;-inkscape-font-specification:Courier New" /></flowRegion><flowPara
+             style="font-size:144px"
+             id="flowPara3759-9">SVN-K is a subversion addon-on for Komodo Edit</flowPara><flowPara
+             style="font-size:36px"
+             id="flowPara3763-5"> </flowPara><flowPara
+             style="font-size:144px"
+             id="flowPara3767-8">It means that TortoiseSVN is hooked in with the IDE. </flowPara></flowRoot>      </g>
+      <g
+         id="g3888">
+        <rect
+           style="fill:url(#linearGradient4048);fill-opacity:1;stroke:#552200;stroke-width:6.39642811;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3693"
+           width="80.537956"
+           height="308.87161"
+           x="-190.04398"
+           y="718.98926"
+           transform="matrix(0.73047627,-0.68293807,0.68293807,0.73047627,0,0)" />
+        <path
+           sodipodi:type="arc"
+           style="fill:url(#radialGradient4050);fill-opacity:1;stroke:#552200;stroke-width:10;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="path3691"
+           sodipodi:cx="151.42857"
+           sodipodi:cy="263.79074"
+           sodipodi:rx="182.85715"
+           sodipodi:ry="182.85715"
+           d="m 334.28572,263.79074 c 0,100.98921 -81.86793,182.85715 -182.85715,182.85715 -100.98921,0 -182.857144,-81.86794 -182.857144,-182.85715 0,-100.98921 81.867934,-182.857146 182.857144,-182.857146 100.98922,0 182.85715,81.867936 182.85715,182.857146 z"
+           transform="matrix(0.53557172,-0.50071759,0.50071759,0.53557172,94.359605,482.80669)" />
+      </g>
+    </g>
+    <g
+       transform="matrix(0.41435381,0,0,0.41435381,-20.513548,186.12486)"
+       id="g3888-1">
+      <rect
+         transform="matrix(0.73047627,-0.68293807,0.68293807,0.73047627,0,0)"
+         y="718.98926"
+         x="-190.04398"
+         height="308.87161"
+         width="80.537956"
+         id="rect3693-4"
+         style="fill:url(#linearGradient3886-6);fill-opacity:1;stroke:#552200;stroke-width:6.39642811;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <path
+         transform="matrix(0.53557172,-0.50071759,0.50071759,0.53557172,94.359605,482.80669)"
+         d="m 334.28572,263.79074 c 0,100.98921 -81.86793,182.85715 -182.85715,182.85715 -100.98921,0 -182.857144,-81.86794 -182.857144,-182.85715 0,-100.98921 81.867934,-182.857146 182.857144,-182.857146 100.98922,0 182.85715,81.867936 182.85715,182.857146 z"
+         sodipodi:ry="182.85715"
+         sodipodi:rx="182.85715"
+         sodipodi:cy="263.79074"
+         sodipodi:cx="151.42857"
+         id="path3691-0"
+         style="fill:url(#radialGradient3917);fill-opacity:1;stroke:#552200;stroke-width:10;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         sodipodi:type="arc" />
+    </g>
+    <g
+       id="g4212"
+       transform="matrix(0.37594195,0,0,0.38605668,460.05495,251.77611)"
+       inkscape:export-filename="H:\KomodoEdit\Komodo Exts\SVNK\skin\default\images\repobrowser.png"
+       inkscape:export-xdpi="9.5983057"
+       inkscape:export-ydpi="9.5983057">
+      <g
+         transform="matrix(1.5935319,0,0,1.7430348,-188.08948,-229.04908)"
+         id="g4142">
+        <path
+           id="path4124"
+           style="fill:#afafde;fill-opacity:1;fill-rule:evenodd;stroke:none"
+           d="m 162.85714,494.71256 111.42857,82.71547 110.00614,-65.56476 -118.29446,-58.7168 z" />
+        <path
+           id="path4126"
+           style="fill:#353564;fill-opacity:1;fill-rule:evenodd;stroke:none"
+           d="m 162.85714,327.50822 0,167.20434 103.14025,-41.56609 0,-144.88486 z" />
+        <path
+           id="path4128"
+           style="fill:#e9e9ff;fill-opacity:1;fill-rule:evenodd;stroke:none"
+           d="m 265.99739,308.26161 118.29446,23.03143 0,180.57023 -118.29446,-58.7168 z" />
+        <path
+           id="path4130"
+           style="fill:#aa4400;fill-opacity:1;fill-rule:evenodd;stroke:none"
+           d="M 162.85714,327.50822 274.28571,360.8224 384.29185,331.29304 265.99739,308.26161 z" />
+        <path
+           id="path4132"
+           style="fill:#ff7f2a;fill-opacity:1;fill-rule:evenodd;stroke:none"
+           d="m 274.28571,360.8224 0,216.60563 110.00614,-65.56476 0,-180.57023 z" />
+        <path
+           id="path4134"
+           style="fill:#d45500;fill-opacity:1;fill-rule:evenodd;stroke:none"
+           d="m 162.85714,327.50822 111.42857,33.31418 0,216.60563 -111.42857,-82.71547 z" />
+      </g>
+      <g
+         id="g3888-1-2"
+         transform="translate(-66.06305,-100.5237)">
+        <rect
+           style="fill:url(#linearGradient4224);fill-opacity:1;stroke:#552200;stroke-width:6.39642811;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3693-4-5"
+           width="80.537956"
+           height="308.87161"
+           x="-190.04398"
+           y="718.98926"
+           transform="matrix(0.73047627,-0.68293807,0.68293807,0.73047627,0,0)" />
+        <path
+           sodipodi:type="arc"
+           style="fill:url(#radialGradient4226);fill-opacity:1;stroke:#552200;stroke-width:10;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="path3691-0-2"
+           sodipodi:cx="151.42857"
+           sodipodi:cy="263.79074"
+           sodipodi:rx="182.85715"
+           sodipodi:ry="182.85715"
+           d="m 334.28572,263.79074 c 0,100.98921 -81.86793,182.85715 -182.85715,182.85715 -100.98921,0 -182.857144,-81.86794 -182.857144,-182.85715 0,-100.98921 81.867934,-182.857146 182.857144,-182.857146 100.98922,0 182.85715,81.867936 182.85715,182.857146 z"
+           transform="matrix(0.53557172,-0.50071759,0.50071759,0.53557172,94.359605,482.80669)" />
+      </g>
+    </g>
+    <g
+       id="g4503"
+       inkscape:export-filename="H:\KomodoEdit\Komodo Exts\SVNK\skin\default\images\properties.png"
+       inkscape:export-xdpi="9.6000004"
+       inkscape:export-ydpi="9.6000004"
+       transform="matrix(0.51512678,0,0,0.51512678,-11.980176,502.38597)">
+      <g
+         transform="translate(-86.332951,48.571424)"
+         id="g3808-7">
+        <rect
+           style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3749-3"
+           width="325.71426"
+           height="440"
+           x="209.19011"
+           y="143.79076"
+           ry="74.285713" />
+        <flowRoot
+           xml:space="preserve"
+           id="flowRoot3751-4"
+           style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:#000000;font-family:Courier New;-inkscape-font-specification:Courier New"
+           transform="matrix(0.13454345,0,0,0.18229356,180.36487,22.239744)"><flowRegion
+             id="flowRegion3753-94"><rect
+               id="rect3755-5"
+               width="2097.1436"
+               height="1194.2858"
+               x="388.57141"
+               y="840.93359"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:#000000;font-family:Courier New;-inkscape-font-specification:Courier New" /></flowRegion><flowPara
+             style="font-size:144px"
+             id="flowPara3759-6">SVN-K is a subversion addon-on for Komodo Edit</flowPara><flowPara
+             style="font-size:36px"
+             id="flowPara3763-8"> </flowPara><flowPara
+             style="font-size:144px"
+             id="flowPara3767-9">It means that TortoiseSVN is hooked in with the IDE. </flowPara></flowRoot>        <flowRoot
+           xml:space="preserve"
+           id="flowRoot3751-7-8"
+           style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:#000000;font-family:Courier New;-inkscape-font-specification:Courier New"
+           transform="matrix(0.13454345,0,0,0.18229356,180.36487,204.94081)"><flowRegion
+             id="flowRegion3753-9-9"><rect
+               id="rect3755-1-9"
+               width="2097.1436"
+               height="1194.2858"
+               x="388.57141"
+               y="840.93359"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:#000000;font-family:Courier New;-inkscape-font-specification:Courier New" /></flowRegion><flowPara
+             style="font-size:144px"
+             id="flowPara3759-9-7">SVN-K is a subversion addon-on for Komodo Edit</flowPara><flowPara
+             style="font-size:36px"
+             id="flowPara3763-5-0"> </flowPara><flowPara
+             style="font-size:144px"
+             id="flowPara3767-8-8">It means that TortoiseSVN is hooked in with the IDE. </flowPara></flowRoot>      </g>
+      <g
+         inkscape:transform-center-y="-25.714286"
+         id="g4402-9"
+         transform="matrix(0.97051203,0.24105269,-0.24105269,0.97051203,-438.02745,-195.86285)">
+        <rect
+           style="fill:#ffff00;fill-opacity:1;stroke:#000000;stroke-width:6.30739403;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect4228-1-9"
+           width="112.26405"
+           height="109.40688"
+           x="846.7251"
+           y="397.65872" />
+        <flowRoot
+           xml:space="preserve"
+           id="flowRoot4260-3-3"
+           style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Pristina;-inkscape-font-specification:Pristina"
+           transform="matrix(0.53801498,0.13522629,-0.16419215,0.65325934,590.44333,419.20929)"><flowRegion
+             id="flowRegion4262-8-7"><rect
+               id="rect4264-4-9"
+               width="268.57144"
+               height="231.42857"
+               x="482.85715"
+               y="-124.78068"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Pristina;-inkscape-font-specification:Pristina" /></flowRegion><flowPara
+             id="flowPara4266-3-3">Test version</flowPara></flowRoot>        <flowRoot
+           xml:space="preserve"
+           id="flowRoot4268-5-9"
+           style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Pristina;-inkscape-font-specification:Pristina"
+           transform="matrix(0.40137825,0,0,1,678.17259,432.52646)"><flowRegion
+             id="flowRegion4270-0-3"><rect
+               id="rect4272-8-0"
+               width="320"
+               height="202.85715"
+               x="454.28571"
+               y="15.219325"
+               style="font-family:Pristina;-inkscape-font-specification:Pristina" /></flowRegion><flowPara
+             id="flowPara4274-7-2">2nd February</flowPara></flowRoot>      </g>
+      <g
+         transform="matrix(0.95122778,-0.30848941,0.30848941,0.95122778,-792.82304,-42.370707)"
+         id="g4413-5">
+        <rect
+           style="fill:#ffff00;fill-opacity:1;stroke:#000000;stroke-width:6.30739403;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect4228-11"
+           width="112.26405"
+           height="109.40688"
+           x="799.82739"
+           y="577.93353" />
+        <flowRoot
+           xml:space="preserve"
+           id="flowRoot4252-0-8"
+           style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Pristina;-inkscape-font-specification:Pristina"
+           transform="matrix(0.4647515,0,0,0.69612332,842.96473,688.93271)"><flowRegion
+             id="flowRegion4254-5-3"><rect
+               id="rect4256-3-3"
+               width="414.28571"
+               height="288.57144"
+               x="-62.857143"
+               y="-141.92354"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Pristina;-inkscape-font-specification:Pristina" /></flowRegion><flowPara
+             id="flowPara4258-5-7">SVN: bug fix</flowPara></flowRoot>        <flowRoot
+           xml:space="preserve"
+           id="flowRoot4260-6-4"
+           style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Pristina;-inkscape-font-specification:Pristina"
+           transform="matrix(0.64618918,0.15790035,-0.14162867,0.7204297,481.13695,636.90245)"><flowRegion
+             id="flowRegion4262-3-6"><rect
+               id="rect4264-0-7"
+               width="268.57144"
+               height="231.42857"
+               x="482.85715"
+               y="-124.78068"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Pristina;-inkscape-font-specification:Pristina" /></flowRegion><flowPara
+             id="flowPara4266-2-1">Test version</flowPara></flowRoot>      </g>
+    </g>
+    <g
+       id="g3808-7-0-6"
+       transform="matrix(0.47042212,0,0,0.47042212,201.97829,303.06885)">
+      <rect
+         ry="74.285713"
+         y="143.79076"
+         x="209.19011"
+         height="440"
+         width="325.71426"
+         id="rect3749-3-1-9"
+         style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <flowRoot
+         transform="matrix(0.13454345,0,0,0.18229356,180.36487,22.239744)"
+         style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:#000000;font-family:Courier New;-inkscape-font-specification:Courier New"
+         id="flowRoot3751-4-5-0"
+         xml:space="preserve"><flowRegion
+           id="flowRegion3753-94-0-7"><rect
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:#000000;font-family:Courier New;-inkscape-font-specification:Courier New"
+             y="840.93359"
+             x="388.57141"
+             height="1194.2858"
+             width="2097.1436"
+             id="rect3755-5-1-5" /></flowRegion><flowPara
+           id="flowPara3759-6-4-5"
+           style="font-size:144px">SVN-K is a subversion addon-on for Komodo Edit</flowPara><flowPara
+           id="flowPara3763-8-0-4"
+           style="font-size:36px"> </flowPara><flowPara
+           id="flowPara3767-9-0-9"
+           style="font-size:144px">It means that TortoiseSVN is hooked in with the IDE. </flowPara></flowRoot>      <flowRoot
+         transform="matrix(0.13454345,0,0,0.18229356,180.36487,204.94081)"
+         style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:#000000;font-family:Courier New;-inkscape-font-specification:Courier New"
+         id="flowRoot3751-7-8-5-4"
+         xml:space="preserve"><flowRegion
+           id="flowRegion3753-9-9-7-2"><rect
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:#000000;font-family:Courier New;-inkscape-font-specification:Courier New"
+             y="840.93359"
+             x="388.57141"
+             height="1194.2858"
+             width="2097.1436"
+             id="rect3755-1-9-4-0" /></flowRegion><flowPara
+           id="flowPara3759-9-7-7-9"
+           style="font-size:144px">SVN-K is a subversion addon-on for Komodo Edit</flowPara><flowPara
+           id="flowPara3763-5-0-7-7"
+           style="font-size:36px"> </flowPara><flowPara
+           id="flowPara3767-8-8-5-3"
+           style="font-size:144px">It means that TortoiseSVN is hooked in with the IDE. </flowPara></flowRoot>    </g>
+    <g
+       id="g4955"
+       inkscape:export-filename="H:\KomodoEdit\Komodo Exts\SVNK\skin\default\images\log.png"
+       inkscape:export-xdpi="9.6000004"
+       inkscape:export-ydpi="9.6000004"
+       transform="matrix(0.55104331,0,0,0.55104331,11.67287,-1.1842661)">
+      <g
+         transform="translate(-112.04725,-51.42857)"
+         id="g3808-7-0">
+        <rect
+           style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3749-3-1"
+           width="325.71426"
+           height="440"
+           x="209.19011"
+           y="143.79076"
+           ry="74.285713" />
+        <flowRoot
+           xml:space="preserve"
+           id="flowRoot3751-4-5"
+           style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:#000000;font-family:Courier New;-inkscape-font-specification:Courier New"
+           transform="matrix(0.13454345,0,0,0.18229356,180.36487,22.239744)"><flowRegion
+             id="flowRegion3753-94-0"><rect
+               id="rect3755-5-1"
+               width="2097.1436"
+               height="1194.2858"
+               x="388.57141"
+               y="840.93359"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:#000000;font-family:Courier New;-inkscape-font-specification:Courier New" /></flowRegion><flowPara
+             style="font-size:144px"
+             id="flowPara3759-6-4">SVN-K is a subversion addon-on for Komodo Edit</flowPara><flowPara
+             style="font-size:36px"
+             id="flowPara3763-8-0"> </flowPara><flowPara
+             style="font-size:144px"
+             id="flowPara3767-9-0">It means that TortoiseSVN is hooked in with the IDE. </flowPara></flowRoot>        <flowRoot
+           xml:space="preserve"
+           id="flowRoot3751-7-8-5"
+           style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:#000000;font-family:Courier New;-inkscape-font-specification:Courier New"
+           transform="matrix(0.13454345,0,0,0.18229356,180.36487,204.94081)"><flowRegion
+             id="flowRegion3753-9-9-7"><rect
+               id="rect3755-1-9-4"
+               width="2097.1436"
+               height="1194.2858"
+               x="388.57141"
+               y="840.93359"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:#000000;font-family:Courier New;-inkscape-font-specification:Courier New" /></flowRegion><flowPara
+             style="font-size:144px"
+             id="flowPara3759-9-7-7">SVN-K is a subversion addon-on for Komodo Edit</flowPara><flowPara
+             style="font-size:36px"
+             id="flowPara3763-5-0-7"> </flowPara><flowPara
+             style="font-size:144px"
+             id="flowPara3767-8-8-5">It means that TortoiseSVN is hooked in with the IDE. </flowPara></flowRoot>      </g>
+      <rect
+         y="203.55798"
+         x="148.11095"
+         height="27.184908"
+         width="141.36613"
+         id="rect4769"
+         style="fill:#ffff00;fill-opacity:0.51308899;stroke:none" />
+      <rect
+         y="130.19829"
+         x="118.05148"
+         height="26.174757"
+         width="128.23415"
+         id="rect4769-4"
+         style="fill:#ff6600;fill-opacity:0.51308899;stroke:none" />
+      <rect
+         y="308.98004"
+         x="118.91806"
+         height="27.184908"
+         width="266.62506"
+         id="rect4769-9"
+         style="fill:#ff5555;fill-opacity:0.51308899;stroke:none" />
+      <rect
+         y="343.78476"
+         x="266.70789"
+         height="27.184908"
+         width="141.36613"
+         id="rect4769-3"
+         style="fill:#ffff00;fill-opacity:0.51308899;stroke:none" />
+      <rect
+         y="386.71625"
+         x="150.03526"
+         height="26.174757"
+         width="70.655449"
+         id="rect4769-4-7"
+         style="fill:#ff6600;fill-opacity:0.51308899;stroke:none" />
+      <rect
+         y="429.09805"
+         x="117.1777"
+         height="4.0406113"
+         width="287.89349"
+         id="rect4922"
+         style="fill:#000000;fill-opacity:1;stroke:none" />
+      <rect
+         y="247.2706"
+         x="118.69292"
+         height="4.0406113"
+         width="287.89349"
+         id="rect4922-7"
+         style="fill:#000000;fill-opacity:1;stroke:none" />
+      <rect
+         y="461.42294"
+         x="225.76909"
+         height="4.0406113"
+         width="35.355358"
+         id="rect4922-5"
+         style="fill:#000000;fill-opacity:1;stroke:none" />
+    </g>
+  </g>
+</svg>
