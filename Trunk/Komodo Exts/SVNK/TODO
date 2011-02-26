@@ -23,7 +23,3 @@ todo:
     Add project preferences.
 todo:
     Create unit tests (find a framework to do this???)
-todo:
-    Add README and LICENSE files.
-todo:
-    Add more comments and documentation with the code (ie. not just in overlay.js).
