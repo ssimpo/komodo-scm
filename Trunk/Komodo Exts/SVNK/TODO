@@ -1,0 +1,35 @@
+todo:
+    Refactoring of overlay.js to that the duplicate code in the
+    ActiveDocument/SelectedDocument methods is extracted into it's own class.
+todo:
+    Design the SVN icons from scratch and use pngs.
+todo:
+    Add a windows only tag so that it cannot be installed in linux/osx.
+todo:
+    Rework the error-checking and reporting routines.
+todo:
+    Make commits work against active places view as well as project.
+todo:
+    All specialist options for tortoise to be stored with a project file.
+todo:
+    Add more SVN functions.
+todo:
+    Do simpo.org write-up on addon.
+todo:
+    Create a bug tracker and *ideas factory*.
+todo:
+    Rename to SVN-K.
+todo:
+    Rename all the classes and ids to make consistant and to remove underscores.
+todo:
+    Use dialogs for reporting and errors instead of alerts.
+todo:
+    Add a preferences overlay.
+todo:
+    Add project preferences.
+todo:
+    Create unit tests (find a framework to do this???)
+todo:
+    Add README and LICENSE files.
+todo:
+    Add more comments and documentation with the code (ie. not just in overlay.js).

@@ -1,0 +1,19 @@
+.SVNK_RepoBrowser_Icon {
+    list-style-image: url("chrome://SVNK/skin/images/RepoBrowser.ico");
+}
+
+.SVNK_Commit_Icon {
+    list-style-image: url("chrome://SVNK/skin/images/Commit.ico");
+}
+
+.SVNK_Diff_Icon {
+    list-style-image: url("chrome://SVNK/skin/images/Diff.ico");
+}
+
+.SVNK_Properties_Icon {
+    list-style-image: url("chrome://SVNK/skin/images/Properties.ico");
+}
+
+.SVNK_Log_Icon {
+    list-style-image: url("chrome://SVNK/skin/images/Log.ico");
+}
