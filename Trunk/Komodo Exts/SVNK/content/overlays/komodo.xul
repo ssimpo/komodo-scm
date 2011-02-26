@@ -74,7 +74,7 @@ version:
 	
 	<!-- Create a submenu in the tools menu for TortoiseSVN actions -->
 	<menupopup id="popup_tools">
-		<menu id="popup_tools-SVNK" label="Tortoise SVN">
+		<menu id="popup_tools-SVNK" label="Version Control">
 			<menupopup id="popup_tools-SVNK-popup">
 				<menuitem
 					id="popup_tools-SVNK-RepoBrowser"
@@ -113,7 +113,7 @@ version:
 	<!-- Context-menu for files and folders in the places view -->
 	<!-- NB: Places is actually a addon its-self -->
 	<menupopup id="places-files-popup">
-		<menu id="places-files-popup-SVNK" label="Tortoise SVN">
+		<menu id="places-files-popup-SVNK" label="Version Control">
 			<menupopup id="places-files-popup-SVNK-popup">
 				<menuitem
 					id="places-files-popup-SVNK-Commit"
