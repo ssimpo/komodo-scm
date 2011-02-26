@@ -1,0 +1,147 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://SVNK/skin/SVNK.css" type="text/css"?>
+<!DOCTYPE window PUBLIC "-//MOZILLA//DTD XUL V1.0//EN" "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" [
+	<!ENTITY % SVNKDTD SYSTEM "chrome://SVNK/locale/main.dtd">
+	%SVNKDTD;
+]>
+<overlay id="SVNKOverlay"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	
+	<script type="application/x-javascript" src="chrome://SVNK/content/overlays/overlay.js"/>
+
+	<commandset id="allcommands">
+		<command id="Tasks:SVNK-RepoBrowser" oncommand="org.simpo.svnk.repoBrowser();"/>
+		<command id="Tasks:SVNK-CommitProject" oncommand="org.simpo.svnk.commitProject();"/>
+		<command id="Tasks:SVNK-CommitPath" oncommand="org.simpo.svnk.commitPath();"/>
+		<command id="Tasks:SVNK-CompareDiffActiveFile" oncommand="org.simpo.svnk.compareDiffActiveFile();"/>
+		<command id="Tasks:SVNK-CompareDiff" oncommand="org.simpo.svnk.compareDiff();"/>
+		<command id="Tasks:SVNK-ViewPropertiesActiveFile" oncommand="org.simpo.svnk.viewPropertiesActiveFile();"/>
+		<command id="Tasks:SVNK-ViewProperties" oncommand="org.simpo.svnk.viewProperties();"/>
+		<command id="Tasks:SVNK-ViewLogActiveFile" oncommand="org.simpo.svnk.viewLogActiveFile();"/>
+		<command id="Tasks:SVNK-ViewLog" oncommand="org.simpo.svnk.viewLog();"/>
+	</commandset>
+	
+	<!-- Main Komodo Toolbar options -->
+	<toolbar id="toolsToolbar">
+		<toolbarbutton
+			id="toolsToolbar_SVNK_RepoBrowser"
+			observes="Tasks:SVNK-RepoBrowser"
+			class="menuitem-iconic SVNK_RepoBrowser_Icon"
+			persist="buttonstyle"
+			buttonstyle="pictures"
+			label="&svnk.label.repobrowser;"
+			tooltiptext="&svnk.tooltip.repobrowser;"/>
+		<toolbarbutton
+			id="toolsToolbar_SVNK_CommitProject"
+			observes="Tasks:SVNK-CommitProject"
+			class="menuitem-iconic SVNK_Commit_Icon"
+			persist="buttonstyle"
+			buttonstyle="pictures"
+			label="&svnk.label.commitproject;"
+			tooltiptext="&svnk.tooltip.commitproject;"/>
+		<toolbarbutton
+			id="toolsToolbar_SVNK_CompareDiff"
+			observes="Tasks:SVNK-CompareDiffActiveFile"
+			class="menuitem-iconic SVNK_Diff_Icon"
+			persist="buttonstyle"
+			buttonstyle="pictures"
+			label="&svnk.label.comparefile;"
+			tooltiptext="&svnk.tooltip.comparefile;"/>
+		<toolbarbutton
+			id="toolsToolbar_SVNK_ViewProperties"
+			observes="Tasks:SVNK-ViewPropertiesActiveFile"
+			class="menuitem-iconic SVNK_Properties_Icon"
+			persist="buttonstyle"
+			buttonstyle="pictures"
+			label="&svnk.label.viewproperties;"
+			tooltiptext="&svnk.tooltip.viewproperties;"/>
+		<toolbarbutton
+			id="toolsToolbar_SVNK_ViewLogActiveFile"
+			observes="Tasks:SVNK-ViewLogActiveFile"
+			class="menuitem-iconic SVNK_Log_Icon"
+			persist="buttonstyle"
+			buttonstyle="pictures"
+			label="&svnk.label.viewlogfile;"
+			tooltiptext="&svnk.tooltip.viewlogfile;"/>
+	</toolbar>
+	
+	<!-- Create a submenu in the tools menu for TortoiseSVN actions -->
+	<menupopup id="popup_tools">
+		<menu id="popup_tools_SVNK" label="Tortoise SVN">
+			<menupopup id="popup_tools_SVNK">
+				<menuitem
+					id="popup_tools_SVNK_RepoBrowser"
+					observes="Tasks:SVNK-RepoBrowser"
+					label="&svnk.label.repobrowser;"
+					class="menuitem-iconic SVNK_RepoBrowser_Icon"
+					tooltiptext="&svnk.tooltip.repobrowser;"/>
+				<menuitem
+					id="popup_tools_SVNK_CommitProject"
+					observes="Tasks:SVNK-CommitProject"
+					label="&svnk.label.commitproject;"
+					class="menuitem-iconic SVNK_Commit_Icon"
+					tooltiptext="&svnk.tooltip.commitproject;"/>
+				<menuitem
+					id="popup_tools_SVNK_CompareDiff"
+					observes="Tasks:SVNK-CompareDiffActiveFile"
+					label="&svnk.label.comparefile.long;"
+					class="menuitem-iconic SVNK_Diff_Icon"
+					tooltiptext="&svnk.tooltip.comparefile;"/>
+				<menuitem
+					id="popup_tools_SVNK_ViewProperties"
+					label="&svnk.label.viewproperties.long;"
+					observes="Tasks:SVNK-ViewPropertiesActiveFile"
+					class="menuitem-iconic SVNK_Properties_Icon"
+					tooltiptext="&svnk.tooltip.viewproperties;"/>
+				<menuitem
+					id="popup_tools_SVNK_ViewLog"
+					observes="Tasks:SVNK-ViewLogActiveFile"
+					label="&svnk.label.viewlogfile;"
+					class="menuitem-iconic SVNK_Log_Icon"
+					tooltiptext="&svnk.tooltip.viewlogfile;"/>
+			</menupopup>
+		</menu>
+	</menupopup>
+	
+	<!-- Context-menu for files and folders in the places view -->
+	<!-- NB: Places is actually a addon its-self -->
+	<menupopup id="places-files-popup">
+		<menu id="places-files-popup_SVNK" label="Tortoise SVN">
+			<menupopup id="places-files-popup_popup_SVNK">
+				<menuitem
+					id="places-files-popup_SVNK_Commit"
+					observes="Tasks:SVNK-CommitPath"
+					label="&svnk.label.commitpath;"
+					hideUnless="file folder"
+					class="menuitem-iconic SVNK_Commit_Icon"
+					tooltiptext="&svnk.tooltip.commitpath;"/>
+				<menuitem
+					id="places-files-popup_SVNK_CompareDiff"
+					observes="Tasks:SVNK-CompareDiff"
+					label="&svnk.label.comparefile.long;"
+					hideUnless="file"
+					testHideIf="t:multipleSelection"
+					class="menuitem-iconic SVNK_Diff_Icon"
+					tooltiptext="&svnk.tooltip.selected.comparefile;"/>
+				<menuitem
+					id="places-files-popup_SVNK_ViewProperties"
+					observes="Tasks:SVNK-ViewProperties"
+					label="&svnk.label.viewproperties2.long;"
+					hideUnless="file folder"
+					testHideIf="t:multipleSelection"
+					class="menuitem-iconic SVNK_Properties_Icon"
+					tooltiptext="&svnk.tooltip.selected.viewproperties;"/>
+				<menuitem
+					id="places-files-popup_SVNK_ViewLog"
+					observes="Tasks:SVNK-ViewLog"
+					label="&svnk.label.viewlogfile2;"
+					hideUnless="file folder"
+					testHideIf="t:multipleSelection"
+					class="menuitem-iconic SVNK_Log_Icon"
+					tooltiptext="&svnk.tooltip.selected.viewlogfile;"/>
+			</menupopup>
+		</menu>
+	</menupopup>
+</overlay>
