@@ -154,22 +154,12 @@ org.simpo.svnk = {
         //      The path to run the command against.
         // command: string
         //      The TortoiseProc command to run.
-        
-        var RunService = Components.classes["@activestate.com/koRunService;1"].getService(Components.interfaces.koIRunService);
         var cmd = 'TortoiseProc.exe /command:'+command+' /path:\"'+path+'\"';
-        var output = new Object();
-        var error = new Object();
-            
-        try {
-            var process = RunService.RunAndCaptureOutput(cmd,'',null,null,output,error);
-            if (error.value != '') {
-                return {error:true,value:error.value};
-            } else {
-                return {error:false,value:output.value};
-            }
-        } catch(e) {
-            return {error:true,value:e};
-        }
+        var cwd = '';
+        
+        var response = this._runCommand(cmd,cwd,null,null);
+        
+        return response;
     },
     _getCurrentFilePath: function() {
         //  summary:
@@ -218,26 +208,28 @@ org.simpo.svnk = {
     },
     _currentViewUpdated: function(event) {
         var path = ko.uriparse.URIToLocalPath(event.originalTarget.getURI());
-        
-        var RunService = Components.classes["@activestate.com/koRunService;1"].getService(Components.interfaces.koIRunService);
         var cmd = 'svn.exe log "'+path+'\"';
         var cwd = 'C:\\Program Files\\Subversion\\';
+        
+        var response = this._runCommand(cmd,cwd,null,null);
+        
+        alert(response.value);
+    },
+    _runCommand: function(cmd,cwd,env,input) {
+        var RunService = Components.classes["@activestate.com/koRunService;1"].getService(Components.interfaces.koIRunService);
         var output = new Object();
         var error = new Object();
         
-        
         try {
-            var process = RunService.RunAndCaptureOutput(cmd,cwd,null,null,output,error);
+            var process = RunService.RunAndCaptureOutput(cmd,cwd,env,input,output,error);
             if (error.value != '') {
-                response = {error:true,value:error.value};
+                return {error:true,value:error.value};
             } else {
-                response = {error:false,value:output.value};
+                return {error:false,value:output.value};
             }
         } catch(e) {
-            response = {error:true,value:e};
+            return {error:true,value:e};
         }
-        
-        alert(response.value);
     }
 };
 
