@@ -1,0 +1,19 @@
+<!--
+summary:
+	The preferences form for SVN-K addon.
+author:
+	Stephen Simpson <me@simpo.org>
+license:
+	LGPL <http://www.gnu.org/licenses/lgpl.html>
+version:
+	1.0.4
+-->
+<window
+    xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    title="SVN-K Preferences"
+    orient="vertical">
+    
+    
+</window>

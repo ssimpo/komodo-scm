@@ -221,12 +221,13 @@ org.simpo.svnk = {
         
         var RunService = Components.classes["@activestate.com/koRunService;1"].getService(Components.interfaces.koIRunService);
         var cmd = 'svn.exe log "'+path+'\"';
+        var cwd = 'C:\\Program Files\\Subversion\\';
         var output = new Object();
         var error = new Object();
         
         
         try {
-            var process = RunService.RunAndCaptureOutput(cmd,'',null,null,output,error);
+            var process = RunService.RunAndCaptureOutput(cmd,cwd,null,null,output,error);
             if (error.value != '') {
                 response = {error:true,value:error.value};
             } else {
