@@ -1,6 +1,7 @@
-content SVNK jar:svnk.jar!/content/ xpcnativewrappers=yes
-skin SVNK default jar:svnk.jar!/skin/default/
-locale SVNK en-US jar:svnk.jar!/locale/en-US/
+content svnk jar:svnk.jar!/content/ xpcnativewrappers=yes
+skin svnk default jar:svnk.jar!/skin/default/
+locale svnk en-US jar:svnk.jar!/locale/en-US/
 
 #Komodo
-overlay chrome://komodo/content/komodo.xul chrome://SVNK/content/overlays/komodo.xul
+overlay chrome://komodo/content/komodo.xul chrome://svnk/content/overlays/komodo.xul
+overlay chrome://komodo/content/pref/pref.xul chrome://svnk/content/preferences.xul

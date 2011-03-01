@@ -379,6 +379,70 @@
        inkscape:vp_y="0 : 1000 : 0"
        inkscape:vp_x="0 : 0.5 : 1"
        sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3002"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3090"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3709-3-8-2"
+       id="linearGradient4224-2"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.73318153,0,0,0.73318153,-123.66666,324.37984)"
+       x1="-94.895355"
+       y1="748.85303"
+       x2="23.676077"
+       y2="748.85303" />
+    <linearGradient
+       id="linearGradient3709-3-8-2">
+      <stop
+         style="stop-color:#ff8839;stop-opacity:1;"
+         offset="0"
+         id="stop3711-8-4-1" />
+      <stop
+         id="stop3723-3-3-6"
+         offset="0.60145408"
+         style="stop-color:#d4651c;stop-opacity:1;" />
+      <stop
+         id="stop3721-4-9-8"
+         offset="0.89061469"
+         style="stop-color:#a94300;stop-opacity:1;" />
+      <stop
+         style="stop-color:#993d00;stop-opacity:1;"
+         offset="1"
+         id="stop3713-2-9-5" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3725-8-9-6"
+       id="radialGradient4226-7"
+       gradientUnits="userSpaceOnUse"
+       cx="151.42857"
+       cy="263.79074"
+       fx="151.42857"
+       fy="263.79074"
+       r="187.85715" />
+    <linearGradient
+       id="linearGradient3725-8-9-6">
+      <stop
+         style="stop-color:#0086ff;stop-opacity:0.43298969;"
+         offset="0"
+         id="stop3727-9-7-1" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="1"
+         id="stop3729-0-7-8" />
+    </linearGradient>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -387,25 +451,20 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.24748737"
-     inkscape:cx="1098.8236"
-     inkscape:cy="364.79662"
+     inkscape:zoom="0.69999999"
+     inkscape:cx="740.57434"
+     inkscape:cy="644.32562"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      showguides="true"
      inkscape:guide-bbox="true"
      inkscape:snap-bbox="false"
-     inkscape:window-width="1366"
-     inkscape:window-height="718"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
-     inkscape:window-maximized="1">
-    <sodipodi:guide
-       orientation="0,1"
-       position="-228.57143,-128.57143"
-       id="guide2826" />
-  </sodipodi:namedview>
+     inkscape:window-width="1280"
+     inkscape:window-height="1005"
+     inkscape:window-x="-4"
+     inkscape:window-y="-4"
+     inkscape:window-maximized="1" />
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -424,7 +483,7 @@
      id="layer1">
     <g
        id="g3608"
-       transform="matrix(0.1820905,0.15159022,-0.15159022,0.1820905,559.26921,543.45879)">
+       transform="matrix(0.1820905,0.15159022,-0.15159022,0.1820905,314.98349,453.45879)">
       <path
          style="fill:#00ff00;fill-opacity:1;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-opacity:1"
          d="m 974.71551,503.39847 -194.5,0.0312 0,558.84373 -221.03125,0 0,-558.84373 -193.5,-0.625 152.5625,-216.4375 152.59375,-216.468745 151.9375,216.749995 151.9375,216.75 z"
@@ -433,7 +492,7 @@
     </g>
     <g
        id="g3608-7"
-       transform="matrix(0.1440726,0.194183,0.17306033,-0.16165721,-88.87706,750.69259)"
+       transform="matrix(0.1440726,0.194183,0.17306033,-0.16165721,-320.30563,613.54973)"
        inkscape:export-filename="H:\KomodoEdit\Komodo Exts\SVNK\skin\default\images\commit.png"
        inkscape:export-xdpi="5.7567582"
        inkscape:export-ydpi="5.7567582"
@@ -449,7 +508,7 @@
     </g>
     <g
        id="g4015"
-       transform="matrix(0.47423931,0,0,0.397903,270.17786,-32.903418)"
+       transform="matrix(0.47423931,0,0,0.397903,203.035,-64.33199)"
        inkscape:export-filename="H:\KomodoEdit\Komodo Exts\SVNK\skin\default\images\diff.png"
        inkscape:export-xdpi="7.1962848"
        inkscape:export-ydpi="7.1962848">
@@ -568,7 +627,7 @@
       </g>
     </g>
     <g
-       transform="matrix(0.41435381,0,0,0.41435381,-20.513548,186.12486)"
+       transform="matrix(0.41435381,0,0,0.41435381,-43.370691,121.83914)"
        id="g3888-1">
       <rect
          transform="matrix(0.73047627,-0.68293807,0.68293807,0.73047627,0,0)"
@@ -591,7 +650,7 @@
     </g>
     <g
        id="g4212"
-       transform="matrix(0.37594195,0,0,0.38605668,460.05495,251.77611)"
+       transform="matrix(0.37594195,0,0,0.38605668,222.91209,168.91897)"
        inkscape:export-filename="H:\KomodoEdit\Komodo Exts\SVNK\skin\default\images\repobrowser.png"
        inkscape:export-xdpi="9.5983057"
        inkscape:export-ydpi="9.5983057">
@@ -651,7 +710,7 @@
        inkscape:export-filename="H:\KomodoEdit\Komodo Exts\SVNK\skin\default\images\properties.png"
        inkscape:export-xdpi="9.6000004"
        inkscape:export-ydpi="9.6000004"
-       transform="matrix(0.51512678,0,0,0.51512678,-11.980176,502.38597)">
+       transform="matrix(0.51512678,0,0,0.51512678,402.30554,220.95739)">
       <g
          transform="translate(-86.332951,48.571424)"
          id="g3808-7">
@@ -772,7 +831,7 @@
     </g>
     <g
        id="g3808-7-0-6"
-       transform="matrix(0.47042212,0,0,0.47042212,201.97829,303.06885)">
+       transform="matrix(0.47042212,0,0,0.47042212,420.54972,-34.074012)">
       <rect
          ry="74.285713"
          y="143.79076"
@@ -821,7 +880,7 @@
        inkscape:export-filename="H:\KomodoEdit\Komodo Exts\SVNK\skin\default\images\log.png"
        inkscape:export-xdpi="9.6000004"
        inkscape:export-ydpi="9.6000004"
-       transform="matrix(0.55104331,0,0,0.55104331,11.67287,-1.1842661)">
+       transform="matrix(0.55104331,0,0,0.55104331,-21.184273,-26.898552)">
       <g
          transform="translate(-112.04725,-51.42857)"
          id="g3808-7-0">
@@ -924,6 +983,179 @@
          width="35.355358"
          id="rect4922-5"
          style="fill:#000000;fill-opacity:1;stroke:none" />
+    </g>
+    <g
+       id="g3164"
+       transform="translate(-502.85715,390.00001)"
+       inkscape:export-filename="H:\Komodo Exts\SVNK\skin\default\images\icon48x48.png"
+       inkscape:export-xdpi="14.400001"
+       inkscape:export-ydpi="14.400001">
+      <g
+         transform="matrix(0.55104331,0,0,0.55104331,938.15733,145.95136)"
+         inkscape:export-ydpi="9.6000004"
+         inkscape:export-xdpi="9.6000004"
+         inkscape:export-filename="H:\KomodoEdit\Komodo Exts\SVNK\skin\default\images\log.png"
+         id="g4955-1">
+        <g
+           id="g3808-7-0-7"
+           transform="translate(-112.04725,-51.42857)">
+          <rect
+             ry="74.285713"
+             y="143.79076"
+             x="209.19011"
+             height="440"
+             width="325.71426"
+             id="rect3749-3-1-4"
+             style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+          <flowRoot
+             transform="matrix(0.13454345,0,0,0.18229356,180.36487,22.239744)"
+             style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:#000000;font-family:Courier New;-inkscape-font-specification:Courier New"
+             id="flowRoot3751-4-5-09"
+             xml:space="preserve"><flowRegion
+               id="flowRegion3753-94-0-4"><rect
+                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:#000000;font-family:Courier New;-inkscape-font-specification:Courier New"
+                 y="840.93359"
+                 x="388.57141"
+                 height="1194.2858"
+                 width="2097.1436"
+                 id="rect3755-5-1-8" /></flowRegion><flowPara
+               id="flowPara3759-6-4-8"
+               style="font-size:144px">SVN-K is a subversion addon-on for Komodo Edit</flowPara><flowPara
+               id="flowPara3763-8-0-2"
+               style="font-size:36px"> </flowPara><flowPara
+               id="flowPara3767-9-0-4"
+               style="font-size:144px">It means that TortoiseSVN is hooked in with the IDE. </flowPara></flowRoot>          <flowRoot
+             transform="matrix(0.13454345,0,0,0.18229356,180.36487,204.94081)"
+             style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:#000000;font-family:Courier New;-inkscape-font-specification:Courier New"
+             id="flowRoot3751-7-8-5-5"
+             xml:space="preserve"><flowRegion
+               id="flowRegion3753-9-9-7-5"><rect
+                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:#000000;font-family:Courier New;-inkscape-font-specification:Courier New"
+                 y="840.93359"
+                 x="388.57141"
+                 height="1194.2858"
+                 width="2097.1436"
+                 id="rect3755-1-9-4-1" /></flowRegion><flowPara
+               id="flowPara3759-9-7-7-7"
+               style="font-size:144px">SVN-K is a subversion addon-on for Komodo Edit</flowPara><flowPara
+               id="flowPara3763-5-0-7-1"
+               style="font-size:36px"> </flowPara><flowPara
+               id="flowPara3767-8-8-5-1"
+               style="font-size:144px">It means that TortoiseSVN is hooked in with the IDE. </flowPara></flowRoot>        </g>
+        <rect
+           style="fill:#ffff00;fill-opacity:0.51308899;stroke:none"
+           id="rect4769-5"
+           width="141.36613"
+           height="27.184908"
+           x="148.11095"
+           y="203.55798" />
+        <rect
+           style="fill:#ff6600;fill-opacity:0.51308899;stroke:none"
+           id="rect4769-4-2"
+           width="128.23415"
+           height="26.174757"
+           x="118.05148"
+           y="130.19829" />
+        <rect
+           style="fill:#ff5555;fill-opacity:0.51308899;stroke:none"
+           id="rect4769-9-7"
+           width="266.62506"
+           height="27.184908"
+           x="118.91806"
+           y="308.98004" />
+        <rect
+           style="fill:#ffff00;fill-opacity:0.51308899;stroke:none"
+           id="rect4769-3-6"
+           width="141.36613"
+           height="27.184908"
+           x="266.70789"
+           y="343.78476" />
+        <rect
+           style="fill:#ff6600;fill-opacity:0.51308899;stroke:none"
+           id="rect4769-4-7-1"
+           width="70.655449"
+           height="26.174757"
+           x="150.03526"
+           y="386.71625" />
+        <rect
+           style="fill:#000000;fill-opacity:1;stroke:none"
+           id="rect4922-4"
+           width="287.89349"
+           height="4.0406113"
+           x="117.1777"
+           y="429.09805" />
+        <rect
+           style="fill:#000000;fill-opacity:1;stroke:none"
+           id="rect4922-7-2"
+           width="287.89349"
+           height="4.0406113"
+           x="118.69292"
+           y="247.2706" />
+        <rect
+           style="fill:#000000;fill-opacity:1;stroke:none"
+           id="rect4922-5-3"
+           width="35.355358"
+           height="4.0406113"
+           x="225.76909"
+           y="461.42294" />
+      </g>
+      <g
+         inkscape:export-ydpi="9.5983057"
+         inkscape:export-xdpi="9.5983057"
+         inkscape:export-filename="H:\KomodoEdit\Komodo Exts\SVNK\skin\default\images\repobrowser.png"
+         transform="matrix(0.37594195,0,0,0.38605668,917.18351,185.95549)"
+         id="g4212-9">
+        <g
+           id="g4142-2"
+           transform="matrix(1.5935319,0,0,1.7430348,-188.08948,-229.04908)">
+          <path
+             d="m 162.85714,494.71256 111.42857,82.71547 110.00614,-65.56476 -118.29446,-58.7168 z"
+             style="fill:#afafde;fill-opacity:1;fill-rule:evenodd;stroke:none"
+             id="path4124-7" />
+          <path
+             d="m 162.85714,327.50822 0,167.20434 103.14025,-41.56609 0,-144.88486 z"
+             style="fill:#353564;fill-opacity:1;fill-rule:evenodd;stroke:none"
+             id="path4126-9" />
+          <path
+             d="m 265.99739,308.26161 118.29446,23.03143 0,180.57023 -118.29446,-58.7168 z"
+             style="fill:#e9e9ff;fill-opacity:1;fill-rule:evenodd;stroke:none"
+             id="path4128-5" />
+          <path
+             d="M 162.85714,327.50822 274.28571,360.8224 384.29185,331.29304 265.99739,308.26161 z"
+             style="fill:#aa4400;fill-opacity:1;fill-rule:evenodd;stroke:none"
+             id="path4130-4" />
+          <path
+             d="m 274.28571,360.8224 0,216.60563 110.00614,-65.56476 0,-180.57023 z"
+             style="fill:#ff7f2a;fill-opacity:1;fill-rule:evenodd;stroke:none"
+             id="path4132-3" />
+          <path
+             d="m 162.85714,327.50822 111.42857,33.31418 0,216.60563 -111.42857,-82.71547 z"
+             style="fill:#d45500;fill-opacity:1;fill-rule:evenodd;stroke:none"
+             id="path4134-1" />
+        </g>
+        <g
+           transform="translate(-66.06305,-100.5237)"
+           id="g3888-1-2-2">
+          <rect
+             transform="matrix(0.73047627,-0.68293807,0.68293807,0.73047627,0,0)"
+             y="718.98926"
+             x="-190.04398"
+             height="308.87161"
+             width="80.537956"
+             id="rect3693-4-5-3"
+             style="fill:url(#linearGradient4224-2);fill-opacity:1;stroke:#552200;stroke-width:6.39642811;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+          <path
+             transform="matrix(0.53557172,-0.50071759,0.50071759,0.53557172,94.359605,482.80669)"
+             d="m 334.28572,263.79074 c 0,100.98921 -81.86793,182.85715 -182.85715,182.85715 -100.98921,0 -182.857144,-81.86794 -182.857144,-182.85715 0,-100.98921 81.867934,-182.857146 182.857144,-182.857146 100.98922,0 182.85715,81.867936 182.85715,182.857146 z"
+             sodipodi:ry="182.85715"
+             sodipodi:rx="182.85715"
+             sodipodi:cy="263.79074"
+             sodipodi:cx="151.42857"
+             id="path3691-0-2-3"
+             style="fill:url(#radialGradient4226-7);fill-opacity:1;stroke:#552200;stroke-width:10;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+             sodipodi:type="arc" />
+        </g>
+      </g>
     </g>
   </g>
 </svg>
