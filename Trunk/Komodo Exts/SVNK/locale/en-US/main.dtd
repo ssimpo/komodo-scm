@@ -4,7 +4,7 @@ author:
 license:
 	LGPL <http://www.gnu.org/licenses/lgpl.html>
 version:
-	1.0.3
+	1.0.4
 -->
 <!ENTITY svnk.label.repobrowser "Repo Browser">
 <!ENTITY svnk.label.commitproject "Commit Project">
@@ -16,14 +16,18 @@ version:
 <!ENTITY svnk.label.viewproperties2.long "View file/folder SVN properties">
 <!ENTITY svnk.label.viewlogfile "View SVN file log">
 <!ENTITY svnk.label.viewlogfile2 "View SVN file/folder log">
+<!ENTITY svnk.label.showabout "About SVN-K">
 
 <!ENTITY svnk.tooltip.viewlogfile "View the SVN log for the current file">
 <!ENTITY svnk.tooltip.viewproperties "View SVN properties of the current file">
 <!ENTITY svnk.tooltip.comparefile "Compare current file to repository version">
 <!ENTITY svnk.tooltip.commitproject "Commit current project to SVN">
 <!ENTITY svnk.tooltip.repobrowser "Repository Browser for current project">
+<!ENTITY svnk.tooltip.showabout "Information about SVN-K">
 
 <!ENTITY svnk.tooltip.selected.viewlogfile "View the SVN log for the selected files and folders">
 <!ENTITY svnk.tooltip.selected.viewproperties "View SVN properties for the current files and folders">
 <!ENTITY svnk.tooltip.commitpath "Commit selected files and folders to SVN">
 <!ENTITY svnk.tooltip.selected.comparefile "Compare the selected file to repository version">
+
+<!ENTITY svnk.tab.log.title "SVN Log">

@@ -1,19 +1,19 @@
 .SVNK-RepoBrowser-Icon {
-    list-style-image: url("chrome://SVNK/skin/images/repobrowser16x16.png");
+    list-style-image: url("chrome://svnk/skin/images/repobrowser16x16.png");
 }
 
 .SVNK-Commit-Icon {
-    list-style-image: url("chrome://SVNK/skin/images/commit16x16.png");
+    list-style-image: url("chrome://svnk/skin/images/commit16x16.png");
 }
 
 .SVNK-Diff-Icon {
-    list-style-image: url("chrome://SVNK/skin/images/diff16x16.png");
+    list-style-image: url("chrome://svnk/skin/images/diff16x16.png");
 }
 
 .SVNK-Properties-Icon {
-    list-style-image: url("chrome://SVNK/skin/images/properties16x16.png");
+    list-style-image: url("chrome://svnk/skin/images/properties16x16.png");
 }
 
 .SVNK-Log-Icon {
-    list-style-image: url("chrome://SVNK/skin/images/log16x16.png");
+    list-style-image: url("chrome://svnk/skin/images/log16x16.png");
 }

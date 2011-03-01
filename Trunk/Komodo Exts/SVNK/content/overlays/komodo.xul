@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<?xml-stylesheet href="chrome://SVNK/skin/SVNK.css" type="text/css"?>
+<?xml-stylesheet href="chrome://svnk/skin/svnk.css" type="text/css"?>
 <!DOCTYPE window PUBLIC "-//MOZILLA//DTD XUL V1.0//EN" "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" [
-	<!ENTITY % SVNKDTD SYSTEM "chrome://SVNK/locale/main.dtd">
+	<!ENTITY % SVNKDTD SYSTEM "chrome://svnk/locale/main.dtd">
 	%SVNKDTD;
 ]>
 <!--
@@ -15,14 +15,14 @@ author:
 license:
 	LGPL <http://www.gnu.org/licenses/lgpl.html>
 version:
-	1.0.3
+	1.0.4
 -->
 <overlay id="SVNKOverlay"
 	xmlns:html="http://www.w3.org/1999/xhtml"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 	
-	<script type="application/x-javascript" src="chrome://SVNK/content/overlays/overlay.js"/>
+	<script type="application/x-javascript" src="chrome://svnk/content/overlays/overlay.js"/>
 
 	<commandset id="allcommands">
 		<command id="Tasks:SVNK-RepoBrowser" oncommand="org.simpo.svnk.repoBrowser();"/>
@@ -34,8 +34,9 @@ version:
 		<command id="Tasks:SVNK-ViewProperties" oncommand="org.simpo.svnk.viewProperties();"/>
 		<command id="Tasks:SVNK-ViewLogActiveFile" oncommand="org.simpo.svnk.viewLogActiveFile();"/>
 		<command id="Tasks:SVNK-ViewLog" oncommand="org.simpo.svnk.viewLog();"/>
+		<command id="Tasks:SVNK-ShowAbout" oncommand="openDialog('chrome://svnk/content/about.xul', 'about');"/>
 	</commandset>
-	
+
 	<!-- Main Komodo Toolbar options -->
 	<toolbar id="toolsToolbar">
 		<toolbarseparator />
@@ -106,6 +107,12 @@ version:
 					label="&svnk.label.viewlogfile;"
 					tooltiptext="&svnk.tooltip.viewlogfile;"
 					class="menuitem-iconic SVNK-Log-Icon"/>
+				<menuitem
+					id="popup_tools_SVNK-ShowAbout"
+					observes="Tasks:SVNK-ShowAbout"
+					label="&svnk.label.showabout;"
+					tooltiptext="&svnk.tooltip.showabout;"
+					class="menuitem-iconic"/>
 			</menupopup>
 		</menu>
 	</menupopup>
@@ -146,7 +153,22 @@ version:
 					class="menuitem-iconic SVNK-Log-Icon"
 					hideUnless="file folder"
 					testHideIf="t:multipleSelection"/>
+				<menuitem
+					id="places-files-popup-SVNK-ShowAbout"
+					observes="Tasks:SVNK-ShowAbout"
+					label="&svnk.label.showabout;"
+					tooltiptext="&svnk.tooltip.showabout;"
+					class="menuitem-iconic"/>
 			</menupopup>
 		</menu>
 	</menupopup>
+
+	<tabs id="output_tabs">
+		<tab id="output_tabs-SVNK-tab-log" label="&svnk.tab.log.title;"/>
+    </tabs>
+    <tabpanels id="output_tabpanels">
+		<tabpanel id="output_tabpanels-SVNK-tab-logpanel" orient="vertical" flex="1">
+			
+		</tabpanel>
+	</tabpanels>
 </overlay>

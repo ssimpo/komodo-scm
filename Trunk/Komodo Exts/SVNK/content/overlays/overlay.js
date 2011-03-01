@@ -5,7 +5,7 @@
 // license:
 //      LGPL <http://www.gnu.org/licenses/lgpl.html>
 // version:
-//      1.0.3
+//      1.0.4
 
 if (!org) var org={};
 if (!org.simpo) org.simpo={};
@@ -13,7 +13,7 @@ if (!org.simpo) org.simpo={};
 org.simpo.svnk = {
     // strings: string
     //      The locale stringbundle
-    strings: Components.classes["@mozilla.org/intl/stringbundle;1"].getService(Components.interfaces.nsIStringBundleService).createBundle("chrome://SVNK/locale/main.properties"),
+    strings: Components.classes["@mozilla.org/intl/stringbundle;1"].getService(Components.interfaces.nsIStringBundleService).createBundle("chrome://svnk/locale/main.properties"),
     
     stringBundle: function(stringToGet) {
         // summary:
@@ -215,5 +215,33 @@ org.simpo.svnk = {
     
         var projectFile = project.getFile();
         return projectFile.dirName;
+    },
+    _currentViewUpdated: function(event) {
+        var path = ko.uriparse.URIToLocalPath(event.originalTarget.getURI());
+        
+        var RunService = Components.classes["@activestate.com/koRunService;1"].getService(Components.interfaces.koIRunService);
+        var cmd = 'svn.exe log "'+path+'\"';
+        var output = new Object();
+        var error = new Object();
+        
+        
+        try {
+            var process = RunService.RunAndCaptureOutput(cmd,'',null,null,output,error);
+            if (error.value != '') {
+                response = {error:true,value:error.value};
+            } else {
+                response = {error:false,value:output.value};
+            }
+        } catch(e) {
+            response = {error:true,value:e};
+        }
+        
+        alert(response.value);
     }
 };
+
+window.addEventListener(
+    'current_view_changed',
+    org.simpo.svnk._currentViewUpdated,
+    false
+);
