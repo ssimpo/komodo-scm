@@ -161,6 +161,23 @@ org.simpo.svnk = {
         
         return response;
     },
+    _runSvnCommand: function(path,command,switches) {
+        // summary:
+        //      Run a specified SVN command against the given path (with given switches).
+        // path: string
+        //      The path to run the command against.
+        // command: string
+        //      The TortoiseProc command to run.
+        // switches: string
+        //      The switches to add to the SVN command.
+        
+        var cmd = 'svn.exe '+command+' '+switches+' "'+path+'\"';
+        var cwd = 'C:\\Program Files\\Subversion\\';
+        
+        var response = this._runCommand(cmd,cwd,null,null);
+        
+        return response;
+    },
     _getCurrentFilePath: function() {
         //  summary:
         //      Get the path of the currently open file.
@@ -208,20 +225,87 @@ org.simpo.svnk = {
     },
     _currentViewUpdated: function(event) {
         var path = ko.uriparse.URIToLocalPath(event.originalTarget.getURI());
-        var cmd = 'svn.exe log "'+path+'\"';
-        var cwd = 'C:\\Program Files\\Subversion\\';
+        var response = org.simpo.svnk._runSvnCommand(path,'log','');
         
-        var response = this._runCommand(cmd,cwd,null,null);
+        if (!response.error) {
+            var log = org.simpo.svnk._toUnixText(response.value);
+            
+            var blocks = org.simpo.svnk._getLogSections(log);
+            var entries = org.simpo.svnk._getLogEntries(log);
+            
+            //alert(entries[0].block);
+            //alert("REVISION: " + entries[0].revision + "\nUSER: " + entries[0].user + "\nDATE: " + entries[0].date);
+        } else {
+            //alert("ERROR");
+        }
         
-        alert(response.value);
+        //alert(response.value);
     },
-    _runCommand: function(cmd,cwd,env,input) {
+    _getLogEntries: function(log) {
+        var blocks = org.simpo.svnk._getLogSections(log);
+        var entries = new Array();
+        var j = 0;
+            
+        for (i in blocks) {
+            var entry = blocks[i];
+            if (entry != '') {
+                entries[j] = {
+                    'block':entry,
+                    'revision':org.simpo.svnk._getRevisionNumber(entry),
+                    'user':org.simpo.svnk._getUser(entry),
+                    'date':org.simpo.svnk._getRevisionDate(entry)
+                };
+                j++;
+            }
+        }
+        
+        return entries;
+    },
+    _getRevisionNumber: function(block) {
+        try {
+            var result = block.match(/^r(\d+) \|/);
+            result = result[1];
+            result++;result--;
+            return result;
+        } catch(e) {
+            return false;
+        }
+    },
+    _getRevisionDate: function(block) {
+        try {
+            var result = block.match(/\| (\d+\-\d+-\d+ \d+:\d+:\d+ (\+|\-)\d+)/);
+            return result[1];
+        } catch(e) {
+            return false;
+        }
+    },
+    _getUser: function(block) {
+        try {
+            var result = block.match(/\| (\w+) \|/);
+            return result[1];
+        } catch(e) {
+            return false;
+        }
+    },
+    _toUnixText: function(text) {
+        text.replace(/\r\n/g,"\n");
+        text.replace(/[\r\f]/g,"\n");
+        return text;
+    },
+    _getLogSections: function(log) {
+        var blocks = log.split(/^-{10,}$/mg);
+        for (i in blocks) {
+            blocks[i] = blocks[i].replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+        }
+        return blocks;
+    },
+    _runCommand: function(cmd,cwd,env,c_input) {
         var RunService = Components.classes["@activestate.com/koRunService;1"].getService(Components.interfaces.koIRunService);
         var output = new Object();
         var error = new Object();
         
         try {
-            var process = RunService.RunAndCaptureOutput(cmd,cwd,env,input,output,error);
+            var process = RunService.RunAndCaptureOutput(cmd,cwd,env,c_input,output,error);
             if (error.value != '') {
                 return {error:true,value:error.value};
             } else {
