@@ -7,15 +7,31 @@
 // version:
 //      1.0.4
 
-if (!org) var org={};
-if (!org.simpo) org.simpo={};
+if (!org) var org = {};
+if (!org.simpo) org.simpo = {};
 
-org.simpo.svnk = {
-    // strings: string
-    //      The locale stringbundle
-    strings: Components.classes["@mozilla.org/intl/stringbundle;1"].getService(Components.interfaces.nsIStringBundleService).createBundle("chrome://svnk/locale/main.properties"),
+if ( !Function.prototype.bind ) {
+    Function.prototype.bind = function( obj ) {
+        var slice = [].slice,
+        args = slice.call(arguments, 1),
+        self = this,
+        nop = function () {},
+        bound = function () {
+            return self.apply( this instanceof nop ? this : ( obj || {} ),
+                args.concat( slice.call(arguments) ) );
+        };
+        nop.prototype = self.prototype;
+        bound.prototype = new nop();
+        return bound;
+    };
+}
+
+try {
     
-    stringBundle: function(stringToGet) {
+org.simpo.svnk = function() {    
+    this.strings = Components.classes["@mozilla.org/intl/stringbundle;1"].getService(Components.interfaces.nsIStringBundleService).createBundle("chrome://svnk/locale/main.properties");
+    
+    this.stringBundle = function(stringToGet) {
         // summary:
         //      Get the requested string from the stringbundle locale.
         // stringToGet: string
@@ -24,8 +40,9 @@ org.simpo.svnk = {
         //      The local string requested
         
         return this.strings.GetStringFromName(stringToGet);
-    },
-    repoBrowser: function() {
+    };
+    
+    this.repoBrowser = function() {
         // summary:
         //      Open the repository browser for the current project.
         
@@ -36,8 +53,9 @@ org.simpo.svnk = {
         } else {
             alert(this.stringBundle("ErrorBrowserLoad"));
         }
-    },
-    commitPath: function() {
+    };
+    
+    this.commitPath = function() {
         // summary:
         //      Commit the path(s) selected in the current places view to the
         //      SVN repository.
@@ -48,8 +66,9 @@ org.simpo.svnk = {
         } catch (e) {
             alert(this.stringBundle("ErrorCommitSelect"));
         }
-    },
-    commitProject: function() {
+    };
+    
+    this.commitProject = function() {
         // summary:
         //      Open the commit interface for the current project.
         
@@ -60,8 +79,9 @@ org.simpo.svnk = {
         } else {
             alert(this.stringBundle("ErrorCommitProject"));
         }
-    },
-    compareDiff: function() {
+    };
+    
+    this.compareDiff = function() {
         // summary:
         //      Compare the file selected in the current places view with it's
         //      SVN versioned copy.
@@ -74,8 +94,9 @@ org.simpo.svnk = {
         } catch (e) {
             alert(this.stringBundle("ErrorCompareSelected"));
         }
-    },
-    compareDiffActiveFile: function() {
+    };
+    
+    this.compareDiffActiveFile = function() {
         // summary:
         //      Compare the current file to its versioned copy in SVN.
         
@@ -89,8 +110,9 @@ org.simpo.svnk = {
         } catch(e) {
             alert(this.stringBundle("ErrorNoCurrentFile"));
         }
-    },
-    viewLog: function() {
+    };
+    
+    this.viewLog = function() {
         // summary:
         //      View the SVN log for selected file in the current places view.
         
@@ -102,8 +124,9 @@ org.simpo.svnk = {
         } catch (e) {
             alert(this.stringBundle("ErrorFailedSVNLog"));
         }
-    },
-    viewLogActiveFile: function() {
+    };
+    
+    this.viewLogActiveFile = function() {
         // summary:
         //      View the SVN log for the current file.
         
@@ -117,8 +140,9 @@ org.simpo.svnk = {
         } catch(e) {
             alert(this.stringBundle("ErrorNoCurrentFile"));
         }
-    },
-    viewProperties: function() {
+    };
+    
+    this.viewProperties = function() {
         // summary:
         //      View the SVN properties for selected file in the
         //      current places view.
@@ -131,8 +155,9 @@ org.simpo.svnk = {
         } catch (e) {
             alert(this.stringBundle("ErrorFailedSVNProperties"));
         }
-    },
-    viewPropertiesActiveFile: function() {
+    };
+    
+    this.viewPropertiesActiveFile = function() {
         // summary:
         //      View the SVN file properties for the current file.
         
@@ -146,8 +171,9 @@ org.simpo.svnk = {
         } catch(e) {
             alert(this.stringBundle("ErrorNoCurrentFile"));
         }
-    },
-    _runTortoiseProc: function(path,command) {
+    };
+    
+    this._runTortoiseProc = function(path,command) {
         // summary:
         //      Run a specified TortoiseProc command against the given path.
         // path: string
@@ -160,8 +186,9 @@ org.simpo.svnk = {
         var response = this._runCommand(cmd,cwd,null,null);
         
         return response;
-    },
-    _runSvnCommand: function(path,command,switches) {
+    };
+    
+    this._runSvnCommand = function(path,command,switches) {
         // summary:
         //      Run a specified SVN command against the given path (with given switches).
         // path: string
@@ -177,8 +204,9 @@ org.simpo.svnk = {
         var response = this._runCommand(cmd,cwd,null,null);
         
         return response;
-    },
-    _getCurrentFilePath: function() {
+    };
+    
+    this._getCurrentFilePath = function() {
         //  summary:
         //      Get the path of the currently open file.
         //  returns: string
@@ -188,8 +216,9 @@ org.simpo.svnk = {
         } catch(e) {
             return false;   
         }
-    },
-    _getSelectedPaths: function() {
+    };
+    
+    this._getSelectedPaths = function() {
         // summary:
         //      Get the paths of the currently selected items in the places view.
         
@@ -200,8 +229,9 @@ org.simpo.svnk = {
             var path = ko.uriparse.URIToLocalPath(uri);
             return path;
         });
-    },
-    _getProject: function() {
+    };
+    
+    this._getProject = function() {
         //  summary:
         //      Get the project, the current file is attached to (will assume first
         //      which it find the current file in).
@@ -212,8 +242,9 @@ org.simpo.svnk = {
         } catch(e) {
             return false;   
         }
-    },
-    _getProjectPath: function(project) {
+    };
+    
+    this._getProjectPath = function(project) {
         // summary:
         //      Get the path of a project.
         // project: object KomodoProject
@@ -222,84 +253,39 @@ org.simpo.svnk = {
     
         var projectFile = project.getFile();
         return projectFile.dirName;
-    },
-    _currentViewUpdated: function(event) {
+    };
+    
+    this._currentViewUpdated = function(event) {
         var path = ko.uriparse.URIToLocalPath(event.originalTarget.getURI());
-        var response = org.simpo.svnk._runSvnCommand(path,'log','');
+        var response = this._runSvnCommand(path,'log','');
         
         if (!response.error) {
-            var log = org.simpo.svnk._toUnixText(response.value);
+            try {
+                var logParser = new org.simpo.svnk.logParser(response.value);
+            } catch(e) { Components.utils.reportError(e); }
             
-            var blocks = org.simpo.svnk._getLogSections(log);
-            var entries = org.simpo.svnk._getLogEntries(log);
+            //var log = org.simpo.svnk.logParser._toUnixText(response.value);
+            //var blocks = org.simpo.svnk.logParser._getLogSections(log);
+            //var entries = org.simpo.svnk.logParser._getLogEntries(log);
             
-            //alert(entries[0].block);
-            //alert("REVISION: " + entries[0].revision + "\nUSER: " + entries[0].user + "\nDATE: " + entries[0].date);
+            //Components.utils.reportError(logParser.entries[0].block);
+            //Components.utils.reportError("REVISION: " + logParser.entries[0].revision + "\nUSER: " + logParser.entries[0].user + "\nDATE: " + logParser.entries[0].date);
+            
+            try {
+                var logView = new org.simpo.svnk.logView();
+            } catch(e) { Components.utils.reportError(e); }
+            
+            try {
+                logView.addItem(logParser.entries);
+            } catch(e) { Components.utils.reportError(e); }
         } else {
-            //alert("ERROR");
+            Components.utils.reportError(response.value);
         }
         
         //alert(response.value);
-    },
-    _getLogEntries: function(log) {
-        var blocks = org.simpo.svnk._getLogSections(log);
-        var entries = new Array();
-        var j = 0;
-            
-        for (i in blocks) {
-            var entry = blocks[i];
-            if (entry != '') {
-                entries[j] = {
-                    'block':entry,
-                    'revision':org.simpo.svnk._getRevisionNumber(entry),
-                    'user':org.simpo.svnk._getUser(entry),
-                    'date':org.simpo.svnk._getRevisionDate(entry)
-                };
-                j++;
-            }
-        }
-        
-        return entries;
-    },
-    _getRevisionNumber: function(block) {
-        try {
-            var result = block.match(/^r(\d+) \|/);
-            result = result[1];
-            result++;result--;
-            return result;
-        } catch(e) {
-            return false;
-        }
-    },
-    _getRevisionDate: function(block) {
-        try {
-            var result = block.match(/\| (\d+\-\d+-\d+ \d+:\d+:\d+ (\+|\-)\d+)/);
-            return result[1];
-        } catch(e) {
-            return false;
-        }
-    },
-    _getUser: function(block) {
-        try {
-            var result = block.match(/\| (\w+) \|/);
-            return result[1];
-        } catch(e) {
-            return false;
-        }
-    },
-    _toUnixText: function(text) {
-        text.replace(/\r\n/g,"\n");
-        text.replace(/[\r\f]/g,"\n");
-        return text;
-    },
-    _getLogSections: function(log) {
-        var blocks = log.split(/^-{10,}$/mg);
-        for (i in blocks) {
-            blocks[i] = blocks[i].replace(/^\s\s*/, '').replace(/\s\s*$/, '');
-        }
-        return blocks;
-    },
-    _runCommand: function(cmd,cwd,env,c_input) {
+    };
+    
+    this._runCommand = function(cmd,cwd,env,c_input) {
         var RunService = Components.classes["@activestate.com/koRunService;1"].getService(Components.interfaces.koIRunService);
         var output = new Object();
         var error = new Object();
@@ -314,11 +300,136 @@ org.simpo.svnk = {
         } catch(e) {
             return {error:true,value:e};
         }
-    }
+    };
+    
+    window.addEventListener(
+        'current_view_changed',
+        this._currentViewUpdated.bind(this),
+        false
+    );
+    
 };
 
-window.addEventListener(
+org.simpo.svnk.logView = function() {
+    this.view = document.getElementById("SVNK-tab-logpanel-tree-content");
+    
+    this.addItem = function(log) {
+        for (var i = 0;i < log.length; i++) {
+            var item = document.createElement("treeitem");
+            item.container = true;
+            item.open = true;
+            this.view.appendChild(item);
+    
+            content = new Array(
+                log[i].revision,
+                log[i].user,
+                log[i].date,
+                log[i].block
+            );
+            
+            this.addRow(item,content);
+        }
+    };
+    
+    this.addRow = function(item,content) {
+        var row = document.createElement("treerow");
+        item.appendChild(row);
+            
+        for (var i = 0; i < content.length; i++) {
+            item.appendChild(row);
+            this.addCell(row,content[i]);
+        }
+    };
+    
+    this.addCell = function(row,content) {
+        var cell = document.createElement("treecell");
+        cell.setAttribute("label", content);
+        row.appendChild(cell);
+        //Components.utils.reportError(content);
+    };
+};
+
+org.simpo.svnk.logParser = function(log) {
+    
+    this._getLogEntries = function(log) {
+        var blocks = this._getLogSections(log);
+        var entries = new Array();
+        var j = 0;
+            
+        for (i in blocks) {
+            var entry = blocks[i];
+            if (entry != '') {
+                entries[j] = {
+                    'block':entry,
+                    'revision':this._getRevisionNumber(entry),
+                    'user':this._getUser(entry),
+                    'date':this._getRevisionDate(entry)
+                };
+                j++;
+            }
+        }
+        
+        return entries;
+    };
+    
+    this._getRevisionNumber = function(block) {
+        try {
+            var result = block.match(/^r(\d+) \|/);
+            result = result[1];
+            result++;result--;
+            return result;
+        } catch(e) {
+            return false;
+        }
+    };
+    
+    this._getRevisionDate = function(block) {
+        try {
+            var result = block.match(/\| (\d+\-\d+-\d+ \d+:\d+:\d+ (\+|\-)\d+)/);
+            return result[1];
+        } catch(e) {
+            return false;
+        }
+    };
+    
+    this._getUser = function(block) {
+        try {
+            var result = block.match(/\| (\w+) \|/);
+            return result[1];
+        } catch(e) {
+            return false;
+        }
+    };
+    
+    this._toUnixText = function(text) {
+        text.replace(/\r\n/g,"\n");
+        text.replace(/[\r\f]/g,"\n");
+        return text;
+    };
+    
+    this._getLogSections = function(log) {
+        var blocks = log.split(/^-{10,}$/mg);
+        for (i in blocks) {
+            blocks[i] = blocks[i].replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+        }
+        return blocks;
+    };
+    
+    this.log = this._toUnixText(log);
+    this.entries = this._getLogEntries(this.log);
+};
+
+var SVNK = new org.simpo.svnk();
+
+
+} catch (e) {
+    Components.utils.reportError(e);
+}
+
+
+
+/*window.addEventListener(
     'current_view_changed',
     org.simpo.svnk._currentViewUpdated,
     false
-);
+);*/
