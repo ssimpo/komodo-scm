@@ -168,34 +168,14 @@ version:
     </tabs>
     <tabpanels id="output_tabpanels">
 		<tabpanel id="output_tabpanels-SVNK-tab-logpanel" orient="vertical" flex="1">
-			<tree id="SVNK-tab-logpanel-tree" seltype="single">
-				<treecols>
-					<treecol primary="true"
-						id="SVNK-tab-logpanel-col-revision"
-						label="r"
-						persist="width"
-						flex="1"/>
-					<splitter class="tree-splitter" />
-					<treecol
-						id="SVNK-tab-logpanel-col-user"
-						label="User"
-						crop="left"
-						persist="width"/>
-					<splitter class="tree-splitter" />
-					<treecol
-						id="SVNK-tab-logpanel-col-date"
-						label="Date"
-						persist="width"
-						flex="1"/>
-					<splitter class="tree-splitter" />
-					<treecol
-						id="SVNK-tab-logpanel-col-details"
-						label="Details"
-						crop="left"
-						persist="width"
-						flex="1"/>
+			<tree id="SVNK-logTree" flex="1">
+				<treecols id="SVNK-logTree-cols">
+					<treecol id="SVNK-logTree-col-revision" label="r" flex="1"/>
+					<treecol id="SVNK-logTree-col-user" label="User" flex="3"/>
+					<treecol id="SVNK-logTree-col-date" label="Date" flex="4"/>
+					<treecol id="SVNK-logTree-col-details" label="Details" flex="20"/>
 				</treecols>
-                <treechildren id="SVNK-tab-logpanel-tree-content" flex="1" />
+				<treechildren/>
 			</tree>
 		</tabpanel>
 	</tabpanels>
