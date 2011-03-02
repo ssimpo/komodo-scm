@@ -262,21 +262,14 @@ org.simpo.svnk = function() {
         if (!response.error) {
             try {
                 var logParser = new org.simpo.svnk.logParser(response.value);
-            } catch(e) { Components.utils.reportError(e); }
-            
-            //var log = org.simpo.svnk.logParser._toUnixText(response.value);
-            //var blocks = org.simpo.svnk.logParser._getLogSections(log);
-            //var entries = org.simpo.svnk.logParser._getLogEntries(log);
-            
-            //Components.utils.reportError(logParser.entries[0].block);
-            //Components.utils.reportError("REVISION: " + logParser.entries[0].revision + "\nUSER: " + logParser.entries[0].user + "\nDATE: " + logParser.entries[0].date);
-            
-            try {
-                var logView = new org.simpo.svnk.logView();
-            } catch(e) { Components.utils.reportError(e); }
-            
-            try {
-                logView.addItem(logParser.entries);
+                var tree = document.getElementById("SVNK-logTree");
+                
+                org.simpo.svnk.logView.entries = logParser.entries;
+                org.simpo.svnk.logView.rowCount = logParser.entries.length;
+                tree.view = org.simpo.svnk.logView;
+                
+                
+                
             } catch(e) { Components.utils.reportError(e); }
         } else {
             Components.utils.reportError(response.value);
@@ -310,43 +303,31 @@ org.simpo.svnk = function() {
     
 };
 
-org.simpo.svnk.logView = function() {
-    this.view = document.getElementById("SVNK-tab-logpanel-tree-content");
-    
-    this.addItem = function(log) {
-        for (var i = 0;i < log.length; i++) {
-            var item = document.createElement("treeitem");
-            item.container = true;
-            item.open = true;
-            this.view.appendChild(item);
-    
-            content = new Array(
-                log[i].revision,
-                log[i].user,
-                log[i].date,
-                log[i].block
-            );
-            
-            this.addRow(item,content);
+org.simpo.svnk.logView = {
+    rowCount : 0,
+    entries: [],
+    getCellText : function(row,column) {
+        switch (column.id) {
+            case "SVNK-logTree-col-revision":
+                return this.entries[row].revision;
+            case "SVNK-logTree-col-user":
+                return this.entries[row].user;
+            case "SVNK-logTree-col-date":
+                return this.entries[row].date;
+            case "SVNK-logTree-col-details":
+                return this.entries[row].details;
         }
-    };
-    
-    this.addRow = function(item,content) {
-        var row = document.createElement("treerow");
-        item.appendChild(row);
-            
-        for (var i = 0; i < content.length; i++) {
-            item.appendChild(row);
-            this.addCell(row,content[i]);
-        }
-    };
-    
-    this.addCell = function(row,content) {
-        var cell = document.createElement("treecell");
-        cell.setAttribute("label", content);
-        row.appendChild(cell);
-        //Components.utils.reportError(content);
-    };
+        return "";
+    },
+    setTree: function(treebox) { this.treebox = treebox; },
+    isContainer: function(row) { return false; },
+    isSeparator: function(row) { return false; },
+    isSorted: function() { return false; },
+    getLevel: function(row) { return 0; },
+    getImageSrc: function(row,col) { return null; },
+    getRowProperties: function(row,props) {},
+    getCellProperties: function(row,col,props) {},
+    getColumnProperties: function(colid,col,props) {}
 };
 
 org.simpo.svnk.logParser = function(log) {
@@ -361,6 +342,7 @@ org.simpo.svnk.logParser = function(log) {
             if (entry != '') {
                 entries[j] = {
                     'block':entry,
+                    'details':this._getDetails(entry),
                     'revision':this._getRevisionNumber(entry),
                     'user':this._getUser(entry),
                     'date':this._getRevisionDate(entry)
@@ -387,6 +369,16 @@ org.simpo.svnk.logParser = function(log) {
         try {
             var result = block.match(/\| (\d+\-\d+-\d+ \d+:\d+:\d+ (\+|\-)\d+)/);
             return result[1];
+        } catch(e) {
+            return false;
+        }
+    };
+    
+    this._getDetails = function(block) {
+        try {
+            var result = block.split(/\n/);
+            result.shift();result.shift();
+            return result.join(' ... ');
         } catch(e) {
             return false;
         }
