@@ -379,7 +379,7 @@ org.simpo.svnk.logView = function(entries,tree) {
             case "SVNK-logTree-col-date":
                 return this.entries[row].date;
             case "SVNK-logTree-col-details":
-                return this.entries[row].details;
+                return this.entries[row].details.replace(/\n/,' ... ');
         }
         return "";
     },
@@ -564,7 +564,6 @@ org.simpo.svnk.logParser = function(log) {
 
 // Global namespace violation?
 var SVNK = new org.simpo.svnk();
-
 
 } catch (e) {
     Components.utils.reportError(e);
