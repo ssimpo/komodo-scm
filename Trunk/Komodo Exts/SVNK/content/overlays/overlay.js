@@ -7,9 +7,13 @@
 // version:
 //      1.0.4
 
+
+// Non violation of global namespace.
 if (!org) var org = {};
 if (!org.simpo) org.simpo = {};
 
+// Current version of Komodo does not support Function.bind; this emulates
+// that functionality.
 if ( !Function.prototype.bind ) {
     Function.prototype.bind = function( obj ) {
         var slice = [].slice,
@@ -558,6 +562,7 @@ org.simpo.svnk.logParser = function(log) {
     this.entries = this._getLogEntries(this.log);
 };
 
+// Global namespace violation?
 var SVNK = new org.simpo.svnk();
 
 
