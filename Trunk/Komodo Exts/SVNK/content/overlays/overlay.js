@@ -263,13 +263,8 @@ org.simpo.svnk = function() {
             try {
                 var logParser = new org.simpo.svnk.logParser(response.value);
                 var tree = document.getElementById("SVNK-logTree");
-                
-                org.simpo.svnk.logView.entries = logParser.entries;
-                org.simpo.svnk.logView.rowCount = logParser.entries.length;
-                tree.view = org.simpo.svnk.logView;
-                
-                
-                
+                var logView = new org.simpo.svnk.logView(logParser.entries,tree);
+                tree.view = logView;
             } catch(e) { Components.utils.reportError(e); }
         } else {
             Components.utils.reportError(response.value);
@@ -303,10 +298,8 @@ org.simpo.svnk = function() {
     
 };
 
-org.simpo.svnk.logView = {
-    rowCount : 0,
-    entries: [],
-    getCellText : function(row,column) {
+org.simpo.svnk.logView = function(entries,tree) {
+    this.getCellText = function(row,column) {
         switch (column.id) {
             case "SVNK-logTree-col-revision":
                 return this.entries[row].revision;
@@ -319,15 +312,29 @@ org.simpo.svnk.logView = {
         }
         return "";
     },
-    setTree: function(treebox) { this.treebox = treebox; },
-    isContainer: function(row) { return false; },
-    isSeparator: function(row) { return false; },
-    isSorted: function() { return false; },
-    getLevel: function(row) { return 0; },
-    getImageSrc: function(row,col) { return null; },
-    getRowProperties: function(row,props) {},
-    getCellProperties: function(row,col,props) {},
-    getColumnProperties: function(colid,col,props) {}
+    this.setTree = function(treebox) { this.treebox = treebox; };
+    this.isContainer = function(row) { return false; };
+    this.isSeparator = function(row) { return false; };
+    this.isSorted = function() { return false; };
+    this.getLevel = function(row) { return 0; };
+    this.getImageSrc = function(row,col) { return null; };
+    this.getRowProperties = function(row,props) {};
+    this.getCellProperties = function(row,col,props) {};
+    this.getColumnProperties = function(colid,col,props) {};
+    this._onClick = function(event) {
+        alert("CLICK: "+event.originalTarget.tagName);
+    };
+    this._onRightClick = function(event) {
+        try {
+        alert(this.tree.currentIndex);
+        } catch(e) { Components.utils.reportError(e); }
+    };
+    
+    this.rowCount = entries.length;
+    this.entries = entries;
+    this.tree = tree;
+    
+    tree.addEventListener('contextmenu', this._onRightClick.bind(this), true);
 };
 
 org.simpo.svnk.logParser = function(log) {
