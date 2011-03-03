@@ -1,5 +1,5 @@
 // summary:
-//      Main javascript content for SVN-K.
+//      Main JavaScript content for SVN-K.
 // author:
 //      Stephen Simpson <me@simpo.org>
 // license:
@@ -52,7 +52,7 @@ org.simpo.svnk = function() {
         // summary:
         //      Open the repository browser for the current project.
         // todo:
-        //      Parse and deal with any feedback fron running the command.
+        //      Parse and deal with any feedback from running the command.
         
         var project = this._getProject();
         if (project) {
@@ -68,7 +68,7 @@ org.simpo.svnk = function() {
         //      Commit the path(s) selected in the current places view to the
         //      SVN repository.
         // todo:
-        //      Parse and deal with any feedback fron running the command.
+        //      Parse and deal with any feedback from running the command.
         
         try {
             var paths = this._getSelectedPaths();
@@ -82,7 +82,7 @@ org.simpo.svnk = function() {
         // summary:
         //      Open the commit interface for the current project.
         // todo:
-        //      Parse and deal with any feedback fron running the command.
+        //      Parse and deal with any feedback from running the command.
         
         var project = this._getProject();
         if (project) {
@@ -98,7 +98,7 @@ org.simpo.svnk = function() {
         //      Compare the file selected in the current places view with it's
         //      SVN versioned copy.
         // todo:
-        //      Parse and deal with any feedback fron running the command.
+        //      Parse and deal with any feedback from running the command.
         
         try {
             var paths = this._getSelectedPaths();
@@ -114,7 +114,7 @@ org.simpo.svnk = function() {
         // summary:
         //      Compare the current file to its versioned copy in SVN.
         // todo:
-        //      Parse and deal with any feedback fron running the command.
+        //      Parse and deal with any feedback from running the command.
         
         try {
             var path = this._getCurrentFilePath();
@@ -132,7 +132,7 @@ org.simpo.svnk = function() {
         // summary:
         //      View the SVN log for selected file in the current places view.
         // todo:
-        //      Parse and deal with any feedback fron running the command.
+        //      Parse and deal with any feedback from running the command.
         
         try {
             var paths = this._getSelectedPaths();
@@ -148,7 +148,7 @@ org.simpo.svnk = function() {
         // summary:
         //      View the SVN log for the current file.
         // todo:
-        //      Parse and deal with any feedback fron running the command.
+        //      Parse and deal with any feedback from running the command.
         
         try {
             var path = this._getCurrentFilePath();
@@ -167,7 +167,7 @@ org.simpo.svnk = function() {
         //      View the SVN properties for selected file in the
         //      current places view.
         // todo:
-        //      Parse and deal with any feedback fron running the command.
+        //      Parse and deal with any feedback from running the command.
         
         try {
             var paths = this._getSelectedPaths();
@@ -183,7 +183,7 @@ org.simpo.svnk = function() {
         // summary:
         //      View the SVN file properties for the current file.
         // todo:
-        //      Parse and deal with any feedback fron running the command.
+        //      Parse and deal with any feedback from running the command.
         
         try {
             var path = this._getCurrentFilePath();
@@ -251,7 +251,7 @@ org.simpo.svnk = function() {
         // summary:
         //      Get the paths of the currently selected items in the places view.
         // returns: array
-        //      The selectd paths.
+        //      The selected paths.
         
         var view = ko.places.viewMgr.view;
         var selectedIndices = ko.treeutils.getSelectedIndices(view, false);
@@ -361,7 +361,7 @@ org.simpo.svnk.logView = function(entries,tree) {
     this.getCellText = function(row,column) {
         // summary:
         //      Supply the text-content for a given tree cell.
-        // row: interger
+        // row: integer
         //      The row number in the tree.
         // column: object XULTreecolElement
         //      The column element in the tree.
@@ -397,7 +397,7 @@ org.simpo.svnk.logView = function(entries,tree) {
         } catch(e) { Components.utils.reportError(e); }
     };
     
-    // rowCount: interger
+    // rowCount: integer
     //      The number of rows to output to the current tree.
     this.rowCount = entries.length;
     
@@ -414,7 +414,7 @@ org.simpo.svnk.logView = function(entries,tree) {
 
 org.simpo.svnk.logParser = function(log) {
     // summary
-    //      Parse a SVN-log file into its componant parts.
+    //      Parse a SVN-log file into its component parts.
     // log: string
     //      The SVN Log.
     // todo:
@@ -450,10 +450,10 @@ org.simpo.svnk.logParser = function(log) {
     
     this._getRevisionNumber = function(block) {
         // summary:
-        //      Get the revision number from the supllied block of text.
+        //      Get the revision number from the supplied block of text.
         // block:
         //      A block of text, which equates to a single log entry.
-        // returns: interger
+        // returns: integer
         // todo:
         //      The result++/result-- code is messy and needs refactoring.
         
@@ -518,7 +518,7 @@ org.simpo.svnk.logParser = function(log) {
     
     this._toUnixText = function(text) {
         // summary:
-        //      Convert line endings within a string into their UNIX equivilant.
+        //      Convert line endings within a string into their UNIX equivalent.
         // text: string
         //      The string to convert
         
