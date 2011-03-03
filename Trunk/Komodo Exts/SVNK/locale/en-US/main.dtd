@@ -17,13 +17,18 @@ version:
 <!ENTITY svnk.label.viewlogfile "View SVN file log">
 <!ENTITY svnk.label.viewlogfile2 "View SVN file/folder log">
 <!ENTITY svnk.label.showabout "About SVN-K">
+<!ENTITY svnk.label.viewlogentry "View entry">
+<!ENTITY svnk.label.compareentry "Compare to current version">
 
+<!ENTITY svnk.tooltip.viewlogfile "View the SVN log for the current file">
 <!ENTITY svnk.tooltip.viewlogfile "View the SVN log for the current file">
 <!ENTITY svnk.tooltip.viewproperties "View SVN properties of the current file">
 <!ENTITY svnk.tooltip.comparefile "Compare current file to repository version">
 <!ENTITY svnk.tooltip.commitproject "Commit current project to SVN">
 <!ENTITY svnk.tooltip.repobrowser "Repository Browser for current project">
 <!ENTITY svnk.tooltip.showabout "Information about SVN-K">
+<!ENTITY svnk.tooltip.viewlogentry "View log entry in popup window">
+<!ENTITY svnk.tooltip.compareentry "Compare to current working copy version">
 
 <!ENTITY svnk.tooltip.selected.viewlogfile "View the SVN log for the selected files and folders">
 <!ENTITY svnk.tooltip.selected.viewproperties "View SVN properties for the current files and folders">

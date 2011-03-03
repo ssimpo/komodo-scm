@@ -33,8 +33,10 @@ version:
 		<command id="Tasks:SVNK-ViewPropertiesActiveFile" oncommand="SVNK.viewPropertiesActiveFile();"/>
 		<command id="Tasks:SVNK-ViewProperties" oncommand="SVNK.viewProperties();"/>
 		<command id="Tasks:SVNK-ViewLogActiveFile" oncommand="SVNK.viewLogActiveFile();"/>
-		<command id="Tasks:SVNK-ViewLog" oncommand="SVNK.svnk.viewLog();"/>
+		<command id="Tasks:SVNK-ViewLog" oncommand="SVNK.viewLog();"/>
 		<command id="Tasks:SVNK-ShowAbout" oncommand="openDialog('chrome://svnk/content/about.xul', 'about');"/>
+		<command id="Tasks:SVNK-ViewLogEntry" oncommand="SVNK.viewEntry();"/>
+		<command id="Tasks:SVNK-CompareEntry" oncommand="SVNK.compareEntry();"/>
 	</commandset>
 
 	<!-- Main Komodo Toolbar options -->
@@ -162,11 +164,28 @@ version:
 			</menupopup>
 		</menu>
 	</menupopup>
+	
+	<popupset>
+		<menupopup id="SVNK-logTree-popup">
+			<menuitem
+				id="SVNK-logTree-popup-viewEntry"
+				observes="Tasks:SVNK-ViewLogEntry"
+				label="&svnk.label.viewlogentry;"
+				tooltiptext="&svnk.tooltip.viewlogentry;"
+				class="menuitem-iconic SVNK-Log-Icon"/>
+			<menuitem
+				id="SVNK-logTree-popup-compareEntry"
+				observes="Tasks:SVNK-CompareEntry"
+				label="&svnk.label.compareentry;"
+				tooltiptext="&svnk.tooltip.compareentry;"
+				class="menuitem-iconic SVNK-Diff-Icon"/>
+		</menupopup>
+	</popupset>
 
 	<tabs id="output_tabs">
 		<tab id="output_tabs-SVNK-tab-log" label="&svnk.tab.log.title;"/>
-    </tabs>
-    <tabpanels id="output_tabpanels">
+	</tabs>
+	<tabpanels id="output_tabpanels">
 		<tabpanel id="output_tabpanels-SVNK-tab-logpanel" orient="vertical" flex="1">
 			<tree id="SVNK-logTree" flex="1">
 				<treecols id="SVNK-logTree-cols">
@@ -175,7 +194,7 @@ version:
 					<treecol id="SVNK-logTree-col-date" label="Date" flex="4"/>
 					<treecol id="SVNK-logTree-col-details" label="Details" flex="20"/>
 				</treecols>
-				<treechildren/>
+				<treechildren id="SVNK-logTree-content" context="SVNK-logTree-popup"/>
 			</tree>
 		</tabpanel>
 	</tabpanels>
