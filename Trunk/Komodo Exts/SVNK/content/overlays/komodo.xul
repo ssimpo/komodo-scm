@@ -34,7 +34,7 @@ version:
 		<command id="Tasks:SVNK-ViewProperties" oncommand="SVNK.viewProperties();"/>
 		<command id="Tasks:SVNK-ViewLogActiveFile" oncommand="SVNK.viewLogActiveFile();"/>
 		<command id="Tasks:SVNK-ViewLog" oncommand="SVNK.viewLog();"/>
-		<command id="Tasks:SVNK-ShowAbout" oncommand="openDialog('chrome://svnk/content/about.xul', 'about');"/>
+		<command id="Tasks:SVNK-ShowAbout" oncommand="openDialog('chrome://svnk/content/about.xul', 'about', 'chrome,modal,centerscreen');"/>
 		<command id="Tasks:SVNK-ViewLogEntry" oncommand="SVNK.viewEntry();"/>
 		<command id="Tasks:SVNK-CompareEntry" oncommand="SVNK.compareEntry();"/>
 	</commandset>
