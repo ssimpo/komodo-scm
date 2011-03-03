@@ -40,6 +40,7 @@ org.simpo.svnk = function() {
     // strings: object
     //      String-bundle class for error reporting ... etc.
     this.strings = Components.classes["@mozilla.org/intl/stringbundle;1"].getService(Components.interfaces.nsIStringBundleService).createBundle("chrome://svnk/locale/main.properties");
+    this.entries = [];
     
     this.stringBundle = function(stringToGet) {
         // summary:
@@ -97,6 +98,10 @@ org.simpo.svnk = function() {
         }
     };
     
+    this.compareEntry = function() {
+        
+    };
+    
     this.compareDiff = function() {
         // summary:
         //      Compare the file selected in the current places view with it's
@@ -129,6 +134,18 @@ org.simpo.svnk = function() {
             }
         } catch(e) {
             alert(this.stringBundle("ErrorNoCurrentFile"));
+        }
+    };
+    
+    this.viewEntry = function() {
+        try {
+            var tree = document.getElementById("SVNK-logTree");
+            var treeIndex = tree.currentIndex;
+            var currentEntry = this.entries[treeIndex];
+            openDialog('chrome://svnk/content/viewLogEntry.xul', 'Log Entry');
+            
+        } catch(e) {
+            alert("ERROR");
         }
     };
     
@@ -303,7 +320,9 @@ org.simpo.svnk = function() {
             try {
                 var logParser = new org.simpo.svnk.logParser(response.value);
                 var tree = document.getElementById("SVNK-logTree");
-                var logView = new org.simpo.svnk.logView(logParser.entries,tree);
+                this.entries = logParser.entries;
+                var logView = new org.simpo.svnk.logView(this.entries,tree);
+                
                 tree.view = logView;
             } catch(e) { Components.utils.reportError(e); }
         } else {
@@ -392,9 +411,6 @@ org.simpo.svnk.logView = function(entries,tree) {
     this.getRowProperties = function(row,props) {};
     this.getCellProperties = function(row,col,props) {};
     this.getColumnProperties = function(colid,col,props) {};
-    this._onClick = function(event) {
-        alert("CLICK: "+event.originalTarget.tagName);
-    };
     this._onRightClick = function(event) {
         try {
         alert(this.tree.currentIndex);
@@ -413,7 +429,7 @@ org.simpo.svnk.logView = function(entries,tree) {
     //      Reference to the tree element, which we are parsing to
     this.tree = tree;
     
-    tree.addEventListener('contextmenu', this._onRightClick.bind(this), true);
+    //tree.addEventListener('contextmenu', this._onRightClick.bind(this), true);
 };
 
 org.simpo.svnk.logParser = function(log) {
