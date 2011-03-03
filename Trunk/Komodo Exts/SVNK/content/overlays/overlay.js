@@ -142,7 +142,12 @@ org.simpo.svnk = function() {
             var tree = document.getElementById("SVNK-logTree");
             var treeIndex = tree.currentIndex;
             var currentEntry = this.entries[treeIndex];
-            openDialog('chrome://svnk/content/viewLogEntry.xul', 'Log Entry');
+            openDialog(
+                'chrome://svnk/content/viewLogEntry.xul',
+                'Revision No.'+currentEntry.revision.toString(),
+                'chrome,modal,centerscreen',
+                currentEntry
+            );
             
         } catch(e) {
             alert("ERROR");
@@ -398,7 +403,8 @@ org.simpo.svnk.logView = function(entries,tree) {
             case "SVNK-logTree-col-date":
                 return this.entries[row].date;
             case "SVNK-logTree-col-details":
-                return this.entries[row].details.replace(/\n/,' ... ');
+                var details = this.entries[row].details;
+                return details.replace(/\n/,' ... ');
         }
         return "";
     },

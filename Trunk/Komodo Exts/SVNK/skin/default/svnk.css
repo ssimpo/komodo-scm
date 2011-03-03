@@ -17,3 +17,28 @@
 .SVNK-Log-Icon {
     list-style-image: url("chrome://svnk/skin/images/log16x16.png");
 }
+
+.SVNK-standardDialog-width {
+    width:400px;
+}
+
+.SVNK-standardPartDialog-width {
+    width:300px;
+}
+
+.SVNK-dialogWhiteBox {
+    background-color:#ffffff;padding:5px;border:1px solid #999999;
+}
+
+.SVNK-dialog-bigger {
+    font-size: larger;
+}
+
+pre.plain {
+    padding:5px; font-family: sans-serif;
+}
+
+separator.groove-thin {
+    border-top: 1px solid #999999;
+    margin-top:5px;margin-bottom:10px;
+}

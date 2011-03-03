@@ -20,16 +20,53 @@ version:
 -->
 <dialog
     id="SVNK-viewEntry-dialog"
-    title="Log Entry"
     buttons="accept"
     buttonlabelaccept="OK"
     xmlns:html="http://www.w3.org/1999/xhtml"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
-
-<vbox>
     
-
-</vbox>
+    <vbox class="SVNK-dialogWhiteBox">
+	
+	<hbox>
+	    <label value="Revision Number:" class="header"/>
+	    <label id="SVNK-viewEntry-dialog-revisionValue" class="plain"/>
+	</hbox>
+    
+	<hbox>
+	    <label value="User:" class="header"/>
+	    <label id="SVNK-viewEntry-dialog-userValue" class="plain"/>
+	</hbox>
+    
+	<hbox>
+	    <label value="Date:" class="header"/>
+	    <label id="SVNK-viewEntry-dialog-dateValue" class="plain"/>
+	</hbox>
+	
+	<separator class="groove-thin" orient="horizontal"/>
+	
+	<vbox>
+	    <label value="Details:" class="header SVNK-dialog-bigger"/>
+	    <html:pre
+		id="SVNK-viewEntry-dialog-details"
+		class="plain SVNK-standardDialog-width SVNK-dialog-bigger"
+	    ></html:pre>
+	</vbox>
+    
+    </vbox>
+    
+    <script type="application/x-javascript">
+    //<![CDATA[
+	var revision = window.arguments[0].revision.toString();
+	var user = window.arguments[0].user;
+	var date = window.arguments[0].date;
+	var details = window.arguments[0].details;
+    
+	document.getElementById("SVNK-viewEntry-dialog-revisionValue").value = revision;
+	document.getElementById("SVNK-viewEntry-dialog-userValue").value = user;
+	document.getElementById("SVNK-viewEntry-dialog-dateValue").value = date;
+	document.getElementById("SVNK-viewEntry-dialog-details").innerHTML = details;
+    //]]>
+    </script>
 
 </dialog>

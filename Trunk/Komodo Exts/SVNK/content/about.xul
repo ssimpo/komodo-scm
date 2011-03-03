@@ -33,7 +33,9 @@ version:
     
         <vbox>
             <label value="SVN-K" class="header SVNK-about-header" />
-            <description style="width:300px">SVN-K is an addon for Komodo IDE and Komodo Edit, which intergrates the editors with SVN.  The current setup issues commands via TortoiseSVN allowing easy use of Tortoise's easy-to-use GUI.</description>
+            <description class="SVNK-standardPartDialog-width">
+		SVN-K is an addon for Komodo IDE and Komodo Edit, which intergrates the editors with SVN.  The current setup issues commands via TortoiseSVN allowing easy use of Tortoise's easy-to-use GUI.
+	    </description>
         </vbox>
     </hbox>
 
