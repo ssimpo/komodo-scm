@@ -137,10 +137,20 @@ org.simpo.svnk = function() {
         }
     };
     
+    this._getCurrentRevisionNo = function() {
+        var tree = document.getElementById("SVNK-logTree");
+        var view = tree.contentView;
+        var treeIndex = tree.currentIndex;
+        var revisionColumn = tree.columns.getNamedColumn("SVNK-logTree-col-revision");
+        return view.getCellText(treeIndex,revisionColumn).valueOf();
+    }
+    
     this.viewEntry = function() {
         try {
             var tree = document.getElementById("SVNK-logTree");
             var treeIndex = tree.currentIndex;
+            var currentRevisionNumber = this._getCurrentRevisionNo();
+            
             var currentEntry = this.entries[treeIndex];
             openDialog(
                 'chrome://svnk/content/viewLogEntry.xul',
@@ -407,7 +417,7 @@ org.simpo.svnk.logView = function(entries,tree) {
                 return details.replace(/\n/,' ... ');
         }
         return "";
-    },
+    };
     this.setTree = function(treebox) { this.treebox = treebox; };
     this.isContainer = function(row) { return false; };
     this.isSeparator = function(row) { return false; };
@@ -417,11 +427,7 @@ org.simpo.svnk.logView = function(entries,tree) {
     this.getRowProperties = function(row,props) {};
     this.getCellProperties = function(row,col,props) {};
     this.getColumnProperties = function(colid,col,props) {};
-    this._onRightClick = function(event) {
-        try {
-        alert(this.tree.currentIndex);
-        } catch(e) { Components.utils.reportError(e); }
-    };
+    this._onDoubleClick = function(event) { SVNK.viewEntry(); };
     
     // rowCount: integer
     //      The number of rows to output to the current tree.
@@ -435,7 +441,7 @@ org.simpo.svnk.logView = function(entries,tree) {
     //      Reference to the tree element, which we are parsing to
     this.tree = tree;
     
-    //tree.addEventListener('contextmenu', this._onRightClick.bind(this), true);
+    tree.addEventListener('dblclick', this._onDoubleClick.bind(this), true);
 };
 
 org.simpo.svnk.logParser = function(log) {

@@ -61,6 +61,8 @@ version:
 	var user = window.arguments[0].user;
 	var date = window.arguments[0].date;
 	var details = window.arguments[0].details;
+	
+	document.getElementById("SVNK-viewEntry-dialog").setAttribute('title','Revision No.'+revision);
     
 	document.getElementById("SVNK-viewEntry-dialog-revisionValue").value = revision;
 	document.getElementById("SVNK-viewEntry-dialog-userValue").value = user;
