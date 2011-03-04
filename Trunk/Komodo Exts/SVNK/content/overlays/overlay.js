@@ -423,7 +423,20 @@ org.simpo.svnk.logView = function(entries,tree) {
     this.isSorted = function() { return false; };
     this.getLevel = function(row) { return 0; };
     this.getImageSrc = function(row,col) { return null; };
-    this.getRowProperties = function(row,props) {};
+    this.getRowProperties = function(row,props) {
+         var entry = this.entries.getEntry(row);
+         var atomService = Components.classes["@mozilla.org/atom-service;1"].getService(Components.interfaces.nsIAtomService);
+         
+         switch (entry.user) {
+            case "ss1770":
+                props.AppendElement(atomService.getAtom("red1"));
+                break;
+            case "Development":
+                props.AppendElement(atomService.getAtom("yellow1"));
+                break;
+         }
+        
+    };
     this.getCellProperties = function(row,col,props) {};
     this.getColumnProperties = function(colid,col,props) {};
     this._onDoubleClick = function(event) { SVNK.viewEntry(); };
