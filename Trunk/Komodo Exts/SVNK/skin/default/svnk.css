@@ -36,6 +36,7 @@
 
 pre.plain {
     padding:5px; font-family: sans-serif;
+    white-space: pre-wrap;
 }
 
 separator.groove-thin {
