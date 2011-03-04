@@ -40,7 +40,7 @@ org.simpo.svnk = function() {
     // strings: object
     //      String-bundle class for error reporting ... etc.
     this.strings = Components.classes["@mozilla.org/intl/stringbundle;1"].getService(Components.interfaces.nsIStringBundleService).createBundle("chrome://svnk/locale/main.properties");
-    this.entries = [];
+    this.entries = {};
     
     this.stringBundle = function(stringToGet) {
         // summary:
@@ -147,11 +147,8 @@ org.simpo.svnk = function() {
     
     this.viewEntry = function() {
         try {
-            var tree = document.getElementById("SVNK-logTree");
-            var treeIndex = tree.currentIndex;
             var currentRevisionNumber = this._getCurrentRevisionNo();
-            
-            var currentEntry = this.entries[treeIndex];
+            var currentEntry = this.entries.getRevision(currentRevisionNumber);
             openDialog(
                 'chrome://svnk/content/viewLogEntry.xul',
                 'Revision No.'+currentEntry.revision.toString(),
@@ -405,15 +402,17 @@ org.simpo.svnk.logView = function(entries,tree) {
         //      The column element in the tree.
         // returns: string
         
+        var entry = this.entries.getEntry(row);
+        
         switch (column.id) {
             case "SVNK-logTree-col-revision":
-                return this.entries[row].revision;
+                return entry.revision;
             case "SVNK-logTree-col-user":
-                return this.entries[row].user;
+                return entry.user;
             case "SVNK-logTree-col-date":
-                return this.entries[row].date;
+                return entry.date;
             case "SVNK-logTree-col-details":
-                var details = this.entries[row].details;
+                var details = entry.details;
                 return details.replace(/\n/,' ... ');
         }
         return "";
@@ -444,6 +443,28 @@ org.simpo.svnk.logView = function(entries,tree) {
     tree.addEventListener('dblclick', this._onDoubleClick.bind(this), true);
 };
 
+org.simpo.svnk.logEntries = function() {
+    var data = new Array();
+    var revisions = new Array();
+    
+    this.getEntry = function(entryNo) {
+        return data[entryNo];
+    };
+    
+    this.getRevision = function(revisionNo) {
+        return revisions[revisionNo];
+    };
+    
+    this.addEntry = function(entry) {
+        data.push(entry);
+        revisions[entry.revision] = entry;
+        this.length = data.length;
+    };
+    
+    this.length = 0;
+    
+};
+
 org.simpo.svnk.logParser = function(log) {
     // summary
     //      Parse a SVN-log file into its component parts.
@@ -460,20 +481,18 @@ org.simpo.svnk.logParser = function(log) {
         // returns: object
         
         var blocks = this._getLogSections(log);
-        var entries = new Array();
-        var j = 0;
+        var entries = new org.simpo.svnk.logEntries();
             
         for (i in blocks) {
             var entry = blocks[i];
             if (entry != '') {
-                entries[j] = {
+                entries.addEntry({
                     'block':entry,
                     'details':this._getDetails(entry),
                     'revision':this._getRevisionNumber(entry),
                     'user':this._getUser(entry),
                     'date':this._getRevisionDate(entry)
-                };
-                j++;
+                });
             }
         }
         
