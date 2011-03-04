@@ -43,3 +43,11 @@ separator.groove-thin {
     border-top: 1px solid #999999;
     margin-top:5px;margin-bottom:10px;
 }
+
+treechildren::-moz-tree-row(red1) {
+    background-color: #ff9999;
+}
+
+treechildren::-moz-tree-row(yellow1) {
+    background-color: #ffff99;
+}
