@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<?xml-stylesheet href="chrome://SVNK/skin/SVNK.css" type="text/css"?>
+<?xml-stylesheet href="chrome://svnk/skin/SVNK.css" type="text/css"?>
 <!DOCTYPE window PUBLIC "-//MOZILLA//DTD XUL V1.0//EN" "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" [
 	<!ENTITY % SVNKDTD SYSTEM "chrome://SVNK/locale/main.dtd">
 	%SVNKDTD;
@@ -22,7 +22,7 @@ version:
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 	
-	<script type="application/x-javascript" src="chrome://SVNK/content/overlays/overlay.js"/>
+	<script type="application/x-javascript" src="chrome://svnk/content/overlays/overlay.js"/>
 
 	<commandset id="allcommands">
 		<command id="Tasks:SVNK-RepoBrowser" oncommand="org.simpo.svnk.repoBrowser();"/>

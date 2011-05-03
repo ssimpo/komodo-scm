@@ -2,8 +2,6 @@ todo:
     Refactoring of overlay.js to that the duplicate code in the
     ActiveDocument/SelectedDocument methods is extracted into it's own class.
 todo:
-    Add a windows only tag so that it cannot be installed in linux/osx.
-todo:
     Rework the error-checking and reporting routines.
 todo:
     Make commits work against active places view as well as project.
@@ -11,10 +9,6 @@ todo:
     All specialist options for tortoise to be stored with a project file.
 todo:
     Add more SVN functions.
-todo:
-    Do simpo.org write-up on addon.
-todo:
-    Create a bug tracker and *ideas factory*.
 todo:
     Use dialogs for reporting and errors instead of alerts.
 todo:
