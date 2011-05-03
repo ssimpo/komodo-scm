@@ -1,33 +1,63 @@
 // summary:
-//      Main javascript content for SVN-K.
+//      Main JavaScript content for SVN-K.
 // author:
 //      Stephen Simpson <me@simpo.org>
 // license:
 //      LGPL <http://www.gnu.org/licenses/lgpl.html>
 // version:
-//      1.0.3
+//      1.0.4
 
-if (!org) var org={};
-if (!org.simpo) org.simpo={};
 
-org.simpo.svnk = {
-    // strings: string
-    //      The locale stringbundle
-    strings: Components.classes["@mozilla.org/intl/stringbundle;1"].getService(Components.interfaces.nsIStringBundleService).createBundle("chrome://SVNK/locale/main.properties"),
+// Non violation of global namespace.
+if (!org) var org = {};
+if (!org.simpo) org.simpo = {};
+
+// Current version of Komodo does not support Function.bind; this emulates
+// that functionality.
+if ( !Function.prototype.bind ) {
+    Function.prototype.bind = function( obj ) {
+        var slice = [].slice,
+        args = slice.call(arguments, 1),
+        self = this,
+        nop = function () {},
+        bound = function () {
+            return self.apply( this instanceof nop ? this : ( obj || {} ),
+                args.concat( slice.call(arguments) ) );
+        };
+        nop.prototype = self.prototype;
+        bound.prototype = new nop();
+        return bound;
+    };
+}
+
+try {
     
-    stringBundle: function(stringToGet) {
+org.simpo.svnk = function() {
+    // summary:
+    //      Main class containing the core-code for this addon.
+    
+    
+    // strings: object
+    //      String-bundle class for error reporting ... etc.
+    this.strings = Components.classes["@mozilla.org/intl/stringbundle;1"].getService(Components.interfaces.nsIStringBundleService).createBundle("chrome://svnk/locale/main.properties");
+    this.entries = {};
+    
+    this.stringBundle = function(stringToGet) {
         // summary:
         //      Get the requested string from the stringbundle locale.
         // stringToGet: string
-        //      The string you are looking for
+        //      The string you are looking for.
         // returns: string
-        //      The local string requested
+        //      The local string requested.
         
         return this.strings.GetStringFromName(stringToGet);
-    },
-    repoBrowser: function() {
+    };
+    
+    this.repoBrowser = function() {
         // summary:
         //      Open the repository browser for the current project.
+        // todo:
+        //      Parse and deal with any feedback from running the command.
         
         var project = this._getProject();
         if (project) {
@@ -36,11 +66,14 @@ org.simpo.svnk = {
         } else {
             alert(this.stringBundle("ErrorBrowserLoad"));
         }
-    },
-    commitPath: function() {
+    };
+    
+    this.commitPath = function() {
         // summary:
         //      Commit the path(s) selected in the current places view to the
         //      SVN repository.
+        // todo:
+        //      Parse and deal with any feedback from running the command.
         
         try {
             var paths = this._getSelectedPaths();
@@ -48,10 +81,13 @@ org.simpo.svnk = {
         } catch (e) {
             alert(this.stringBundle("ErrorCommitSelect"));
         }
-    },
-    commitProject: function() {
+    };
+    
+    this.commitProject = function() {
         // summary:
         //      Open the commit interface for the current project.
+        // todo:
+        //      Parse and deal with any feedback from running the command.
         
         var project = this._getProject();
         if (project) {
@@ -60,11 +96,18 @@ org.simpo.svnk = {
         } else {
             alert(this.stringBundle("ErrorCommitProject"));
         }
-    },
-    compareDiff: function() {
+    };
+    
+    this.compareEntry = function() {
+        
+    };
+    
+    this.compareDiff = function() {
         // summary:
         //      Compare the file selected in the current places view with it's
         //      SVN versioned copy.
+        // todo:
+        //      Parse and deal with any feedback from running the command.
         
         try {
             var paths = this._getSelectedPaths();
@@ -74,10 +117,13 @@ org.simpo.svnk = {
         } catch (e) {
             alert(this.stringBundle("ErrorCompareSelected"));
         }
-    },
-    compareDiffActiveFile: function() {
+    };
+    
+    this.compareDiffActiveFile = function() {
         // summary:
         //      Compare the current file to its versioned copy in SVN.
+        // todo:
+        //      Parse and deal with any feedback from running the command.
         
         try {
             var path = this._getCurrentFilePath();
@@ -89,10 +135,29 @@ org.simpo.svnk = {
         } catch(e) {
             alert(this.stringBundle("ErrorNoCurrentFile"));
         }
-    },
-    viewLog: function() {
+    };
+    
+    this.viewEntry = function() {
+        try {
+            var currentRevisionNumber = this._getCurrentRevisionNo();
+            var currentEntry = this.entries.getRevision(currentRevisionNumber);
+            openDialog(
+                'chrome://svnk/content/viewLogEntry.xul',
+                'Revision No.'+currentEntry.revision.toString(),
+                'chrome,modal,centerscreen',
+                currentEntry
+            );
+            
+        } catch(e) {
+            alert("ERROR");
+        }
+    };
+    
+    this.viewLog = function() {
         // summary:
         //      View the SVN log for selected file in the current places view.
+        // todo:
+        //      Parse and deal with any feedback from running the command.
         
         try {
             var paths = this._getSelectedPaths();
@@ -102,26 +167,32 @@ org.simpo.svnk = {
         } catch (e) {
             alert(this.stringBundle("ErrorFailedSVNLog"));
         }
-    },
-    viewLogActiveFile: function() {
+    };
+    
+    this.viewLogActiveFile = function() {
         // summary:
         //      View the SVN log for the current file.
+        // todo:
+        //      Parse and deal with any feedback from running the command.
         
         try {
             var path = this._getCurrentFilePath();
             if (path) {
-                 var feedback = this._runTortoiseProc(path,'log');
+                var feedback = this._runTortoiseProc(path,'log');
             } else {
                 alert(this.stringBundle("ErrorFindActiveDocument"));
             }
         } catch(e) {
             alert(this.stringBundle("ErrorNoCurrentFile"));
         }
-    },
-    viewProperties: function() {
+    };
+    
+    this.viewProperties = function() {
         // summary:
         //      View the SVN properties for selected file in the
         //      current places view.
+        // todo:
+        //      Parse and deal with any feedback from running the command.
         
         try {
             var paths = this._getSelectedPaths();
@@ -131,10 +202,13 @@ org.simpo.svnk = {
         } catch (e) {
             alert(this.stringBundle("ErrorFailedSVNProperties"));
         }
-    },
-    viewPropertiesActiveFile: function() {
+    };
+    
+    this.viewPropertiesActiveFile = function() {
         // summary:
         //      View the SVN file properties for the current file.
+        // todo:
+        //      Parse and deal with any feedback from running the command.
         
         try {
             var path = this._getCurrentFilePath();
@@ -146,32 +220,47 @@ org.simpo.svnk = {
         } catch(e) {
             alert(this.stringBundle("ErrorNoCurrentFile"));
         }
-    },
-    _runTortoiseProc: function(path,command) {
+    };
+    
+    this._runTortoiseProc = function(path,command) {
         // summary:
         //      Run a specified TortoiseProc command against the given path.
         // path: string
         //      The path to run the command against.
         // command: string
         //      The TortoiseProc command to run.
+        // returns: object
+        //      The result of running the command as supplied by _runCommand().
         
-        var RunService = Components.classes["@activestate.com/koRunService;1"].getService(Components.interfaces.koIRunService);
         var cmd = 'TortoiseProc.exe /command:'+command+' /path:\"'+path+'\"';
-        var output = new Object();
-        var error = new Object();
-            
-        try {
-            var process = RunService.RunAndCaptureOutput(cmd,'',null,null,output,error);
-            if (error.value != '') {
-                return {error:true,value:error.value};
-            } else {
-                return {error:false,value:output.value};
-            }
-        } catch(e) {
-            return {error:true,value:e};
-        }
-    },
-    _getCurrentFilePath: function() {
+        var cwd = '';
+        
+        var response = this._runCommand(cmd,cwd,null,null);
+        
+        return response;
+    };
+    
+    this._runSvnCommand = function(path,command,switches) {
+        // summary:
+        //      Run a specified SVN command against the given path (with given switches).
+        // path: string
+        //      The path to run the command against.
+        // command: string
+        //      The TortoiseProc command to run.
+        // switches: string
+        //      The switches to add to the SVN command.
+        // returns: object
+        //      The result of running the command as supplied by _runCommand(). 
+        
+        var cmd = 'svn.exe '+command+' '+switches+' "'+path+'\"';
+        var cwd = 'C:\\Program Files\\Subversion\\';
+        
+        var response = this._runCommand(cmd,cwd,null,null);
+        
+        return response;
+    };
+    
+    this._getCurrentFilePath = function() {
         //  summary:
         //      Get the path of the currently open file.
         //  returns: string
@@ -181,10 +270,13 @@ org.simpo.svnk = {
         } catch(e) {
             return false;   
         }
-    },
-    _getSelectedPaths: function() {
+    };
+    
+    this._getSelectedPaths = function() {
         // summary:
         //      Get the paths of the currently selected items in the places view.
+        // returns: array
+        //      The selected paths.
         
         var view = ko.places.viewMgr.view;
         var selectedIndices = ko.treeutils.getSelectedIndices(view, false);
@@ -193,8 +285,9 @@ org.simpo.svnk = {
             var path = ko.uriparse.URIToLocalPath(uri);
             return path;
         });
-    },
-    _getProject: function() {
+    };
+    
+    this._getProject = function() {
         //  summary:
         //      Get the project, the current file is attached to (will assume first
         //      which it find the current file in).
@@ -205,8 +298,9 @@ org.simpo.svnk = {
         } catch(e) {
             return false;   
         }
-    },
-    _getProjectPath: function(project) {
+    };
+    
+    this._getProjectPath = function(project) {
         // summary:
         //      Get the path of a project.
         // project: object KomodoProject
@@ -215,5 +309,43 @@ org.simpo.svnk = {
     
         var projectFile = project.getFile();
         return projectFile.dirName;
-    }
+    };
+    
+    this._runCommand = function(cmd,cwd,env,c_input) {
+        // summary:
+        //      Run a command-prompt-style command and grab the output.
+        // cmd: string
+        //      The command to run.
+        // cwd: string
+        //      The working directory to use.
+        // env: object|null
+        //      The env variables to use.
+        // c_input: object|null
+        //      The input object to use (STDIN).
+        // returns: object
+        //      The content returned by the command in the format:
+        //      { error: true|false, value: errorString|commadOutput }
+        
+        var RunService = Components.classes["@activestate.com/koRunService;1"].getService(Components.interfaces.koIRunService);
+        var output = new Object();
+        var error = new Object();
+        
+        try {
+            var process = RunService.RunAndCaptureOutput(cmd,cwd,env,c_input,output,error);
+            if (error.value != '') {
+                return {error:true,value:error.value};
+            } else {
+                return {error:false,value:output.value};
+            }
+        } catch(e) {
+            return {error:true,value:e};
+        }
+    };
 };
+
+// Global namespace violation?
+var SVNK = new org.simpo.svnk();
+
+} catch (e) {
+    Components.utils.reportError(e);
+}
