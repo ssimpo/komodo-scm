@@ -4,14 +4,18 @@
     <Description about="urn:mozilla:install-manifest">
         <em:id>svnk@simp.org</em:id>
         <em:name>SVN-K</em:name>
-        <em:version>0.1.3</em:version>
+        <em:version>0.1.4</em:version>
         <em:description>Intergation of TortoiseSVN and Komodo</em:description>
         <em:creator>Stephen Simpson</em:creator>
         <em:homepageURL>http://simpo.org/komodo/SVNK</em:homepageURL>
+	<em:homepageURL>http://simpo.org/komodo/SVNK</em:homepageURL>
+	<em:aboutURL>chrome://SVNK/content/about.xul</em:aboutURL>
+	<em:iconURL>chrome://SVNK/skin/images/icon48x48.png</em:iconURL>
+	<em:icon64URL id="SVNK-icon64">chrome://SVNK/skin/images/icon64x64.png</em:icon64URL>
         <em:type>2</em:type> <!-- type=extension --> 
 	<em:targetPlatform>WINNT</em:targetPlatform>
         <em:targetApplication>
-            <Description>
+            <Description id="SVNK-Description">
 		Intergration of TortoiseSVN into Komodo Edit.  Adds a number of buttons to the iconbar, which hook into SVN and the current project. Easy browsing of SVN repository; with differences between current file and subversion copy; Commit project files from inside Komodo; ...etc.
                 <em:id>{36E66FA0-F259-11D9-850E-000D935D3368}</em:id>
                 <em:minVersion>6.0</em:minVersion>
