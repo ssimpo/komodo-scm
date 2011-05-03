@@ -4,3 +4,4 @@ locale svnk en-US jar:svnk.jar!/locale/en-US/
 
 #Komodo
 overlay chrome://komodo/content/komodo.xul chrome://svnk/content/overlays/komodo.xul
+overlay chrome://komodo/content/pref/pref.xul chrome://svnk/content/preferences.xul

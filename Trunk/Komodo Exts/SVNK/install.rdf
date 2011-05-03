@@ -8,6 +8,7 @@
         <em:description>Intergation of TortoiseSVN and Komodo</em:description>
         <em:creator>Stephen Simpson</em:creator>
         <em:homepageURL>http://simpo.org/node/32</em:homepageURL>
+	<em:optionsURL>chrome://svnk/content/options.xul</em:optionsURL>
 	<em:aboutURL>chrome://svnk/content/about.xul</em:aboutURL>
 	<em:iconURL>chrome://svnk/skin/images/icon48x48.png</em:iconURL>
 	<em:icon64URL id="SVNK-icon64">chrome://svnk/skin/images/icon64x64.png</em:icon64URL>
