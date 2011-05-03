@@ -2,7 +2,7 @@
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
 <?xml-stylesheet href="chrome://svnk/skin/svnk.css" type="text/css"?>
 <!DOCTYPE window PUBLIC "-//MOZILLA//DTD XUL V1.0//EN" "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" [
-	<!ENTITY % SVNKDTD SYSTEM "chrome://SVNK/locale/main.dtd">
+	<!ENTITY % SVNKDTD SYSTEM "chrome://svnk/locale/main.dtd">
 	%SVNKDTD;
 ]>
 <!--
@@ -20,6 +20,7 @@ version:
 -->
 <dialog
     id="SVNK-aboutDialog"
+    class="SVNK-standardDialog-width"
     title="SVN-K addon"
     buttons="accept"
     buttonlabelaccept="OK"
@@ -31,9 +32,9 @@ version:
     <hbox>
         <image src='chrome://svnk/skin/images/icon64x64.png' width='64' height='64'/>
     
-        <vbox>
+        <vbox class="SVNK-standardPartDialog-width">
             <label value="SVN-K" class="header SVNK-about-header" />
-            <description class="SVNK-standardPartDialog-width">
+            <description style="width:300px">
 		SVN-K is an addon for Komodo IDE and Komodo Edit, which intergrates the editors with SVN.  The current setup issues commands via TortoiseSVN allowing easy use of Tortoise's easy-to-use GUI.
 	    </description>
         </vbox>

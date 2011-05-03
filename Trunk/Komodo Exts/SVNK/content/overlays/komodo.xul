@@ -34,6 +34,7 @@ version:
 		<command id="Tasks:SVNK-ViewProperties" oncommand="org.simpo.svnk.viewProperties();"/>
 		<command id="Tasks:SVNK-ViewLogActiveFile" oncommand="org.simpo.svnk.viewLogActiveFile();"/>
 		<command id="Tasks:SVNK-ViewLog" oncommand="org.simpo.svnk.viewLog();"/>
+		<command id="Tasks:SVNK-ShowAbout" oncommand="openDialog('chrome://svnk/content/about.xul', 'about', 'chrome,modal,centerscreen');"/>
 	</commandset>
 	
 	<!-- Main Komodo Toolbar options -->
@@ -106,6 +107,12 @@ version:
 					label="&svnk.label.viewlogfile;"
 					tooltiptext="&svnk.tooltip.viewlogfile;"
 					class="menuitem-iconic SVNK-Log-Icon"/>
+				<menuitem
+					id="popup_tools_SVNK-ShowAbout"
+					observes="Tasks:SVNK-ShowAbout"
+					label="&svnk.label.showabout;"
+					tooltiptext="&svnk.tooltip.showabout;"
+					class="menuitem-iconic"/>
 			</menupopup>
 		</menu>
 	</menupopup>
@@ -139,13 +146,11 @@ version:
 					hideUnless="file folder"
 					testHideIf="t:multipleSelection"/>
 				<menuitem
-					id="places-files-popup-SVNK-ViewLog"
-					observes="Tasks:SVNK-ViewLog"
-					label="&svnk.label.viewlogfile2;"
-					tooltiptext="&svnk.tooltip.selected.viewlogfile;"
-					class="menuitem-iconic SVNK-Log-Icon"
-					hideUnless="file folder"
-					testHideIf="t:multipleSelection"/>
+					id="places-files-popup-SVNK-ShowAbout"
+					observes="Tasks:SVNK-ShowAbout"
+					label="&svnk.label.showabout;"
+					tooltiptext="&svnk.tooltip.showabout;"
+					class="menuitem-iconic"/>
 			</menupopup>
 		</menu>
 	</menupopup>
