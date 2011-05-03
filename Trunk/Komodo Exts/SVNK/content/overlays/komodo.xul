@@ -25,15 +25,15 @@ version:
 	<script type="application/x-javascript" src="chrome://svnk/content/overlays/overlay.js"/>
 
 	<commandset id="allcommands">
-		<command id="Tasks:SVNK-RepoBrowser" oncommand="org.simpo.svnk.repoBrowser();"/>
-		<command id="Tasks:SVNK-CommitProject" oncommand="org.simpo.svnk.commitProject();"/>
-		<command id="Tasks:SVNK-CommitPath" oncommand="org.simpo.svnk.commitPath();"/>
-		<command id="Tasks:SVNK-CompareDiffActiveFile" oncommand="org.simpo.svnk.compareDiffActiveFile();"/>
-		<command id="Tasks:SVNK-CompareDiff" oncommand="org.simpo.svnk.compareDiff();"/>
-		<command id="Tasks:SVNK-ViewPropertiesActiveFile" oncommand="org.simpo.svnk.viewPropertiesActiveFile();"/>
-		<command id="Tasks:SVNK-ViewProperties" oncommand="org.simpo.svnk.viewProperties();"/>
-		<command id="Tasks:SVNK-ViewLogActiveFile" oncommand="org.simpo.svnk.viewLogActiveFile();"/>
-		<command id="Tasks:SVNK-ViewLog" oncommand="org.simpo.svnk.viewLog();"/>
+		<command id="Tasks:SVNK-RepoBrowser" oncommand="SVNK.repoBrowser();"/>
+		<command id="Tasks:SVNK-CommitProject" oncommand="SVNK.commitProject();"/>
+		<command id="Tasks:SVNK-CommitPath" oncommand="SVNK.commitPath();"/>
+		<command id="Tasks:SVNK-CompareDiffActiveFile" oncommand="SVNK.compareDiffActiveFile();"/>
+		<command id="Tasks:SVNK-CompareDiff" oncommand="SVNK.compareDiff();"/>
+		<command id="Tasks:SVNK-ViewPropertiesActiveFile" oncommand="SVNK.viewPropertiesActiveFile();"/>
+		<command id="Tasks:SVNK-ViewProperties" oncommand="SVNK.viewProperties();"/>
+		<command id="Tasks:SVNK-ViewLogActiveFile" oncommand="SVNK.viewLogActiveFile();"/>
+		<command id="Tasks:SVNK-ViewLog" oncommand="SVNK.viewLog();"/>
 		<command id="Tasks:SVNK-ShowAbout" oncommand="openDialog('chrome://svnk/content/about.xul', 'about', 'chrome,modal,centerscreen');"/>
 	</commandset>
 	
