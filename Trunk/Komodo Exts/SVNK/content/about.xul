@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
-<?xml-stylesheet href="chrome://SVNK/skin/SVNK.css" type="text/css"?>
+<?xml-stylesheet href="chrome://svnk/skin/svnk.css" type="text/css"?>
 <!DOCTYPE window PUBLIC "-//MOZILLA//DTD XUL V1.0//EN" "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" [
 	<!ENTITY % SVNKDTD SYSTEM "chrome://SVNK/locale/main.dtd">
 	%SVNKDTD;
@@ -29,7 +29,7 @@ version:
 
 <vbox>
     <hbox>
-        <image src='chrome://SVNK/skin/images/icon64x64.png' width='64' height='64'/>
+        <image src='chrome://svnk/skin/images/icon64x64.png' width='64' height='64'/>
     
         <vbox>
             <label value="SVN-K" class="header SVNK-about-header" />
