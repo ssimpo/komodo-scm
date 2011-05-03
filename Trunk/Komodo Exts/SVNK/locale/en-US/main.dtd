@@ -19,6 +19,9 @@ version:
 <!ENTITY svnk.label.showabout "About SVN-K">
 <!ENTITY svnk.label.viewlogentry "View entry">
 <!ENTITY svnk.label.compareentry "Compare to current version">
+<!ENTITY svnk.label.prefTitle "SVN-K Settings">
+<!ENTITY svnk.label.prefPathToProc "Path to TortoiseProc.exe">
+<!ENTITY svnk.label.prefBrowseButton "Browse">
 
 <!ENTITY svnk.tooltip.viewlogfile "View the SVN log for the current file">
 <!ENTITY svnk.tooltip.viewlogfile "View the SVN log for the current file">
