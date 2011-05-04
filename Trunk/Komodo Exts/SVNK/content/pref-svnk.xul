@@ -25,19 +25,14 @@ version:
     title="SVN-K Preferences"
     orient="vertical">
 	
-	<script
-		src="chrome://komodo/content/library/logging.js"
-		type="application/x-javascript;version=1.7"/>
-    <script
-		src="chrome://komodo/content/library/filepickers.js"
-		type="application/x-javascript;version=1.7"/>
-	<script type="application/x-javascript"
-		src="chrome://svnk/content/pref-svnk.js" />
-	
+	<script type="application/x-javascript;version=1.7"
+		src="chrome://komodo/content/library/logging.js" />
+    <script type="application/x-javascript;version=1.7"
+		src="chrome://komodo/content/library/filepickers.js" />
 	
 	<groupbox orient="vertical">
 		<caption label="&svnk.label.prefTitle;"/>
-		<vbox>
+		<vbox style="margin-top:5px">
 			<label control="preferences-SVNK-pathToProc" value="&svnk.label.prefPathToProc;" />
 			<hbox>
 				<textbox
@@ -46,6 +41,10 @@ version:
 					value="" />
 				<button label="&svnk.label.prefBrowseButton;" oncommand="SVNKPREF.browse();"/>
 			</hbox>
+			<description style="margin-top:5px;font-size:0.9em">If this box is left blank, SVNK will run TortoiseProc without a path using the paths set in the environment settings</description>
 		</vbox>
 	</groupbox>
+	
+	<script type="application/x-javascript"
+		src="chrome://svnk/content/pref-svnk.js" />
 </window>

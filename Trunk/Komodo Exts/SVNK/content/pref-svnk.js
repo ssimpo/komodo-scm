@@ -32,12 +32,52 @@ if ( !Function.prototype.bind ) {
 
 try {
 org.simpo.svnk.pref = function() {
+    this.prefBrowser = Components.classes['@activestate.com/koPrefService;1'].getService(Components.interfaces.koIPrefService).prefs;
+    this.pathToProcTextBox = document.getElementById("preferences-SVNK-pathToProc");
+    
     this.browse = function() {
-        var path = ko.filepicker.getFolder('','Path to TortoiseProc.exe');
-        
-        var pathToProcTextBox = document.getElementById("preferences-SVNK-pathToProc");
-        pathToProcTextBox.value = path;
+        // summary:
+        //      Handle a folder-browse request.  Store result of folder
+        //      picking in preferences and textbox.
+    
+        var path = ko.filepicker.getFolder(
+            this._getPrefString('svnk.pathtoproc'),
+            'Path to TortoiseProc.exe'
+        );
+        this.pathToProcTextBox.value = path;
+        this._setPrefString('svnk.pathtoproc', path);
     };
+    
+    this._setPrefString = function(prefID,prefValue) {
+        // summary:
+        //      Set a Komodo String preference.
+        // prefId: string
+        //      The ID of the preference to set.
+        // prefValue: string
+        //      The string value to set preference to.
+        
+        if (parent.hPrefWindow) {
+            parent.hPrefWindow.prefset.setStringPref(prefID, prefValue);
+        }
+        this.prefBrowser.setStringPref(prefID, prefValue);
+    }
+    
+    this._getPrefString = function(prefID) {
+        // summary:
+        //      Get a Komodo string preference.
+        // prefID: string
+        //      The ID of the Komodo preference string to get.
+        // returns: string
+        //      The preference value or blank-string if preference not found.
+        
+        if (this.prefBrowser.hasStringPref(prefID)) {
+            return this.prefBrowser.getStringPref(prefID);
+        } else {
+            return '';
+        }
+    }
+    
+    this.pathToProcTextBox.value = this._getPrefString('svnk.pathtoproc');
 };
 
 // Global namespace violation?
