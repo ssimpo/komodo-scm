@@ -77,6 +77,15 @@ org.simpo.svnk.pref = function() {
         }
     }
     
+    this.pathToProcTextBox.onchange = function(e) {
+        var path = SVNKPREF.pathToProcTextBox.value;
+        
+        if (parent.hPrefWindow) {
+            parent.hPrefWindow.prefset.setStringPref('svnk.pathtoproc', path);
+        }
+        SVNKPREF.prefBrowser.setStringPref('svnk.pathtoproc', path);
+    }
+    
     this.pathToProcTextBox.value = this._getPrefString('svnk.pathtoproc');
 };
 
