@@ -6,6 +6,10 @@
     list-style-image: url("chrome://svnk/skin/images/commit16x16.png");
 }
 
+.SVNK-Update-Icon {
+    list-style-image: url("chrome://svnk/skin/images/update16x16.png");
+}
+
 .SVNK-Diff-Icon {
     list-style-image: url("chrome://svnk/skin/images/diff16x16.png");
 }

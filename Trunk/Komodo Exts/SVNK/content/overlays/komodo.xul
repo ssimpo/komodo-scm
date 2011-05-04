@@ -26,6 +26,8 @@ version:
 
 	<commandset id="allcommands">
 		<command id="Tasks:SVNK-RepoBrowser" oncommand="SVNK.repoBrowser();"/>
+		<command id="Tasks:SVNK-UpdateProject" oncommand="SVNK.updateProject();"/>
+		<command id="Tasks:SVNK-UpdatePath" oncommand="SVNK.updatePath();"/>
 		<command id="Tasks:SVNK-CommitProject" oncommand="SVNK.commitProject();"/>
 		<command id="Tasks:SVNK-CommitPath" oncommand="SVNK.commitPath();"/>
 		<command id="Tasks:SVNK-CompareDiffActiveFile" oncommand="SVNK.compareDiffActiveFile();"/>
@@ -52,6 +54,12 @@ version:
 			label="&svnk.label.commitproject;"
 			tooltiptext="&svnk.tooltip.commitproject;"
 			class="menuitem-iconic SVNK-Commit-Icon"/>
+		<toolbarbutton
+			id="toolsToolbar-SVNK-UpdateProject"
+			observes="Tasks:SVNK-UpdateProject"
+			label="&svnk.label.updateproject;"
+			tooltiptext="&svnk.tooltip.updateproject;"
+			class="menuitem-iconic SVNK-Update-Icon"/>
 		<toolbarbutton
 			id="toolsToolbar-SVNK-CompareDiffActiveFile"
 			observes="Tasks:SVNK-CompareDiffActiveFile"
@@ -89,6 +97,12 @@ version:
 					label="&svnk.label.commitproject;"
 					tooltiptext="&svnk.tooltip.commitproject;"
 					class="menuitem-iconic SVNK-Commit-Icon"/>
+				<menuitem
+					id="popup_tools-SVNK-UpdateProject"
+					observes="Tasks:SVNK-UpdateProject"
+					label="&svnk.label.updateproject;"
+					tooltiptext="&svnk.tooltip.updateproject;"
+					class="menuitem-iconic SVNK-Update-Icon"/>
 				<menuitem
 					id="popup_tools_SVNK-CompareDiffActiveFile"
 					observes="Tasks:SVNK-CompareDiffActiveFile"
@@ -128,6 +142,13 @@ version:
 					label="&svnk.label.commitpath;"
 					tooltiptext="&svnk.tooltip.commitpath;"
 					class="menuitem-iconic SVNK-Commit-Icon"
+					hideUnless="file folder"/>
+				<menuitem
+					id="places-files-popup-SVNK-Update"
+					observes="Tasks:SVNK-UpdatePath"
+					label="&svnk.label.updatepath;"
+					tooltiptext="&svnk.tooltip.updatepath;"
+					class="menuitem-iconic SVNK-Update-Icon"
 					hideUnless="file folder"/>
 				<menuitem
 					id="places-files-popup-SVNK-CompareDiff"
