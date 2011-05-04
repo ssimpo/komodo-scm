@@ -101,7 +101,7 @@ org.simpo.svnk = function() {
     
     this.commitProject = function() {
         // summary:
-        //      Open the commit interface for the current project.
+        //      Open the update interface for the current project.
         // todo:
         //      Parse and deal with any feedback from running the command.
         
@@ -116,7 +116,7 @@ org.simpo.svnk = function() {
     
     this.updatePath = function() {
         // summary:
-        //      Commit the path(s) selected in the current places view to the
+        //      Update the path(s) selected in the current places view from the
         //      SVN repository.
         // todo:
         //      Parse and deal with any feedback from running the command.
@@ -265,6 +265,21 @@ org.simpo.svnk = function() {
             }
         } catch(e) {
             alert(this.stringBundle("ErrorNoCurrentFile"));
+        }
+    };
+    
+    this.rename = function() {
+        // summary:
+        //      Raname the selected file
+        // todo:
+        //      Parse and deal with any feedback from running the command.
+        
+        try {
+            var paths = this._getSelectedPaths();
+            var feedback = this._runTortoiseProc(paths.join('*'),'rename');
+            ko.places.viewMgr.view.refreshFullTreeView();
+        } catch (e) {
+            alert(this.stringBundle("ErrorCommitSelect"));
         }
     };
     

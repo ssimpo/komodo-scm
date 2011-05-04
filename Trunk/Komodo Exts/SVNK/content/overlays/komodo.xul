@@ -36,6 +36,7 @@ version:
 		<command id="Tasks:SVNK-ViewProperties" oncommand="SVNK.viewProperties();"/>
 		<command id="Tasks:SVNK-ViewLogActiveFile" oncommand="SVNK.viewLogActiveFile();"/>
 		<command id="Tasks:SVNK-ViewLog" oncommand="SVNK.viewLog();"/>
+		<command id="Tasks:SVNK-Rename" oncommand="SVNK.rename();"/>
 		<command id="Tasks:SVNK-ShowAbout" oncommand="openDialog('chrome://svnk/content/about.xul', 'about', 'chrome,modal,centerscreen');"/>
 	</commandset>
 	
@@ -164,6 +165,14 @@ version:
 					label="&svnk.label.viewproperties2.long;"
 					tooltiptext="&svnk.tooltip.selected.viewproperties;"
 					class="menuitem-iconic SVNK-Properties-Icon"
+					hideUnless="file folder"
+					testHideIf="t:multipleSelection"/>
+				<menuitem
+					id="places-files-popup-SVNK-ViewProperties"
+					observes="Tasks:SVNK-Rename"
+					label="&svnk.label.rename.long;"
+					tooltiptext="&svnk.tooltip.selected.rename;"
+					class="menuitem-iconic SVNK-Rename-Icon"
 					hideUnless="file folder"
 					testHideIf="t:multipleSelection"/>
 				<menuitem

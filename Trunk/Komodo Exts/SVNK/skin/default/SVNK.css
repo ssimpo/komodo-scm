@@ -22,6 +22,10 @@
     list-style-image: url("chrome://svnk/skin/images/log16x16.png");
 }
 
+.SVNK-Rename-Icon {
+    list-style-image: url("chrome://svnk/skin/images/rename16x16.png");
+}
+
 .SVNK-standardDialog-width {
     width:400px;
 }
