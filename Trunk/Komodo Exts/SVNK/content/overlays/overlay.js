@@ -84,6 +84,24 @@ org.simpo.svnk = function() {
         }
     };
     
+    this.commitActiveFile = function() {
+        // summary:
+        //      Commit the active file to the repository.
+        // todo:
+        //      Parse and deal with any feedback from running the command.
+        
+        try {
+            var path = this._getCurrentFilePath();
+            if (path) {    
+                var feedback = this._runTortoiseProc(path,'commit');
+            } else {
+                alert(this.stringBundle("ErrorFindActiveDocument"));
+            }
+        } catch(e) {
+            alert(this.stringBundle("ErrorNoCurrentFile"));
+        }
+    };
+    
     this.commitPath = function() {
         // summary:
         //      Commit the path(s) selected in the current places view to the
@@ -141,6 +159,24 @@ org.simpo.svnk = function() {
             var feedback = this._runTortoiseProc(path,'update');
         } else {
             alert(this.stringBundle("ErrorCommitProject"));
+        }
+    };
+    
+    this.updateActiveFile = function() {
+        // summary:
+        //      Update the active file from the repository.
+        // todo:
+        //      Parse and deal with any feedback from running the command.
+        
+        try {
+            var path = this._getCurrentFilePath();
+            if (path) {    
+                var feedback = this._runTortoiseProc(path,'update');
+            } else {
+                alert(this.stringBundle("ErrorFindActiveDocument"));
+            }
+        } catch(e) {
+            alert(this.stringBundle("ErrorNoCurrentFile"));
         }
     };
     

@@ -28,8 +28,10 @@ version:
 		<command id="Tasks:SVNK-RepoBrowser" oncommand="SVNK.repoBrowser();"/>
 		<command id="Tasks:SVNK-UpdateProject" oncommand="SVNK.updateProject();"/>
 		<command id="Tasks:SVNK-UpdatePath" oncommand="SVNK.updatePath();"/>
+		<command id="Tasks:SVNK-UpdateActiveFile" oncommand="SVNK.updateActiveFile();"/>
 		<command id="Tasks:SVNK-CommitProject" oncommand="SVNK.commitProject();"/>
 		<command id="Tasks:SVNK-CommitPath" oncommand="SVNK.commitPath();"/>
+		<command id="Tasks:SVNK-CommitActiveFile" oncommand="SVNK.commitActiveFile();"/>
 		<command id="Tasks:SVNK-CompareDiffActiveFile" oncommand="SVNK.compareDiffActiveFile();"/>
 		<command id="Tasks:SVNK-CompareDiff" oncommand="SVNK.compareDiff();"/>
 		<command id="Tasks:SVNK-ViewPropertiesActiveFile" oncommand="SVNK.viewPropertiesActiveFile();"/>
@@ -128,6 +130,44 @@ version:
 					label="&svnk.label.showabout;"
 					tooltiptext="&svnk.tooltip.showabout;"
 					class="menuitem-iconic"/>
+			</menupopup>
+		</menu>
+	</menupopup>
+	
+	<!-- Context-menu for tab in editor -->
+	<menupopup id="tabContextMenu">
+		<menu id="tab-context-popup-SVNK" label="Version Control">
+			<menupopup id="tab-context-popup-SVNK-popup">
+				<menuitem
+					id="tab-context-SVNK-Commit"
+					observes="Tasks:SVNK-CommitPath"
+					label="&svnk.label.commitfile;"
+					tooltiptext="&svnk.tooltip.commitfile;"
+					class="menuitem-iconic SVNK-Commit-Icon"/>
+				<menuitem
+					id="tab-context-SVNK-Update"
+					observes="Tasks:SVNK-UpdateActiveFile"
+					label="&svnk.label.updatefile;"
+					tooltiptext="&svnk.tooltip.updatefile;"
+					class="menuitem-iconic SVNK-Update-Icon"/>
+				<menuitem
+					id="tab-context-SVNK-CompareDiff"
+					observes="Tasks:SVNK-CompareDiffActiveFile"
+					label="&svnk.label.comparefile;"
+					tooltiptext="&svnk.tooltip.comparefile;"
+					class="menuitem-iconic SVNK-Diff-Icon"/>
+				<menuitem
+					id="tab-context-SVNK-ViewProperties"
+					observes="Tasks:SVNK-ViewPropertiesActiveFile"
+					label="&svnk.label.viewproperties;"
+					tooltiptext="&svnk.tooltip.viewproperties;"
+					class="menuitem-iconic SVNK-Properties-Icon"/>
+				<menuitem
+					id="tab-context-SVNK-ViewLog"
+					observes="Tasks:SVNK-ViewLogActiveFile"
+					label="&svnk.label.viewlogentry;"
+					tooltiptext="&svnk.tooltip.viewlogfile;"
+					class="menuitem-iconic SVNK-Log-Icon"/>
 			</menupopup>
 		</menu>
 	</menupopup>
