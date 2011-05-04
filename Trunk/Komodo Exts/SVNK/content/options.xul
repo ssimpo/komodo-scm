@@ -1,4 +1,8 @@
 <?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin" type="text/css"?>
+<?xml-stylesheet href="chrome://komodo/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://komodo/skin/global/global.css" type="text/css"?>
+<?xml-stylesheet href="chrome://komodo/skin/bindings/buttons.css" type="text/css"?>
 <?xml-stylesheet href="chrome://svnk/skin/svnk.css" type="text/css"?>
 <!DOCTYPE window PUBLIC "-//MOZILLA//DTD XUL V1.0//EN" "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" [
 	<!ENTITY % SVNKDTD SYSTEM "chrome://svnk/locale/main.dtd">
@@ -14,10 +18,37 @@ license:
 version:
 	1.0.4
 -->
-<prefwindow type="prefwindow" id="SVNK-preferences"
-    windowtype="Browser:Preferences" title="SVN-K Preferences"
+<window
     xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
     xmlns:html="http://www.w3.org/1999/xhtml"
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-    url="chrome://svnk/content/pref-svnk.xul">
-</prefwindow>
+    title="SVN-K Preferences"
+    orient="vertical">
+	
+	<script type="application/x-javascript;version=1.7"
+		src="chrome://komodo/content/library/logging.js" />
+    <script type="application/x-javascript;version=1.7"
+		src="chrome://komodo/content/library/filepickers.js" />
+	
+	<groupbox orient="vertical" width="400px;">
+		<caption label="&svnk.label.prefTitle;"/>
+		<vbox style="margin-top:5px">
+			<label control="preferences-SVNK-pathToProc" value="&svnk.label.prefPathToProc;" />
+			<hbox>
+				<textbox
+					id="preferences-SVNK-pathToProc"
+					style="width:300px;"
+					value="" />
+				<button label="&svnk.label.prefBrowseButton;" oncommand="SVNKPREF.browse();"/>
+			</hbox>
+			<description style="margin-top:5px;font-size:0.9em">If this box is left blank, SVNK will run TortoiseProc without a path using the paths set in the environment settings</description>
+		</vbox>
+	</groupbox>
+    
+    <hbox align="right" style="margin-top:5px">
+        <button label="Okay" onclick="parent.close();"></button>
+    </hbox>
+	
+	<script type="application/x-javascript"
+		src="chrome://svnk/content/pref-svnk.js" />
+</window>

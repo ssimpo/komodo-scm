@@ -41,6 +41,22 @@ org.simpo.svnk = function() {
     //      String-bundle class for error reporting ... etc.
     this.strings = Components.classes["@mozilla.org/intl/stringbundle;1"].getService(Components.interfaces.nsIStringBundleService).createBundle("chrome://svnk/locale/main.properties");
     this.entries = {};
+    this.prefBrowser = Components.classes['@activestate.com/koPrefService;1'].getService(Components.interfaces.koIPrefService).prefs;
+    
+    this._getPrefString = function(prefID) {
+        // summary:
+        //      Get a Komodo string preference.
+        // prefID: string
+        //      The ID of the Komodo preference string to get.
+        // returns: string
+        //      The preference value or blank-string if preference not found.
+        
+        if (this.prefBrowser.hasStringPref(prefID)) {
+            return this.prefBrowser.getStringPref(prefID);
+        } else {
+            return '';
+        }
+    }
     
     this.stringBundle = function(stringToGet) {
         // summary:
@@ -232,7 +248,13 @@ org.simpo.svnk = function() {
         // returns: object
         //      The result of running the command as supplied by _runCommand().
         
-        var cmd = 'TortoiseProc.exe /command:'+command+' /path:\"'+path+'\"';
+        var pathToProc = this._getPrefString('svnk.pathtoproc');
+        if (pathToProc != '') {
+            pathToProc = '"'+pathToProc+'\\TortoiseProc.exe" ';
+        } else {
+            pathToProc += 'TortoiseProc.exe ';
+        }
+        var cmd = pathToProc+'/command:'+command+' /path:\"'+path+'\"';
         var cwd = '';
         
         var response = this._runCommand(cmd,cwd,null,null);
