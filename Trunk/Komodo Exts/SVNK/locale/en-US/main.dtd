@@ -38,4 +38,8 @@ version:
 <!ENTITY svnk.tooltip.commitpath "Commit selected files and folders to SVN">
 <!ENTITY svnk.tooltip.selected.comparefile "Compare the selected file to repository version">
 
+<!ENTITY svnk.description.pathtoproc "If this box is left blank, SVNK will run TortoiseProc without a path using the paths set in the environment settings">
+
+<!ENTITY svnk.button.Okay "Okay">
+
 <!ENTITY svnk.tab.log.title "SVN Log">

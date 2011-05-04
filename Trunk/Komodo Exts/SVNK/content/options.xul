@@ -41,12 +41,12 @@ version:
 					value="" />
 				<button label="&svnk.label.prefBrowseButton;" oncommand="SVNKPREF.browse();"/>
 			</hbox>
-			<description style="margin-top:5px;font-size:0.9em">If this box is left blank, SVNK will run TortoiseProc without a path using the paths set in the environment settings</description>
+			<description style="margin-top:5px;font-size:0.9em">&svnk.description.pathtoproc;</description>
 		</vbox>
 	</groupbox>
     
     <hbox align="right" style="margin-top:5px">
-        <button label="Okay" onclick="parent.close();"></button>
+        <button label="&svnk.button.Okay;" onclick="parent.close();"></button>
     </hbox>
 	
 	<script type="application/x-javascript"
