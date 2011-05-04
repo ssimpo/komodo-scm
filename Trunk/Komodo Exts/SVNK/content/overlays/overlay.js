@@ -114,6 +114,36 @@ org.simpo.svnk = function() {
         }
     };
     
+    this.updatePath = function() {
+        // summary:
+        //      Commit the path(s) selected in the current places view to the
+        //      SVN repository.
+        // todo:
+        //      Parse and deal with any feedback from running the command.
+        
+        try {
+            var paths = this._getSelectedPaths();
+            var feedback = this._runTortoiseProc(paths.join('*'),'update');
+        } catch (e) {
+            alert(this.stringBundle("ErrorCommitSelect"));
+        }
+    };
+    
+    this.updateProject = function() {
+        // summary:
+        //      Open the commit interface for the current project.
+        // todo:
+        //      Parse and deal with any feedback from running the command.
+        
+        var project = this._getProject();
+        if (project) {
+            var path = this._getProjectPath(project);
+            var feedback = this._runTortoiseProc(path,'update');
+        } else {
+            alert(this.stringBundle("ErrorCommitProject"));
+        }
+    };
+    
     this.compareEntry = function() {
         
     };

@@ -11,6 +11,8 @@ version:
 <!ENTITY svnk.label.commitpath "Commit path(s) to repository">
 <!ENTITY svnk.label.comparefile "Compare file">
 <!ENTITY svnk.label.comparefile.long "Compare file to repository version">
+<!ENTITY svnk.label.updateproject "Update Project">
+<!ENTITY svnk.label.updatepath "Update path(s) from repository">
 <!ENTITY svnk.label.viewproperties "View properties">
 <!ENTITY svnk.label.viewproperties.long "View file SVN properties">
 <!ENTITY svnk.label.viewproperties2.long "View file/folder SVN properties">
@@ -24,10 +26,11 @@ version:
 <!ENTITY svnk.label.prefBrowseButton "Browse">
 
 <!ENTITY svnk.tooltip.viewlogfile "View the SVN log for the current file">
-<!ENTITY svnk.tooltip.viewlogfile "View the SVN log for the current file">
 <!ENTITY svnk.tooltip.viewproperties "View SVN properties of the current file">
 <!ENTITY svnk.tooltip.comparefile "Compare current file to repository version">
 <!ENTITY svnk.tooltip.commitproject "Commit current project to SVN">
+<!ENTITY svnk.tooltip.updateproject "Update current project from SVN">
+<!ENTITY svnk.tooltip.updatepath "Update current selected path from SVN">
 <!ENTITY svnk.tooltip.repobrowser "Repository Browser for current project">
 <!ENTITY svnk.tooltip.showabout "Information about SVN-K">
 <!ENTITY svnk.tooltip.viewlogentry "View log entry in popup window">
