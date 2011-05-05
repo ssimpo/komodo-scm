@@ -26,7 +26,9 @@ version:
 <!ENTITY svnk.label.prefTitle "SVN-K Settings">
 <!ENTITY svnk.label.prefPathToProc "Path to TortoiseProc.exe">
 <!ENTITY svnk.label.prefBrowseButton "Browse">
-<!ENTITY svnk.label.rename.long "Rename file/folder">
+<!ENTITY svnk.label.rename "Rename file/folder">
+<!ENTITY svnk.label.revert "Revert file/folder">
+<!ENTITY svnk.label.delete "Delete file/folder">
 
 <!ENTITY svnk.tooltip.viewlogfile "View the SVN log for the current file">
 <!ENTITY svnk.tooltip.viewproperties "View SVN properties of the current file">
@@ -40,7 +42,10 @@ version:
 <!ENTITY svnk.tooltip.showabout "Information about SVN-K">
 <!ENTITY svnk.tooltip.viewlogentry "View log entry in popup window">
 <!ENTITY svnk.tooltip.compareentry "Compare to current working copy version">
-<!ENTITY svnk.tooltip.selected.rename "Rename selected file/folder in Subversion">
+<!ENTITY svnk.tooltip.selected.rename "Rename the selected folder/file.">
+<!ENTITY svnk.tooltip.selected.revert "Revert selected file/folder to the repository version.">
+<!ENTITY svnk.tooltip.selected.delete "Delete selected file/folder.">
+
 
 <!ENTITY svnk.tooltip.selected.viewlogfile "View the SVN log for the selected files and folders">
 <!ENTITY svnk.tooltip.selected.viewproperties "View SVN properties for the current files and folders">

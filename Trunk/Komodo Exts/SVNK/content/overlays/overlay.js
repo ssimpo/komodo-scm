@@ -141,6 +141,22 @@ org.simpo.svnk = function() {
         ko.places.viewMgr.view.refreshFullTreeView();
     };
     
+    this.revert = function(type) {
+        // summary:
+        //      Raname the selected file
+        
+        this._runTortoiseCommand('revert',type,'ErrorRevert');
+        ko.places.viewMgr.view.refreshFullTreeView();
+    };
+    
+    this.delete = function(type) {
+        // summary:
+        //      Raname the selected file
+        
+        this._runTortoiseCommand('remove',type,'ErrorDelete');
+        ko.places.viewMgr.view.refreshFullTreeView();
+    };
+    
     this._getPath = function(type) {
         // summary:
         //      Get the path for a given type.
