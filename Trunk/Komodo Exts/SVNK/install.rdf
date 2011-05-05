@@ -5,7 +5,7 @@
         <em:id>svnk@simp.org</em:id>
         <em:name>SVN-K</em:name>
         <em:version>0.1.5</em:version>
-        <em:description>Intergation of TortoiseSVN and Komodo</em:description>
+        <em:description>Intergation of Subversion (SVN) with Komodo (via TortoiseSVN)</em:description>
         <em:creator>Stephen Simpson</em:creator>
         <em:homepageURL>http://simpo.org/node/32</em:homepageURL>
 	<em:optionsURL>chrome://svnk/content/options.xul</em:optionsURL>
