@@ -197,7 +197,7 @@ version:
 					label="&svnk.label.comparefile.long;"
 					tooltiptext="&svnk.tooltip.selected.comparefile;"
 					class="menuitem-iconic SVNK-Diff-Icon"
-					hideUnless="file"/>
+					hideUnless="file folder"/>
 				<menuitem
 					id="places-files-popup-SVNK-ViewProperties"
 					observes="Tasks:SVNK-ViewProperties"
