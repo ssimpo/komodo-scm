@@ -197,18 +197,16 @@ version:
 					label="&svnk.label.comparefile.long;"
 					tooltiptext="&svnk.tooltip.selected.comparefile;"
 					class="menuitem-iconic SVNK-Diff-Icon"
-					hideUnless="file"
-					testHideIf="t:multipleSelection"/>
+					hideUnless="file"/>
 				<menuitem
 					id="places-files-popup-SVNK-ViewProperties"
 					observes="Tasks:SVNK-ViewProperties"
 					label="&svnk.label.viewproperties2.long;"
 					tooltiptext="&svnk.tooltip.selected.viewproperties;"
 					class="menuitem-iconic SVNK-Properties-Icon"
-					hideUnless="file folder"
-					testHideIf="t:multipleSelection"/>
+					hideUnless="file folder"/>
 				<menuitem
-					id="places-files-popup-SVNK-ViewProperties"
+					id="places-files-popup-SVNK-Rename"
 					observes="Tasks:SVNK-Rename"
 					label="&svnk.label.rename.long;"
 					tooltiptext="&svnk.tooltip.selected.rename;"
