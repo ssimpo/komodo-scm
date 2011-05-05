@@ -43,7 +43,6 @@ org.simpo.svnk = function() {
     this.entries = {};
     this.prefBrowser = Components.classes['@activestate.com/koPrefService;1'].getService(Components.interfaces.koIPrefService).prefs;
     this.logger = Components.classes["@mozilla.org/consoleservice;1"].getService(Components.interfaces.nsIConsoleService);
-    var error = Components.classes["@mozilla.org/scripterror;1"].createInstance(Components.interfaces.nsIScriptError);
     
     this._getPrefString = function(prefID) {
         // summary:
