@@ -26,6 +26,14 @@
     list-style-image: url("chrome://svnk/skin/images/rename16x16.png");
 }
 
+.SVNK-Delete-Icon {
+    list-style-image: url("chrome://svnk/skin/images/delete16x16.png");
+}
+
+.SVNK-Revert-Icon {
+    list-style-image: url("chrome://svnk/skin/images/revert16x16.png");
+}
+
 .SVNK-standardDialog-width {
     width:400px;
 }
