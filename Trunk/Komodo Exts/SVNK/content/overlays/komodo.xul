@@ -29,9 +29,9 @@ version:
 		<command id="Tasks:SVNK-UpdateProject" oncommand="SVNK.updateProject();"/>
 		<command id="Tasks:SVNK-UpdatePath" oncommand="SVNK.updatePath();"/>
 		<command id="Tasks:SVNK-UpdateActiveFile" oncommand="SVNK.updateActiveFile();"/>
-		<command id="Tasks:SVNK-CommitProject" oncommand="SVNK.commitProject();"/>
-		<command id="Tasks:SVNK-CommitPath" oncommand="SVNK.commitPath();"/>
-		<command id="Tasks:SVNK-CommitActiveFile" oncommand="SVNK.commitActiveFile();"/>
+		<command id="Tasks:SVNK-CommitProject" oncommand="SVNK.commit('project');"/>
+		<command id="Tasks:SVNK-CommitPath" oncommand="SVNK.commit('selectedpaths');"/>
+		<command id="Tasks:SVNK-CommitActiveFile" oncommand="SVNK.commit('activefile');"/>
 		<command id="Tasks:SVNK-CompareDiffActiveFile" oncommand="SVNK.compareDiffActiveFile();"/>
 		<command id="Tasks:SVNK-CompareDiff" oncommand="SVNK.compareDiff();"/>
 		<command id="Tasks:SVNK-ViewPropertiesActiveFile" oncommand="SVNK.viewPropertiesActiveFile();"/>
@@ -140,7 +140,7 @@ version:
 			<menupopup id="tab-context-popup-SVNK-popup">
 				<menuitem
 					id="tab-context-SVNK-Commit"
-					observes="Tasks:SVNK-CommitPath"
+					observes="Tasks:SVNK-CommitActiveFile"
 					label="&svnk.label.commitfile;"
 					tooltiptext="&svnk.tooltip.commitfile;"
 					class="menuitem-iconic SVNK-Commit-Icon"/>
