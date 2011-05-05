@@ -71,10 +71,10 @@ org.simpo.svnk = function() {
         return this.strings.GetStringFromName(stringToGet);
     };
     
-    this._runTortoiseCommand = function(cmd, type, errorMsgRef) {
+    this._runTortoiseCommand = function(command, type, errorMsgRef) {
         // summary:
         //      Run a TortoiseProc command.
-        // cmd: string
+        // command: string
         //      The command to run.
         // type: string
         //      The type of file-path to execute against the command.
@@ -83,7 +83,7 @@ org.simpo.svnk = function() {
         
         try {
             var path = this._getPath(type);
-            var feedback = this._runTortoiseProc(path,cmd);
+            var feedback = this._runTortoiseProc(path, command);
         } catch(e) {
             Components.utils.reportError(
                 this.stringBundle(errorMsgRef)
