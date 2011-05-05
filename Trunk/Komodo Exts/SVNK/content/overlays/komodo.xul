@@ -39,6 +39,8 @@ version:
 		<command id="Tasks:SVNK-ViewLogActiveFile" oncommand="SVNK.viewLog('activefile');"/>
 		<command id="Tasks:SVNK-ViewLog" oncommand="SVNK.viewLog('selectedpaths');"/>
 		<command id="Tasks:SVNK-Rename" oncommand="SVNK.rename();"/>
+		<command id="Tasks:SVNK-Revert" oncommand="SVNK.revert('selectedpaths');"/>
+		<command id="Tasks:SVNK-Delete" oncommand="SVNK.delete('selectedpaths');"/>
 		<command id="Tasks:SVNK-ShowAbout" oncommand="openDialog('chrome://svnk/content/about.xul', 'about', 'chrome,modal,centerscreen');"/>
 	</commandset>
 	
@@ -208,11 +210,25 @@ version:
 				<menuitem
 					id="places-files-popup-SVNK-Rename"
 					observes="Tasks:SVNK-Rename"
-					label="&svnk.label.rename.long;"
+					label="&svnk.label.rename;"
 					tooltiptext="&svnk.tooltip.selected.rename;"
 					class="menuitem-iconic SVNK-Rename-Icon"
 					hideUnless="file folder"
 					testHideIf="t:multipleSelection"/>
+				<menuitem
+					id="places-files-popup-SVNK-Revert"
+					observes="Tasks:SVNK-Revert"
+					label="&svnk.label.revert;"
+					tooltiptext="&svnk.tooltip.selected.revert;"
+					class="menuitem-iconic SVNK-Revert-Icon"
+					hideUnless="file folder"/>
+				<menuitem
+					id="places-files-popup-SVNK-Delete"
+					observes="Tasks:SVNK-Delete"
+					label="&svnk.label.delete;"
+					tooltiptext="&svnk.tooltip.selected.delete;"
+					class="menuitem-iconic SVNK-Delete-Icon"
+					hideUnless="file folder"/>
 				<menuitem
 					id="places-files-popup-SVNK-ShowAbout"
 					observes="Tasks:SVNK-ShowAbout"
