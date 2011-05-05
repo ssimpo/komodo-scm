@@ -116,6 +116,7 @@ org.simpo.svnk = function() {
         //      Parse and deal with any feedback from running the command.
         
         this._runTortoiseCommand('update',type,'ErrorUpdate');
+        ko.places.viewMgr.view.refreshFullTreeView();
     };
     
     this.diff = function(type) {
@@ -151,13 +152,8 @@ org.simpo.svnk = function() {
         // todo:
         //      Parse and deal with any feedback from running the command.
         
-        try {
-            var paths = this._getSelectedPaths();
-            var feedback = this._runTortoiseProc(paths.join('*'),'rename');
-            ko.places.viewMgr.view.refreshFullTreeView();
-        } catch (e) {
-            alert(this.stringBundle("ErrorCommitSelect"));
-        }
+        this._runTortoiseCommand('rename','selectedpaths','ErrorRename');
+        ko.places.viewMgr.view.refreshFullTreeView();
     };
     
     this._getPath = function(type) {
