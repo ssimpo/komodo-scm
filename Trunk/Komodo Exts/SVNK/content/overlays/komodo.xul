@@ -26,18 +26,18 @@ version:
 
 	<commandset id="allcommands">
 		<command id="Tasks:SVNK-RepoBrowser" oncommand="SVNK.repoBrowser();"/>
-		<command id="Tasks:SVNK-UpdateProject" oncommand="SVNK.updateProject();"/>
-		<command id="Tasks:SVNK-UpdatePath" oncommand="SVNK.updatePath();"/>
-		<command id="Tasks:SVNK-UpdateActiveFile" oncommand="SVNK.updateActiveFile();"/>
+		<command id="Tasks:SVNK-UpdateProject" oncommand="SVNK.update('project');"/>
+		<command id="Tasks:SVNK-UpdatePath" oncommand="SVNK.update('selectedpaths');"/>
+		<command id="Tasks:SVNK-UpdateActiveFile" oncommand="SVNK.update('activefile');"/>
 		<command id="Tasks:SVNK-CommitProject" oncommand="SVNK.commit('project');"/>
 		<command id="Tasks:SVNK-CommitPath" oncommand="SVNK.commit('selectedpaths');"/>
 		<command id="Tasks:SVNK-CommitActiveFile" oncommand="SVNK.commit('activefile');"/>
-		<command id="Tasks:SVNK-CompareDiffActiveFile" oncommand="SVNK.compareDiffActiveFile();"/>
-		<command id="Tasks:SVNK-CompareDiff" oncommand="SVNK.compareDiff();"/>
-		<command id="Tasks:SVNK-ViewPropertiesActiveFile" oncommand="SVNK.viewPropertiesActiveFile();"/>
-		<command id="Tasks:SVNK-ViewProperties" oncommand="SVNK.viewProperties();"/>
-		<command id="Tasks:SVNK-ViewLogActiveFile" oncommand="SVNK.viewLogActiveFile();"/>
-		<command id="Tasks:SVNK-ViewLog" oncommand="SVNK.viewLog();"/>
+		<command id="Tasks:SVNK-CompareDiffActiveFile" oncommand="SVNK.diff('activefile');"/>
+		<command id="Tasks:SVNK-CompareDiff" oncommand="SVNK.diff('selectedpaths');"/>
+		<command id="Tasks:SVNK-ViewPropertiesActiveFile" oncommand="SVNK.viewProperties('activefile');"/>
+		<command id="Tasks:SVNK-ViewProperties" oncommand="SVNK.viewProperties('selectedpaths');"/>
+		<command id="Tasks:SVNK-ViewLogActiveFile" oncommand="SVNK.viewLog('activefile');"/>
+		<command id="Tasks:SVNK-ViewLog" oncommand="SVNK.viewLog('selectedpaths');"/>
 		<command id="Tasks:SVNK-Rename" oncommand="SVNK.rename();"/>
 		<command id="Tasks:SVNK-ShowAbout" oncommand="openDialog('chrome://svnk/content/about.xul', 'about', 'chrome,modal,centerscreen');"/>
 	</commandset>
