@@ -83,6 +83,9 @@ org.simpo.svnk = function() {
         try {
             var path = this._getPath(type);
             var feedback = this._runTortoiseProc(path, command);
+            if (feedback.error == true) {
+                Components.utils.reportError(feedback.value);
+            }
         } catch(e) {
             Components.utils.reportError(
                 this.stringBundle(errorMsgRef)
