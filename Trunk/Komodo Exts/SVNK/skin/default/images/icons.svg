@@ -19,6 +19,17 @@
   <defs
      id="defs4">
     <linearGradient
+       id="linearGradient3788">
+      <stop
+         id="stop3790"
+         offset="0"
+         style="stop-color:#ff0000;stop-opacity:1;" />
+      <stop
+         style="stop-color:#800000;stop-opacity:1;"
+         offset="1"
+         id="stop3796" />
+    </linearGradient>
+    <linearGradient
        id="linearGradient3725">
       <stop
          style="stop-color:#0086ff;stop-opacity:0.43298969;"
@@ -400,6 +411,171 @@
        inkscape:vp_y="0 : 1000 : 0"
        inkscape:vp_x="0 : 0.5 : 1"
        sodipodi:type="inkscape:persp3d" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3788"
+       id="radialGradient3786"
+       cx="900.04596"
+       cy="717.49658"
+       fx="900.04596"
+       fy="717.49658"
+       r="83.718338"
+       gradientTransform="matrix(1,0,0,0.08901058,243.63518,-147.02903)"
+       gradientUnits="userSpaceOnUse" />
+    <inkscape:perspective
+       id="perspective3806"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3788-2"
+       id="radialGradient3786-5"
+       cx="900.04596"
+       cy="717.49658"
+       fx="900.04596"
+       fy="717.49658"
+       r="83.718338"
+       gradientTransform="matrix(1,0,0,0.08901058,247.90021,-148.14827)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       id="linearGradient3788-2">
+      <stop
+         id="stop3790-3"
+         offset="0"
+         style="stop-color:#ff0000;stop-opacity:1;" />
+      <stop
+         style="stop-color:#800000;stop-opacity:1;"
+         offset="1"
+         id="stop3796-1" />
+    </linearGradient>
+    <radialGradient
+       r="83.718338"
+       fy="717.49658"
+       fx="900.04596"
+       cy="717.49658"
+       cx="900.04596"
+       gradientTransform="matrix(1,0,0,0.08901058,-1072.2801,1069.8275)"
+       gradientUnits="userSpaceOnUse"
+       id="radialGradient3815"
+       xlink:href="#linearGradient3788-2"
+       inkscape:collect="always" />
+    <inkscape:perspective
+       id="perspective3848"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3909"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <linearGradient
+       id="linearGradient3709-3-8-6">
+      <stop
+         style="stop-color:#ff8839;stop-opacity:1;"
+         offset="0"
+         id="stop3711-8-4-2" />
+      <stop
+         id="stop3723-3-3-4"
+         offset="0.60145408"
+         style="stop-color:#d4651c;stop-opacity:1;" />
+      <stop
+         id="stop3721-4-9-5"
+         offset="0.89061469"
+         style="stop-color:#a94300;stop-opacity:1;" />
+      <stop
+         style="stop-color:#993d00;stop-opacity:1;"
+         offset="1"
+         id="stop3713-2-9-8" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3725-8-9-1">
+      <stop
+         style="stop-color:#0086ff;stop-opacity:0.43298969;"
+         offset="0"
+         id="stop3727-9-7-2" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="1"
+         id="stop3729-0-7-1" />
+    </linearGradient>
+    <inkscape:perspective
+       id="perspective3991"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3649-6"
+       id="radialGradient3671-8"
+       cx="670.19989"
+       cy="566.08594"
+       fx="670.19989"
+       fy="566.08594"
+       r="309.51562"
+       gradientTransform="matrix(1,0,0,1.6192639,0,-350.55659)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       id="linearGradient3649-6">
+      <stop
+         id="stop3665-9"
+         offset="0"
+         style="stop-color:#00d400;stop-opacity:1;" />
+      <stop
+         style="stop-color:#009c00;stop-opacity:1;"
+         offset="0.79220778"
+         id="stop3683-8" />
+      <stop
+         style="stop-color:#006500;stop-opacity:1;"
+         offset="1"
+         id="stop3653-6" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3649-6"
+       id="radialGradient3685-6"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1,0,0,1.6192639,574.66896,613.84737)"
+       cx="670.19989"
+       cy="566.08594"
+       fx="670.19989"
+       fy="566.08594"
+       r="309.51562" />
+    <linearGradient
+       id="linearGradient4001">
+      <stop
+         id="stop4003"
+         offset="0"
+         style="stop-color:#00d400;stop-opacity:1;" />
+      <stop
+         style="stop-color:#009c00;stop-opacity:1;"
+         offset="0.79220778"
+         id="stop4005" />
+      <stop
+         style="stop-color:#006500;stop-opacity:1;"
+         offset="1"
+         id="stop4007" />
+    </linearGradient>
+    <radialGradient
+       r="309.51562"
+       fy="566.08594"
+       fx="670.19989"
+       cy="566.08594"
+       cx="670.19989"
+       gradientTransform="matrix(1,0,0,1.6192639,574.66896,613.84737)"
+       gradientUnits="userSpaceOnUse"
+       id="radialGradient4011"
+       xlink:href="#linearGradient3649-6"
+       inkscape:collect="always" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -408,9 +584,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.98994948"
-     inkscape:cx="822.90279"
-     inkscape:cy="399.90411"
+     inkscape:zoom="0.35"
+     inkscape:cx="1098.0073"
+     inkscape:cy="307.88522"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -612,7 +788,7 @@
     </g>
     <g
        id="g4212"
-       transform="matrix(0.37594195,0,0,0.38605668,460.05495,251.77611)"
+       transform="matrix(0.37594195,0,0,0.38605668,508.62638,237.4904)"
        inkscape:export-filename="H:\KomodoEdit\Komodo Exts\SVNK\skin\default\images\repobrowser.png"
        inkscape:export-xdpi="9.5983057"
        inkscape:export-ydpi="9.5983057">
@@ -948,7 +1124,7 @@
     </g>
     <g
        id="g3070"
-       transform="matrix(0.9578008,0,0,0.80426717,33.721039,116.91674)"
+       transform="matrix(0.9578008,0,0,0.80426717,-483.42182,531.20246)"
        inkscape:export-filename="H:\Komodo Ext\SVNK\skin\default\images\rename.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300">
@@ -1014,6 +1190,127 @@
          id="path3068"
          d="m 800.17858,591.64789 c 0.27254,0.74213 0.23422,-0.006 0.71429,0.71429 0.033,0.0495 -0.0532,0.15195 0,0.17857 0.10648,0.0532 0.24661,-0.0442 0.35714,0 0.19927,0.0797 0.35715,0.23809 0.53572,0.35714 0.17857,0.11905 0.36812,0.22307 0.53571,0.35714 0.13147,0.10518 0.21706,0.26376 0.35714,0.35715 0.2215,0.14766 0.48159,0.22786 0.71429,0.35714 0.3034,0.16856 0.58242,0.38049 0.89286,0.53571 0.40546,0.20273 0.85203,0.31864 1.25,0.53572 0.26128,0.14251 0.44334,0.41256 0.71428,0.53571 0.3945,0.17932 0.83334,0.2381 1.25,0.35714 1.65471,0.47278 0.82102,0.29586 2.5,0.53572 0.41667,0.0595 0.82993,0.15231 1.25,0.17857 0.95053,0.0594 1.90719,-0.0678 2.85715,0 0.41982,0.03 0.83055,0.14362 1.25,0.17857 0.29659,0.0247 0.59523,0 0.89285,0 0.83334,0 1.66667,0 2.5,0 0.89286,0 1.78572,0 2.67857,0 0.11066,0 1.01556,0.0279 1.07143,0 0.0532,-0.0266 -0.0266,-0.12533 0,-0.17857 0.0376,-0.0753 0.10328,-0.14093 0.17857,-0.17857 0.0532,-0.0266 0.12534,0.0266 0.17858,0 0.81725,-0.40863 -0.75776,0.074 0.53571,-0.35714 0.0565,-0.0188 0.11905,0 0.17857,0 0.26579,0 0.22793,0.0266 0.53572,-0.17858 0.26773,-0.17849 0.42873,-0.57151 0.71428,-0.71428 0.10648,-0.0532 0.25067,0.0532 0.35714,0 0.0532,-0.0266 -0.033,-0.12905 0,-0.17857 0.0934,-0.14009 0.22568,-0.25197 0.35715,-0.35715 0.16758,-0.13407 0.35714,-0.23809 0.53571,-0.35714 0.17857,-0.17857 0.34171,-0.37404 0.53572,-0.53571 0.16487,-0.1374 0.37084,-0.21975 0.53571,-0.35715 1.75525,-1.46271 -0.51181,0.33324 0.89286,-1.07142 0.0941,-0.0941 0.25066,-0.0987 0.35714,-0.17858 0.13469,-0.10101 0.22568,-0.25197 0.35714,-0.35714 0.16759,-0.13407 0.38396,-0.20539 0.53572,-0.35714 0.0941,-0.0941 0.0845,-0.26303 0.17857,-0.35714 0.18823,-0.18824 0.52605,-0.16892 0.71428,-0.35715 0.2175,-0.21749 0.0837,-0.39896 0.35715,-0.53571 0.0532,-0.0266 0.13648,0.0421 0.17857,0 0.0596,-0.0596 -0.0596,-0.29757 0,-0.35714 0.0421,-0.0421 0.13648,0.0421 0.17857,0 0.0421,-0.0421 -0.0421,-0.13649 0,-0.17858 0.0421,-0.0421 0.11905,0 0.17857,0 0.0595,-0.0595 0.13188,-0.10853 0.17857,-0.17857 0.0222,-0.0333 0.3457,-0.70284 0.35715,-0.71428 0.0941,-0.0941 0.25066,-0.0987 0.35714,-0.17857 0.13469,-0.10102 0.23809,-0.2381 0.35714,-0.35715 0.11905,-0.11905 0.25613,-0.22245 0.35714,-0.35714 0.0799,-0.10648 0.0845,-0.26303 0.17858,-0.35714 0.25465,-0.25466 0.61391,-0.14794 0.89285,-0.35715 0.10648,-0.0799 0.0987,-0.25066 0.17857,-0.35714 0.10102,-0.13469 0.26376,-0.21706 0.35715,-0.35714 0.033,-0.0495 -0.0266,-0.12533 0,-0.17857 0.13448,-0.26896 0.49492,-0.24747 0.71428,-0.35715 0.15059,-0.0753 0.20656,-0.28185 0.35715,-0.35714 0.0532,-0.0266 0.1221,0.0188 0.17857,0 0.12627,-0.0421 0.22802,-0.14629 0.35714,-0.17857 0.11549,-0.0289 0.24421,0.0376 0.35714,0 0.0799,-0.0266 0.0987,-0.15195 0.17857,-0.17857 0.0984,-0.0328 0.91989,0 1.07143,0 0.77381,0 1.54762,0 2.32143,0 0.89286,0 1.78572,0 2.67857,0 0.29762,0 0.59524,0 0.89286,0 0.2381,0 0.47803,-0.0295 0.71429,0 0.24352,0.0304 0.47619,0.11905 0.71428,0.17857 0.2381,0.0595 0.48449,0.0924 0.71429,0.17857 0.24925,0.0935 0.45238,0.30952 0.71428,0.35714 0.40995,0.0745 0.83334,0 1.25,0 0.65477,0 1.30953,0 1.96429,0 0.0671,0 0.8884,0.004 0.89286,0 0.0421,-0.0421 -0.0421,-0.13648 0,-0.17857 0.0842,-0.0842 0.25066,0.0532 0.35714,0 0.0753,-0.0376 0.11905,-0.11905 0.17857,-0.17857 0.0595,-0.0595 0.13188,-0.10853 0.17857,-0.17857 0.0738,-0.11075 0.0845,-0.26303 0.17857,-0.35714 0.0941,-0.0941 0.24301,-0.1101 0.35715,-0.17857 0.18403,-0.11042 0.36812,-0.22308 0.53571,-0.35715 0.49506,-0.39604 0.28611,-0.51795 1.07143,-0.71428 0.23099,-0.0578 0.48535,0.0654 0.71429,0 0.20635,-0.059 0.34375,-0.26117 0.53571,-0.35715 0.16836,-0.0842 0.37431,-0.0817 0.53571,-0.17857 1.21105,-0.72662 -0.84595,0.005 1.07143,-0.71428 2.05067,-0.51267 -0.47647,0.2042 1.25,-0.53572 0.27241,-0.11674 0.96042,-0.18339 1.25,-0.35714 1.66093,-0.99656 -1.2515,0.35789 0.89286,-0.71429 0.16836,-0.0842 0.36736,-0.0944 0.53571,-0.17857 0.28056,-0.14028 1.06127,-0.75804 1.25,-0.89286 0.17464,-0.12474 0.35169,-0.24672 0.53572,-0.35714 0.11413,-0.0685 0.26303,-0.0845 0.35714,-0.17857 0.0941,-0.0941 0.0721,-0.27728 0.17857,-0.35714 0.15059,-0.11294 0.36736,-0.0944 0.53572,-0.17857 1.02951,-0.68635 0.0364,-0.0921 1.07143,-0.53572 0.3009,-0.12896 0.87309,-0.49383 1.25,-0.53571 0.35495,-0.0394 0.71428,0 1.07142,0 0.71429,0 1.42858,0 2.14286,0 0.29762,0 0.60102,0.0584 0.89286,0 0.31432,-0.0629 0.57853,-0.29428 0.89286,-0.35715 0.29183,-0.0584 0.59523,0 0.89285,0 0.29762,0 0.59524,0 0.89286,0 0.83541,0 1.66459,0 2.5,0 2.32143,0 4.64286,0 6.96429,0"
          style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    </g>
+    <g
+       id="g3836"
+       inkscape:export-filename="H:\Komodo Ext\SVNK\skin\default\images\delete16x16.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300"
+       transform="translate(-777.14287,217.14286)">
+      <rect
+         transform="matrix(0.73420098,0.6789322,-0.6789322,0.73420098,0,0)"
+         ry="0.01150909"
+         y="-89.730225"
+         x="1060.8486"
+         height="13.131983"
+         width="165.66502"
+         id="rect3006"
+         style="fill:url(#radialGradient3786);fill-opacity:1;stroke:#800000;stroke-width:1.77165353;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <rect
+         transform="matrix(-0.73420098,0.6789322,0.6789322,0.73420098,0,0)"
+         ry="0.01150909"
+         y="1127.1262"
+         x="-255.06667"
+         height="13.131983"
+         width="165.66502"
+         id="rect3006-6"
+         style="fill:url(#radialGradient3815);fill-opacity:1;stroke:#800000;stroke-width:1.77165353;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    </g>
+    <g
+       id="g4060"
+       inkscape:export-filename="H:\Komodo Ext\SVNK\skin\default\images\Revert16x16.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300">
+      <g
+         transform="matrix(0.47042212,0,0,0.47042212,973.5522,261.22696)"
+         id="g3808-7-0-6-8">
+        <rect
+           style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:10;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3749-3-1-9-8"
+           width="325.71426"
+           height="440"
+           x="209.19011"
+           y="143.79076"
+           ry="74.285713" />
+        <flowRoot
+           xml:space="preserve"
+           id="flowRoot3751-4-5-0-2"
+           style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:#000000;font-family:Courier New;-inkscape-font-specification:Courier New"
+           transform="matrix(0.13454345,0,0,0.18229356,180.36487,22.239744)"><flowRegion
+             id="flowRegion3753-94-0-7-7"><rect
+               id="rect3755-5-1-5-7"
+               width="2097.1436"
+               height="1194.2858"
+               x="388.57141"
+               y="840.93359"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:#000000;font-family:Courier New;-inkscape-font-specification:Courier New" /></flowRegion><flowPara
+             style="font-size:144px"
+             id="flowPara3759-6-4-5-1">SVN-K is a subversion addon-on for Komodo Edit</flowPara><flowPara
+             style="font-size:36px"
+             id="flowPara3763-8-0-4-2"> </flowPara><flowPara
+             style="font-size:144px"
+             id="flowPara3767-9-0-9-6">It means that TortoiseSVN is hooked in with the IDE. </flowPara></flowRoot>        <flowRoot
+           xml:space="preserve"
+           id="flowRoot3751-7-8-5-4-0"
+           style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:#000000;font-family:Courier New;-inkscape-font-specification:Courier New"
+           transform="matrix(0.13454345,0,0,0.18229356,180.36487,204.94081)"><flowRegion
+             id="flowRegion3753-9-9-7-2-4"><rect
+               id="rect3755-1-9-4-0-9"
+               width="2097.1436"
+               height="1194.2858"
+               x="388.57141"
+               y="840.93359"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:#000000;font-family:Courier New;-inkscape-font-specification:Courier New" /></flowRegion><flowPara
+             style="font-size:144px"
+             id="flowPara3759-9-7-7-9-4">SVN-K is a subversion addon-on for Komodo Edit</flowPara><flowPara
+             style="font-size:36px"
+             id="flowPara3763-5-0-7-7-6"> </flowPara><flowPara
+             style="font-size:144px"
+             id="flowPara3767-8-8-5-3-0">It means that TortoiseSVN is hooked in with the IDE. </flowPara></flowRoot>      </g>
+      <g
+         transform="matrix(0.59907549,0,0,0.67291023,810.75845,33.243833)"
+         id="g4142-9">
+        <path
+           id="path4124-8"
+           style="fill:#afafde;fill-opacity:1;fill-rule:evenodd;stroke:none"
+           d="m 162.85714,494.71256 111.42857,82.71547 110.00614,-65.56476 -118.29446,-58.7168 z" />
+        <path
+           id="path4126-2"
+           style="fill:#353564;fill-opacity:1;fill-rule:evenodd;stroke:none"
+           d="m 162.85714,327.50822 0,167.20434 103.14025,-41.56609 0,-144.88486 z" />
+        <path
+           id="path4128-4"
+           style="fill:#e9e9ff;fill-opacity:1;fill-rule:evenodd;stroke:none"
+           d="m 265.99739,308.26161 118.29446,23.03143 0,180.57023 -118.29446,-58.7168 z" />
+        <path
+           id="path4130-5"
+           style="fill:#aa4400;fill-opacity:1;fill-rule:evenodd;stroke:none"
+           d="M 162.85714,327.50822 274.28571,360.8224 384.29185,331.29304 265.99739,308.26161 z" />
+        <path
+           id="path4132-2"
+           style="fill:#ff7f2a;fill-opacity:1;fill-rule:evenodd;stroke:none"
+           d="m 274.28571,360.8224 0,216.60563 110.00614,-65.56476 0,-180.57023 z" />
+        <path
+           id="path4134-9"
+           style="fill:#d45500;fill-opacity:1;fill-rule:evenodd;stroke:none"
+           d="m 162.85714,327.50822 111.42857,33.31418 0,216.60563 -111.42857,-82.71547 z" />
+      </g>
+      <g
+         style="fill:url(#radialGradient3671-8);fill-opacity:1;stroke:#005d00;stroke-opacity:1"
+         inkscape:export-ydpi="5.7567582"
+         inkscape:export-xdpi="5.7567582"
+         inkscape:export-filename="H:\KomodoEdit\Komodo Exts\SVNK\skin\default\images\commit.png"
+         transform="matrix(0.194183,-0.1440726,-0.16165721,-0.17306033,1087.8273,836.2642)"
+         id="g3608-7-2">
+        <path
+           inkscape:export-ydpi="5.7567582"
+           inkscape:export-xdpi="5.7567582"
+           inkscape:export-filename="H:\KomodoEdit\Komodo Exts\SVNK\skin\default\images\update.png"
+           sodipodi:nodetypes="ccccccccccc"
+           id="path2820-4-3"
+           d="m 1549.3845,1467.8024 -194.5,0.031 c 34.266,198.9346 116.328,398.3753 -16.82,543.1053 l -204.2113,15.7385 c 80.2339,-191.5748 89.7283,-341.1484 0,-558.8438 l -193.49998,-0.625 152.56248,-216.4375 152.5938,-216.4687 151.9375,216.75 151.9375,216.75 0,0 z"
+           style="fill:url(#radialGradient4011);fill-opacity:1;stroke:#005d00;stroke-width:10;stroke-miterlimit:4;stroke-opacity:1" />
+      </g>
     </g>
   </g>
 </svg>
