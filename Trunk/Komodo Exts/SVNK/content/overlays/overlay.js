@@ -94,8 +94,6 @@ org.simpo.svnk = function() {
     this.repoBrowser = function() {
         // summary:
         //      Open the repository browser for the current project.
-        // todo:
-        //      Parse and deal with any feedback from running the command.
         
         this._runTortoiseCommand('repobrowser','project','ErrorBrowserLoad');
     };
@@ -103,8 +101,6 @@ org.simpo.svnk = function() {
     this.commit = function(type) {
         // summary:
         //      Commit an item(s) to the repository.
-        // todo:
-        //      Parse and deal with any feedback from running the command.
         
         this._runTortoiseCommand('commit',type,'ErrorCommit');
     }
@@ -112,8 +108,6 @@ org.simpo.svnk = function() {
     this.update = function(type) {
         // summary:
         //      Update item(s) from the SVN repository.
-        // todo:
-        //      Parse and deal with any feedback from running the command.
         
         this._runTortoiseCommand('update',type,'ErrorUpdate');
         ko.places.viewMgr.view.refreshFullTreeView();
@@ -122,8 +116,6 @@ org.simpo.svnk = function() {
     this.diff = function(type) {
         // summary:
         //      Compare item(s) with SVN versioned copy.
-        // todo:
-        //      Parse and deal with any feedback from running the command.
         
         this._runTortoiseCommand('diff',type,'ErrorDiff');
     };
@@ -131,8 +123,6 @@ org.simpo.svnk = function() {
     this.viewLog = function(type) {
         // summary:
         //      View the SVN log for item(s).
-        // todo:
-        //      Parse and deal with any feedback from running the command.
         
         this._runTortoiseCommand('log',type,'ErrorViewLog');
     };
@@ -140,8 +130,6 @@ org.simpo.svnk = function() {
     this.viewProperties = function(type) {
         // summary:
         //      View the SVN properties for item(s).
-        // todo:
-        //      Parse and deal with any feedback from running the command.
         
         this._runTortoiseCommand('properties',type,'ErrorViewProperties');
     };
@@ -149,8 +137,6 @@ org.simpo.svnk = function() {
     this.rename = function() {
         // summary:
         //      Raname the selected file
-        // todo:
-        //      Parse and deal with any feedback from running the command.
         
         this._runTortoiseCommand('rename','selectedpaths','ErrorRename');
         ko.places.viewMgr.view.refreshFullTreeView();
