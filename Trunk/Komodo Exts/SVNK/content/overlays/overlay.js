@@ -71,20 +71,33 @@ org.simpo.svnk = function() {
         return this.strings.GetStringFromName(stringToGet);
     };
     
+    this._runTortoiseCommand = function(cmd, type, errorMsgRef) {
+        // summary:
+        //      Run a TortoiseProc command.
+        // cmd: string
+        //      The command to run.
+        // type: string
+        //      The type of file-path to execute against the command.
+        // errorMsgRef: string
+        //      The errror reference to report if it fails.
+        
+        try {
+            var path = this._getPath(type);
+            var feedback = this._runTortoiseProc(path,cmd);
+        } catch(e) {
+            Components.utils.reportError(
+                this.stringBundle(errorMsgRef)
+            );
+        }
+    };
+    
     this.repoBrowser = function() {
         // summary:
         //      Open the repository browser for the current project.
         // todo:
         //      Parse and deal with any feedback from running the command.
         
-        try {
-            var path = this._getPath('project');
-            var feedback = this._runTortoiseProc(path,'repobrowser');
-        } catch(e) {
-            Components.utils.reportError(
-                this.stringBundle("ErrorCommit")
-            );
-        }
+        this._runTortoiseCommand('repobrowser','project','ErrorBrowserLoad');
     };
 
     this.commit = function(type) {
@@ -93,14 +106,7 @@ org.simpo.svnk = function() {
         // todo:
         //      Parse and deal with any feedback from running the command.
         
-        try {
-            var path = this._getPath(type);
-            var feedback = this._runTortoiseProc(path,'commit');
-        } catch(e) {
-            Components.utils.reportError(
-                this.stringBundle("ErrorCommit")
-            );
-        }
+        this._runTortoiseCommand('commit',type,'ErrorCommit');
     }
     
     this.update = function(type) {
@@ -109,14 +115,7 @@ org.simpo.svnk = function() {
         // todo:
         //      Parse and deal with any feedback from running the command.
         
-        try {
-            var path = this._getPath(type);
-            var feedback = this._runTortoiseProc(path,'update');
-        } catch (e) {
-            Components.utils.reportError(
-                this.stringBundle("ErrorUpdate")
-            );
-        }
+        this._runTortoiseCommand('update',type,'ErrorUpdate');
     };
     
     this.diff = function(type) {
@@ -125,15 +124,7 @@ org.simpo.svnk = function() {
         // todo:
         //      Parse and deal with any feedback from running the command.
         
-        this.logger.logStringMessage('diff');
-        try {
-            var path = this._getPath(type);
-            var feedback = this._runTortoiseProc(path,'diff');
-        } catch (e) {
-            Components.utils.reportError(
-                this.stringBundle("ErrorDiff")
-            );
-        }
+        this._runTortoiseCommand('diff',type,'ErrorDiff');
     };
     
     this.viewLog = function(type) {
@@ -142,14 +133,7 @@ org.simpo.svnk = function() {
         // todo:
         //      Parse and deal with any feedback from running the command.
         
-        try {
-            var path = this._getPath(type);
-            var feedback = this._runTortoiseProc(path,'log');
-        } catch (e) {
-            Components.utils.reportError(
-                this.stringBundle("ErrorViewLog")
-            );
-        }
+        this._runTortoiseCommand('log',type,'ErrorViewLog');
     };
     
     this.viewProperties = function(type) {
@@ -158,14 +142,7 @@ org.simpo.svnk = function() {
         // todo:
         //      Parse and deal with any feedback from running the command.
         
-        try {
-            var path = this._getPath(type);
-            var feedback = this._runTortoiseProc(path,'properties');
-        } catch (e) {
-            Components.utils.reportError(
-                this.stringBundle("ErrorViewProperties")
-            );
-        }
+        this._runTortoiseCommand('properties',type,'ErrorViewProperties');
     };
     
     this.rename = function() {
