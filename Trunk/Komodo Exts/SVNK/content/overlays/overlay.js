@@ -156,8 +156,19 @@ org.simpo.svnk = function() {
         // summary:
         //      Raname the selected file
         
-        this._runTortoiseCommand('remove',type,'ErrorDelete');
-        ko.places.viewMgr.view.refreshFullTreeView();
+        try {
+            var path = this._getPath(type);
+            this._runTortoiseCommand('remove',type,'ErrorDelete');
+            var feedback = this._runTortoiseProc(path, 'commit');
+            if (feedback.error == true) {
+                Components.utils.reportError(feedback.value);
+            }
+            ko.places.viewMgr.view.refreshFullTreeView();
+        } catch(e) {
+            Components.utils.reportError(
+                this.stringBundle(ErrorDelete)
+            );
+        }
     };
     
     this._getPath = function(type) {
