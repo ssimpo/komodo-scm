@@ -42,6 +42,8 @@ org.simpo.svnk = function() {
     this.strings = Components.classes["@mozilla.org/intl/stringbundle;1"].getService(Components.interfaces.nsIStringBundleService).createBundle("chrome://svnk/locale/main.properties");
     this.entries = {};
     this.prefBrowser = Components.classes['@activestate.com/koPrefService;1'].getService(Components.interfaces.koIPrefService).prefs;
+    this.logger = Components.classes["@mozilla.org/consoleservice;1"].getService(Components.interfaces.nsIConsoleService);
+    var error = Components.classes["@mozilla.org/scripterror;1"].createInstance(Components.interfaces.nsIScriptError);
     
     this._getPrefString = function(prefID) {
         // summary:
@@ -75,232 +77,94 @@ org.simpo.svnk = function() {
         // todo:
         //      Parse and deal with any feedback from running the command.
         
-        var project = this._getProject();
-        if (project) {
-            var path = this._getProjectPath(project);
+        try {
+            var path = this._getPath('project');
             var feedback = this._runTortoiseProc(path,'repobrowser');
-        } else {
-            alert(this.stringBundle("ErrorBrowserLoad"));
-        }
-    };
-    
-    this.commitActiveFile = function() {
-        // summary:
-        //      Commit the active file to the repository.
-        // todo:
-        //      Parse and deal with any feedback from running the command.
-        
-        try {
-            var path = this._getCurrentFilePath();
-            if (path) {    
-                var feedback = this._runTortoiseProc(path,'commit');
-            } else {
-                alert(this.stringBundle("ErrorFindActiveDocument"));
-            }
         } catch(e) {
-            alert(this.stringBundle("ErrorNoCurrentFile"));
-        }
-    };
-    
-    this.commitPath = function() {
-        // summary:
-        //      Commit the path(s) selected in the current places view to the
-        //      SVN repository.
-        // todo:
-        //      Parse and deal with any feedback from running the command.
-        
-        try {
-            var paths = this._getSelectedPaths();
-            var feedback = this._runTortoiseProc(paths.join('*'),'commit');
-        } catch (e) {
-            alert(this.stringBundle("ErrorCommitSelect"));
-        }
-    };
-    
-    this.commitProject = function() {
-        // summary:
-        //      Open the update interface for the current project.
-        // todo:
-        //      Parse and deal with any feedback from running the command.
-        
-        var project = this._getProject();
-        if (project) {
-            var path = this._getProjectPath(project);
-            var feedback = this._runTortoiseProc(path,'commit');
-        } else {
-            alert(this.stringBundle("ErrorCommitProject"));
-        }
-    };
-    
-    this.updatePath = function() {
-        // summary:
-        //      Update the path(s) selected in the current places view from the
-        //      SVN repository.
-        // todo:
-        //      Parse and deal with any feedback from running the command.
-        
-        try {
-            var paths = this._getSelectedPaths();
-            var feedback = this._runTortoiseProc(paths.join('*'),'update');
-        } catch (e) {
-            alert(this.stringBundle("ErrorCommitSelect"));
-        }
-    };
-    
-    this.updateProject = function() {
-        // summary:
-        //      Open the commit interface for the current project.
-        // todo:
-        //      Parse and deal with any feedback from running the command.
-        
-        var project = this._getProject();
-        if (project) {
-            var path = this._getProjectPath(project);
-            var feedback = this._runTortoiseProc(path,'update');
-        } else {
-            alert(this.stringBundle("ErrorCommitProject"));
-        }
-    };
-    
-    this.updateActiveFile = function() {
-        // summary:
-        //      Update the active file from the repository.
-        // todo:
-        //      Parse and deal with any feedback from running the command.
-        
-        try {
-            var path = this._getCurrentFilePath();
-            if (path) {    
-                var feedback = this._runTortoiseProc(path,'update');
-            } else {
-                alert(this.stringBundle("ErrorFindActiveDocument"));
-            }
-        } catch(e) {
-            alert(this.stringBundle("ErrorNoCurrentFile"));
-        }
-    };
-    
-    this.compareEntry = function() {
-        
-    };
-    
-    this.compareDiff = function() {
-        // summary:
-        //      Compare the file selected in the current places view with it's
-        //      SVN versioned copy.
-        // todo:
-        //      Parse and deal with any feedback from running the command.
-        
-        try {
-            var paths = this._getSelectedPaths();
-            for (i in paths) {
-                var feedback = this._runTortoiseProc(paths[i],'diff');
-            }
-        } catch (e) {
-            alert(this.stringBundle("ErrorCompareSelected"));
-        }
-    };
-    
-    this.compareDiffActiveFile = function() {
-        // summary:
-        //      Compare the current file to its versioned copy in SVN.
-        // todo:
-        //      Parse and deal with any feedback from running the command.
-        
-        try {
-            var path = this._getCurrentFilePath();
-            if (path) {    
-                var feedback = this._runTortoiseProc(path,'diff');
-            } else {
-                alert(this.stringBundle("ErrorFindActiveDocument"));
-            }
-        } catch(e) {
-            alert(this.stringBundle("ErrorNoCurrentFile"));
-        }
-    };
-    
-    this.viewEntry = function() {
-        try {
-            var currentRevisionNumber = this._getCurrentRevisionNo();
-            var currentEntry = this.entries.getRevision(currentRevisionNumber);
-            openDialog(
-                'chrome://svnk/content/viewLogEntry.xul',
-                'Revision No.'+currentEntry.revision.toString(),
-                'chrome,modal,centerscreen',
-                currentEntry
+            Components.utils.reportError(
+                this.stringBundle("ErrorCommit")
             );
-            
-        } catch(e) {
-            alert("ERROR");
         }
     };
-    
-    this.viewLog = function() {
+
+    this.commit = function(type) {
         // summary:
-        //      View the SVN log for selected file in the current places view.
+        //      Commit an item(s) to the repository.
         // todo:
         //      Parse and deal with any feedback from running the command.
         
         try {
-            var paths = this._getSelectedPaths();
-            for (i in paths) {
-                var feedback = this._runTortoiseProc(paths[i],'log');
-            }
+            var path = this._getPath(type);
+            var feedback = this._runTortoiseProc(path,'commit');
+        } catch(e) {
+            Components.utils.reportError(
+                this.stringBundle("ErrorCommit")
+            );
+        }
+    }
+    
+    this.update = function(type) {
+        // summary:
+        //      Update item(s) from the SVN repository.
+        // todo:
+        //      Parse and deal with any feedback from running the command.
+        
+        try {
+            var path = this._getPath(type);
+            var feedback = this._runTortoiseProc(path,'update');
         } catch (e) {
-            alert(this.stringBundle("ErrorFailedSVNLog"));
+            Components.utils.reportError(
+                this.stringBundle("ErrorUpdate")
+            );
         }
     };
     
-    this.viewLogActiveFile = function() {
+    this.diff = function(type) {
         // summary:
-        //      View the SVN log for the current file.
+        //      Compare item(s) with SVN versioned copy.
         // todo:
         //      Parse and deal with any feedback from running the command.
         
+        this.logger.logStringMessage('diff');
         try {
-            var path = this._getCurrentFilePath();
-            if (path) {
-                var feedback = this._runTortoiseProc(path,'log');
-            } else {
-                alert(this.stringBundle("ErrorFindActiveDocument"));
-            }
-        } catch(e) {
-            alert(this.stringBundle("ErrorNoCurrentFile"));
-        }
-    };
-    
-    this.viewProperties = function() {
-        // summary:
-        //      View the SVN properties for selected file in the
-        //      current places view.
-        // todo:
-        //      Parse and deal with any feedback from running the command.
-        
-        try {
-            var paths = this._getSelectedPaths();
-            for (i in paths) {
-                var feedback = this._runTortoiseProc(paths[i],'properties');
-            }
+            var path = this._getPath(type);
+            var feedback = this._runTortoiseProc(path,'diff');
         } catch (e) {
-            alert(this.stringBundle("ErrorFailedSVNProperties"));
+            Components.utils.reportError(
+                this.stringBundle("ErrorDiff")
+            );
         }
     };
     
-    this.viewPropertiesActiveFile = function() {
+    this.viewLog = function(type) {
         // summary:
-        //      View the SVN file properties for the current file.
+        //      View the SVN log for item(s).
         // todo:
         //      Parse and deal with any feedback from running the command.
         
         try {
-            var path = this._getCurrentFilePath();
-            if (path) {
-                var feedback = this._runTortoiseProc(path,'properties');
-            } else {
-                alert(this.stringBundle("ErrorFindActiveDocument"));
-            }
-        } catch(e) {
-            alert(this.stringBundle("ErrorNoCurrentFile"));
+            var path = this._getPath(type);
+            var feedback = this._runTortoiseProc(path,'log');
+        } catch (e) {
+            Components.utils.reportError(
+                this.stringBundle("ErrorViewLog")
+            );
+        }
+    };
+    
+    this.viewProperties = function(type) {
+        // summary:
+        //      View the SVN properties for item(s).
+        // todo:
+        //      Parse and deal with any feedback from running the command.
+        
+        try {
+            var path = this._getPath(type);
+            var feedback = this._runTortoiseProc(path,'properties');
+        } catch (e) {
+            Components.utils.reportError(
+                this.stringBundle("ErrorViewProperties")
+            );
         }
     };
     
@@ -318,6 +182,31 @@ org.simpo.svnk = function() {
             alert(this.stringBundle("ErrorCommitSelect"));
         }
     };
+    
+    this._getPath = function(type) {
+        // summary:
+        //      Get the path for a given type.
+        // type: string
+        //      The type to get ActiveFile|Path|Project
+        // returns: string
+        //      The file path(s) to requested type
+        
+        var path = '';
+        
+        switch(type.toLowerCase()) {
+            case 'activefile':
+                path = this._getCurrentFilePath();
+                break;
+            case 'selectedpaths':
+                path = this._getSelectedPaths().join('*');
+                break;
+            case 'project':
+                path = this._getProjectPath();
+                break;
+        }
+        
+        return path;
+    }
     
     this._runTortoiseProc = function(path,command) {
         // summary:
@@ -343,26 +232,6 @@ org.simpo.svnk = function() {
         return response;
     };
     
-    this._runSvnCommand = function(path,command,switches) {
-        // summary:
-        //      Run a specified SVN command against the given path (with given switches).
-        // path: string
-        //      The path to run the command against.
-        // command: string
-        //      The TortoiseProc command to run.
-        // switches: string
-        //      The switches to add to the SVN command.
-        // returns: object
-        //      The result of running the command as supplied by _runCommand(). 
-        
-        var cmd = 'svn.exe '+command+' '+switches+' "'+path+'\"';
-        var cwd = 'C:\\Program Files\\Subversion\\';
-        
-        var response = this._runCommand(cmd,cwd,null,null);
-        
-        return response;
-    };
-    
     this._getCurrentFilePath = function() {
         //  summary:
         //      Get the path of the currently open file.
@@ -371,7 +240,10 @@ org.simpo.svnk = function() {
         try {
             return ko.views.manager.currentView.document.file.path;
         } catch(e) {
-            return false;   
+            Components.utils.reportError(
+                this.stringBundle("ErrorNoCurrentFile")
+            );
+            return false;
         }
     };
     
@@ -381,13 +253,20 @@ org.simpo.svnk = function() {
         // returns: array
         //      The selected paths.
         
-        var view = ko.places.viewMgr.view;
-        var selectedIndices = ko.treeutils.getSelectedIndices(view, false);
-        return selectedIndices.map( function(row) {
-            var uri = view.getURIForRow(row);
-            var path = ko.uriparse.URIToLocalPath(uri);
-            return path;
-        });
+        try {
+            var view = ko.places.viewMgr.view;
+            var selectedIndices = ko.treeutils.getSelectedIndices(view, false);
+            return selectedIndices.map( function(row) {
+                var uri = view.getURIForRow(row);
+                var path = ko.uriparse.URIToLocalPath(uri);
+                return path;
+            });
+        } catch(e) {
+            Components.utils.reportError(
+                this.stringBundle("ErrorNoSelectedPaths")
+            );
+            return false; 
+        }
     };
     
     this._getProject = function() {
@@ -399,7 +278,10 @@ org.simpo.svnk = function() {
         try {
             return ko.projects.manager.getCurrentProject();
         } catch(e) {
-            return false;   
+            Components.utils.reportError(
+                this.stringBundle("ErrorNoCurrentProject")
+            );
+            return false; 
         }
     };
     
@@ -409,7 +291,10 @@ org.simpo.svnk = function() {
         // project: object KomodoProject
         //      The project to get the path of.
         // returns: string
-    
+        
+        if (project == undefined) {
+            project = this._getProject();
+        }
         var projectFile = project.getFile();
         return projectFile.dirName;
     };
