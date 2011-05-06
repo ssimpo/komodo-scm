@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://svnk/skin/svnk.css" type="text/css"?>
+<!DOCTYPE window PUBLIC "-//MOZILLA//DTD XUL V1.0//EN" "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" [
+	<!ENTITY % SVNKDTD SYSTEM "chrome://svnk/locale/main.dtd">
+	%SVNKDTD;
+]>
+<!--
+summary:
+	The main ovelay for the SVN-K addon.
+description:
+	The overlay, works by overlaying the main komodo.xul file.  It also adds against
+	content, which is added via the places addon.
+author:
+	Stephen Simpson <me@simpo.org>
+license:
+	LGPL <http://www.gnu.org/licenses/lgpl.html>
+version:
+	1.0.5
+-->
+<dialog
+    id="SVNK-aboutDialog"
+    class="SVNK-standardDialog-width"
+    title="SVN-K addon"
+    buttons="accept"
+    buttonlabelaccept="OK"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+<vbox>
+    <hbox>
+        <image src='chrome://svnk/skin/images/icon64x64.png' width='64' height='64'/>
+    
+        <vbox class="SVNK-standardPartDialog-width">
+            <label value="SVN-K" class="header SVNK-about-header" />
+            <description style="width:300px">
+		SVN-K is an addon for Komodo IDE and Komodo Edit, which intergrates the editors with SVN.  The current setup issues commands via TortoiseSVN allowing easy use of Tortoise's easy-to-use GUI.
+	    </description>
+        </vbox>
+    </hbox>
+
+    <separator class="groove-thin" orient="horizontal"/> 
+
+    <grid>
+        <columns>
+            <column/>
+            <column/>
+        </columns>
+        <rows>
+            <row>
+                <label value="Homepage:" class="header"/>
+                <label
+                    value="http://simpo.org/node/32"
+                    class="text-link"/>
+            </row><row>
+                <label value="Issues Tacker:" class="header"/>
+                <label
+                    href="http://simpo.org/project/issues"
+                    value="http://simpo.org/project/issues"
+                    class="text-link"/>
+            </row>
+        </rows>
+    </grid>
+
+    <separator class="groove-thin" orient="horizontal"/> 
+
+    <hbox>
+        <label value="Created by:" class="header"/>
+        <label value="Stephen Simpson" class="plain"/>
+    </hbox>
+
+    <grid>
+        <columns>
+            <column/>
+            <column/>
+        </columns>
+        <rows>
+            <row>
+                <label value="Email:" class="header"/>
+                <label
+                    href="mailto:me@simpo.org"
+                    value="me@simpo.org"
+                    class="text-link"/>
+            </row><row>
+                <label value="Blog:" class="header"/>
+                <label
+                    href="http://simpo.org"
+                    onclick="openUrlInDefaultBrowser(this.href);"
+                    value="http://simpo.org"
+                    class="text-link"/>
+            </row><row>
+                <label value="Facebook:" class="header"/>
+                <label
+                    href="http://www.facebook.com/simpo"
+                    value="http://www.facebook.com/simpo"
+                    class="text-link"/>
+            </row><row>
+                <label value="Twitter:" class="header"/>
+                <label
+                    href="http://twitter.com/ssimpo"
+                    value="http://twitter.com/ssimpo"
+                    class="text-link"/>
+            </row>
+        </rows>
+    </grid>
+
+</vbox>
+
+</dialog>
