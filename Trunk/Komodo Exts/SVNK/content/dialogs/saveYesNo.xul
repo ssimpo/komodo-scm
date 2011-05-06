@@ -6,6 +6,7 @@
 	<!ENTITY % SVNKDTD SYSTEM "chrome://svnk/locale/main.dtd">
 	%SVNKDTD;
 ]>
+
 <!--
 summary:
 	The preferences form for SVN-K addon.
@@ -29,7 +30,7 @@ version:
     ondialogdisclosure="SVNKDIALOG.cancel();">
 
     <description style="width:350px">
-	<div id="SVNK-Dialog-Description"></div>
+	<span id="SVNK-Dialog-Description"></span>
     </description>
     
     <script type="application/x-javascript" src="chrome://svnk/content/dialogs/dialogs.js"/>
