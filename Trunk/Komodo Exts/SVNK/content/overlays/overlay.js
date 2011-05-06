@@ -7,7 +7,6 @@
 // version:
 //      0.1.6
 
-
 // Non violation of global namespace.
 if (!org) var org = {};
 if (!org.simpo) org.simpo = {};
@@ -82,6 +81,7 @@ org.simpo.svnk = function() {
         
         try {
             var path = this._getPath(type);
+            this._checkNoDirtyFiles(type);
             var feedback = this._runTortoiseProc(path, command);
             if (feedback.error == true) {
                 Components.utils.reportError(feedback.value);
@@ -92,6 +92,49 @@ org.simpo.svnk = function() {
             );
         }
     };
+    
+    this._checkNoDirtyFiles = function(type) {
+        var returner = {'command':null};
+        
+        if (type == 'activefile') {
+            var doc = ko.views.manager.currentView.document;
+            if (doc.isDirty) {
+                
+                openDialog(
+                    'chrome://svnk/content/dialogs/saveYesNo.xul',
+                    'Unsaved file','modal=yes',
+                    returner,
+                    this.stringBundle('DialogActiveFileDirty')
+                );
+            }
+        } else {
+            var views = ko.views.manager.getAllViews();
+            
+            var paths = new Array();
+            for (var i = 0; i < (views.length-1); i++) {
+                var doc = views[i].document;
+                if (doc.isDirty) {
+                    paths.push(doc.file.path);
+                }
+            }
+            
+            if (path.length > 0) {
+                var msg = this.stringBundle('DialogActiveFilesDirty1') + "\n";
+                for (var i = 0; i < (paths.length-1); i++) {
+                    msg += paths[i] + "\n";
+                }
+                msg += "\n" + this.stringBundle('DialogActiveFilesDirty2') + "\n";
+                openDialog(
+                    'chrome://svnk/content/dialogs/saveYesNo.xul',
+                    'Unsaved file','modal=yes',
+                    returner,
+                    msg
+                );
+            }
+        }
+        
+        alert(returner.command);
+    }
     
     this.repoBrowser = function() {
         // summary:
@@ -234,6 +277,56 @@ org.simpo.svnk = function() {
             return false;
         }
     };
+    
+    this._getOpenFilePaths = function() {
+        // summary:
+        //      Get a list of all the open file paths.
+        // returns: array
+        //      An string-array of all the paths.
+        
+        var paths = new Array();
+        var views = ko.views.manager.getAllViews();
+    
+        for (var i = 0; i < (views.length-1); i++) {
+            var view = views[i];
+            paths.push(view.document.file.path);
+        }
+    };
+    
+    this._docIsOpen = function(path) {
+        // summary:
+        //      Test whether a file path is currently open for editing.
+        // path: string
+        //      The path to test.
+        // returns: boolean
+        
+        var paths = this._getOpenFilePaths();
+        for (cpath in paths) {
+            if (path.toLowerCase() == cpath.toLowerCase()) {
+                return true;
+            }
+        }
+        
+        return false;
+    };
+    
+    this._getViewForPath = function(path) {
+        // summary:
+        //      Get the view object for a give path if it exists.
+        // path: string
+        //      The file-path of the view to return.
+        // returns: object|boolean
+        //      The view object or false if no open view found for path.
+        
+        var views = ko.views.manager.getAllViews();
+        for (var i = 0; i < (views.length-1); i++) {
+            var view = views[i];
+            if (path.toLowerCase() ==  view.document.file.path.toLowerCase()) {
+                return view;
+            }
+        }
+        return false;
+    }
     
     this._getSelectedPaths = function() {
         // summary:
