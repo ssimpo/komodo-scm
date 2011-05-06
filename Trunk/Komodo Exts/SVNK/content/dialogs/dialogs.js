@@ -19,17 +19,17 @@ try {
         
         this.save = function() {
             this.returner.command = 'save';
-            return true;
+            window.close();
 	}
 	
 	this.cancel = function() {
             this.returner.command = 'cancel';
-	    return true;
+	    window.close();
 	}
         
         this.ignore = function() {
             this.returner.command = 'ignore';
-	    return true;
+	    window.close();
 	}
         
     }
