@@ -101,7 +101,6 @@ org.simpo.svnk = function() {
             var doc = ko.views.manager.currentView.document;
             if (doc.isDirty) {
                 var msg = this.stringBundle('DialogActiveFileDirty');
-                alert(msg);
                 openDialog(
                     'chrome://svnk/content/dialogs/saveYesNo.xul',
                     'Unsaved file','modal=yes',
@@ -120,14 +119,12 @@ org.simpo.svnk = function() {
                 }
             }
             
-            
             if (paths.length > 0) {
                 var msg = this.stringBundle('DialogActiveFilesDirty1') + "\n";
                 for (var i = 0; i < paths.length; i++) {
                     msg += paths[i] + "\n";
                 }
                 msg += "\n" + this.stringBundle('DialogActiveFilesDirty2') + "\n";
-                alert(msg);
                 openDialog(
                     'chrome://svnk/content/dialogs/saveYesNo.xul',
                     'Unsaved file','modal=yes',
@@ -164,6 +161,7 @@ org.simpo.svnk = function() {
         this._runTortoiseCommand('update',type,'ErrorUpdate');
         ko.places.viewMgr.view.refreshFullTreeView();
     };
+    
     
     this.diff = function(type) {
         // summary:
@@ -230,6 +228,7 @@ org.simpo.svnk = function() {
         //      The file path(s) to requested type
         
         var path = '';
+        
         
         switch(type.toLowerCase()) {
             case 'activefile':
