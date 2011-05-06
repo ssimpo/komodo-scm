@@ -4,7 +4,7 @@
     <Description about="urn:mozilla:install-manifest">
         <em:id>svnk@simp.org</em:id>
         <em:name>SVN-K</em:name>
-        <em:version>0.1.5</em:version>
+        <em:version>0.1.6</em:version>
         <em:description>Intergation of Subversion (SVN) with Komodo (via TortoiseSVN)</em:description>
         <em:creator>Stephen Simpson</em:creator>
         <em:homepageURL>http://simpo.org/node/32</em:homepageURL>
