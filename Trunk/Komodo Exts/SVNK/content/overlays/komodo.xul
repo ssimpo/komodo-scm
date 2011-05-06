@@ -23,7 +23,7 @@ version:
 	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 	
 	<script type="application/x-javascript" src="chrome://svnk/content/overlays/overlay.js"/>
-
+ 
 	<commandset id="allcommands">
 		<command id="Tasks:SVNK-RepoBrowser" oncommand="SVNK.repoBrowser();"/>
 		<command id="Tasks:SVNK-UpdateProject" oncommand="SVNK.update('project');"/>
@@ -43,6 +43,7 @@ version:
 		<command id="Tasks:SVNK-Delete" oncommand="SVNK.delete('selectedpaths');"/>
 		<command id="Tasks:SVNK-ShowAbout" oncommand="openDialog('chrome://svnk/content/about.xul', 'about', 'chrome,modal,centerscreen');"/>
 	</commandset>
+	
 	
 	<!-- Main Komodo Toolbar options -->
 	<toolbar id="toolsToolbar">
