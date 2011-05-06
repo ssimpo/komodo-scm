@@ -28,7 +28,8 @@ version:
     ondialogcancel="SVNKDIALOG.cancel();"
     ondialogdisclosure="SVNKDIALOG.cancel();">
 
-    <description style="width:350px" id="SVNK-Dialog-Description">
+    <description style="width:350px">
+	<div id="SVNK-Dialog-Description"></div>
     </description>
     
     <script type="application/x-javascript" src="chrome://svnk/content/dialogs/dialogs.js"/>
