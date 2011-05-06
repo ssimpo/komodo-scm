@@ -34,7 +34,7 @@ version:
     <script type="application/x-javascript" src="chrome://svnk/content/dialogs/dialogs.js"/>
     <script type="application/javascript">
 	var description = document.getElementById('SVNK-Dialog-Description');
-	var newDiv = document.createTextNode(window.arguments[1]);
-	description.appendChild(newDiv);
+	var textNode = document.createTextNode(window.arguments[1]);
+	description.appendChild(textNode);
     </script>
 </dialog>
