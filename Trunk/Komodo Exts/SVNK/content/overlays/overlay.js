@@ -94,6 +94,7 @@ org.simpo.svnk = function() {
     };
     
     this._checkNoDirtyFiles = function(type) {
+        try {
         var returner = {'command':null};
         
         if (type == 'activefile') {
@@ -118,7 +119,8 @@ org.simpo.svnk = function() {
                 }
             }
             
-            if (path.length > 0) {
+            
+            if (paths.length > 0) {
                 var msg = this.stringBundle('DialogActiveFilesDirty1') + "\n";
                 for (var i = 0; i < (paths.length-1); i++) {
                     msg += paths[i] + "\n";
@@ -134,6 +136,9 @@ org.simpo.svnk = function() {
         }
         
         alert(returner.command);
+        } catch(e) {
+            Components.utils.reportError(e);
+        }
     }
     
     this.repoBrowser = function() {
