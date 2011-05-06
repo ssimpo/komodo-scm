@@ -100,19 +100,20 @@ org.simpo.svnk = function() {
         if (type == 'activefile') {
             var doc = ko.views.manager.currentView.document;
             if (doc.isDirty) {
-                
+                var msg = this.stringBundle('DialogActiveFileDirty');
+                alert(msg);
                 openDialog(
                     'chrome://svnk/content/dialogs/saveYesNo.xul',
                     'Unsaved file','modal=yes',
                     returner,
-                    this.stringBundle('DialogActiveFileDirty')
+                    msg
                 );
             }
         } else {
             var views = ko.views.manager.getAllViews();
             
             var paths = new Array();
-            for (var i = 0; i < (views.length-1); i++) {
+            for (var i = 0; i < views.length; i++) {
                 var doc = views[i].document;
                 if (doc.isDirty) {
                     paths.push(doc.file.path);
@@ -122,10 +123,11 @@ org.simpo.svnk = function() {
             
             if (paths.length > 0) {
                 var msg = this.stringBundle('DialogActiveFilesDirty1') + "\n";
-                for (var i = 0; i < (paths.length-1); i++) {
+                for (var i = 0; i < paths.length; i++) {
                     msg += paths[i] + "\n";
                 }
                 msg += "\n" + this.stringBundle('DialogActiveFilesDirty2') + "\n";
+                alert(msg);
                 openDialog(
                     'chrome://svnk/content/dialogs/saveYesNo.xul',
                     'Unsaved file','modal=yes',
@@ -292,7 +294,7 @@ org.simpo.svnk = function() {
         var paths = new Array();
         var views = ko.views.manager.getAllViews();
     
-        for (var i = 0; i < (views.length-1); i++) {
+        for (var i = 0; i < views.length; i++) {
             var view = views[i];
             paths.push(view.document.file.path);
         }
@@ -324,7 +326,7 @@ org.simpo.svnk = function() {
         //      The view object or false if no open view found for path.
         
         var views = ko.views.manager.getAllViews();
-        for (var i = 0; i < (views.length-1); i++) {
+        for (var i = 0; i < views.length; i++) {
             var view = views[i];
             if (path.toLowerCase() ==  view.document.file.path.toLowerCase()) {
                 return view;
