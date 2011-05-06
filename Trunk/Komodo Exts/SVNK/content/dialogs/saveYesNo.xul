@@ -29,12 +29,12 @@ version:
     ondialogcancel="SVNKDIALOG.cancel();"
     ondialogdisclosure="SVNKDIALOG.cancel();">
 
-    <description style="width:350px">
-	<span id="SVNK-Dialog-Description"></span>
-    </description>
+    <description style="width:350px;white-space:pre-wrap;" id="SVNK-Dialog-Description"></description>
     
     <script type="application/x-javascript" src="chrome://svnk/content/dialogs/dialogs.js"/>
     <script type="application/javascript">
-	document.getElementById('SVNK-Dialog-Description').innerHTML = window.arguments[1];
+	var description = document.getElementById('SVNK-Dialog-Description');
+	var newDiv = document.createTextNode(window.arguments[1]);
+	description.appendChild(newDiv);
     </script>
 </dialog>
