@@ -136,25 +136,6 @@ org.simpo.svnk = function() {
         }
     };
     
-    this._getDirtyPaths = function() {
-        // summary:
-        //      Get a list of open filepaths, which dirty (ie. change + unsaved).
-        // returns: array
-        //      String array containing dirty paths
-        
-        var views = ko.views.manager.getAllViews();
-            
-        var paths = new Array();
-        for (var i = 0; i < views.length; i++) {
-            var doc = views[i].document;
-            if (doc.isDirty) {
-                paths.push(doc.file.path);
-            }
-        }
-        
-        return paths;
-    };
-    
     this._getPath = function(type) {
         // summary:
         //      Get the path for a given type.
@@ -233,6 +214,52 @@ org.simpo.svnk = function() {
         }
     };
     
+    this._getDirtyPaths = function() {
+        // summary:
+        //      Get a list of open filepaths, which dirty (ie. change + unsaved).
+        // returns: array
+        //      String array containing dirty paths
+        
+        var views = ko.views.manager.getAllViews();
+            
+        var paths = new Array();
+        for (var i = 0; i < views.length; i++) {
+            var doc = views[i].document;
+            if (doc.isDirty) {
+                paths.push(doc.file.path);
+            }
+        }
+        
+        return paths;
+    };
+    
+    this._getDirtyCommands = function(type) {
+        // summary:
+        //      Get a list of paths, which are dirty and being
+        //      acted upon for current command
+        // type: string
+        //      The type to get ActiveFile|Path|Project
+        // returns: array()
+        //      The dirty paths
+        
+        var dirtyPaths = this._getDirtyPaths();
+        var dirtyCommands = new Array();
+        
+        if (dirtyPaths.length > 0) {
+            var paths = this._getPath(type).split('*');
+            
+            for (var i = 0; i < paths.length; i++) {
+                for (var ii = 0; ii < paths.length; ii++) {
+                    if (this._pathContainsPath(paths[i],dirtyPaths[ii])) {
+                        dirtyCommands.push(dirtyPaths[ii])
+                    }
+                }
+            }
+        }
+
+        return dirtyCommands;
+    };
+    
     this._getViewForPath = function(path) {
         // summary:
         //      Get the view object for a give path if it exists.
@@ -281,19 +308,22 @@ org.simpo.svnk = function() {
         return projectFile.dirName;
     };
     
-    this._docIsInPathString = function(doc,path) {
+    this._pathContainsPath = function(path1,path2) {
         // summary:
-        //      Check if a given doc's path is contained within a path-string.
-        // doc: object
-        //      Open document object.
-        // path: string
-        //      The path-string (seprate paths, seperated by *)
+        //      Check if a given path-string is contained within another path.
+        // path1: string
+        //      The 1st path-string, the one to search for.
+        // path2: string
+        //      The 2nd path-string, the one to search within.
         // returns: boolean
         
-        var paths = path.split('*');
-        for (var i = 0; i < this._paths.length; i++) {
-            if (paths[i] == doc.file.path) {
-                return true;
+        if (path1 == path2) {
+            return true;
+        } else {
+            if (path1.length <= path2.length) {
+                if (path1 == path2.substr(0,path1.length)) {
+                    return true;
+                }
             }
         }
         
@@ -347,6 +377,58 @@ org.simpo.svnk = function() {
         }
     }
     
+    this._handleDirtyFiles = function(type,command,paths) {
+        try {
+        dirtyPaths = this._getDirtyCommands(type);
+        
+        if (dirtyPaths.length == 0) {
+            return true;
+        }
+        
+        var chrome = 'chrome://svnk/content/dialogs/saveYesNo.xul';
+        var title = 'Unsaved information';
+        var options = 'modal=yes,centerscreen=yes';
+        var returner = {'command':null};
+        
+        switch(type) {
+            case 'activefile':
+                var msg = this.stringBundle('DialogActiveFileDirty');
+                openDialog(chrome,title,options,returner,msg);
+                break;
+            default:
+                if (paths.length > 0) {
+                    var msg = this.stringBundle('DialogActiveFilesDirty1') + "\n" + dirtyPaths.join("\n") + "\n\n" + this.stringBundle('DialogActiveFilesDirty2') + "\n";
+                    openDialog(chrome,title,options,returner, msg);
+                }
+                break;
+        }
+        
+        switch(returner.command) {
+            case null:
+                return true;
+                break;
+            case 'ignore':
+                return true;
+                break;
+            case 'cancel':
+                return false;
+                break;
+            case 'save':
+                if (type == 'activefile') {
+                    ko.views.manager.currentView.document.save(true);
+                } else {
+                    this._saveDirtyPaths();
+                }
+                return true;
+                break;
+        }
+        } catch(e) {
+            Components.utils.reportError(e);
+        }
+        
+        return false;
+    };
+    
     this._runTortoiseCommand = function(command, type, errorMsgRef) {
         // summary:
         //      Run a TortoiseProc command.
@@ -358,13 +440,13 @@ org.simpo.svnk = function() {
         //      The errror reference to report if it fails.
         
         try {
-            var path = this._getPath(type);
-            //if (this._checkNoDirtyFiles(type,command,path)) {
-                var feedback = this._runTortoiseProc(path, command);
+            var paths = this._getPath(type);
+            if (this._handleDirtyFiles(type,command,paths)) {
+                var feedback = this._runTortoiseProc(paths, command);
                 if (feedback.error == true) {
                     Components.utils.reportError(feedback.value);
                 }
-            //}
+            }
         } catch(e) {
             Components.utils.reportError(
                 this.stringBundle(errorMsgRef)
