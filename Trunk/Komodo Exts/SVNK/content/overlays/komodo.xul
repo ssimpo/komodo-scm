@@ -59,13 +59,13 @@ version:
 			observes="Tasks:SVNK-CommitProject"
 			label="&svnk.label.commitproject;"
 			tooltiptext="&svnk.tooltip.commitproject;"
-			class="menuitem-iconic SVNK-Commit-Icon"/>
+			class="menuitem-iconic SVNK-CommitProject-Icon"/>
 		<toolbarbutton
 			id="toolsToolbar-SVNK-UpdateProject"
 			observes="Tasks:SVNK-UpdateProject"
 			label="&svnk.label.updateproject;"
 			tooltiptext="&svnk.tooltip.updateproject;"
-			class="menuitem-iconic SVNK-Update-Icon"/>
+			class="menuitem-iconic SVNK-UpdateProject-Icon"/>
 		<toolbarbutton
 			id="toolsToolbar-SVNK-CompareDiffActiveFile"
 			observes="Tasks:SVNK-CompareDiffActiveFile"
@@ -102,13 +102,13 @@ version:
 					observes="Tasks:SVNK-CommitProject"
 					label="&svnk.label.commitproject;"
 					tooltiptext="&svnk.tooltip.commitproject;"
-					class="menuitem-iconic SVNK-Commit-Icon"/>
+					class="menuitem-iconic SVNK-CommitProject-Icon"/>
 				<menuitem
 					id="popup_tools-SVNK-UpdateProject"
 					observes="Tasks:SVNK-UpdateProject"
 					label="&svnk.label.updateproject;"
 					tooltiptext="&svnk.tooltip.updateproject;"
-					class="menuitem-iconic SVNK-Update-Icon"/>
+					class="menuitem-iconic SVNK-UpdateProject-Icon"/>
 				<menuitem
 					id="popup_tools_SVNK-CompareDiffActiveFile"
 					observes="Tasks:SVNK-CompareDiffActiveFile"
