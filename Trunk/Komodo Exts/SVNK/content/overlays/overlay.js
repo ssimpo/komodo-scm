@@ -350,8 +350,6 @@ org.simpo.svnk = function() {
     this._saveDirtyPaths = function() {
         // summary:
         //      Save all the current dirty paths.
-        // todo:
-        //      Make it work only against selected paths
         
         var views = ko.views.manager.getAllViews();
         for (var i = 0; i < views.length; i++) {
@@ -378,23 +376,43 @@ org.simpo.svnk = function() {
     }
     
     this._handleDirtyFiles = function(type) {
+        // summary:
+        //      Check for dirty files in the current paths for the command
+        //      being issued.
+        // type: string
+        //      The type of command being issued (ie.
+        //      activefile|project|selectedpaths).
+        // returns: boolean
+        //      Should the command be executed or not?
+        
         var dirtyPaths = this._getDirtyCommands(type);
-        var command = null;
         
-        if (dirtyPaths.length == 0) {
-            return true;
+        if (dirtyPaths.length > 0) {
+            var command = null;
+            
+            if (type == 'activefile') {
+                command = this._reportDirtyActiveFile();
+            } else {
+                command =this._reportDirtyPaths(dirtyPaths);
+            }
+            
+            return this._respondDirtyResponse(type,command);
         }
         
-        if (type == 'activefile') {
-            command = this._reportDirtyActiveFile();
-        } else {
-            command =this._reportDirtyPaths(dirtyPaths);
-        }
-        
-        return this._respondDirtyResponse(type,command);
+        return true;
     };
     
     this._respondDirtyResponse = function(type,command) {
+        // summary:
+        //      Respond to user input on dirty files.
+        // type: string
+        //      The type of command being issued (ie.
+        //      activefile|project|selectedpaths).
+        // command: string
+        //      The user response (ie. save|ignore|cancel).
+        // returns: boolean
+        //      Should the command proceed or be aborted?
+        
         switch(command) {
             case null:
                 return true;
@@ -419,6 +437,11 @@ org.simpo.svnk = function() {
     };
     
     this._reportDirtyActiveFile = function() {
+        // summary
+        //      Handle the active file being dirty.
+        // returns: string
+        //      The user response (ie. save|ignore|cancel).
+        
         var chrome = 'chrome://svnk/content/dialogs/saveYesNo.xul';
         var title = 'Unsaved information';
         var options = 'modal=yes,centerscreen=yes';
@@ -431,6 +454,14 @@ org.simpo.svnk = function() {
     };
     
     this._reportDirtyPaths = function(paths) {
+        // summary
+        //      Handle the dirty files that are being acted upon by
+        //      the current command.
+        // paths: array
+        //      The paths being acted upon, which are dirty.
+        // returns: string
+        //      The user response (ie. save|ignore|cancel).
+        
         var chrome = 'chrome://svnk/content/dialogs/saveYesNo.xul';
         var title = 'Unsaved information';
         var options = 'modal=yes,centerscreen=yes';
