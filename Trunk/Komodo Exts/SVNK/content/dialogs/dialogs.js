@@ -11,7 +11,7 @@
 if (!org) var org = {};
 if (!org.simpo) org.simpo = {};
 if (!org.simpo.svnk) org.simpo.svnk = {};
-	
+
 try {
     org.simpo.svnk.dialogs = function(arguments) {
         

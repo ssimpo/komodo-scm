@@ -6,7 +6,6 @@
 	<!ENTITY % SVNKDTD SYSTEM "chrome://svnk/locale/main.dtd">
 	%SVNKDTD;
 ]>
-
 <!--
 summary:
 	The preferences form for SVN-K addon.
@@ -17,6 +16,7 @@ license:
 version:
 	0.1.6
 -->
+
 
 <dialog
     xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
@@ -31,19 +31,16 @@ version:
     ondialogcancel="SVNKDIALOG.cancel();"
     ondialogdisclosure="SVNKDIALOG.cancel();">
     
-    <vbox
-	style="background-color:#ffffff;padding:5px;border:1px solid #999999;">
-	<html:pre
+    <vbox class="SVNK-dialogWhiteBox">
+	<html:div
 	    id="SVNK-Dialog-Description"
-	    style="width:400px;padding:5px; font-family: sans-serif;
-    white-space: pre-wrap;"
-	></html:pre>
+	    class="plain SVNK-standardDialog-width"
+	></html:div>
     </vbox>
 
     <script type="application/x-javascript" src="chrome://svnk/content/dialogs/dialogs.js"/>
     <script type="application/javascript">
 	var description = document.getElementById('SVNK-Dialog-Description');
-	var textNode = document.createTextNode(window.arguments[1]);
-	description.appendChild(textNode);
+	description.innerHTML = window.arguments[1];
     </script>
 </dialog>

@@ -248,10 +248,11 @@ org.simpo.svnk = function() {
         if (dirtyPaths.length > 0) {
             var paths = this._getPath(type).split('*');
             
-            for (var i = 0; i < paths.length; i++) {
+            for (var i = 0; i < dirtyPaths.length; i++) {
                 for (var ii = 0; ii < paths.length; ii++) {
-                    if (this._pathContainsPath(paths[i],dirtyPaths[ii])) {
-                        dirtyCommands.push(dirtyPaths[ii])
+                    if (this._pathContainsPath(paths[ii],dirtyPaths[i])) {
+                        dirtyCommands.push(dirtyPaths[i]);
+                        continue;
                     }
                 }
             }
@@ -387,7 +388,6 @@ org.simpo.svnk = function() {
         
         var dirtyPaths = this._getDirtyCommands(type);
         
-        
         if (dirtyPaths.length > 0) {
             var command = null;
             
@@ -449,7 +449,7 @@ org.simpo.svnk = function() {
         var options = 'modal=yes,centerscreen=yes';
         var returner = {'command':null};
         
-        var msg = this.stringBundle('DialogActiveFileDirty');
+        var msg = '<html:b>'+this.stringBundle('DialogActiveFileDirty')+'</html:b>';
         openDialog(chrome,title,options,returner,msg);
         
         return returner.command;
@@ -470,7 +470,14 @@ org.simpo.svnk = function() {
         var returner = {'command':null};
         
         if (paths.length > 0) {
-            var msg = this.stringBundle('DialogActiveFilesDirty1') + "\n" + paths.join("\n") + "\n\n" + this.stringBundle('DialogActiveFilesDirty2') + "\n";
+            //var msg = '<html:b>'+this.stringBundle('DialogActiveFilesDirty1') + '</html:b><html:ul><html:li>' + paths.join('</html:li><html:li>') + '</html:li></html:ul><html:i>' + this.stringBundle('DialogActiveFilesDirty2') + '</html:i><html:br />';
+            
+            var msg = '<html:b>'+this.stringBundle('DialogActiveFilesDirty1') + '</html:b><html:ul>'
+            for (var i = 0; i < paths.length; i++) {
+                msg += '<html:li>'+paths[i]+'</html:li>';
+            }
+            msg += '</html:ul><html:i>' + this.stringBundle('DialogActiveFilesDirty2') + '</html:i><html:br />'
+            alert(msg);
             openDialog(chrome,title,options,returner, msg);
         }
         
