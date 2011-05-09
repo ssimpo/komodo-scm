@@ -72,32 +72,6 @@ org.simpo.svnk = function() {
         return this.strings.GetStringFromName(stringToGet);
     };
     
-    this._runTortoiseCommand = function(command, type, errorMsgRef) {
-        // summary:
-        //      Run a TortoiseProc command.
-        // command: string
-        //      The command to run.
-        // type: string
-        //      The type of file-path to execute against the command.
-        // errorMsgRef: string
-        //      The errror reference to report if it fails.
-        
-        try {
-            var path = this._getPath(type);
-            //if (this._checkNoDirtyFiles(type,command,path)) {
-                var feedback = this._runTortoiseProc(path, command);
-                if (feedback.error == true) {
-                    Components.utils.reportError(feedback.value);
-                }
-            //}
-        } catch(e) {
-            Components.utils.reportError(
-                this.stringBundle(errorMsgRef)
-            );
-        }
-    };
-    
-    
     this._docIsInPathString = function(doc,path) {
         // summary:
         //      Check if a given doc's path is contained within a path-string.
@@ -115,40 +89,6 @@ org.simpo.svnk = function() {
         }
         
         return false;
-    };
-    
-    this._saveDirtyPaths = function() {
-        // summary:
-        //      Save all the current dirty paths.
-        // todo:
-        //      Make it work only against selected paths
-        
-        var views = ko.views.manager.getAllViews();
-        for (var i = 0; i < views.length; i++) {
-            var doc = views[i].document;
-            if (doc.isDirty) {
-                doc.save(true);
-            }
-        }
-    };
-    
-    this._getDirtyPaths = function() {
-        // summary:
-        //      Get a list of open filepaths, which dirty (ie. change + unsaved).
-        // returns: array
-        //      String array containing dirty paths
-        
-        var views = ko.views.manager.getAllViews();
-            
-        var paths = new Array();
-        for (var i = 0; i < views.length; i++) {
-            var doc = views[i].document;
-            if (doc.isDirty) {
-                paths.push(doc.file.path);
-            }
-        }
-        
-        return paths;
     };
     
     this.repoBrowser = function() {
@@ -230,6 +170,25 @@ org.simpo.svnk = function() {
         }
     };
     
+    this._getDirtyPaths = function() {
+        // summary:
+        //      Get a list of open filepaths, which dirty (ie. change + unsaved).
+        // returns: array
+        //      String array containing dirty paths
+        
+        var views = ko.views.manager.getAllViews();
+            
+        var paths = new Array();
+        for (var i = 0; i < views.length; i++) {
+            var doc = views[i].document;
+            if (doc.isDirty) {
+                paths.push(doc.file.path);
+            }
+        }
+        
+        return paths;
+    };
+    
     this._getPath = function(type) {
         // summary:
         //      Get the path for a given type.
@@ -256,30 +215,6 @@ org.simpo.svnk = function() {
         return path;
     }
     
-    this._runTortoiseProc = function(path,command) {
-        // summary:
-        //      Run a specified TortoiseProc command against the given path.
-        // path: string
-        //      The path to run the command against.
-        // command: string
-        //      The TortoiseProc command to run.
-        // returns: object
-        //      The result of running the command as supplied by _runCommand().
-        
-        var pathToProc = this._getPrefString('svnk.pathtoproc');
-        if (pathToProc != '') {
-            pathToProc = '"'+pathToProc+'\\TortoiseProc.exe" ';
-        } else {
-            pathToProc += 'TortoiseProc.exe ';
-        }
-        var cmd = pathToProc+'/command:'+command+' /path:\"'+path+'\"';
-        var cwd = '';
-        
-        var response = this._runCommand(cmd,cwd,null,null);
-        
-        return response;
-    };
-    
     this._getCurrentFilePath = function() {
         //  summary:
         //      Get the path of the currently open file.
@@ -294,56 +229,6 @@ org.simpo.svnk = function() {
             return false;
         }
     };
-    
-    this._getOpenFilePaths = function() {
-        // summary:
-        //      Get a list of all the open file paths.
-        // returns: array
-        //      An string-array of all the paths.
-        
-        var paths = new Array();
-        var views = ko.views.manager.getAllViews();
-    
-        for (var i = 0; i < views.length; i++) {
-            var view = views[i];
-            paths.push(view.document.file.path);
-        }
-    };
-    
-    this._docIsOpen = function(path) {
-        // summary:
-        //      Test whether a file path is currently open for editing.
-        // path: string
-        //      The path to test.
-        // returns: boolean
-        
-        var paths = this._getOpenFilePaths();
-        for (cpath in paths) {
-            if (path.toLowerCase() == cpath.toLowerCase()) {
-                return true;
-            }
-        }
-        
-        return false;
-    };
-    
-    this._getViewForPath = function(path) {
-        // summary:
-        //      Get the view object for a give path if it exists.
-        // path: string
-        //      The file-path of the view to return.
-        // returns: object|boolean
-        //      The view object or false if no open view found for path.
-        
-        var views = ko.views.manager.getAllViews();
-        for (var i = 0; i < views.length; i++) {
-            var view = views[i];
-            if (path.toLowerCase() ==  view.document.file.path.toLowerCase()) {
-                return view;
-            }
-        }
-        return false;
-    }
     
     this._getSelectedPaths = function() {
         // summary:
@@ -366,6 +251,39 @@ org.simpo.svnk = function() {
             return false; 
         }
     };
+    
+    this._getOpenFilePaths = function() {
+        // summary:
+        //      Get a list of all the open file paths.
+        // returns: array
+        //      An string-array of all the paths.
+        
+        var paths = new Array();
+        var views = ko.views.manager.getAllViews();
+    
+        for (var i = 0; i < views.length; i++) {
+            var view = views[i];
+            paths.push(view.document.file.path);
+        }
+    };
+    
+    this._getViewForPath = function(path) {
+        // summary:
+        //      Get the view object for a give path if it exists.
+        // path: string
+        //      The file-path of the view to return.
+        // returns: object|boolean
+        //      The view object or false if no open view found for path.
+        
+        var views = ko.views.manager.getAllViews();
+        for (var i = 0; i < views.length; i++) {
+            var view = views[i];
+            if (path.toLowerCase() ==  view.document.file.path.toLowerCase()) {
+                return view;
+            }
+        }
+        return false;
+    }
     
     this._getProject = function() {
         //  summary:
@@ -397,6 +315,87 @@ org.simpo.svnk = function() {
         return projectFile.dirName;
     };
     
+    this._docIsOpen = function(path) {
+        // summary:
+        //      Test whether a file path is currently open for editing.
+        // path: string
+        //      The path to test.
+        // returns: boolean
+        
+        var paths = this._getOpenFilePaths();
+        for (cpath in paths) {
+            if (path.toLowerCase() == cpath.toLowerCase()) {
+                return true;
+            }
+        }
+        
+        return false;
+    };
+    
+    this._saveDirtyPaths = function() {
+        // summary:
+        //      Save all the current dirty paths.
+        // todo:
+        //      Make it work only against selected paths
+        
+        var views = ko.views.manager.getAllViews();
+        for (var i = 0; i < views.length; i++) {
+            var doc = views[i].document;
+            if (doc.isDirty) {
+                doc.save(true);
+            }
+        }
+    };
+    
+    this._runTortoiseCommand = function(command, type, errorMsgRef) {
+        // summary:
+        //      Run a TortoiseProc command.
+        // command: string
+        //      The command to run.
+        // type: string
+        //      The type of file-path to execute against the command.
+        // errorMsgRef: string
+        //      The errror reference to report if it fails.
+        
+        try {
+            var path = this._getPath(type);
+            //if (this._checkNoDirtyFiles(type,command,path)) {
+                var feedback = this._runTortoiseProc(path, command);
+                if (feedback.error == true) {
+                    Components.utils.reportError(feedback.value);
+                }
+            //}
+        } catch(e) {
+            Components.utils.reportError(
+                this.stringBundle(errorMsgRef)
+            );
+        }
+    };
+    
+    this._runTortoiseProc = function(path,command) {
+        // summary:
+        //      Run a specified TortoiseProc command against the given path.
+        // path: string
+        //      The path to run the command against.
+        // command: string
+        //      The TortoiseProc command to run.
+        // returns: object
+        //      The result of running the command as supplied by _runCommand().
+        
+        var pathToProc = this._getPrefString('svnk.pathtoproc');
+        if (pathToProc != '') {
+            pathToProc = '"'+pathToProc+'\\TortoiseProc.exe" ';
+        } else {
+            pathToProc += 'TortoiseProc.exe ';
+        }
+        var cmd = pathToProc+'/command:'+command+' /path:\"'+path+'\"';
+        var cwd = '';
+        
+        var response = this._runCommand(cmd,cwd,null,null);
+        
+        return response;
+    };
+
     this._runCommand = function(cmd,cwd,env,c_input) {
         // summary:
         //      Run a command-prompt-style command and grab the output.
