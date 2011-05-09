@@ -387,6 +387,7 @@ org.simpo.svnk = function() {
         
         var dirtyPaths = this._getDirtyCommands(type);
         
+        
         if (dirtyPaths.length > 0) {
             var command = null;
             
@@ -398,6 +399,7 @@ org.simpo.svnk = function() {
             
             return this._respondDirtyResponse(type,command);
         }
+        
         
         return true;
     };
