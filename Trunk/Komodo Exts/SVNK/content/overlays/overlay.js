@@ -377,33 +377,25 @@ org.simpo.svnk = function() {
         }
     }
     
-    this._handleDirtyFiles = function(type,command,paths) {
-        try {
-        dirtyPaths = this._getDirtyCommands(type);
+    this._handleDirtyFiles = function(type) {
+        var dirtyPaths = this._getDirtyCommands(type);
+        var command = null;
         
         if (dirtyPaths.length == 0) {
             return true;
         }
         
-        var chrome = 'chrome://svnk/content/dialogs/saveYesNo.xul';
-        var title = 'Unsaved information';
-        var options = 'modal=yes,centerscreen=yes';
-        var returner = {'command':null};
-        
-        switch(type) {
-            case 'activefile':
-                var msg = this.stringBundle('DialogActiveFileDirty');
-                openDialog(chrome,title,options,returner,msg);
-                break;
-            default:
-                if (paths.length > 0) {
-                    var msg = this.stringBundle('DialogActiveFilesDirty1') + "\n" + dirtyPaths.join("\n") + "\n\n" + this.stringBundle('DialogActiveFilesDirty2') + "\n";
-                    openDialog(chrome,title,options,returner, msg);
-                }
-                break;
+        if (type == 'activefile') {
+            command = this._reportDirtyActiveFile();
+        } else {
+            command =this._reportDirtyPaths(dirtyPaths);
         }
         
-        switch(returner.command) {
+        return this._respondDirtyResponse(type,command);
+    };
+    
+    this._respondDirtyResponse = function(type,command) {
+        switch(command) {
             case null:
                 return true;
                 break;
@@ -422,11 +414,34 @@ org.simpo.svnk = function() {
                 return true;
                 break;
         }
-        } catch(e) {
-            Components.utils.reportError(e);
-        }
         
         return false;
+    };
+    
+    this._reportDirtyActiveFile = function() {
+        var chrome = 'chrome://svnk/content/dialogs/saveYesNo.xul';
+        var title = 'Unsaved information';
+        var options = 'modal=yes,centerscreen=yes';
+        var returner = {'command':null};
+        
+        var msg = this.stringBundle('DialogActiveFileDirty');
+        openDialog(chrome,title,options,returner,msg);
+        
+        return returner.command;
+    };
+    
+    this._reportDirtyPaths = function(paths) {
+        var chrome = 'chrome://svnk/content/dialogs/saveYesNo.xul';
+        var title = 'Unsaved information';
+        var options = 'modal=yes,centerscreen=yes';
+        var returner = {'command':null};
+        
+        if (paths.length > 0) {
+            var msg = this.stringBundle('DialogActiveFilesDirty1') + "\n" + paths.join("\n") + "\n\n" + this.stringBundle('DialogActiveFilesDirty2') + "\n";
+            openDialog(chrome,title,options,returner, msg);
+        }
+        
+        return returner.command;
     };
     
     this._runTortoiseCommand = function(command, type, errorMsgRef) {
@@ -441,7 +456,7 @@ org.simpo.svnk = function() {
         
         try {
             var paths = this._getPath(type);
-            if (this._handleDirtyFiles(type,command,paths)) {
+            if (this._handleDirtyFiles(type)) {
                 var feedback = this._runTortoiseProc(paths, command);
                 if (feedback.error == true) {
                     Components.utils.reportError(feedback.value);
