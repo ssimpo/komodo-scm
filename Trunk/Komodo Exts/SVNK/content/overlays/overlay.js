@@ -7,7 +7,6 @@
 // version:
 //      0.1.6
 
-
 // Non violation of global namespace.
 if (!org) var org = {};
 if (!org.simpo) org.simpo = {};
@@ -31,7 +30,7 @@ if ( !Function.prototype.bind ) {
 }
 
 try {
-    
+
 org.simpo.svnk = function() {
     // summary:
     //      Main class containing the core-code for this addon.
@@ -43,6 +42,9 @@ org.simpo.svnk = function() {
     this.entries = {};
     this.prefBrowser = Components.classes['@activestate.com/koPrefService;1'].getService(Components.interfaces.koIPrefService).prefs;
     this.logger = Components.classes["@mozilla.org/consoleservice;1"].getService(Components.interfaces.nsIConsoleService);
+    this._dirtyCheckOn = new Array(
+        'commit','update','revert','diff','rename','delete'
+    );
     
     this._getPrefString = function(prefID) {
         // summary:
@@ -82,7 +84,7 @@ org.simpo.svnk = function() {
         
         try {
             var path = this._getPath(type);
-            if (this._checkNoDirtyFiles(type)) {
+            if (this._checkNoDirtyFiles(type,command,path)) {
                 var feedback = this._runTortoiseProc(path, command);
                 if (feedback.error == true) {
                     Components.utils.reportError(feedback.value);
@@ -95,32 +97,49 @@ org.simpo.svnk = function() {
         }
     };
     
-    this._checkNoDirtyFiles = function(type) {
+    this._checkNoDirtyFiles = function(type,command,path) {
         // summary:
         //      Check for dirty files and respond to solicite user response.
         // type: string
         //      The method of action (ie. against activefile|selectedpaths|project)
+        // command: string
+        //      The SVN command requested.
+        // path: string
+        //      Paths to test.
         // returns: boolean
         //      Was there dirty paths (returns no ignore was pressed or
         //      files undirtied by a save).
         
+        if (!this._checkDirtyCheckNeeded(command)) {
+            return true;
+        }
+        
         try {
             var chrome = 'chrome://svnk/content/dialogs/saveYesNo.xul';
             var title = 'Unsaved information';
-            var options = 'modal=yes';
-            var command = null;
-            var returner = {'command':command};
-        
-            if (type == 'activefile') {
-                command = this._checkNoDirtyFilesActiveFile(
-                    chrome,title,options,returner
-                );
-            } else {
-                command = this._checkNoDirtySelectedPaths(
-                    chrome,title,options,returner
-                );  
+            var options = 'modal=yes,centerscreen=yes';
+            var saveCommand = null;
+            var returner = {'command':saveCommand};
+            
+            switch(type) {
+                case 'activefile':
+                    saveCommand = this._checkNoDirtyFilesActiveFile(
+                        chrome,title,options,returner
+                    );
+                    break;
+                case 'selectedpaths':
+                    saveCommand = this._checkNoDirtySelectedPaths(
+                        path,chrome,title,options,returner
+                    );  
+                    break;
+                case 'project':
+                    saveCommand = this._checkNoDirtyFilesAnyPath(
+                        chrome,title,options,returner
+                    );
+                    break;
             }
-            return this._handleDirtyPathsResponse(type,command);
+        
+            return this._handleDirtyPathsResponse(type,saveCommand);
             
         } catch(e) {
             Components.utils.reportError(e);
@@ -129,7 +148,42 @@ org.simpo.svnk = function() {
         return false;
     };
     
-    this._checkNoDirtyFilesActiveFile = function(chrome,title,options,returner) {
+    this._checkDirtyCheckNeeded = function(command) {
+        // summary:
+        //      Check if a dirty file check is needed for specified command.
+        // command: string
+        //      Command to check;
+        // returns: boolean
+        
+        for (var i = 0; i < this._dirtyCheckOn.length; i++) {
+            if (this._dirtyCheckOn[i] == command) {
+                return true;
+            }
+        }
+        
+        return false;
+    };
+    
+    this._docIsInPathString = function(doc,path) {
+        // summary:
+        //      Check if a given doc's path is contained within a path-string.
+        // doc: object
+        //      Open document object.
+        // path: string
+        //      The path-string (seprate paths, seperated by *)
+        // returns: boolean
+        
+        var paths = path.split('*');
+        for (var i = 0; i < this._paths.length; i++) {
+            if (paths[i] == doc.file.path) {
+                return true;
+            }
+        }
+        
+        return false;
+    };
+    
+    this._checkNoDirtyFilesAnyPath = function(chrome,title,options,returner) {
         // summary:
         //      Check if the active file is dirty and solicite user response.
         // returner: object
@@ -145,6 +199,33 @@ org.simpo.svnk = function() {
         
         var doc = ko.views.manager.currentView.document;
         if (doc.isDirty) {
+            var msg = this.stringBundle('DialogActiveFileDirty');
+            openDialog(chrome,title,options,returner,msg);
+        }
+        
+        return returner.command;
+    };
+    
+    this._checkNoDirtyFilesActiveFile = function(
+        path,chrome,title,options,returner
+    ) {
+        // summary:
+        //      Check if the active file is dirty and solicite user response.
+        // path:
+        //      The path-string (seprate paths, seperated by *)
+        // returner: object
+        //      The object to pass to the dialog for responses.
+        // chrome: string 
+        //      The path to the dialog, which will pose dirt file question.
+        // options: string
+        //      The dialog options to use.
+        // title: string
+        //      The dialog title to use.
+        // returns: string
+        //      What does the user want you to do? (save|cancel|ignore).
+        
+        var doc = ko.views.manager.currentView.document;
+        if ((doc.isDirty) && (this._docIsInPathString(doc,path))) {
             var msg = this.stringBundle('DialogActiveFileDirty');
             openDialog(chrome,title,options,returner,msg);
         }
