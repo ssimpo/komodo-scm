@@ -17,8 +17,10 @@ license:
 version:
 	0.1.6
 -->
+
 <dialog
     xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+    xmlns:html="http://www.w3.org/1999/xhtml"
     title="Unsaved information"
     buttons="accept,extra1,cancel"
     buttonlabelcancel="Cancel"
@@ -28,9 +30,16 @@ version:
     ondialogextra1="SVNKDIALOG.ignore();"
     ondialogcancel="SVNKDIALOG.cancel();"
     ondialogdisclosure="SVNKDIALOG.cancel();">
-
-    <description style="width:350px;white-space:pre-wrap;" id="SVNK-Dialog-Description"></description>
     
+    <vbox
+	style="background-color:#ffffff;padding:5px;border:1px solid #999999;">
+	<html:pre
+	    id="SVNK-Dialog-Description"
+	    style="width:400px;padding:5px; font-family: sans-serif;
+    white-space: pre-wrap;"
+	></html:pre>
+    </vbox>
+
     <script type="application/x-javascript" src="chrome://svnk/content/dialogs/dialogs.js"/>
     <script type="application/javascript">
 	var description = document.getElementById('SVNK-Dialog-Description');
