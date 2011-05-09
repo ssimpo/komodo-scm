@@ -46,21 +46,6 @@ org.simpo.svnk = function() {
         'commit','update','revert','diff','rename','delete'
     );
     
-    this._getPrefString = function(prefID) {
-        // summary:
-        //      Get a Komodo string preference.
-        // prefID: string
-        //      The ID of the Komodo preference string to get.
-        // returns: string
-        //      The preference value or blank-string if preference not found.
-        
-        if (this.prefBrowser.hasStringPref(prefID)) {
-            return this.prefBrowser.getStringPref(prefID);
-        } else {
-            return '';
-        }
-    }
-    
     this.stringBundle = function(stringToGet) {
         // summary:
         //      Get the requested string from the stringbundle locale.
@@ -70,25 +55,6 @@ org.simpo.svnk = function() {
         //      The local string requested.
         
         return this.strings.GetStringFromName(stringToGet);
-    };
-    
-    this._docIsInPathString = function(doc,path) {
-        // summary:
-        //      Check if a given doc's path is contained within a path-string.
-        // doc: object
-        //      Open document object.
-        // path: string
-        //      The path-string (seprate paths, seperated by *)
-        // returns: boolean
-        
-        var paths = path.split('*');
-        for (var i = 0; i < this._paths.length; i++) {
-            if (paths[i] == doc.file.path) {
-                return true;
-            }
-        }
-        
-        return false;
     };
     
     this.repoBrowser = function() {
@@ -315,6 +281,25 @@ org.simpo.svnk = function() {
         return projectFile.dirName;
     };
     
+    this._docIsInPathString = function(doc,path) {
+        // summary:
+        //      Check if a given doc's path is contained within a path-string.
+        // doc: object
+        //      Open document object.
+        // path: string
+        //      The path-string (seprate paths, seperated by *)
+        // returns: boolean
+        
+        var paths = path.split('*');
+        for (var i = 0; i < this._paths.length; i++) {
+            if (paths[i] == doc.file.path) {
+                return true;
+            }
+        }
+        
+        return false;
+    };
+    
     this._docIsOpen = function(path) {
         // summary:
         //      Test whether a file path is currently open for editing.
@@ -346,6 +331,21 @@ org.simpo.svnk = function() {
             }
         }
     };
+    
+    this._getPrefString = function(prefID) {
+        // summary:
+        //      Get a Komodo string preference.
+        // prefID: string
+        //      The ID of the Komodo preference string to get.
+        // returns: string
+        //      The preference value or blank-string if preference not found.
+        
+        if (this.prefBrowser.hasStringPref(prefID)) {
+            return this.prefBrowser.getStringPref(prefID);
+        } else {
+            return '';
+        }
+    }
     
     this._runTortoiseCommand = function(command, type, errorMsgRef) {
         // summary:
