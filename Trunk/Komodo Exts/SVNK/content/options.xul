@@ -32,16 +32,16 @@ version:
 	
 	<groupbox orient="vertical" width="400px;">
 		<caption label="&svnk.label.prefTitle;"/>
-		<vbox style="margin-top:5px">
+		<vbox class="SVNK-standardDialog-Margin">
 			<label control="preferences-SVNK-pathToProc" value="&svnk.label.prefPathToProc;" />
 			<hbox>
 				<textbox
 					id="preferences-SVNK-pathToProc"
-					style="width:300px;"
+					class="SVNK-standardPartDialog-width"
 					value="" />
 				<button label="&svnk.label.prefBrowseButton;" oncommand="SVNKPREF.browse();"/>
 			</hbox>
-			<description style="margin-top:5px;font-size:0.9em">&svnk.description.pathtoproc;</description>
+			<description class="SVNK-standardPartDialog-width">&svnk.description.pathtoproc;</description>
 		</vbox>
 	</groupbox>
     

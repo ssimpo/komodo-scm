@@ -400,7 +400,6 @@ org.simpo.svnk = function() {
             return this._respondDirtyResponse(type,command);
         }
         
-        
         return true;
     };
     
@@ -470,14 +469,11 @@ org.simpo.svnk = function() {
         var returner = {'command':null};
         
         if (paths.length > 0) {
-            //var msg = '<html:b>'+this.stringBundle('DialogActiveFilesDirty1') + '</html:b><html:ul><html:li>' + paths.join('</html:li><html:li>') + '</html:li></html:ul><html:i>' + this.stringBundle('DialogActiveFilesDirty2') + '</html:i><html:br />';
-            
             var msg = '<html:b>'+this.stringBundle('DialogActiveFilesDirty1') + '</html:b><html:ul>'
             for (var i = 0; i < paths.length; i++) {
                 msg += '<html:li>'+paths[i]+'</html:li>';
             }
             msg += '</html:ul><html:i>' + this.stringBundle('DialogActiveFilesDirty2') + '</html:i><html:br />'
-            alert(msg);
             openDialog(chrome,title,options,returner, msg);
         }
         
