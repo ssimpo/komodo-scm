@@ -84,12 +84,12 @@ org.simpo.svnk = function() {
         
         try {
             var path = this._getPath(type);
-            if (this._checkNoDirtyFiles(type,command,path)) {
+            //if (this._checkNoDirtyFiles(type,command,path)) {
                 var feedback = this._runTortoiseProc(path, command);
                 if (feedback.error == true) {
                     Components.utils.reportError(feedback.value);
                 }
-            }
+            //}
         } catch(e) {
             Components.utils.reportError(
                 this.stringBundle(errorMsgRef)
@@ -97,72 +97,6 @@ org.simpo.svnk = function() {
         }
     };
     
-    this._checkNoDirtyFiles = function(type,command,path) {
-        // summary:
-        //      Check for dirty files and respond to solicite user response.
-        // type: string
-        //      The method of action (ie. against activefile|selectedpaths|project)
-        // command: string
-        //      The SVN command requested.
-        // path: string
-        //      Paths to test.
-        // returns: boolean
-        //      Was there dirty paths (returns no ignore was pressed or
-        //      files undirtied by a save).
-        
-        if (!this._checkDirtyCheckNeeded(command)) {
-            return true;
-        }
-        
-        try {
-            var chrome = 'chrome://svnk/content/dialogs/saveYesNo.xul';
-            var title = 'Unsaved information';
-            var options = 'modal=yes,centerscreen=yes';
-            var saveCommand = null;
-            var returner = {'command':saveCommand};
-            
-            switch(type) {
-                case 'activefile':
-                    saveCommand = this._checkNoDirtyFilesActiveFile(
-                        chrome,title,options,returner
-                    );
-                    break;
-                case 'selectedpaths':
-                    saveCommand = this._checkNoDirtySelectedPaths(
-                        path,chrome,title,options,returner
-                    );  
-                    break;
-                case 'project':
-                    saveCommand = this._checkNoDirtyFilesAnyPath(
-                        chrome,title,options,returner
-                    );
-                    break;
-            }
-        
-            return this._handleDirtyPathsResponse(type,saveCommand);
-            
-        } catch(e) {
-            Components.utils.reportError(e);
-        }
-        
-        return false;
-    };
-    
-    this._checkDirtyCheckNeeded = function(command) {
-        // summary:
-        //      Check if a dirty file check is needed for specified command.
-        // command: string
-        //      Command to check;
-        // returns: boolean
-        
-        for (var i = 0; i < this._dirtyCheckOn.length; i++) {
-            if (this._dirtyCheckOn[i] == command) {
-                return true;
-            }
-        }
-        
-        return false;
-    };
     
     this._docIsInPathString = function(doc,path) {
         // summary:
@@ -178,116 +112,6 @@ org.simpo.svnk = function() {
             if (paths[i] == doc.file.path) {
                 return true;
             }
-        }
-        
-        return false;
-    };
-    
-    this._checkNoDirtyFilesAnyPath = function(chrome,title,options,returner) {
-        // summary:
-        //      Check if the active file is dirty and solicite user response.
-        // returner: object
-        //      The object to pass to the dialog for responses.
-        // chrome: string 
-        //      The path to the dialog, which will pose dirt file question.
-        // options: string
-        //      The dialog options to use.
-        // title: string
-        //      The dialog title to use.
-        // returns: string
-        //      What does the user want you to do? (save|cancel|ignore).
-        
-        var doc = ko.views.manager.currentView.document;
-        if (doc.isDirty) {
-            var msg = this.stringBundle('DialogActiveFileDirty');
-            openDialog(chrome,title,options,returner,msg);
-        }
-        
-        return returner.command;
-    };
-    
-    this._checkNoDirtyFilesActiveFile = function(
-        path,chrome,title,options,returner
-    ) {
-        // summary:
-        //      Check if the active file is dirty and solicite user response.
-        // path:
-        //      The path-string (seprate paths, seperated by *)
-        // returner: object
-        //      The object to pass to the dialog for responses.
-        // chrome: string 
-        //      The path to the dialog, which will pose dirt file question.
-        // options: string
-        //      The dialog options to use.
-        // title: string
-        //      The dialog title to use.
-        // returns: string
-        //      What does the user want you to do? (save|cancel|ignore).
-        
-        var doc = ko.views.manager.currentView.document;
-        if ((doc.isDirty) && (this._docIsInPathString(doc,path))) {
-            var msg = this.stringBundle('DialogActiveFileDirty');
-            openDialog(chrome,title,options,returner,msg);
-        }
-        
-        return returner.command;
-    };
-    
-    this._checkNoDirtySelectedPaths = function(chrome,title,options,returner) {
-        // summary:
-        //      Check if the selected paths are dirty.
-        // returner: object
-        //      The object to pass to the dialog for responses.
-        // chrome: string 
-        //      The path to the dialog, which will pose dirt file question.
-        // options: string
-        //      The dialog options to use.
-        // title: string
-        //      The dialog title to use.
-        // returns: string
-        //      What does the user want you to do? (save|cancel|ignore).
-        // todo:
-        //      Currently checks all open files rather than just the selected
-        //      ones.  This needs fixing; however this simple solution is good
-        //      option in-place of the better more complicated one.
-        
-        var paths = this._getDirtyPaths();
-        if (paths.length > 0) {
-            var msg = this.stringBundle('DialogActiveFilesDirty1') + "\n" + paths.join("\n") + "\n\n" + this.stringBundle('DialogActiveFilesDirty2') + "\n";
-            openDialog(chrome,title,options,returner, msg);
-        }
-        
-        return returner.command;
-    };
-    
-    this._handleDirtyPathsResponse =  function(type,command) {
-        // summary:
-        //      Action the users response to dirty paths dialog.
-        // type: string
-        //      The method of action (ie. against activefile|selectedpaths|project).
-        // command: string
-        //      The command, which the user issued.
-        // returns: boolean
-        //      Result of action (ie. no dirty paths / ignore = true, else false).
-        
-        switch(command) {
-            case null:
-                return true;
-                break;
-            case 'ignore':
-                return true;
-                break;
-            case 'cancel':
-                return false;
-                break;
-            case 'save':
-                if (type == 'activefile') {
-                    ko.views.manager.currentView.document.save(true);
-                } else {
-                    this._saveDirtyPaths();
-                }
-                return true;
-                break;
         }
         
         return false;
