@@ -59,6 +59,7 @@ version:
 			<checkbox
 				id="SVNK-option-toolbar-repoBrowser"
                 preference="svnk.toolbarRepoBrowser"
+				checked="true"
 				class="SVNK-option-toolbar-checkbox" />
 			<hbox>
 				<image class="SVNK-RepoBrowser-Icon" width="16" height="16" />
@@ -67,6 +68,7 @@ version:
 			<checkbox
 				id="SVNK-option-toolbar-commitProject"
                 preference="svnk.toolbarCommitProject"
+				checked="true"
 				class="SVNK-option-toolbar-checkbox" />
 			<hbox>
 				<image class="SVNK-CommitProject-Icon" width="16" height="16" />
@@ -76,6 +78,7 @@ version:
             <checkbox
 				id="SVNK-option-toolbar-updateProject"
                 preference="svnk.toolbarUpdateProject"
+				checked="true"
 				class="SVNK-option-toolbar-checkbox" />
 			<hbox>
 				<image class="SVNK-UpdateProject-Icon" width="16" height="16" />
@@ -84,6 +87,7 @@ version:
 			<checkbox
 				id="SVNK-option-toolbar-diff"
                 preference="svnk.toolbarDiff"
+				checked="true"
 				class="SVNK-option-toolbar-checkbox" />
 			<hbox>
 				<image class="SVNK-Diff-Icon" width="16" height="16" />
@@ -93,6 +97,7 @@ version:
             <checkbox
 				id="SVNK-option-toolbar-properties"
                 preference="svnk.toolbarProperties"
+				checked="true"
 				class="SVNK-option-toolbar-checkbox" />
 			<hbox>
 				<image class="SVNK-Properties-Icon" width="16" height="16" />
@@ -101,6 +106,7 @@ version:
 			<checkbox
 				id="SVNK-option-toolbar-log"
                 preference="svnk.toolbarLog"
+				checked="true"
 				class="SVNK-option-toolbar-checkbox" />
 			<hbox>
 				<image class="SVNK-Log-Icon" width="16" height="16" />
@@ -110,6 +116,7 @@ version:
 			<checkbox
 				id="SVNK-option-toolbar-commitFile"
                 preference="svnk.toolbarCommitFile"
+				checked="false"
 				class="SVNK-option-toolbar-checkbox" />
 			<hbox>
 				<image class="SVNK-Commit-Icon" width="16" height="16" />
@@ -118,6 +125,7 @@ version:
 			<checkbox
 				id="SVNK-option-toolbar-updateFile"
                 preference="svnk.toolbarUpdateFile"
+				checked="false"
 				class="SVNK-option-toolbar-checkbox" />
 			<hbox>
 				<image class="SVNK-Update-Icon" width="16" height="16" />
