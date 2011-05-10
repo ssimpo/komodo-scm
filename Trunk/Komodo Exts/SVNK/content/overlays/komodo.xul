@@ -56,6 +56,22 @@ version:
 			tooltiptext="&svnk.tooltip.repobrowser;"
 			class="menuitem-iconic SVNK-RepoBrowser-Icon"/>
 		<toolbarbutton
+			id="toolsToolbar-SVNK-CommitFile"
+			preference="svnk.toolbarCommitFile"
+			hidden="true"
+			observes="Tasks:SVNK-CommitFile"
+			label="&svnk.label.commitfile;"
+			tooltiptext="&svnk.tooltip.commitfile;"
+			class="menuitem-iconic SVNK-Commit-Icon"/>
+		<toolbarbutton
+			id="toolsToolbar-SVNK-UpdateFile"
+			preference="svnk.toolbarUpdateFile"
+			hidden="true"
+			observes="Tasks:SVNK-UpdateFile"
+			label="&svnk.label.updatefile;"
+			tooltiptext="&svnk.tooltip.updatefile;"
+			class="menuitem-iconic SVNK-Update-Icon"/>
+		<toolbarbutton
 			id="toolsToolbar-SVNK-CommitProject"
 			preference="svnk.toolbarCommitProject"
 			observes="Tasks:SVNK-CommitProject"
@@ -92,6 +108,9 @@ version:
 			class="menuitem-iconic SVNK-Log-Icon"/>
 		<toolbarseparator />
 	</toolbar>
+	<script
+		type="application/x-javascript"
+		src="chrome://svnk/content/overlays/komodo.js"/>
 	
 	<!-- Create a submenu in the tools menu for TortoiseSVN actions -->
 	<menupopup id="popup_tools">

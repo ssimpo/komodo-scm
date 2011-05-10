@@ -112,6 +112,10 @@ org.simpo.svnk.pref = {
     checkboxOnCommand:function() {
         var pref = this.getAttribute('preference');
         org.simpo.svnk.pref.setPrefBoolean(pref,this.checked);
+        
+        var wm = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator);
+        var komodo = wm.getMostRecentWindow('Komodo');
+        komodo.org.simpo.svnk.toolLoader.showHideButtons();
     },
     
     textboxOnChange:function() {
