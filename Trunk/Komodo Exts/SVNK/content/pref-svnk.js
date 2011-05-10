@@ -31,24 +31,25 @@ if ( !Function.prototype.bind ) {
 }
 
 try {
-org.simpo.svnk.pref = function() {
-    this.prefBrowser = Components.classes['@activestate.com/koPrefService;1'].getService(Components.interfaces.koIPrefService).prefs;
-    this.pathToProcTextBox = document.getElementById("preferences-SVNK-pathToProc");
+org.simpo.svnk.pref = {
+    prefBrowser:Components.classes['@activestate.com/koPrefService;1'].getService(Components.interfaces.koIPrefService).prefs,
+    logger:Components.classes["@mozilla.org/consoleservice;1"].getService(Components.interfaces.nsIConsoleService),
     
-    this.browse = function() {
+    browse:function() {
         // summary:
         //      Handle a folder-browse request.  Store result of folder
         //      picking in preferences and textbox.
     
         var path = ko.filepicker.getFolder(
-            this._getPrefString('svnk.pathtoproc'),
+            org.simpo.svnk.pref.getPrefString('svnk.pathtoproc'),
             'Path to TortoiseProc.exe'
         );
-        this.pathToProcTextBox.value = path;
-        this._setPrefString('svnk.pathtoproc', path);
-    };
+        var tXB = document.getElementById('SVNK-option-pathToProc');
+        tXB.value = path;
+        org.simpo.svnk.pref.setPrefString('svnk.pathtoproc', path);
+    },
     
-    this._setPrefString = function(prefID,prefValue) {
+    setPrefString:function(prefID,prefValue) {
         // summary:
         //      Set a Komodo String preference.
         // prefId: string
@@ -59,10 +60,24 @@ org.simpo.svnk.pref = function() {
         if (parent.hPrefWindow) {
             parent.hPrefWindow.prefset.setStringPref(prefID, prefValue);
         }
-        this.prefBrowser.setStringPref(prefID, prefValue);
-    }
+        org.simpo.svnk.pref.prefBrowser.setStringPref(prefID, prefValue);
+    },
     
-    this._getPrefString = function(prefID) {
+    setPrefBoolean:function(prefID,prefValue) {
+        // summary:
+        //      Set a Komodo Boolean preference.
+        // prefId: string
+        //      The ID of the preference to set.
+        // prefValue: boolean
+        //      The true|false value to set preference to.
+        
+        if (parent.hPrefWindow) {
+            parent.hPrefWindow.prefset.setBooleanPref(prefID, prefValue);
+        }
+        org.simpo.svnk.pref.prefBrowser.setBooleanPref(prefID, prefValue);
+    },
+    
+    getPrefString:function(prefID) {
         // summary:
         //      Get a Komodo string preference.
         // prefID: string
@@ -70,27 +85,66 @@ org.simpo.svnk.pref = function() {
         // returns: string
         //      The preference value or blank-string if preference not found.
         
-        if (this.prefBrowser.hasStringPref(prefID)) {
-            return this.prefBrowser.getStringPref(prefID);
+        if (org.simpo.svnk.pref.prefBrowser.hasStringPref(prefID)) {
+            return org.simpo.svnk.pref.prefBrowser.getStringPref(prefID);
         } else {
             return '';
         }
-    }
+    },
     
-    this.pathToProcTextBox.onchange = function(e) {
-        var path = SVNKPREF.pathToProcTextBox.value;
+    getPrefBoolean:function(prefID,defaultValue) {
+        // summary:
+        //      Get a Komodo boolean preference.
+        // prefID: string
+        //      The ID of the Komodo preference boolean to get.
+        // defaultValue: variant
+        //      The default value to return if the preference does not exist.
+        // returns: boolean
+        //      The preference value or defaultValue if preference not found.
         
-        if (parent.hPrefWindow) {
-            parent.hPrefWindow.prefset.setStringPref('svnk.pathtoproc', path);
+        if (org.simpo.svnk.pref.prefBrowser.hasBooleanPref(prefID)) {
+            return org.simpo.svnk.pref.prefBrowser.getBooleanPref(prefID);
+        } else {
+            return defaultValue;
         }
-        SVNKPREF.prefBrowser.setStringPref('svnk.pathtoproc', path);
+    },
+    
+    checkboxOnCommand:function() {
+        var pref = this.getAttribute('preference');
+        org.simpo.svnk.pref.setPrefBoolean(pref,this.checked);
+    },
+    
+    textboxOnChange:function() {
+        var pref = this.getAttribute('preference');
+        org.simpo.svnk.pref.setPrefString(pref,this.value);
     }
     
-    this.pathToProcTextBox.value = this._getPrefString('svnk.pathtoproc');
+    
 };
 
+var checkboxes = document.getElementsByTagName("checkbox");
+for (var i = 0; i < checkboxes.length; i++) {
+    var cCB = checkboxes[i];
+    var pref = cCB.getAttribute('preference');
+    cCB.checked = org.simpo.svnk.pref.getPrefBoolean(pref,false);
+    cCB.addEventListener(
+        'command',org.simpo.svnk.pref.checkboxOnCommand,false
+    );
+}
+
+var textboxes = document.getElementsByTagName("textbox");
+for (var i = 0; i < textboxes.length; i++) {
+    var tXB= textboxes[i];
+    var pref = tXB.getAttribute('preference');
+    tXB.value = org.simpo.svnk.pref.getPrefString(pref);
+    tXB.addEventListener(
+        'change',org.simpo.svnk.pref.textboxOnChange,false
+    );
+}
+
+
 // Global namespace violation?
-var SVNKPREF = new org.simpo.svnk.pref();
+//var SVNKPREF = new org.simpo.svnk.pref();
 
 } catch (e) {
     Components.utils.reportError(e);

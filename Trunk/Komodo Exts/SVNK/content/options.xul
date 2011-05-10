@@ -24,31 +24,13 @@ version:
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     title="SVN-K Preferences"
     orient="vertical">
-	
-	<script type="application/x-javascript;version=1.7"
-		src="chrome://komodo/content/library/logging.js" />
-    <script type="application/x-javascript;version=1.7"
-		src="chrome://komodo/content/library/filepickers.js" />
-	
-	<groupbox orient="vertical" width="400px;">
-		<caption label="&svnk.label.prefTitle;"/>
-		<vbox class="SVNK-standardDialog-Margin">
-			<label control="preferences-SVNK-pathToProc" value="&svnk.label.prefPathToProc;" />
-			<hbox>
-				<textbox
-					id="preferences-SVNK-pathToProc"
-					class="SVNK-standardPartDialog-width"
-					value="" />
-				<button label="&svnk.label.prefBrowseButton;" oncommand="SVNKPREF.browse();"/>
-			</hbox>
-			<description class="SVNK-standardPartDialog-width">&svnk.description.pathtoproc;</description>
-		</vbox>
-	</groupbox>
+    
+    <iframe
+        src="chrome://svnk/content/pref-svnk.xul"
+        width="415" height="300"
+        type="chrome" />
     
     <hbox align="right" style="margin-top:5px">
         <button label="&svnk.button.Okay;" onclick="parent.close();"></button>
     </hbox>
-	
-	<script type="application/x-javascript"
-		src="chrome://svnk/content/pref-svnk.js" />
 </window>
