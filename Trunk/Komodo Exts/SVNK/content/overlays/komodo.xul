@@ -50,36 +50,42 @@ version:
 		<toolbarseparator />
 		<toolbarbutton
 			id="toolsToolbar-SVNK-RepoBrowser"
+			preference="svnk.toolbarRepoBrowser"
 			observes="Tasks:SVNK-RepoBrowser"
 			label="&svnk.label.repobrowser;"
 			tooltiptext="&svnk.tooltip.repobrowser;"
 			class="menuitem-iconic SVNK-RepoBrowser-Icon"/>
 		<toolbarbutton
 			id="toolsToolbar-SVNK-CommitProject"
+			preference="svnk.toolbarCommitProject"
 			observes="Tasks:SVNK-CommitProject"
 			label="&svnk.label.commitproject;"
 			tooltiptext="&svnk.tooltip.commitproject;"
 			class="menuitem-iconic SVNK-CommitProject-Icon"/>
 		<toolbarbutton
 			id="toolsToolbar-SVNK-UpdateProject"
+			preference="svnk.toolbarUpdateProject"
 			observes="Tasks:SVNK-UpdateProject"
 			label="&svnk.label.updateproject;"
 			tooltiptext="&svnk.tooltip.updateproject;"
 			class="menuitem-iconic SVNK-UpdateProject-Icon"/>
 		<toolbarbutton
 			id="toolsToolbar-SVNK-CompareDiffActiveFile"
+			preference="svnk.toolbarDiff"
 			observes="Tasks:SVNK-CompareDiffActiveFile"
 			label="&svnk.label.comparefile;"
 			tooltiptext="&svnk.tooltip.comparefile;"
 			class="menuitem-iconic SVNK-Diff-Icon"/>
 		<toolbarbutton
 			id="toolsToolbar-SVNK-ViewPropertiesActiveFile"
+			preference="svnk.toolbarProperties"
 			observes="Tasks:SVNK-ViewPropertiesActiveFile"
 			label="&svnk.label.viewproperties;"
 			tooltiptext="&svnk.tooltip.viewproperties;"
 			class="menuitem-iconic SVNK-Properties-Icon"/>
 		<toolbarbutton
 			id="toolsToolbar-SVNK-ViewLogActiveFile"
+			preference="svnk.toolbarLog"
 			observes="Tasks:SVNK-ViewLogActiveFile"
 			label="&svnk.label.viewlogfile;"
 			tooltiptext="&svnk.tooltip.viewlogfile;"

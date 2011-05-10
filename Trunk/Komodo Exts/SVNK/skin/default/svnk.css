@@ -66,6 +66,10 @@
     font-size: 0.9em;
 }
 
+.SVNK-option-toolbar-checkbox {
+    margin-left:20px;
+}
+
 .preferences-SVNK-pathToProc-textbox {
     width:350px;
 }
