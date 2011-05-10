@@ -59,7 +59,7 @@ version:
 			id="toolsToolbar-SVNK-CommitFile"
 			preference="svnk.toolbarCommitFile"
 			hidden="true"
-			observes="Tasks:SVNK-CommitFile"
+			observes="Tasks:SVNK-CommitActiveFile"
 			label="&svnk.label.commitfile;"
 			tooltiptext="&svnk.tooltip.commitfile;"
 			class="menuitem-iconic SVNK-Commit-Icon"/>
@@ -67,7 +67,7 @@ version:
 			id="toolsToolbar-SVNK-UpdateFile"
 			preference="svnk.toolbarUpdateFile"
 			hidden="true"
-			observes="Tasks:SVNK-UpdateFile"
+			observes="Tasks:SVNK-UpdateActiveFile"
 			label="&svnk.label.updatefile;"
 			tooltiptext="&svnk.tooltip.updatefile;"
 			class="menuitem-iconic SVNK-Update-Icon"/>
