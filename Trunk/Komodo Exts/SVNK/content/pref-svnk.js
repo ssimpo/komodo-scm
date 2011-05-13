@@ -1,5 +1,5 @@
 // summary:
-//      Main JavaScript content for SVN-K.
+//      Javascript for preferences/options dialog./panel.
 // author:
 //      Stephen Simpson <me@simpo.org>
 // license:
@@ -13,7 +13,7 @@ if (!org.simpo) org.simpo = {};
 if (!org.simpo.svnk) org.simpo.svnk = {};
 
 try {
-org.simpo.svnk.pref = {
+org.simpo.svnk.options = {
     prefBrowser:Components.classes['@activestate.com/koPrefService;1'].getService(Components.interfaces.koIPrefService).prefs,
     logger:Components.classes["@mozilla.org/consoleservice;1"].getService(Components.interfaces.nsIConsoleService),
     
@@ -31,66 +31,6 @@ org.simpo.svnk.pref = {
         org.simpo.svnk.pref.setPrefString('svnk.pathtoproc', path);
     },
     
-    setPrefString:function(prefID,prefValue) {
-        // summary:
-        //      Set a Komodo String preference.
-        // prefId: string
-        //      The ID of the preference to set.
-        // prefValue: string
-        //      The string value to set preference to.
-        
-        if (parent.hPrefWindow) {
-            parent.hPrefWindow.prefset.setStringPref(prefID, prefValue);
-        }
-        org.simpo.svnk.pref.prefBrowser.setStringPref(prefID, prefValue);
-    },
-    
-    setPrefBoolean:function(prefID,prefValue) {
-        // summary:
-        //      Set a Komodo Boolean preference.
-        // prefId: string
-        //      The ID of the preference to set.
-        // prefValue: boolean
-        //      The true|false value to set preference to.
-        
-        if (parent.hPrefWindow) {
-            parent.hPrefWindow.prefset.setBooleanPref(prefID, prefValue);
-        }
-        org.simpo.svnk.pref.prefBrowser.setBooleanPref(prefID, prefValue);
-    },
-    
-    getPrefString:function(prefID) {
-        // summary:
-        //      Get a Komodo string preference.
-        // prefID: string
-        //      The ID of the Komodo preference string to get.
-        // returns: string
-        //      The preference value or blank-string if preference not found.
-        
-        if (org.simpo.svnk.pref.prefBrowser.hasStringPref(prefID)) {
-            return org.simpo.svnk.pref.prefBrowser.getStringPref(prefID);
-        } else {
-            return '';
-        }
-    },
-    
-    getPrefBoolean:function(prefID,defaultValue) {
-        // summary:
-        //      Get a Komodo boolean preference.
-        // prefID: string
-        //      The ID of the Komodo preference boolean to get.
-        // defaultValue: variant
-        //      The default value to return if the preference does not exist.
-        // returns: boolean
-        //      The preference value or defaultValue if preference not found.
-        
-        if (org.simpo.svnk.pref.prefBrowser.hasBooleanPref(prefID)) {
-            return org.simpo.svnk.pref.prefBrowser.getBooleanPref(prefID);
-        } else {
-            return defaultValue;
-        }
-    },
-    
     checkboxOnCommand:function() {
         var pref = this.getAttribute('preference');
         org.simpo.svnk.pref.setPrefBoolean(pref,this.checked);
@@ -103,9 +43,7 @@ org.simpo.svnk.pref = {
     textboxOnChange:function() {
         var pref = this.getAttribute('preference');
         org.simpo.svnk.pref.setPrefString(pref,this.value);
-    }
-    
-    
+    } 
 };
 
 var checkboxes = document.getElementsByTagName("checkbox");
@@ -114,7 +52,7 @@ for (var i = 0; i < checkboxes.length; i++) {
     var pref = cCB.getAttribute('preference');
     cCB.checked = org.simpo.svnk.pref.getPrefBoolean(pref,false);
     cCB.addEventListener(
-        'command',org.simpo.svnk.pref.checkboxOnCommand,false
+        'command',org.simpo.svnk.options.checkboxOnCommand,false
     );
 }
 
@@ -124,13 +62,9 @@ for (var i = 0; i < textboxes.length; i++) {
     var pref = tXB.getAttribute('preference');
     tXB.value = org.simpo.svnk.pref.getPrefString(pref);
     tXB.addEventListener(
-        'change',org.simpo.svnk.pref.textboxOnChange,false
+        'change',org.simpo.svnk.options.textboxOnChange,false
     );
 }
-
-
-// Global namespace violation?
-//var SVNKPREF = new org.simpo.svnk.pref();
 
 } catch (e) {
     Components.utils.reportError(e);
