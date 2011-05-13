@@ -116,46 +116,46 @@ version:
 	
 	<!-- Create a submenu in the tools menu for TortoiseSVN actions -->
 	<menupopup id="popup_tools">
-		<menu id="popup_tools-SVNK" label="Version Control">
-			<menupopup id="popup_tools-SVNK-popup">
+		<menu id="popup-tools-SVNK" label="Version Control">
+			<menupopup id="popup-tools-SVNK-popup">
 				<menuitem
-					id="popup_tools-SVNK-RepoBrowser"
+					id="popup-tools-SVNK-RepoBrowser"
 					observes="Tasks:SVNK-RepoBrowser"
 					label="&svnk.label.repobrowser;"
 					tooltiptext="&svnk.tooltip.repobrowser;"
 					class="menuitem-iconic SVNK-RepoBrowser-Icon"/>
 				<menuitem
-					id="popup_tools-SVNK-CommitProject"
+					id="popup-tools-SVNK-CommitProject"
 					observes="Tasks:SVNK-CommitProject"
 					label="&svnk.label.commitproject;"
 					tooltiptext="&svnk.tooltip.commitproject;"
 					class="menuitem-iconic SVNK-CommitProject-Icon"/>
 				<menuitem
-					id="popup_tools-SVNK-UpdateProject"
+					id="popup-tools-SVNK-UpdateProject"
 					observes="Tasks:SVNK-UpdateProject"
 					label="&svnk.label.updateproject;"
 					tooltiptext="&svnk.tooltip.updateproject;"
 					class="menuitem-iconic SVNK-UpdateProject-Icon"/>
 				<menuitem
-					id="popup_tools_SVNK-CompareDiffActiveFile"
+					id="popup-tools-SVNK-CompareDiffActiveFile"
 					observes="Tasks:SVNK-CompareDiffActiveFile"
 					label="&svnk.label.comparefile.long;"
 					tooltiptext="&svnk.tooltip.comparefile;"
 					class="menuitem-iconic SVNK-Diff-Icon"/>
 				<menuitem
-					id="popup_tools_SVNK-ViewPropertiesActiveFile"
+					id="popup-tools-SVNK-ViewPropertiesActiveFile"
 					label="&svnk.label.viewproperties.long;"
 					observes="Tasks:SVNK-ViewPropertiesActiveFile"
 					tooltiptext="&svnk.tooltip.viewproperties;"
 					class="menuitem-iconic SVNK-Properties-Icon"/>
 				<menuitem
-					id="popup_tools_SVNK-ViewLogActiveFile"
+					id="popup-tools-SVNK-ViewLogActiveFile"
 					observes="Tasks:SVNK-ViewLogActiveFile"
 					label="&svnk.label.viewlogfile;"
 					tooltiptext="&svnk.tooltip.viewlogfile;"
 					class="menuitem-iconic SVNK-Log-Icon"/>
 				<menuitem
-					id="popup_tools_SVNK-ShowAbout"
+					id="popup-tools-SVNK-ShowAbout"
 					observes="Tasks:SVNK-ShowAbout"
 					label="&svnk.label.showabout;"
 					tooltiptext="&svnk.tooltip.showabout;"
@@ -198,6 +198,12 @@ version:
 					label="&svnk.label.viewlogentry;"
 					tooltiptext="&svnk.tooltip.viewlogfile;"
 					class="menuitem-iconic SVNK-Log-Icon"/>
+				<menuitem
+					id="tab-context-SVNK-ShowAbout"
+					observes="Tasks:SVNK-ShowAbout"
+					label="&svnk.label.showabout;"
+					tooltiptext="&svnk.tooltip.showabout;"
+					class="menuitem-iconic"/>
 			</menupopup>
 		</menu>
 	</menupopup>
