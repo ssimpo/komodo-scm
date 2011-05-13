@@ -54,7 +54,7 @@ org.simpo.svnk.toolLoader = {
             if (toolbarbuttons[i].id.toLowerCase().indexOf("svnk") != -1) {
                 var tBB = toolbarbuttons[i];
                 var pref = tBB.getAttribute('preference');
-                this._showHideButton(tBB,pref);
+                org.simpo.svnk.toolLoader._showHideButton(tBB,pref);
             } 
         }
     },
