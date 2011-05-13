@@ -5,7 +5,7 @@
 // license:
 //      LGPL <http://www.gnu.org/licenses/lgpl.html>
 // version:
-//      1.0.6
+//      1.0.7
 
 // Non violation of global namespace.
 if (!org) var org = {};
@@ -19,7 +19,8 @@ org.simpo.svnk.toolLoader = {
     
     getPrefBoolean:function(prefID,defaultValue) {
         // summary:
-        //      Get a Komodo boolean preference.
+        //      Get a Komodo boolean preference. Will also set to default value
+        //      if no value already set.
         // prefID: string
         //      The ID of the Komodo preference boolean to get.
         // defaultValue: variant
@@ -30,6 +31,13 @@ org.simpo.svnk.toolLoader = {
         if (org.simpo.svnk.toolLoader.prefBrowser.hasBooleanPref(prefID)) {
             return org.simpo.svnk.toolLoader.prefBrowser.getBooleanPref(prefID);
         } else {
+            if (parent.hPrefWindow) {
+                parent.hPrefWindow.prefset.setBooleanPref(prefID, defaultValue);
+            }
+            org.simpo.svnk.toolLoader.prefBrowser.setBooleanPref(
+                prefID, defaultValue
+            );
+            
             return defaultValue;
         }
     },
