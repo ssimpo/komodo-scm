@@ -43,17 +43,37 @@ org.simpo.svnk.toolLoader = {
     },
     
     showHideButtons:function() {
+        // summary:
+        //      Show/Hide buttons on the toolbar based on preference setting.
+        // note:
+        //      Will only execute against IDs containing 'svnk' so that it
+        //      dosen't run against other addon buttons or core Komodo buttons.
+        
         var toolbarbuttons = org.simpo.svnk.toolLoader.toolbarbuttons;
         for (var i = 0; i < toolbarbuttons.length; i++) {
-            var tBB = toolbarbuttons[i];
-            var pref = tBB.getAttribute('preference'); 
-            if (pref) {
-                var defaultValue = !tBB.hidden;
-                var prefValue = org.simpo.svnk.toolLoader.getPrefBoolean(
-                    pref, defaultValue
-                );
-                tBB.hidden = !prefValue; 
-            }
+            if (toolbarbuttons[i].id.toLowerCase().indexOf("svnk") != -1) {
+                var tBB = toolbarbuttons[i];
+                var pref = tBB.getAttribute('preference');
+                this._showHideButton(tBB,pref);
+            } 
+        }
+    },
+    
+    _showHideButton:function(button,pref) {
+        // summary:
+        //      Show/Hide a toolbar button depending on the
+        //      supplied preference-ID.
+        // button: XulElement
+        //      The button to show/hide.
+        // pref: string
+        //      The preference-ID to base the show/hide on.
+        
+        if (pref) {
+            var defaultValue = !button.hidden;
+            var prefValue = org.simpo.svnk.toolLoader.getPrefBoolean(
+                pref, defaultValue
+            );
+            button.hidden = !prefValue; 
         }
     }
     
