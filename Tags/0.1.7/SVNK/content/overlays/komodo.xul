@@ -1,0 +1,276 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://svnk/skin/svnk.css" type="text/css"?>
+<!DOCTYPE window PUBLIC "-//MOZILLA//DTD XUL V1.0//EN" "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" [
+	<!ENTITY % SVNKDTD SYSTEM "chrome://svnk/locale/main.dtd">
+	%SVNKDTD;
+]>
+<!--
+summary:
+	The main ovelay for the SVN-K addon.
+description:
+	The overlay, works by overlaying the main komodo.xul file.  It also adds against
+	content, which is added via the places addon.
+author:
+	Stephen Simpson <me@simpo.org>
+license:
+	LGPL <http://www.gnu.org/licenses/lgpl.html>
+version:
+	0.1.7
+-->
+<overlay id="SVNKOverlay"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	
+	<script
+		type="application/x-javascript"
+		src="chrome://svnk/content/functionBind.js"/>
+	<script
+		type="application/x-javascript"
+		src="chrome://svnk/content/svnk.js"/>
+ 
+	<commandset id="allcommands">
+		<command id="Tasks:SVNK-RepoBrowser" oncommand="SVNK.repoBrowser();"/>
+		<command id="Tasks:SVNK-UpdateProject" oncommand="SVNK.update('project');"/>
+		<command id="Tasks:SVNK-UpdatePath" oncommand="SVNK.update('selectedpaths');"/>
+		<command id="Tasks:SVNK-UpdateActiveFile" oncommand="SVNK.update('activefile');"/>
+		<command id="Tasks:SVNK-CommitProject" oncommand="SVNK.commit('project');"/>
+		<command id="Tasks:SVNK-CommitPath" oncommand="SVNK.commit('selectedpaths');"/>
+		<command id="Tasks:SVNK-CommitActiveFile" oncommand="SVNK.commit('activefile');"/>
+		<command id="Tasks:SVNK-CompareDiffActiveFile" oncommand="SVNK.diff('activefile');"/>
+		<command id="Tasks:SVNK-CompareDiff" oncommand="SVNK.diff('selectedpaths');"/>
+		<command id="Tasks:SVNK-ViewPropertiesActiveFile" oncommand="SVNK.viewProperties('activefile');"/>
+		<command id="Tasks:SVNK-ViewProperties" oncommand="SVNK.viewProperties('selectedpaths');"/>
+		<command id="Tasks:SVNK-ViewLogActiveFile" oncommand="SVNK.viewLog('activefile');"/>
+		<command id="Tasks:SVNK-ViewLog" oncommand="SVNK.viewLog('selectedpaths');"/>
+		<command id="Tasks:SVNK-Rename" oncommand="SVNK.rename();"/>
+		<command id="Tasks:SVNK-Revert" oncommand="SVNK.revert('selectedpaths');"/>
+		<command id="Tasks:SVNK-Delete" oncommand="SVNK.delete('selectedpaths');"/>
+		<command id="Tasks:SVNK-ShowAbout" oncommand="openDialog('chrome://svnk/content/dialogs/about.xul', 'about', 'chrome,modal,centerscreen');"/>
+	</commandset>
+	
+	
+	<!-- Main Komodo Toolbar options -->
+	<toolbar id="toolsToolbar">
+		<toolbarseparator />
+		<toolbarbutton
+			id="toolsToolbar-SVNK-RepoBrowser"
+			preference="svnk.toolbarRepoBrowser"
+			observes="Tasks:SVNK-RepoBrowser"
+			label="&svnk.label.repobrowser;"
+			tooltiptext="&svnk.tooltip.repobrowser;"
+			class="menuitem-iconic SVNK-RepoBrowser-Icon"/>
+		<toolbarbutton
+			id="toolsToolbar-SVNK-CommitFile"
+			preference="svnk.toolbarCommitFile"
+			hidden="true"
+			observes="Tasks:SVNK-CommitActiveFile"
+			label="&svnk.label.commitfile;"
+			tooltiptext="&svnk.tooltip.commitfile;"
+			class="menuitem-iconic SVNK-Commit-Icon"/>
+		<toolbarbutton
+			id="toolsToolbar-SVNK-UpdateFile"
+			preference="svnk.toolbarUpdateFile"
+			hidden="true"
+			observes="Tasks:SVNK-UpdateActiveFile"
+			label="&svnk.label.updatefile;"
+			tooltiptext="&svnk.tooltip.updatefile;"
+			class="menuitem-iconic SVNK-Update-Icon"/>
+		<toolbarbutton
+			id="toolsToolbar-SVNK-CommitProject"
+			preference="svnk.toolbarCommitProject"
+			observes="Tasks:SVNK-CommitProject"
+			label="&svnk.label.commitproject;"
+			tooltiptext="&svnk.tooltip.commitproject;"
+			class="menuitem-iconic SVNK-CommitProject-Icon"/>
+		<toolbarbutton
+			id="toolsToolbar-SVNK-UpdateProject"
+			preference="svnk.toolbarUpdateProject"
+			observes="Tasks:SVNK-UpdateProject"
+			label="&svnk.label.updateproject;"
+			tooltiptext="&svnk.tooltip.updateproject;"
+			class="menuitem-iconic SVNK-UpdateProject-Icon"/>
+		<toolbarbutton
+			id="toolsToolbar-SVNK-CompareDiffActiveFile"
+			preference="svnk.toolbarDiff"
+			observes="Tasks:SVNK-CompareDiffActiveFile"
+			label="&svnk.label.comparefile;"
+			tooltiptext="&svnk.tooltip.comparefile;"
+			class="menuitem-iconic SVNK-Diff-Icon"/>
+		<toolbarbutton
+			id="toolsToolbar-SVNK-ViewPropertiesActiveFile"
+			preference="svnk.toolbarProperties"
+			observes="Tasks:SVNK-ViewPropertiesActiveFile"
+			label="&svnk.label.viewproperties;"
+			tooltiptext="&svnk.tooltip.viewproperties;"
+			class="menuitem-iconic SVNK-Properties-Icon"/>
+		<toolbarbutton
+			id="toolsToolbar-SVNK-ViewLogActiveFile"
+			preference="svnk.toolbarLog"
+			observes="Tasks:SVNK-ViewLogActiveFile"
+			label="&svnk.label.viewlogfile;"
+			tooltiptext="&svnk.tooltip.viewlogfile;"
+			class="menuitem-iconic SVNK-Log-Icon"/>
+		<toolbarseparator />
+	</toolbar>
+	
+	<!-- Create a submenu in the tools menu for TortoiseSVN actions -->
+	<menupopup id="popup_tools">
+		<menu id="popup_tools-SVNK" label="Version Control">
+			<menupopup id="popup_tools-SVNK-popup">
+				<menuitem
+					id="popup_tools-SVNK-RepoBrowser"
+					observes="Tasks:SVNK-RepoBrowser"
+					label="&svnk.label.repobrowser;"
+					tooltiptext="&svnk.tooltip.repobrowser;"
+					class="menuitem-iconic SVNK-RepoBrowser-Icon"/>
+				<menuitem
+					id="popup_tools-SVNK-CommitProject"
+					observes="Tasks:SVNK-CommitProject"
+					label="&svnk.label.commitproject;"
+					tooltiptext="&svnk.tooltip.commitproject;"
+					class="menuitem-iconic SVNK-CommitProject-Icon"/>
+				<menuitem
+					id="popup_tools-SVNK-UpdateProject"
+					observes="Tasks:SVNK-UpdateProject"
+					label="&svnk.label.updateproject;"
+					tooltiptext="&svnk.tooltip.updateproject;"
+					class="menuitem-iconic SVNK-UpdateProject-Icon"/>
+				<menuitem
+					id="popup_tools_SVNK-CompareDiffActiveFile"
+					observes="Tasks:SVNK-CompareDiffActiveFile"
+					label="&svnk.label.comparefile.long;"
+					tooltiptext="&svnk.tooltip.comparefile;"
+					class="menuitem-iconic SVNK-Diff-Icon"/>
+				<menuitem
+					id="popup_tools_SVNK-ViewPropertiesActiveFile"
+					label="&svnk.label.viewproperties.long;"
+					observes="Tasks:SVNK-ViewPropertiesActiveFile"
+					tooltiptext="&svnk.tooltip.viewproperties;"
+					class="menuitem-iconic SVNK-Properties-Icon"/>
+				<menuitem
+					id="popup_tools_SVNK-ViewLogActiveFile"
+					observes="Tasks:SVNK-ViewLogActiveFile"
+					label="&svnk.label.viewlogfile;"
+					tooltiptext="&svnk.tooltip.viewlogfile;"
+					class="menuitem-iconic SVNK-Log-Icon"/>
+				<menuitem
+					id="popup_tools_SVNK-ShowAbout"
+					observes="Tasks:SVNK-ShowAbout"
+					label="&svnk.label.showabout;"
+					tooltiptext="&svnk.tooltip.showabout;"
+					class="menuitem-iconic"/>
+			</menupopup>
+		</menu>
+	</menupopup>
+	
+	<!-- Context-menu for tab in editor -->
+	<menupopup id="tabContextMenu">
+		<menu id="tab-context-popup-SVNK" label="Version Control">
+			<menupopup id="tab-context-popup-SVNK-popup">
+				<menuitem
+					id="tab-context-SVNK-Commit"
+					observes="Tasks:SVNK-CommitActiveFile"
+					label="&svnk.label.commitfile;"
+					tooltiptext="&svnk.tooltip.commitfile;"
+					class="menuitem-iconic SVNK-Commit-Icon"/>
+				<menuitem
+					id="tab-context-SVNK-Update"
+					observes="Tasks:SVNK-UpdateActiveFile"
+					label="&svnk.label.updatefile;"
+					tooltiptext="&svnk.tooltip.updatefile;"
+					class="menuitem-iconic SVNK-Update-Icon"/>
+				<menuitem
+					id="tab-context-SVNK-CompareDiff"
+					observes="Tasks:SVNK-CompareDiffActiveFile"
+					label="&svnk.label.comparefile;"
+					tooltiptext="&svnk.tooltip.comparefile;"
+					class="menuitem-iconic SVNK-Diff-Icon"/>
+				<menuitem
+					id="tab-context-SVNK-ViewProperties"
+					observes="Tasks:SVNK-ViewPropertiesActiveFile"
+					label="&svnk.label.viewproperties;"
+					tooltiptext="&svnk.tooltip.viewproperties;"
+					class="menuitem-iconic SVNK-Properties-Icon"/>
+				<menuitem
+					id="tab-context-SVNK-ViewLog"
+					observes="Tasks:SVNK-ViewLogActiveFile"
+					label="&svnk.label.viewlogentry;"
+					tooltiptext="&svnk.tooltip.viewlogfile;"
+					class="menuitem-iconic SVNK-Log-Icon"/>
+			</menupopup>
+		</menu>
+	</menupopup>
+	
+	<!-- Context-menu for files and folders in the places view -->
+	<!-- NB: Places is actually a addon its-self -->
+	<menupopup id="places-files-popup">
+		<menu id="places-files-popup-SVNK" label="Version Control">
+			<menupopup id="places-files-popup-SVNK-popup">
+				<menuitem
+					id="places-files-popup-SVNK-Commit"
+					observes="Tasks:SVNK-CommitPath"
+					label="&svnk.label.commitpath;"
+					tooltiptext="&svnk.tooltip.commitpath;"
+					class="menuitem-iconic SVNK-Commit-Icon"
+					hideUnless="file folder"/>
+				<menuitem
+					id="places-files-popup-SVNK-Update"
+					observes="Tasks:SVNK-UpdatePath"
+					label="&svnk.label.updatepath;"
+					tooltiptext="&svnk.tooltip.updatepath;"
+					class="menuitem-iconic SVNK-Update-Icon"
+					hideUnless="file folder"/>
+				<menuitem
+					id="places-files-popup-SVNK-CompareDiff"
+					observes="Tasks:SVNK-CompareDiff"
+					label="&svnk.label.comparefile.long;"
+					tooltiptext="&svnk.tooltip.selected.comparefile;"
+					class="menuitem-iconic SVNK-Diff-Icon"
+					hideUnless="file folder"/>
+				<menuitem
+					id="places-files-popup-SVNK-ViewProperties"
+					observes="Tasks:SVNK-ViewProperties"
+					label="&svnk.label.viewproperties2.long;"
+					tooltiptext="&svnk.tooltip.selected.viewproperties;"
+					class="menuitem-iconic SVNK-Properties-Icon"
+					hideUnless="file folder"/>
+				<menuitem
+					id="places-files-popup-SVNK-Rename"
+					observes="Tasks:SVNK-Rename"
+					label="&svnk.label.rename;"
+					tooltiptext="&svnk.tooltip.selected.rename;"
+					class="menuitem-iconic SVNK-Rename-Icon"
+					hideUnless="file folder"
+					testHideIf="t:multipleSelection"/>
+				<menuitem
+					id="places-files-popup-SVNK-Revert"
+					observes="Tasks:SVNK-Revert"
+					label="&svnk.label.revert;"
+					tooltiptext="&svnk.tooltip.selected.revert;"
+					class="menuitem-iconic SVNK-Revert-Icon"
+					hideUnless="file folder"/>
+				<menuitem
+					id="places-files-popup-SVNK-Delete"
+					observes="Tasks:SVNK-Delete"
+					label="&svnk.label.delete;"
+					tooltiptext="&svnk.tooltip.selected.delete;"
+					class="menuitem-iconic SVNK-Delete-Icon"
+					hideUnless="file folder"/>
+				<menuitem
+					id="places-files-popup-SVNK-ShowAbout"
+					observes="Tasks:SVNK-ShowAbout"
+					label="&svnk.label.showabout;"
+					tooltiptext="&svnk.tooltip.showabout;"
+					class="menuitem-iconic"/>
+			</menupopup>
+		</menu>
+	</menupopup>
+	
+	<script
+		type="application/x-javascript"
+		src="chrome://svnk/content/prefEdit.js"/>
+	<script
+		type="application/x-javascript"
+		src="chrome://svnk/content/overlays/komodo.js"/>
+</overlay>
