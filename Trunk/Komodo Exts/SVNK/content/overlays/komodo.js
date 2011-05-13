@@ -48,8 +48,10 @@ org.simpo.svnk.toolLoader = {
             var tBB = toolbarbuttons[i];
             var pref = tBB.getAttribute('preference'); 
             if (pref) {
-                //org.simpo.svnk.toolLoader.logger.logStringMessage(pref);
-                var prefValue = org.simpo.svnk.toolLoader.getPrefBoolean(pref,true);
+                var defaultValue = tBB.hidden;
+                var prefValue = org.simpo.svnk.toolLoader.getPrefBoolean(
+                    pref, defaultValue
+                );
                 tBB.hidden = !prefValue; 
             }
         }
