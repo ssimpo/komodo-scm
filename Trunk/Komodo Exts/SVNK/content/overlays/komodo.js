@@ -13,34 +13,8 @@ if (!org.simpo) org.simpo = {};
 if (!org.simpo.svnk) org.simpo.svnk = {};
 
 org.simpo.svnk.toolLoader = {
-    prefBrowser:Components.classes['@activestate.com/koPrefService;1'].getService(Components.interfaces.koIPrefService).prefs,
     logger:Components.classes["@mozilla.org/consoleservice;1"].getService(Components.interfaces.nsIConsoleService),
     toolbarbuttons:null,
-    
-    getPrefBoolean:function(prefID,defaultValue) {
-        // summary:
-        //      Get a Komodo boolean preference. Will also set to default value
-        //      if no value already set.
-        // prefID: string
-        //      The ID of the Komodo preference boolean to get.
-        // defaultValue: variant
-        //      The default value to return if the preference does not exist.
-        // returns: boolean
-        //      The preference value or defaultValue if preference not found.
-        
-        if (org.simpo.svnk.toolLoader.prefBrowser.hasBooleanPref(prefID)) {
-            return org.simpo.svnk.toolLoader.prefBrowser.getBooleanPref(prefID);
-        } else {
-            if (parent.hPrefWindow) {
-                parent.hPrefWindow.prefset.setBooleanPref(prefID, defaultValue);
-            }
-            org.simpo.svnk.toolLoader.prefBrowser.setBooleanPref(
-                prefID, defaultValue
-            );
-            
-            return defaultValue;
-        }
-    },
     
     showHideButtons:function() {
         // summary:
@@ -70,7 +44,7 @@ org.simpo.svnk.toolLoader = {
         
         if (pref) {
             var defaultValue = !button.hidden;
-            var prefValue = org.simpo.svnk.toolLoader.getPrefBoolean(
+            var prefValue = org.simpo.svnk.pref.getPrefBoolean(
                 pref, defaultValue
             );
             button.hidden = !prefValue; 

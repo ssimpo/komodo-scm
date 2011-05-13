@@ -40,7 +40,7 @@ version:
                     preference="svnk.pathtoproc"
 					class="SVNK-standardPartDialog-width"
 					value="" />
-				<button label="&svnk.label.prefBrowseButton;" oncommand="org.simpo.svnk.pref.browse();"/>
+				<button label="&svnk.label.prefBrowseButton;" oncommand="org.simpo.svnk.options.browse();"/>
 			</hbox>
 			<description class="SVNK-standardPartDialog-width">&svnk.description.pathtoproc;</description>
 		</vbox>
@@ -138,6 +138,9 @@ version:
 	<script
 		type="application/x-javascript"
 		src="chrome://svnk/content/functionBind.js"/>
+	<script
+		type="application/x-javascript"
+		src="chrome://svnk/content/prefEdit.js"/>
 	<script
 		type="application/x-javascript"
 		src="chrome://svnk/content/pref-svnk.js"/>

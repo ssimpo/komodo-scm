@@ -46,7 +46,7 @@ version:
 		<command id="Tasks:SVNK-Rename" oncommand="SVNK.rename();"/>
 		<command id="Tasks:SVNK-Revert" oncommand="SVNK.revert('selectedpaths');"/>
 		<command id="Tasks:SVNK-Delete" oncommand="SVNK.delete('selectedpaths');"/>
-		<command id="Tasks:SVNK-ShowAbout" oncommand="openDialog('chrome://svnk/content/about.xul', 'about', 'chrome,modal,centerscreen');"/>
+		<command id="Tasks:SVNK-ShowAbout" oncommand="openDialog('chrome://svnk/content/dialogs/about.xul', 'about', 'chrome,modal,centerscreen');"/>
 	</commandset>
 	
 	
@@ -113,9 +113,6 @@ version:
 			class="menuitem-iconic SVNK-Log-Icon"/>
 		<toolbarseparator />
 	</toolbar>
-	<script
-		type="application/x-javascript"
-		src="chrome://svnk/content/overlays/komodo.js"/>
 	
 	<!-- Create a submenu in the tools menu for TortoiseSVN actions -->
 	<menupopup id="popup_tools">
@@ -269,4 +266,11 @@ version:
 			</menupopup>
 		</menu>
 	</menupopup>
+	
+	<script
+		type="application/x-javascript"
+		src="chrome://svnk/content/prefEdit.js"/>
+	<script
+		type="application/x-javascript"
+		src="chrome://svnk/content/overlays/komodo.js"/>
 </overlay>
