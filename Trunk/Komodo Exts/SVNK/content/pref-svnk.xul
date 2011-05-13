@@ -135,6 +135,10 @@ version:
 		</rows></grid>
 	</groupbox>
 	
-	<script type="application/x-javascript"
-		src="chrome://svnk/content/pref-svnk.js" />
+	<script
+		type="application/x-javascript"
+		src="chrome://svnk/content/functionBind.js"/>
+	<script
+		type="application/x-javascript"
+		src="chrome://svnk/content/pref-svnk.js"/>
 </page>

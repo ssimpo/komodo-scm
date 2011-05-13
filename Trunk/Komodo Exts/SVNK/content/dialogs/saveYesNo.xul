@@ -37,8 +37,13 @@ version:
 	    class="plain SVNK-standardDialog-width"
 	></html:div>
     </vbox>
-
-    <script type="application/x-javascript" src="chrome://svnk/content/dialogs/dialogs.js"/>
+    
+    <script
+	type="application/x-javascript"
+	src="chrome://svnk/content/functionBind.js"/>
+    <script
+	type="application/x-javascript"
+	src="chrome://svnk/content/dialogs/dialogs.js"/>
     <script type="application/javascript">
 	var description = document.getElementById('SVNK-Dialog-Description');
 	description.innerHTML = window.arguments[1];
