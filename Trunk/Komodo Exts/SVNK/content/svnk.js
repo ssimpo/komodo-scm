@@ -5,7 +5,7 @@
 // license:
 //      LGPL <http://www.gnu.org/licenses/lgpl.html>
 // version:
-//      0.1.6
+//      0.1.7
 
 // Non violation of global namespace.
 if (!org) var org = {};
