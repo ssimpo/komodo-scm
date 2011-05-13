@@ -43,7 +43,7 @@ org.simpo.svnk = function() {
         // summary:
         //      Open the repository browser for the current project.
         
-        this._runTortoiseCommand('repobrowser','project','ErrorBrowserLoad');
+        this._runTortoiseCommand('repobrowser','project_then_directory','ErrorBrowserLoad');
     };
 
     this.commit = function(type) {
@@ -140,6 +140,13 @@ org.simpo.svnk = function() {
                 break;
             case 'project':
                 path = this._getProjectPath();
+                break;
+            case 'project_then_directory':
+                if (this._hasActiveProject()) {
+                    path = this._getProjectPath();
+                } else {
+                    path = this._getCurrentDirectoryPath();
+                }
                 break;
         }
         
@@ -276,7 +283,24 @@ org.simpo.svnk = function() {
             }
         }
         return false;
-    }
+    };
+    
+    this._hasActiveProject = function() {
+        //  summary:
+        //      Test whether there is a project or not.
+        //  returns: boolean
+
+        try {
+            var project = ko.projects.manager.getCurrentProject();
+            if (project != null) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch(e) {
+            return false; 
+        }
+    };
     
     this._getProject = function() {
         //  summary:
@@ -304,8 +328,12 @@ org.simpo.svnk = function() {
         if (project == undefined) {
             project = this._getProject();
         }
-        var projectFile = project.getFile();
-        return projectFile.dirName;
+        if (project) {
+            var projectFile = project.getFile();
+            return projectFile.dirName;
+        } else {
+            return '';
+        }
     };
     
     this._pathContainsPath = function(path1,path2) {
