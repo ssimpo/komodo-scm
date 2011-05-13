@@ -22,7 +22,12 @@ version:
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 	
-	<script type="application/x-javascript" src="chrome://svnk/content/svnk.js"/>
+	<script
+		type="application/x-javascript"
+		src="chrome://svnk/content/functionBind.js"/>
+	<script
+		type="application/x-javascript"
+		src="chrome://svnk/content/svnk.js"/>
  
 	<commandset id="allcommands">
 		<command id="Tasks:SVNK-RepoBrowser" oncommand="SVNK.repoBrowser();"/>
