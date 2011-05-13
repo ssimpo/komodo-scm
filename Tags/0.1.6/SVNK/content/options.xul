@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin" type="text/css"?>
+<?xml-stylesheet href="chrome://komodo/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://komodo/skin/global/global.css" type="text/css"?>
+<?xml-stylesheet href="chrome://komodo/skin/bindings/buttons.css" type="text/css"?>
+<?xml-stylesheet href="chrome://svnk/skin/svnk.css" type="text/css"?>
+<!DOCTYPE window PUBLIC "-//MOZILLA//DTD XUL V1.0//EN" "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" [
+	<!ENTITY % SVNKDTD SYSTEM "chrome://svnk/locale/main.dtd">
+	%SVNKDTD;
+]>
+<!--
+summary:
+	The preferences form for SVN-K addon.
+author:
+	Stephen Simpson <me@simpo.org>
+license:
+	LGPL <http://www.gnu.org/licenses/lgpl.html>
+version:
+	0.1.6
+-->
+<window
+    xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    title="SVN-K Preferences"
+    orient="vertical">
+    
+    <iframe
+        src="chrome://svnk/content/pref-svnk.xul"
+        width="415" height="300"
+        type="chrome" />
+    
+    <hbox align="right" style="margin-top:5px">
+        <button label="&svnk.button.Okay;" onclick="parent.close();"></button>
+    </hbox>
+</window>
