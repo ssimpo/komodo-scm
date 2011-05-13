@@ -106,5 +106,10 @@ version:
     </grid>
 
 </vbox>
-
+<script
+    type="application/x-javascript"
+    src="chrome://svnk/content/functionBind.js"/>
+<script
+    type="application/x-javascript"
+    src="chrome://svnk/content/about.js"/>
 </dialog>
