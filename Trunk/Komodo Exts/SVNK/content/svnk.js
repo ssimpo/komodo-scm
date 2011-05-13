@@ -128,8 +128,10 @@ org.simpo.svnk = function() {
         
         var path = '';
         
-        
         switch(type.toLowerCase()) {
+            case 'activedirectory':
+                path = this._getCurrentDirectoryPath();
+                break;
             case 'activefile':
                 path = this._getCurrentFilePath();
                 break;
@@ -151,6 +153,21 @@ org.simpo.svnk = function() {
 
         try {
             return ko.views.manager.currentView.document.file.path;
+        } catch(e) {
+            Components.utils.reportError(
+                this.stringBundle("ErrorNoCurrentFile")
+            );
+            return false;
+        }
+    };
+    
+    this._getCurrentDirectoryPath = function() {
+        //  summary:
+        //      Get the directory path of the currently open file.
+        //  returns: string
+
+        try {
+            return ko.views.manager.currentView.document.file.dirName;
         } catch(e) {
             Components.utils.reportError(
                 this.stringBundle("ErrorNoCurrentFile")
