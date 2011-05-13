@@ -204,6 +204,18 @@ version:
 					tooltiptext="&svnk.tooltip.updatefile;"
 					class="menuitem-iconic SVNK-Update-Icon"/>
 				<menuitem
+					id="tab-context-SVNK-CommitDirectory"
+					observes="Tasks:SVNK-CommitActiveDirectory"
+					label="&svnk.label.commitdirectory;"
+					tooltiptext="&svnk.tooltip.commitdirectory;"
+					class="menuitem-iconic SVNK-Commit-Icon"/>
+				<menuitem
+					id="tab-context-SVNK-UpdateDirectory"
+					observes="Tasks:SVNK-UpdateActiveDirectory"
+					label="&svnk.label.updatedirectory;"
+					tooltiptext="&svnk.tooltip.updatedirectory;"
+					class="menuitem-iconic SVNK-Update-Icon"/>
+				<menuitem
 					id="tab-context-SVNK-CompareDiff"
 					observes="Tasks:SVNK-CompareDiffActiveFile"
 					label="&svnk.label.comparefile;"
