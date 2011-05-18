@@ -102,6 +102,22 @@ version:
 			tooltiptext="&svnk.tooltip.updateproject;"
 			class="menuitem-iconic SVNK-UpdateProject-Icon"/>
 		<toolbarbutton
+			id="toolsToolbar-SVNK-CommitDirectory"
+			preference="svnk.toolbarCommitDirectory"
+			hidden="true"
+			observes="Tasks:SVNK-CommitActiveDirectory"
+			label="&svnk.label.commitdirectory;"
+			tooltiptext="&svnk.tooltip.commitdirectory;"
+			class="menuitem-iconic SVNK-CommitDirectory-Icon"/>
+		<toolbarbutton
+			id="toolsToolbar-SVNK-UpdateDirectory"
+			preference="svnk.toolbarUpdateDirectory"
+			hidden="true"
+			observes="Tasks:SVNK-UpdateActiveDirectory"
+			label="&svnk.label.updatedirectory;"
+			tooltiptext="&svnk.tooltip.updatedirectory;"
+			class="menuitem-iconic SVNK-UpdateDirectory-Icon"/>
+		<toolbarbutton
 			id="toolsToolbar-SVNK-CompareDiffActiveFile"
 			preference="svnk.toolbarDiff"
 			observes="Tasks:SVNK-CompareDiffActiveFile"
@@ -145,20 +161,20 @@ version:
 					id="popup-tools-SVNK-UpdateProject"
 					observes="Tasks:SVNK-UpdateProject"
 					label="&svnk.label.updateproject;"
-					tooltiptext="&svnk.tooltip.updatedirectory;"
+					tooltiptext="&svnk.tooltip.updateproject;"
 					class="menuitem-iconic SVNK-UpdateProject-Icon"/>
 				<menuitem
 					id="popup-tools-SVNK-CommitDirectory"
 					observes="Tasks:SVNK-CommitActiveDirectory"
 					label="&svnk.label.commitdirectory;"
-					tooltiptext="&svnk.tooltip.commitproject;"
-					class="menuitem-iconic SVNK-CommitProject-Icon"/>
+					tooltiptext="&svnk.tooltip.commitdirectory;"
+					class="menuitem-iconic SVNK-CommitDirectory-Icon"/>
 				<menuitem
 					id="popup-tools-SVNK-UpdateDirectory"
 					observes="Tasks:SVNK-UpdateActiveDirectory"
 					label="&svnk.label.updatedirectory;"
 					tooltiptext="&svnk.tooltip.updatedirectory;"
-					class="menuitem-iconic SVNK-UpdateProject-Icon"/>
+					class="menuitem-iconic SVNK-UpdateDirectory-Icon"/>
 				<menuitem
 					id="popup-tools-SVNK-CompareDiffActiveFile"
 					observes="Tasks:SVNK-CompareDiffActiveFile"
@@ -208,13 +224,13 @@ version:
 					observes="Tasks:SVNK-CommitActiveDirectory"
 					label="&svnk.label.commitdirectory;"
 					tooltiptext="&svnk.tooltip.commitdirectory;"
-					class="menuitem-iconic SVNK-Commit-Icon"/>
+					class="menuitem-iconic SVNK-CommitDirectory-Icon"/>
 				<menuitem
 					id="tab-context-SVNK-UpdateDirectory"
 					observes="Tasks:SVNK-UpdateActiveDirectory"
 					label="&svnk.label.updatedirectory;"
 					tooltiptext="&svnk.tooltip.updatedirectory;"
-					class="menuitem-iconic SVNK-Update-Icon"/>
+					class="menuitem-iconic SVNK-UpdateDirectory-Icon"/>
 				<menuitem
 					id="tab-context-SVNK-CompareDiff"
 					observes="Tasks:SVNK-CompareDiffActiveFile"

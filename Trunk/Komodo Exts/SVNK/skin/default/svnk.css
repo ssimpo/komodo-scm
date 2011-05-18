@@ -6,12 +6,20 @@
     list-style-image: url("chrome://svnk/skin/images/commit16x16.png");
 }
 
+.SVNK-CommitDirectory-Icon {
+    list-style-image: url("chrome://svnk/skin/images/commitDirectory16x16.png");
+}
+
 .SVNK-CommitProject-Icon {
     list-style-image: url("chrome://svnk/skin/images/commitProject16x16.png");
 }
 
 .SVNK-Update-Icon {
     list-style-image: url("chrome://svnk/skin/images/update16x16.png");
+}
+
+.SVNK-UpdateDirectory-Icon {
+    list-style-image: url("chrome://svnk/skin/images/updateDirectory16x16.png");
 }
 
 .SVNK-UpdateProject-Icon {
