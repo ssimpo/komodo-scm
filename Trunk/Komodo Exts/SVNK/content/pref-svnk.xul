@@ -131,6 +131,25 @@ version:
 				<image class="SVNK-Update-Icon" width="16" height="16" />
 				<label value="&svnk.label.updatefile;" />
 			</hbox>
+		</row><row>
+			<checkbox
+				id="SVNK-option-toolbar-commitDirectory"
+                preference="svnk.toolbarCommitDirectory"
+				checked="false"
+				class="SVNK-option-toolbar-checkbox" />
+			<hbox>
+				<image class="SVNK-CommitDirectory-Icon" width="16" height="16" />
+				<label value="&svnk.label.commitdirectory;" />
+			</hbox>
+			<checkbox
+				id="SVNK-option-toolbar-updateDirectory"
+                preference="svnk.toolbarUpdateDirectory"
+				checked="false"
+				class="SVNK-option-toolbar-checkbox" />
+			<hbox>
+				<image class="SVNK-UpdateDirectory-Icon" width="16" height="16" />
+				<label value="&svnk.label.updatedirectory;" />
+			</hbox>
 		</row>
 		</rows></grid>
 	</groupbox>
