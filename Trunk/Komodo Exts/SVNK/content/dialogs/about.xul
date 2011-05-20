@@ -41,9 +41,8 @@ version:
             <description class="SVNK-standardPartDialog-width SVNK-dialog-smaller">
 		SVN-K is an addon for Komodo IDE and Komodo Edit, which intergrates the editors with SVN.  The current setup issues commands via TortoiseSVN allowing easy use of Tortoise's easy-to-use GUI.
 	    </description><html:br/><html:br/>
-	    <button
-		class="borderless"
-		image="https://www.paypalobjects.com/WEBSCR-640-20110429-1/en_GB/i/btn/btn_donate_LG.gif"
+	    <image
+		src="https://www.paypalobjects.com/WEBSCR-640-20110429-1/en_GB/i/btn/btn_donate_LG.gif"
 		onclick="ko.browse.openUrlInDefaultBrowser('https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=XNBHC685KUYMN');"/>
         </vbox>
     </hbox>
