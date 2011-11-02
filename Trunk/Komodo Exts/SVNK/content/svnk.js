@@ -5,7 +5,7 @@
 // license:
 //      LGPL <http://www.gnu.org/licenses/lgpl.html>
 // version:
-//      0.1.8
+//      0.1.9
 
 // Non violation of global namespace.
 if (!org) var org = {};
@@ -550,6 +550,8 @@ org.simpo.svnk = function() {
         }
         var cmd = pathToProc+'/command:'+command+' /path:\"'+path+'\"';
         var cwd = '';
+        
+        Components.utils.reportError(cmd);
         
         var response = this._runCommand(cmd,cwd,null,null);
         
