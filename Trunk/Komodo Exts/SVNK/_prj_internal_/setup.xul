@@ -27,12 +27,7 @@ var ext_name = '';
 
 function get_id(strId) { return document.getElementById(strId); }
 function get_val(strId) { return get_id(strId).value; }
-function set_val(strId, val) {
-  var field = get_id(strId);
-  if (field) {
-    field.value = val; 
-  }
-}
+function set_val(strId, val) { get_id(strId).value = val; }
 function get_nice_name(name) { return trim(name).replace(/[\W]/g,'').toLowerCase(); }
 function trim(str) { return str.replace(/^\s*/, '').replace(/\s*$/, ''); }
 function _dump(obj) {
@@ -159,22 +154,6 @@ function keys(obj) {
       <row align="center">
           <label value="Home Page:"/>
           <textbox id="homepageURL" value=""/>
-      </row>
-      <row align="center">
-          <label value="Options Dialog:"/>
-          <textbox id="optionsURL" value=""/>
-      </row>
-      <row align="center">
-          <label value="About Dialog:"/>
-          <textbox id="aboutURL" value=""/>
-      </row>
-      <row align="center">
-          <label value="Icon URL:"/>
-          <textbox id="iconURL" value=""/>
-      </row>
-      <row align="center">
-          <label value="Icon 64x64 URL:"/>
-          <textbox id="icon64URL" value=""/>
       </row>
       <row align="center">
           <label value="Extension Id:"/>
