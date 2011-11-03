@@ -1,16 +1,41 @@
-todo:
-    Make commits work against active places view as well as project.
-todo:
-    All specialist options for tortoise to be stored with a project file.
-todo:
-    Add more SVN Move.
-todo:
-    Add project preferences.
-todo:
-    Create unit tests (find a framework to do this???).
-todo:
-    Add checkboxes so icons can be added/removed from toolbar.
-todo:
-    Make functionality for active documents much better.
-todo:
-    Add functionality for people who do not use projects or places.
+Approximate Roadmap - The further from the current version, the more approximate.
+Some entries may be removed or changed in the future.
+
+Version 0.2.0
+* View log of current project buttom
+* SVN Move functionality
+* SVN Diff
+
+Version 0.2.1
+* Add log viewing to places project context-menu
+* Add right-click to toolbar
+* Add help pages to simpo.org
+* Add help dialog
+* Refactoring of entity names and context
+* Rewording of entity text
+* Add right-click to project area
+
+Version 0.2.2
+* Tab right-click to rename
+* Toolbar rename
+* Tab right-click to revert
+* Toolbar delete icon
+* Tab right-click to delete
+* Toolbar revert icon
+
+Version 0.2.3
+* Add Clean-up
+* Add Merge
+
+Version 0.3
+* Integrate with native delete
+* Integrate with native rename
+
+Version 0.4
+* Add ability to reference commands in macros?
+
+Version 0.5
+* Intergrate with TortoiseGit and TortoiseCVS?
+
+Version 0.6
+* Add native SVN support?
