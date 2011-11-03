@@ -108,11 +108,11 @@ org.simpo.svnk = function() {
             this._runTortoiseCommand('remove',type,'ErrorDelete');
             var feedback = this._runTortoiseProc(path, 'commit');
             if (feedback.error == true) {
-                Components.utils.reportError(feedback.value);
+                this.logger.logStringMessage(feedback.value);
             }
             ko.places.viewMgr.view.refreshFullTreeView();
         } catch(e) {
-            Components.utils.reportError(
+            this.logger.logStringMessage(
                 this.stringBundle(ErrorDelete)
             );
         }
@@ -151,7 +151,20 @@ org.simpo.svnk = function() {
         }
         
         return path;
-    }
+    };
+    
+    
+    this._getCurrentDocument = function(root) {
+        try {
+            if (root.document) {
+                return root.document;
+            } else {
+                return root.koDoc;
+            }
+        } catch(e) {
+            return false;
+        }
+    };
     
     this._getCurrentFilePath = function() {
         //  summary:
@@ -159,9 +172,9 @@ org.simpo.svnk = function() {
         //  returns: string
 
         try {
-            return ko.views.manager.currentView.document.file.path;
+            return this._getCurrentDocument(ko.views.manager.currentView).file.path;
         } catch(e) {
-            Components.utils.reportError(
+            this.logger.logStringMessage(
                 this.stringBundle("ErrorNoCurrentFile")
             );
             return false;
@@ -174,9 +187,9 @@ org.simpo.svnk = function() {
         //  returns: string
 
         try {
-            return ko.views.manager.currentView.document.file.dirName;
+            return this._getCurrentDocument(ko.views.manager.currentView).file.dirName;
         } catch(e) {
-            Components.utils.reportError(
+            this.logger.logStringMessage(
                 this.stringBundle("ErrorNoCurrentFile")
             );
             return false;
@@ -198,7 +211,7 @@ org.simpo.svnk = function() {
                 return path;
             });
         } catch(e) {
-            Components.utils.reportError(
+            this.logger.logStringMessage(
                 this.stringBundle("ErrorNoSelectedPaths")
             );
             return false; 
@@ -216,7 +229,7 @@ org.simpo.svnk = function() {
     
         for (var i = 0; i < views.length; i++) {
             var view = views[i];
-            paths.push(view.document.file.path);
+            paths.push(this._getCurrentDocument(view).file.path);
         }
     };
     
@@ -230,7 +243,7 @@ org.simpo.svnk = function() {
             
         var paths = new Array();
         for (var i = 0; i < views.length; i++) {
-            var doc = views[i].document;
+            var doc = this._getCurrentDocument(views[i]);
             if (doc.isDirty) {
                 paths.push(doc.file.path);
             }
@@ -278,7 +291,7 @@ org.simpo.svnk = function() {
         var views = ko.views.manager.getAllViews();
         for (var i = 0; i < views.length; i++) {
             var view = views[i];
-            if (path.toLowerCase() ==  view.document.file.path.toLowerCase()) {
+            if (path.toLowerCase() ==  this._getCurrentDocument(view).file.path.toLowerCase()) {
                 return view;
             }
         }
@@ -311,7 +324,7 @@ org.simpo.svnk = function() {
         try {
             return ko.projects.manager.getCurrentProject();
         } catch(e) {
-            Components.utils.reportError(
+            this.logger.logStringMessage(
                 this.stringBundle("ErrorNoCurrentProject")
             );
             return false; 
@@ -381,7 +394,7 @@ org.simpo.svnk = function() {
         
         var views = ko.views.manager.getAllViews();
         for (var i = 0; i < views.length; i++) {
-            var doc = views[i].document;
+            var doc = this._getCurrentDocument(views[i]);
             if (doc.isDirty) {
                 doc.save(true);
             }
@@ -453,7 +466,7 @@ org.simpo.svnk = function() {
                 break;
             case 'save':
                 if (type == 'activefile') {
-                    ko.views.manager.currentView.document.save(true);
+                    this._getCurrentDocument(ko.views.manager.currentView).save(true);
                 } else {
                     this._saveDirtyPaths();
                 }
@@ -522,11 +535,11 @@ org.simpo.svnk = function() {
             if (this._handleDirtyFiles(type)) {
                 var feedback = this._runTortoiseProc(paths, command);
                 if (feedback.error == true) {
-                    Components.utils.reportError(feedback.value);
+                    this.logger.logStringMessage(feedback.value);
                 }
             }
         } catch(e) {
-            Components.utils.reportError(
+            this.logger.logStringMessage(
                 this.stringBundle(errorMsgRef)
             );
         }
@@ -551,7 +564,7 @@ org.simpo.svnk = function() {
         var cmd = pathToProc+'/command:'+command+' /path:\"'+path+'\"';
         var cwd = '';
         
-        Components.utils.reportError(cmd);
+        this.logger.logStringMessage(cmd);
         
         var response = this._runCommand(cmd,cwd,null,null);
         
@@ -594,5 +607,5 @@ org.simpo.svnk = function() {
 var SVNK = new org.simpo.svnk();
 
 } catch (e) {
-    Components.utils.reportError(e);
+    this.logger.logStringMessage(e);
 }
