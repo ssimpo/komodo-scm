@@ -30,7 +30,7 @@ version:
 		src="chrome://svnk/content/svnk.js"/>
  
 	<commandset id="allcommands">
-		<command id="Tasks:SVNK-RepoBrowser" oncommand="SVNK.repoBrowser();"/>
+		<command id="SVNK.repoBrowser();" oncommand="SVNK.repoBrowser();"/>
 		
 		<command id="Tasks:SVNK-UpdateProject" oncommand="SVNK.update('project');"/>
 		<command id="Tasks:SVNK-UpdatePath" oncommand="SVNK.update('selectedpaths');"/>
@@ -67,7 +67,7 @@ version:
 		<toolbarbutton
 			id="toolsToolbar-SVNK-RepoBrowser"
 			preference="svnk.toolbarRepoBrowser"
-			observes="Tasks:SVNK-RepoBrowser"
+			observes="SVNK.repoBrowser();"
 			label="&svnk.label.repobrowser;"
 			tooltiptext="&svnk.tooltip.repobrowser;"
 			class="menuitem-iconic SVNK-RepoBrowser-Icon"/>
@@ -147,7 +147,7 @@ version:
 			<menupopup id="popup-tools-SVNK-popup">
 				<menuitem
 					id="popup-tools-SVNK-RepoBrowser"
-					observes="Tasks:SVNK-RepoBrowser"
+					observes="SVNK.repoBrowser();"
 					label="&svnk.label.repobrowser;"
 					tooltiptext="&svnk.tooltip.repobrowser;"
 					class="menuitem-iconic SVNK-RepoBrowser-Icon"/>
@@ -251,6 +251,71 @@ version:
 					class="menuitem-iconic SVNK-Log-Icon"/>
 				<menuitem
 					id="tab-context-SVNK-ShowAbout"
+					observes="Tasks:SVNK-ShowAbout"
+					label="&svnk.label.showabout;"
+					tooltiptext="&svnk.tooltip.showabout;"
+					class="menuitem-iconic"/>
+			</menupopup>
+		</menu>
+	</menupopup>
+    
+    <!-- Context-menu for files and folders in the places view -->
+	<!-- NB: Places is actually a addon its-self -->
+	<menupopup id="places-files-popup">
+		<menu id="places-files-popup-SVNK" label="Version Control">
+			<menupopup id="places-files-popup-SVNK-popup">
+				<menuitem
+					id="places-files-popup-SVNK-Commit"
+					observes="Tasks:SVNK-CommitPath"
+					label="&svnk.label.commitpath;"
+					tooltiptext="&svnk.tooltip.commitpath;"
+					class="menuitem-iconic SVNK-Commit-Icon"
+					hideUnless="file folder"/>
+				<menuitem
+					id="places-files-popup-SVNK-Update"
+					observes="Tasks:SVNK-UpdatePath"
+					label="&svnk.label.updatepath;"
+					tooltiptext="&svnk.tooltip.updatepath;"
+					class="menuitem-iconic SVNK-Update-Icon"
+					hideUnless="file folder"/>
+				<menuitem
+					id="places-files-popup-SVNK-CompareDiff"
+					observes="Tasks:SVNK-CompareDiff"
+					label="&svnk.label.comparefile.long;"
+					tooltiptext="&svnk.tooltip.selected.comparefile;"
+					class="menuitem-iconic SVNK-Diff-Icon"
+					hideUnless="file folder"/>
+				<menuitem
+					id="places-files-popup-SVNK-ViewProperties"
+					observes="Tasks:SVNK-ViewProperties"
+					label="&svnk.label.viewproperties2.long;"
+					tooltiptext="&svnk.tooltip.selected.viewproperties;"
+					class="menuitem-iconic SVNK-Properties-Icon"
+					hideUnless="file folder"/>
+				<menuitem
+					id="places-files-popup-SVNK-Rename"
+					observes="Tasks:SVNK-Rename"
+					label="&svnk.label.rename;"
+					tooltiptext="&svnk.tooltip.selected.rename;"
+					class="menuitem-iconic SVNK-Rename-Icon"
+					hideUnless="file folder"
+					testHideIf="t:multipleSelection"/>
+				<menuitem
+					id="places-files-popup-SVNK-Revert"
+					observes="Tasks:SVNK-Revert"
+					label="&svnk.label.revert;"
+					tooltiptext="&svnk.tooltip.selected.revert;"
+					class="menuitem-iconic SVNK-Revert-Icon"
+					hideUnless="file folder"/>
+				<menuitem
+					id="places-files-popup-SVNK-Delete"
+					observes="Tasks:SVNK-Delete"
+					label="&svnk.label.delete;"
+					tooltiptext="&svnk.tooltip.selected.delete;"
+					class="menuitem-iconic SVNK-Delete-Icon"
+					hideUnless="file folder"/>
+				<menuitem
+					id="places-files-popup-SVNK-ShowAbout"
 					observes="Tasks:SVNK-ShowAbout"
 					label="&svnk.label.showabout;"
 					tooltiptext="&svnk.tooltip.showabout;"
