@@ -4,33 +4,38 @@ author:
 license:
 	LGPL <http://www.gnu.org/licenses/lgpl.html>
 version:
-	0.1.9
+	0.1.8
 -->
 <!ENTITY svnk.label.repobrowser "Repo Browser">
 <!ENTITY svnk.label.commitproject "Commit Project">
 <!ENTITY svnk.label.commitdirectory "Commit Directory">
 <!ENTITY svnk.label.commitfile "Commit File">
 <!ENTITY svnk.label.commitpath "Commit path(s) to repository">
-<!ENTITY svnk.label.comparefile "Compare file">
-<!ENTITY svnk.label.comparefile.long "Compare file to repository version">
+<!ENTITY svnk.label.comparefile "Compare file/directory">
+<!ENTITY svnk.label.comparedirectory "Compare directory">
+<!ENTITY svnk.label.comparefile.long "Compare to repository version">
 <!ENTITY svnk.label.updateproject "Update Project">
 <!ENTITY svnk.label.updatedirectory "Update Directory">
 <!ENTITY svnk.label.updatepath "Update path(s) from repository">
 <!ENTITY svnk.label.updatefile "Update file">
 <!ENTITY svnk.label.viewproperties "View properties">
-<!ENTITY svnk.label.viewproperties.long "View file SVN properties">
-<!ENTITY svnk.label.viewproperties2.long "View file/folder SVN properties">
-<!ENTITY svnk.label.viewlogfile "View SVN file log">
-<!ENTITY svnk.label.viewlogfile2 "View SVN file/folder log">
+<!ENTITY svnk.label.viewproperties.long "View SVN-properties">
+<!ENTITY svnk.label.viewproperties2.long "View SVN-properties">
+<!ENTITY svnk.label.viewdirectory.long "View SVN-properties">
+<!ENTITY svnk.label.viewlogfile "View SVN-log">
+<!ENTITY svnk.label.viewlogfile2 "View SVN-log">
+<!ENTITY svnk.label.viewlogdirectory "View SVN-log">
 <!ENTITY svnk.label.showabout "About SVN-K">
-<!ENTITY svnk.label.viewlogentry "View entry">
+<!ENTITY svnk.label.viewlogentry "View log entry">
 <!ENTITY svnk.label.compareentry "Compare to current version">
 <!ENTITY svnk.label.prefTitle "SVN-K Settings">
 <!ENTITY svnk.label.prefPathToProc "Path to TortoiseProc.exe">
 <!ENTITY svnk.label.prefBrowseButton "Browse">
-<!ENTITY svnk.label.rename "Rename file/folder">
-<!ENTITY svnk.label.revert "Revert file/folder">
-<!ENTITY svnk.label.delete "Delete file/folder">
+<!ENTITY svnk.label.rename "Rename file/directory">
+<!ENTITY svnk.label.renameDirectory "Rename directory">
+<!ENTITY svnk.label.revert "Revert file/directory">
+<!ENTITY svnk.label.revertDirectory "Revert directory">
+<!ENTITY svnk.label.delete "Delete file/directory">
 
 <!ENTITY svnk.tooltip.viewlogfile "View the SVN log for the current file">
 <!ENTITY svnk.tooltip.viewproperties "View SVN properties of the current file">
@@ -38,26 +43,30 @@ version:
 <!ENTITY svnk.tooltip.commitfile "Commit file to SVN repository">
 <!ENTITY svnk.tooltip.commitproject "Commit current project to SVN">
 <!ENTITY svnk.tooltip.commitdirectory "Commit current directory to SVN">
+<!ENTITY svnk.tooltip.commitdirectoryroot "Commit root directory to SVN">
 <!ENTITY svnk.tooltip.updateproject "Update current project from SVN">
 <!ENTITY svnk.tooltip.updatedirectory "Update current directory from SVN">
+<!ENTITY svnk.tooltip.updatedirectoryroot "Update root directory from SVN">
 <!ENTITY svnk.tooltip.updatepath "Update current selected path from SVN">
 <!ENTITY svnk.tooltip.updatefile "Update file from SVN repository">
 <!ENTITY svnk.tooltip.repobrowser "Repository Browser for current project">
 <!ENTITY svnk.tooltip.showabout "Information about SVN-K">
 <!ENTITY svnk.tooltip.viewlogentry "View log entry in popup window">
+<!ENTITY svnk.tooltip.viewlogentrydirectory "View log entry for directory">
 <!ENTITY svnk.tooltip.compareentry "Compare to current working copy version">
-<!ENTITY svnk.tooltip.selected.rename "Rename the selected folder/file.">
-<!ENTITY svnk.tooltip.selected.revert "Revert selected file/folder to the repository version.">
-<!ENTITY svnk.tooltip.selected.delete "Delete selected file/folder.">
-
-
-<!ENTITY svnk.tooltip.selected.viewlogfile "View the SVN log for the selected files and folders">
-<!ENTITY svnk.tooltip.selected.viewproperties "View SVN properties for the current files and folders">
-<!ENTITY svnk.tooltip.commitpath "Commit selected files and folders to SVN">
-<!ENTITY svnk.tooltip.selected.comparefile "Compare the selected file to repository version">
+<!ENTITY svnk.tooltip.selected.rename "Rename the selected directory/file">
+<!ENTITY svnk.tooltip.selected.renameDirectory "Rename the directory">
+<!ENTITY svnk.tooltip.selected.revert "Revert selected file/directory to the repository version">
+<!ENTITY svnk.tooltip.selected.revertDirectory "Revert directory to the repository version">
+<!ENTITY svnk.tooltip.selected.delete "Delete selected file/directory">
+<!ENTITY svnk.tooltip.selected.viewlogfile "View the SVN log for the selected files and directories">
+<!ENTITY svnk.tooltip.selected.viewproperties "View the SVN properties for the current files and directories">
+<!ENTITY svnk.tooltip.selected.viewpropertiesDirectory "View the SVN properties for root directory">
+<!ENTITY svnk.tooltip.commitpath "Commit selected files and directories to SVN">
+<!ENTITY svnk.tooltip.selected.comparefile "Compare the selected file/directory to repository version">
+<!ENTITY svnk.tooltip.selected.comparedirectory "Compare the directory to repository version">
 
 <!ENTITY svnk.description.pathtoproc "If this box is left blank, SVNK will run TortoiseProc without a path using the paths set in the environment settings">
-
 <!ENTITY svnk.button.Okay "Okay">
 
 <!ENTITY svnk.tab.log.title "SVN Log">

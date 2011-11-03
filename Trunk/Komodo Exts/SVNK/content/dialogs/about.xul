@@ -16,7 +16,7 @@ author:
 license:
 	LGPL <http://www.gnu.org/licenses/lgpl.html>
 version:
-	0.1.9
+	0.1.8
 -->
 <dialog
     id="SVNK-aboutDialog"
@@ -34,16 +34,33 @@ version:
 
 <vbox>
     <hbox>
-        <image src='chrome://svnk/skin/images/icon64x64.png' width='64' height='64'/>
+	
+	<vbox>
+	    <image
+		src="chrome://svnk/skin/images/icon64x64.png"
+		width="64px" height="64px"/>
+	    <spacer flex="1"/>
+	</vbox>
     
         <vbox class="SVNK-standardPartDialog-width">
             <label value="SVN-K" class="header SVNK-about-header" />
             <description class="SVNK-standardPartDialog-width SVNK-dialog-smaller">
 		SVN-K is an addon for Komodo IDE and Komodo Edit, which intergrates the editors with SVN.  The current setup issues commands via TortoiseSVN allowing easy use of Tortoise's easy-to-use GUI.
 	    </description><html:br/><html:br/>
-	    <image
-		src="https://www.paypalobjects.com/WEBSCR-640-20110429-1/en_GB/i/btn/btn_donate_LG.gif"
-		onclick="ko.browse.openUrlInDefaultBrowser('https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=XNBHC685KUYMN');"/>
+	    
+	    <separator class="groove-thin" orient="horizontal"/> 
+	    
+	    <hbox>
+		<vbox>
+		    <image
+			src="chrome://svnk/skin/images/paypal_donate.gif"
+			onclick="ko.browse.openUrlInDefaultBrowser('https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=XNBHC685KUYMN');"/>
+			<spacer flex="1"/>
+		</vbox>
+		<description class="SVNK-aboutDialog-donateText">
+		    If you like this addon, please consider, supporting it's developer.
+		</description>
+	    </hbox>
         </vbox>
     </hbox>
 
@@ -59,12 +76,12 @@ version:
                 <label value="Homepage:" class="header"/>
                 <label
                     value="http://simpo.org/node/32"
-		    onclick="ko.browse.openUrlInDefaultBrowser(this.value);"
+		    onclick="ko.browse.openUrlInDefaultBrowser(this.value+'?utm_source=komodo&amp;utm_medium=about+us');"
                     class="text-link"/>
             </row><row>
                 <label value="Issues Tacker:" class="header"/>
                 <label
-		    onclick="ko.browse.openUrlInDefaultBrowser(this.value);"
+		    onclick="ko.browse.openUrlInDefaultBrowser(this.value+'?utm_source=komodo&amp;utm_medium=about+us');"
                     value="http://simpo.org/project/issues"
                     class="text-link"/>
             </row>
@@ -92,8 +109,8 @@ version:
             </row><row>
                 <label value="Blog:" class="header"/>
                 <label
-                    onclick="ko.browse.openUrlInDefaultBrowser(this.value);"
-                    value="http://simpo.org"
+                    onclick="ko.browse.openUrlInDefaultBrowser(this.value+'?utm_source=komodo&amp;utm_medium=about+us');"
+                    value="http://simpo.org/"
                     class="text-link"/>
             </row><row>
                 <label value="Facebook:" class="header"/>

@@ -15,7 +15,7 @@ author:
 license:
 	LGPL <http://www.gnu.org/licenses/lgpl.html>
 version:
-	0.1.9
+	0.1.8
 -->
 <overlay id="SVNKOverlay"
 	xmlns:html="http://www.w3.org/1999/xhtml"
@@ -36,24 +36,31 @@ version:
 		<command id="Tasks:SVNK-UpdatePath" oncommand="SVNK.update('selectedpaths');"/>
 		<command id="Tasks:SVNK-UpdateActiveFile" oncommand="SVNK.update('activefile');"/>
 		<command id="Tasks:SVNK-UpdateActiveDirectory" oncommand="SVNK.update('activedirectory');"/>
+		<command id="Tasks:SVNK-UpdatePlacesRootDirectory" oncommand="SVNK.update('placesrootpath');"/>
 		
 		<command id="Tasks:SVNK-CommitProject" oncommand="SVNK.commit('project');"/>
 		<command id="Tasks:SVNK-CommitPath" oncommand="SVNK.commit('selectedpaths');"/>
 		<command id="Tasks:SVNK-CommitActiveFile" oncommand="SVNK.commit('activefile');"/>
 		<command id="Tasks:SVNK-CommitActiveDirectory" oncommand="SVNK.commit('activedirectory');"/>
+		<command id="Tasks:SVNK-CommitPlacesRootDirectory" oncommand="SVNK.commit('placesrootpath');"/>
 		
 		<command id="Tasks:SVNK-CompareDiffActiveFile" oncommand="SVNK.diff('activefile');"/>
 		<command id="Tasks:SVNK-CompareDiff" oncommand="SVNK.diff('selectedpaths');"/>
+		<command id="Tasks:SVNK-CompareDiffPlacesRootDirectory" oncommand="SVNK.diff('placesrootpath');"/>
 		
 		<command id="Tasks:SVNK-ViewPropertiesActiveFile" oncommand="SVNK.viewProperties('activefile');"/>
 		<command id="Tasks:SVNK-ViewProperties" oncommand="SVNK.viewProperties('selectedpaths');"/>
+		<command id="Tasks:SVNK-ViewPropertiesPlacesRootDirectory" oncommand="SVNK.viewProperties('placesrootpath');"/>
 		
 		<command id="Tasks:SVNK-ViewLogActiveFile" oncommand="SVNK.viewLog('activefile');"/>
 		<command id="Tasks:SVNK-ViewLog" oncommand="SVNK.viewLog('selectedpaths');"/>
+		<command id="Tasks:SVNK-ViewLogPlacesRootDirectory" oncommand="SVNK.viewLog('projectdirectory');"/>
 		
-		<command id="Tasks:SVNK-Rename" oncommand="SVNK.rename();"/>
+		<command id="Tasks:SVNK-Rename" oncommand="SVNK.rename('selectedpaths');"/>
+		<command id="Tasks:SVNK-RenamePlacesRootDirectory" oncommand="SVNK.rename('placesrootpath');"/>
 		
 		<command id="Tasks:SVNK-Revert" oncommand="SVNK.revert('selectedpaths');"/>
+		<command id="Tasks:SVNK-RevertPlacesRootDirectory" oncommand="SVNK.revert('placesrootpath');"/>
 		
 		<command id="Tasks:SVNK-Delete" oncommand="SVNK.delete('selectedpaths');"/>
 		
@@ -92,7 +99,7 @@ version:
 			preference="svnk.toolbarCommitProject"
 			observes="Tasks:SVNK-CommitProject"
 			label="&svnk.label.commitproject;"
-			tooltiptext="&svnk.tooltip.commitproject;"
+			tooltiptext="&svnk.label.commitproject;"
 			class="menuitem-iconic SVNK-CommitProject-Icon"/>
 		<toolbarbutton
 			id="toolsToolbar-SVNK-UpdateProject"
@@ -198,7 +205,7 @@ version:
 					observes="Tasks:SVNK-ShowAbout"
 					label="&svnk.label.showabout;"
 					tooltiptext="&svnk.tooltip.showabout;"
-					class="menuitem-iconic"/>
+					class="menuitem-iconic SVNK-AboutUs-Icon"/>
 			</menupopup>
 		</menu>
 	</menupopup>
@@ -254,7 +261,130 @@ version:
 					observes="Tasks:SVNK-ShowAbout"
 					label="&svnk.label.showabout;"
 					tooltiptext="&svnk.tooltip.showabout;"
-					class="menuitem-iconic"/>
+					class="menuitem-iconic SVNK-AboutUs-Icon"/>
+			</menupopup>
+		</menu>
+	</menupopup>
+	
+	<!-- Context-menu for files and folders in the places view -->
+	<!-- NB: Places is actually a addon its-self -->
+	<menupopup id="places-files-popup">
+		<menu id="places-files-popup-SVNK" label="Version Control">
+			<menupopup id="places-files-popup-SVNK-popup">
+				<menuitem
+					id="places-files-popup-SVNK-Commit"
+					observes="Tasks:SVNK-CommitPath"
+					label="&svnk.label.commitpath;"
+					tooltiptext="&svnk.tooltip.commitpath;"
+					class="menuitem-iconic SVNK-Commit-Icon"
+					hideUnless="file folder"/>
+				<menuitem
+					id="places-files-popup-SVNK-CommitDirectory"
+					observes="Tasks:SVNK-CommitPlacesRootDirectory"
+					label="&svnk.label.commitdirectory;"
+					tooltiptext="&svnk.tooltip.commitdirectoryroot;"
+					class="menuitem-iconic SVNK-CommitDirectory-Icon"
+					hideUnless="project"/>
+				<menuitem
+					id="places-files-popup-SVNK-Update"
+					observes="Tasks:SVNK-UpdatePath"
+					label="&svnk.label.updatepath;"
+					tooltiptext="&svnk.tooltip.updatepath;"
+					class="menuitem-iconic SVNK-Update-Icon"
+					hideUnless="file folder"/>
+				<menuitem
+					id="places-files-popup-SVNK-UpdateDirectory"
+					observes="Tasks:SVNK-UpdatePlacesRootDirectory"
+					label="&svnk.label.updatedirectory;"
+					tooltiptext="&svnk.tooltip.updatedirectoryroot;"
+					class="menuitem-iconic SVNK-UpdateDirectory-Icon"
+					hideUnless="project"/>
+				<menuitem
+					id="places-files-popup-SVNK-CompareDiff"
+					observes="Tasks:SVNK-CompareDiff"
+					label="&svnk.label.comparefile;"
+					tooltiptext="&svnk.tooltip.selected.comparefile;"
+					class="menuitem-iconic SVNK-Diff-Icon"
+					hideUnless="file folder"/>
+				<menuitem
+					id="places-files-popup-SVNK-CompareDiff"
+					observes="Tasks:SVNK-CompareDiffPlacesRootDirectory"
+					label="&svnk.label.comparedirectory;"
+					tooltiptext="&svnk.tooltip.selected.comparedirectory;"
+					class="menuitem-iconic SVNK-Diff-Icon"
+					hideUnless="project"/>
+				<menuitem
+					id="places-files-popup-SVNK-ViewProperties"
+					observes="Tasks:SVNK-ViewProperties"
+					label="&svnk.label.viewproperties2.long;"
+					tooltiptext="&svnk.tooltip.selected.viewproperties;"
+					class="menuitem-iconic SVNK-Properties-Icon"
+					hideUnless="file folder"/>
+				<menuitem
+					id="places-files-popup-SVNK-ViewProperties"
+					observes="Tasks:SVNK-ViewPropertiesPlacesRootDirectory"
+					label="&svnk.label.viewdirectory.long;"
+					tooltiptext="&svnk.tooltip.selected.viewpropertiesDirectory;"
+					class="menuitem-iconic SVNK-Properties-Icon"
+					hideUnless="project"/>
+				<menuitem
+					id="places-files-popup-SVNK-ViewLog"
+					observes="Tasks:SVNK-ViewLog"
+					label="&svnk.label.viewlogfile2;"
+					tooltiptext="&svnk.tooltip.viewlogentry;"
+					class="menuitem-iconic SVNK-Log-Icon"
+					hideUnless="file folder"/>
+				<menuitem
+					id="places-files-popup-SVNK-ViewLog"
+					observes="Tasks:SVNK-ViewLogPlacesRootDirectory"
+					label="&svnk.label.viewlogdirectory;"
+					tooltiptext="&svnk.tooltip.viewlogentrydirectory;"
+					class="menuitem-iconic SVNK-Log-Icon"
+					hideUnless="project"/>
+				<menuitem
+					id="places-files-popup-SVNK-Rename"
+					observes="Tasks:SVNK-Rename"
+					label="&svnk.label.rename;"
+					tooltiptext="&svnk.tooltip.selected.rename;"
+					class="menuitem-iconic SVNK-Rename-Icon"
+					hideUnless="file folder"
+					testHideIf="t:multipleSelection"/>
+				<menuitem
+					id="places-files-popup-SVNK-Rename"
+					observes="Tasks:SVNK-RenamePlacesRootDirectory"
+					label="&svnk.label.renameDirectory;"
+					tooltiptext="&svnk.tooltip.selected.renameDirectory;"
+					class="menuitem-iconic SVNK-Rename-Icon"
+					hideUnless="project"
+					testHideIf="t:multipleSelection"/>
+				<menuitem
+					id="places-files-popup-SVNK-Revert"
+					observes="Tasks:SVNK-Revert"
+					label="&svnk.label.revert;"
+					tooltiptext="&svnk.tooltip.selected.revert;"
+					class="menuitem-iconic SVNK-Revert-Icon"
+					hideUnless="file folder"/>
+				<menuitem
+					id="places-files-popup-SVNK-Revert"
+					observes="Tasks:SVNK-RevertPlacesRootDirectory"
+					label="&svnk.label.revertDirectory;"
+					tooltiptext="&svnk.tooltip.selected.revertDirectory;"
+					class="menuitem-iconic SVNK-Revert-Icon"
+					hideUnless="project"/>
+				<menuitem
+					id="places-files-popup-SVNK-Delete"
+					observes="Tasks:SVNK-Delete"
+					label="&svnk.label.delete;"
+					tooltiptext="&svnk.tooltip.selected.delete;"
+					class="menuitem-iconic SVNK-Delete-Icon"
+					hideUnless="file folder"
+					testHideIf="t:multipleSelection"/>
+				<menuitem
+					id="places-files-popup-SVNK-ShowAbout"
+					observes="Tasks:SVNK-ShowAbout"
+					label="&svnk.label.showabout;"
+					tooltiptext="&svnk.tooltip.showabout;"
+					class="menuitem-iconic SVNK-AboutUs-Icon"/>
 			</menupopup>
 		</menu>
 	</menupopup>

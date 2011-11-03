@@ -5,7 +5,7 @@
 // license:
 //      LGPL <http://www.gnu.org/licenses/lgpl.html>
 // version:
-//      0.1.9
+//      0.1.8
 
 // Non violation of global namespace.
 if (!org) var org = {};
@@ -49,6 +49,8 @@ org.simpo.svnk = function() {
     this.commit = function(type) {
         // summary:
         //      Commit an item(s) to the repository.
+        // type: string
+        //      The subject of this action (eg. selectedpaths or activefile).
         
         this._runTortoiseCommand('commit',type,'ErrorCommit');
     }
@@ -56,6 +58,8 @@ org.simpo.svnk = function() {
     this.update = function(type) {
         // summary:
         //      Update item(s) from the SVN repository.
+        // type: string
+        //      The subject of this action (eg. selectedpaths or activefile).
         
         this._runTortoiseCommand('update',type,'ErrorUpdate');
         ko.places.viewMgr.view.refreshFullTreeView();
@@ -65,6 +69,8 @@ org.simpo.svnk = function() {
     this.diff = function(type) {
         // summary:
         //      Compare item(s) with SVN versioned copy.
+        // type: string
+        //      The subject of this action (eg. selectedpaths or activefile).
         
         this._runTortoiseCommand('diff',type,'ErrorDiff');
     };
@@ -72,6 +78,8 @@ org.simpo.svnk = function() {
     this.viewLog = function(type) {
         // summary:
         //      View the SVN log for item(s).
+        // type: string
+        //      The subject of this action (eg. selectedpaths or activefile).
         
         this._runTortoiseCommand('log',type,'ErrorViewLog');
     };
@@ -79,21 +87,27 @@ org.simpo.svnk = function() {
     this.viewProperties = function(type) {
         // summary:
         //      View the SVN properties for item(s).
+        // type: string
+        //      The subject of this action (eg. selectedpaths or activefile).
         
         this._runTortoiseCommand('properties',type,'ErrorViewProperties');
     };
     
-    this.rename = function() {
+    this.rename = function(type) {
         // summary:
-        //      Raname the selected file
+        //      Raname the item(s).
+        // type: string
+        //      The subject of this action (eg. selectedpaths or activefile).
         
-        this._runTortoiseCommand('rename','selectedpaths','ErrorRename');
+        this._runTortoiseCommand('rename',type,'ErrorRename');
         ko.places.viewMgr.view.refreshFullTreeView();
     };
     
     this.revert = function(type) {
         // summary:
-        //      Raname the selected file
+        //      Raname the item(s).
+        // type: string
+        //      The subject of this action (eg. selectedpaths or activefile).
         
         this._runTortoiseCommand('revert',type,'ErrorRevert');
         ko.places.viewMgr.view.refreshFullTreeView();
@@ -101,7 +115,9 @@ org.simpo.svnk = function() {
     
     this.delete = function(type) {
         // summary:
-        //      Raname the selected file
+        //      Raname the selected item.
+        // type: string
+        //      The subject of this action (eg. selectedpaths or activefile).
         
         try {
             var path = this._getPath(type);
@@ -148,10 +164,29 @@ org.simpo.svnk = function() {
                     path = this._getCurrentDirectoryPath();
                 }
                 break;
+            case 'placesrootpath':
+                path = this._getPlacesRootPath();
+                break;
         }
         
         return path;
     }
+    
+    this._getPlacesRootPath = function() {
+        //  summary:
+        //      Get the path of the currently places root directory.
+        //  returns: string
+
+        try {
+            var view = ko.places.viewMgr.view;
+            return ko.uriparse.URIToLocalPath(view.currentPlace);
+        } catch(e) {
+            Components.utils.reportError(
+                this.stringBundle("ErrorNoCurrentFile")
+            );
+            return false;
+        }
+    };
     
     this._getCurrentFilePath = function() {
         //  summary:
@@ -550,8 +585,6 @@ org.simpo.svnk = function() {
         }
         var cmd = pathToProc+'/command:'+command+' /path:\"'+path+'\"';
         var cwd = '';
-        
-        Components.utils.reportError(cmd);
         
         var response = this._runCommand(cmd,cwd,null,null);
         
