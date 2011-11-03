@@ -1,0 +1,166 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin" type="text/css"?>
+<?xml-stylesheet href="chrome://komodo/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://komodo/skin/global/global.css" type="text/css"?>
+<?xml-stylesheet href="chrome://komodo/skin/bindings/buttons.css" type="text/css"?>
+<?xml-stylesheet href="chrome://svnk/skin/svnk.css" type="text/css"?>
+<!DOCTYPE window PUBLIC "-//MOZILLA//DTD XUL V1.0//EN" "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" [
+	<!ENTITY % SVNKDTD SYSTEM "chrome://svnk/locale/main.dtd">
+	%SVNKDTD;
+]>
+<!--
+summary:
+	The preferences form for SVN-K addon.
+author:
+	Stephen Simpson <me@simpo.org>
+license:
+	LGPL <http://www.gnu.org/licenses/lgpl.html>
+version:
+	0.1.9
+-->
+<page
+    xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    title="SVN-K Preferences"
+    orient="vertical">
+	
+	<script type="application/x-javascript;version=1.7"
+		src="chrome://komodo/content/library/logging.js" />
+    <script type="application/x-javascript;version=1.7"
+		src="chrome://komodo/content/library/filepickers.js" />
+	
+	<groupbox orient="vertical" width="400px;">
+		<caption label="&svnk.label.prefTitle;"/>
+		<vbox class="SVNK-standardDialog-Margin">
+			<label control="preferences-SVNK-pathToProc" value="&svnk.label.prefPathToProc;" />
+			<hbox>
+				<textbox
+					id="SVNK-option-pathToProc"
+                    preference="svnk.pathtoproc"
+					class="SVNK-standardPartDialog-width"
+					value="" />
+				<button label="&svnk.label.prefBrowseButton;" oncommand="org.simpo.svnk.options.browse();"/>
+			</hbox>
+			<description class="SVNK-standardPartDialog-width">&svnk.description.pathtoproc;</description>
+		</vbox>
+	</groupbox>
+    
+	<groupbox orient="vertical" width="400px">
+		<caption label="Toolbar icons"/>
+		<grid>
+		<columns>
+			<column/>
+			<column/>
+			<column/>
+			<column/>
+		</columns><rows>
+		<row>
+			<checkbox
+				id="SVNK-option-toolbar-repoBrowser"
+                preference="svnk.toolbarRepoBrowser"
+				checked="true"
+				class="SVNK-option-toolbar-checkbox" />
+			<hbox>
+				<image class="SVNK-RepoBrowser-Icon" width="16" height="16" />
+				<label value="&svnk.label.repobrowser;" />
+			</hbox>
+			<checkbox
+				id="SVNK-option-toolbar-commitProject"
+                preference="svnk.toolbarCommitProject"
+				checked="true"
+				class="SVNK-option-toolbar-checkbox" />
+			<hbox>
+				<image class="SVNK-CommitProject-Icon" width="16" height="16" />
+				<label value="&svnk.label.commitproject;" />
+			</hbox>
+		</row><row>
+            <checkbox
+				id="SVNK-option-toolbar-updateProject"
+                preference="svnk.toolbarUpdateProject"
+				checked="true"
+				class="SVNK-option-toolbar-checkbox" />
+			<hbox>
+				<image class="SVNK-UpdateProject-Icon" width="16" height="16" />
+				<label value="&svnk.label.updateproject;" />
+			</hbox>
+			<checkbox
+				id="SVNK-option-toolbar-diff"
+                preference="svnk.toolbarDiff"
+				checked="true"
+				class="SVNK-option-toolbar-checkbox" />
+			<hbox>
+				<image class="SVNK-Diff-Icon" width="16" height="16" />
+				<label value="&svnk.label.comparefile;" />
+			</hbox>
+        </row><row>
+            <checkbox
+				id="SVNK-option-toolbar-properties"
+                preference="svnk.toolbarProperties"
+				checked="true"
+				class="SVNK-option-toolbar-checkbox" />
+			<hbox>
+				<image class="SVNK-Properties-Icon" width="16" height="16" />
+				<label value="&svnk.label.viewproperties;" />
+			</hbox>
+			<checkbox
+				id="SVNK-option-toolbar-log"
+                preference="svnk.toolbarLog"
+				checked="true"
+				class="SVNK-option-toolbar-checkbox" />
+			<hbox>
+				<image class="SVNK-Log-Icon" width="16" height="16" />
+				<label value="&svnk.label.viewlogentry;" />
+			</hbox>
+		</row><row>
+			<checkbox
+				id="SVNK-option-toolbar-commitFile"
+                preference="svnk.toolbarCommitFile"
+				checked="false"
+				class="SVNK-option-toolbar-checkbox" />
+			<hbox>
+				<image class="SVNK-Commit-Icon" width="16" height="16" />
+				<label value="&svnk.label.commitfile;" />
+			</hbox>
+			<checkbox
+				id="SVNK-option-toolbar-updateFile"
+                preference="svnk.toolbarUpdateFile"
+				checked="false"
+				class="SVNK-option-toolbar-checkbox" />
+			<hbox>
+				<image class="SVNK-Update-Icon" width="16" height="16" />
+				<label value="&svnk.label.updatefile;" />
+			</hbox>
+		</row><row>
+			<checkbox
+				id="SVNK-option-toolbar-commitDirectory"
+                preference="svnk.toolbarCommitDirectory"
+				checked="false"
+				class="SVNK-option-toolbar-checkbox" />
+			<hbox>
+				<image class="SVNK-CommitDirectory-Icon" width="16" height="16" />
+				<label value="&svnk.label.commitdirectory;" />
+			</hbox>
+			<checkbox
+				id="SVNK-option-toolbar-updateDirectory"
+                preference="svnk.toolbarUpdateDirectory"
+				checked="false"
+				class="SVNK-option-toolbar-checkbox" />
+			<hbox>
+				<image class="SVNK-UpdateDirectory-Icon" width="16" height="16" />
+				<label value="&svnk.label.updatedirectory;" />
+			</hbox>
+		</row>
+		</rows></grid>
+	</groupbox>
+	
+	<script
+		type="application/x-javascript"
+		src="chrome://svnk/content/functionBind.js"/>
+	<script
+		type="application/x-javascript"
+		src="chrome://svnk/content/prefEdit.js"/>
+	<script
+		type="application/x-javascript"
+		src="chrome://svnk/content/pref-svnk.js"/>
+</page>
