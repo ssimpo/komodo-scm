@@ -30,7 +30,7 @@ version:
 		src="chrome://svnk/content/svnk.js"/>
 	
 	<commandset id="SVNK-allcommands">
-		<command id="Tasks:SVNK-RepoBrowser" oncommand="SVNK.repoBrowser();"/>
+		<command id="SVNK.repoBrowser();" oncommand="SVNK.repoBrowser();"/>
 		
 		<command id="Tasks:SVNK-UpdateProject" oncommand="SVNK.update('project');"/>
 		<command id="Tasks:SVNK-UpdatePath" oncommand="SVNK.update('selectedpaths');"/>
