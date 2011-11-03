@@ -1,7 +1,3 @@
-.SVNK-AboutUs-Icon {
-    list-style-image: url("chrome://svnk/skin/images/icon16x16.png");
-}
-
 .SVNK-RepoBrowser-Icon {
     list-style-image: url("chrome://svnk/skin/images/repobrowser16x16.png");
 }
@@ -64,10 +60,6 @@
 
 .SVNK-standardDialog-Margin {
     margin:5px;
-}
-
-.SVNK-aboutDialog-donateText {
-    margin-left:10px;width:200px;
 }
 
 .SVNK-dialogWhiteBox {
