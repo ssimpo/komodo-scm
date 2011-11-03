@@ -1,0 +1,21 @@
+What is SVN-K:
+SVN-K is an addon for Komodo, which integrates the IDE with TortoiseSVN.
+
+Windows Only:
+The extension will only work in Windows as this is the only platform, which
+Tortoise works.  It is envisioned that some functionality might be ported to
+other platforms in the future by allowing the user to specify an SVN
+application. However, this will be for a later version, for the time being,
+Tortoise is the main focus.
+
+Locales:
+The only locale supplied for this addon is en-US.  If you wish to write another
+locale for another language, please feel free to do so.  I'd be happy to add
+any other languages.
+
+About the author:
+Stephen Simpson is developer based in Middlesbrough, UK.
+Facebook - http://www.facebook.com/simpo
+Twitter - http://twitter.com/ssimpo
+Email - me@simpo.org
+Website - http://simpo.org
