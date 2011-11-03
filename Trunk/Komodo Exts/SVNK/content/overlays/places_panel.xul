@@ -17,7 +17,7 @@ license:
 version:
 	0.1.9
 -->
-<overlay id="SVNKPlacesOverlay"
+<overlay id="SVNK-Places-Overlay"
 	xmlns:html="http://www.w3.org/1999/xhtml"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
@@ -29,7 +29,7 @@ version:
 		type="application/x-javascript"
 		src="chrome://svnk/content/svnk.js"/>
 	
-	<commandset id="SVNK-allcommands">
+	<commandset id="allcommands">
 		<command id="SVNK.repoBrowser();" oncommand="SVNK.repoBrowser();"/>
 		
 		<command id="Tasks:SVNK-UpdateProject" oncommand="SVNK.update('project');"/>
