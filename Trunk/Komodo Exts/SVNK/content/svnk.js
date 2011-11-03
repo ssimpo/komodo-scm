@@ -85,7 +85,7 @@ org.simpo.svnk = function() {
     
     this.rename = function() {
         // summary:
-        //      Raname the selected file
+        //      Rename the selected file
         
         this._runTortoiseCommand('rename','selectedpaths','ErrorRename');
         ko.places.viewMgr.view.refreshFullTreeView();
@@ -93,7 +93,7 @@ org.simpo.svnk = function() {
     
     this.revert = function(type) {
         // summary:
-        //      Raname the selected file
+        //      Rename the selected file
         
         this._runTortoiseCommand('revert',type,'ErrorRevert');
         ko.places.viewMgr.view.refreshFullTreeView();
@@ -101,7 +101,7 @@ org.simpo.svnk = function() {
     
     this.delete = function(type) {
         // summary:
-        //      Raname the selected file
+        //      Rename the selected file
         
         try {
             var path = this._getPath(type);
@@ -153,8 +153,12 @@ org.simpo.svnk = function() {
         return path;
     };
     
-    
     this._getCurrentDocument = function(root) {
+        // summary:
+        //      Get the document for the supplied object - compatibility method so
+        //      version 5 API and version 6 API can both be used.
+        // returns: object
+        
         try {
             if (root.document) {
                 return root.document;
@@ -528,7 +532,7 @@ org.simpo.svnk = function() {
         // type: string
         //      The type of file-path to execute against the command.
         // errorMsgRef: string
-        //      The errror reference to report if it fails.
+        //      The error reference to report if it fails.
         
         try {
             var paths = this._getPath(type);
