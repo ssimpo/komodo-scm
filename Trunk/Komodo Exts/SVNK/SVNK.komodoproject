@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Komodo Project File - DO NOT EDIT -->
-<project id="f21aa918-637b-41f1-bddb-ec65079e1e12" kpf_version="5" name="SVNK.komodoproject">
-<file id="f2a9b479-fcec-4ecc-b3ee-6303cf0d5ae7" idref="b14785cc-dccb-4afe-9f8d-d97f6d830e66" name="setup.xul" url="_prj_internal_/setup.xul">
-</file>
-<folder id="b14785cc-dccb-4afe-9f8d-d97f6d830e66" idref="f21aa918-637b-41f1-bddb-ec65079e1e12" name="Project">
+<project id="3831d49c-0922-45c9-b6ed-88e5edaffa49" kpf_version="5" name="SVNK.komodoproject">
+<folder id="aa047178-9e03-418e-9da7-2cf06344f0b6" idref="3831d49c-0922-45c9-b6ed-88e5edaffa49" name="Project">
 </folder>
+<file id="75b5d92d-959e-4309-9d78-ca6bf00439a6" idref="aa047178-9e03-418e-9da7-2cf06344f0b6" name="setup.xul" url="_prj_internal_/setup.xul">
+</file>
+<file id="cc1c1967-b722-4806-970d-67e8ba5e3d0e" idref="aa047178-9e03-418e-9da7-2cf06344f0b6" name="install.rdf" url="install.rdf">
+</file>
+<preference-set idref="3831d49c-0922-45c9-b6ed-88e5edaffa49">
+  <boolean id="configured">1</boolean>
+  <string id="spellcheckLangID">en-US</string>
+</preference-set>
 </project>

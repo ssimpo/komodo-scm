@@ -5,7 +5,7 @@
 // license:
 //      LGPL <http://www.gnu.org/licenses/lgpl.html>
 // version:
-//      0.1.9
+//      0.1.8
 
 // Current version of Komodo does not support Function.bind; this emulates
 // that functionality.
