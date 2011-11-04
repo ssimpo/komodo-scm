@@ -31,6 +31,7 @@ version:
 	
 	<commandset id="allcommands">
 		<command id="SVNK.repoBrowser();" oncommand="SVNK.repoBrowser();"/>
+        <command id="SVNK.repoStatus();" oncommand="SVNK.repoStatus();"/>
 		
 		<command id="Tasks:SVNK-UpdateProject" oncommand="SVNK.update('project');"/>
 		<command id="Tasks:SVNK-UpdatePath" oncommand="SVNK.update('selectedpaths');"/>
@@ -51,6 +52,7 @@ version:
 		<command id="Tasks:SVNK-ViewLogActiveFile" oncommand="SVNK.viewLog('activefile');"/>
 		<command id="Tasks:SVNK-ViewLog" oncommand="SVNK.viewLog('selectedpaths');"/>
 		
+        <!--activefile_then_project-->
 		<command id="Tasks:SVNK-Rename" oncommand="SVNK.rename();"/>
 		
 		<command id="Tasks:SVNK-Revert" oncommand="SVNK.revert('selectedpaths');"/>

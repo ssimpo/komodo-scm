@@ -2,6 +2,10 @@
     list-style-image: url("chrome://svnk/skin/images/repobrowser16x16.png");
 }
 
+.SVNK-RepoStatus-Icon {
+    list-style-image: url("chrome://svnk/skin/images/repostatus16x16.png");
+}
+
 .SVNK-Commit-Icon {
     list-style-image: url("chrome://svnk/skin/images/commit16x16.png");
 }

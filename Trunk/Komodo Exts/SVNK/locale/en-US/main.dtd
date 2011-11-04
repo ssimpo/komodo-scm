@@ -7,6 +7,7 @@ version:
 	0.2.0
 -->
 <!ENTITY svnk.label.repobrowser "Repo Browser">
+<!ENTITY svnk.label.repostatus "Check for updates">
 <!ENTITY svnk.label.commitproject "Commit Project">
 <!ENTITY svnk.label.commitdirectory "Commit Directory">
 <!ENTITY svnk.label.commitfile "Commit File">
@@ -32,6 +33,7 @@ version:
 <!ENTITY svnk.label.revert "Revert file/folder">
 <!ENTITY svnk.label.delete "Delete file/folder">
 
+<!ENTITY svnk.tooltip.repostatus "Check the SVN repository for updates on the current project">
 <!ENTITY svnk.tooltip.viewlogfile "View the SVN log for the current file">
 <!ENTITY svnk.tooltip.viewproperties "View SVN properties of the current file">
 <!ENTITY svnk.tooltip.comparefile "Compare current file to repository version">
