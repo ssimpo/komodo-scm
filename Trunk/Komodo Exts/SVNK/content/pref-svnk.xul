@@ -150,6 +150,18 @@ version:
 				<image class="SVNK-UpdateDirectory-Icon" width="16" height="16" />
 				<label value="&svnk.label.updatedirectory;" />
 			</hbox>
+		</row><row>
+			<checkbox
+				id="SVNK-option-toolbar-repoStatus"
+                preference="svnk.toolbarRepoStatus"
+				checked="false"
+				class="SVNK-option-toolbar-checkbox" />
+			<hbox>
+				<image class="SVNK-RepoStatus-Icon" width="16" height="16" />
+				<label value="&svnk.label.repostatus;" />
+			</hbox>
+			<hbox></hbox>
+			<hbox></hbox>
 		</row>
 		</rows></grid>
 	</groupbox>

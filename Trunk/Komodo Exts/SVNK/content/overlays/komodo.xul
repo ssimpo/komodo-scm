@@ -78,6 +78,13 @@ version:
 			label="&svnk.label.updatedirectory;"
 			tooltiptext="&svnk.tooltip.updatedirectory;"
 			class="menuitem-iconic SVNK-UpdateDirectory-Icon"/>
+        <toolbarbutton
+			id="toolsToolbar-SVNK-RepoStatus"
+			preference="svnk.toolbarRepoStatus"
+			observes="SVNK.repoStatus();"
+			label="&svnk.label.repostatus;"
+			tooltiptext="&svnk.tooltip.repostatus;"
+			class="menuitem-iconic SVNK-RepoStatus-Icon"/>
 		<toolbarbutton
 			id="toolsToolbar-SVNK-CompareDiffActiveFile"
 			preference="svnk.toolbarDiff"
@@ -98,7 +105,14 @@ version:
 			observes="Tasks:SVNK-ViewLogActiveFile"
 			label="&svnk.label.viewlogfile;"
 			tooltiptext="&svnk.tooltip.viewlogfile;"
-			class="menuitem-iconic SVNK-Log-Icon"/>
+			class="menuitem-iconic SVNK-Log-Icon"
+			type="menu"
+			orient="horizontal">
+			<menupopup
+				id="toolsToolbar-SVNK-ViewLogActiveFile-menupopup"
+				onpopupshowing="SVNK.createMenu(this,'log');">
+			</menupopup>
+		</toolbarbutton>
 		<toolbarseparator />
 	</toolbar>
 	
