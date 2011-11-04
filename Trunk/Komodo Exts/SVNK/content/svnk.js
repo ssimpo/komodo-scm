@@ -80,29 +80,47 @@ org.simpo.svnk = function() {
         // summary:
         //      View the SVN log for item(s).
         
-        /*var doc = this._getCurrentDocument(ko.windowManager.getMainWindow());
-        var menu = doc.getElementById('toolsToolbar-SVNK-ViewLogActiveFile-menupopup');
-        
-        var projects = this._getProjects();
-        for (i=0; i < projects.length; i++) {
-            var name = this._getProjectName(projects[i]);
-            var path = this._getProjectPath(projects[i]);
-            var item = doc.createElement('menuitem');
-            item.innerHTML = name;
-            item.value = path;
-            menu.appendChild(item);            
-        }*/
-        
         //this._runTortoiseCommand('log',type,'ErrorViewLog');
     };
     
     this.createMenu = function(menuNode,command) {
-        var md5Parser = new org.simpo.md5();
         var lookup = {};
-        var doc = this._getCurrentDocument(ko.windowManager.getMainWindow());
-        var projects = this._getProjects();
         
         this._removeChildNodes(menuNode);
+        this._addProjectsToMenu(menuNode,lookup);
+        this._addOpenFilesToMenu(menuNode,lookup);
+    };
+    
+    this._addOpenFilesToMenu = function(menuNode,lookup) {
+        var md5Parser = new org.simpo.md5();
+        var views = ko.views.manager.getAllViews();
+        var seperator = (menuNode.childNodes.length < 1);
+        
+        for (var i = 0; i < views.length; i++) {
+            var file = this._getCurrentDocument(views[i]).file;
+            var name = file.baseName;
+            var path = file.path;
+            
+            var id = 'i' + md5Parser.calcMD5(path);
+            if (!(id in lookup)) {
+                lookup[id] = true;
+                if (!seperator) {
+                    this._appendMenuSeperator(menuNode);
+                    seperator = true;
+                }
+                
+                menuNode.appendChild(
+                    this._createMenuItem(name,path,'File',path)
+                );
+            }
+        }
+    };
+    
+    this._addProjectsToMenu = function(menuNode,lookup) {
+        var md5Parser = new org.simpo.md5();
+        var projects = this._getProjects();
+        var seperator = (menuNode.childNodes.length < 1);
+        
         for (var i=0; i < projects.length; i++) {
             var name = this._getProjectName(projects[i]);
             var path = this._getProjectPath(projects[i]);
@@ -110,46 +128,37 @@ org.simpo.svnk = function() {
             var id = 'i' + md5Parser.calcMD5(path);
             if (!(id in lookup)) {
                 lookup[id] = true;
-                var item = doc.createElement('menuitem');
-                item.setAttribute('label',name);
-                item.setAttribute('value',path);
-                menuNode.appendChild(item);
+                if (!seperator) {
+                    this._appendMenuSeperator(menuNode);
+                    seperator = true;
+                }
+                
+                menuNode.appendChild(
+                    this._createMenuItem(name,path,'Project',path)
+                );
             }
         }
+    };
+    
+    this._appendMenuSeperator = function(menuNode) {
+        var doc = this._getCurrentDocument(ko.windowManager.getMainWindow());
+        menuNode.appendChild(doc.createElement('menuseparator'));
+    };
+    
+    this._createMenuItem = function(label,value,icon,tooltip) {
+        var doc = this._getCurrentDocument(ko.windowManager.getMainWindow());
         
-        var views = ko.views.manager.getAllViews();
-        for (var i = 0; i < views.length; i++) {
-            var view = views[i];
-            var file = this._getCurrentDocument(view).file;
-            var name = file.baseName;
-            var path = file.path;
-            
-            var id = 'i' + md5Parser.calcMD5(path);
-            if (!(id in lookup)) {
-                lookup[id] = true;
-                var item = doc.createElement('menuitem');
-                item.setAttribute('label',name);
-                item.setAttribute('value',path);
-                menuNode.appendChild(item);
-            }
+        var item = doc.createElement('menuitem');
+        item.setAttribute('label',label);
+        item.setAttribute('value',value);
+        if ((icon !== null) && (icon !== undefined)) {
+            item.setAttribute('class','menuitem-iconic SVNK-'+icon+'-Icon');
+        }
+        if ((tooltip !== null) && (tooltip !== undefined)) {
+            item.setAttribute('tooltiptext',tooltip);
         }
         
-        var selectedPaths = this._getSelectedPaths();
-        for (var i = 0; i < selectedPaths.length; i++) {
-            var name = selectedPaths[i];
-            var path = selectedPaths[i];
-            
-            var id = 'i' + md5Parser.calcMD5(path);
-            if (!(id in lookup)) {
-                lookup[id] = true;
-                var item = doc.createElement('menuitem');
-                item.setAttribute('label',name);
-                item.setAttribute('value',path);
-                menuNode.appendChild(item);
-            }
-        }
-        
-        
+        return item;
     };
     
     this._removeChildNodes = function(node) {
