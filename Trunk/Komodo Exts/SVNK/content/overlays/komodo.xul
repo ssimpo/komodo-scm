@@ -39,7 +39,14 @@ version:
 			observes="Tasks:SVNK-CommitActiveFile"
 			label="&svnk.label.commitfile;"
 			tooltiptext="&svnk.tooltip.commitfile;"
-			class="menuitem-iconic SVNK-Commit-Icon"/>
+			class="menuitem-iconic SVNK-Commit-Icon"
+			type="menu"
+			orient="horizontal">
+			<menupopup
+				id="toolsToolbar-SVNK-CommitFile-menupopup"
+				onpopupshowing="SVNK.createMenu(this,'commit');">
+			</menupopup>
+		</toolbarbutton>
 		<toolbarbutton
 			id="toolsToolbar-SVNK-UpdateFile"
 			preference="svnk.toolbarUpdateFile"
@@ -47,7 +54,14 @@ version:
 			observes="Tasks:SVNK-UpdateActiveFile"
 			label="&svnk.label.updatefile;"
 			tooltiptext="&svnk.tooltip.updatefile;"
-			class="menuitem-iconic SVNK-Update-Icon"/>
+			class="menuitem-iconic SVNK-Update-Icon"
+			type="menu"
+			orient="horizontal">
+			<menupopup
+				id="toolsToolbar-SVNK-UpdateFile-menupopup"
+				onpopupshowing="SVNK.createMenu(this,'update');">
+			</menupopup>
+		</toolbarbutton>
 		<toolbarbutton
 			id="toolsToolbar-SVNK-CommitProject"
 			preference="svnk.toolbarCommitProject"
@@ -78,7 +92,7 @@ version:
 			label="&svnk.label.updatedirectory;"
 			tooltiptext="&svnk.tooltip.updatedirectory;"
 			class="menuitem-iconic SVNK-UpdateDirectory-Icon"/>
-        <toolbarbutton
+		<toolbarbutton
 			id="toolsToolbar-SVNK-RepoStatus"
 			preference="svnk.toolbarRepoStatus"
 			observes="SVNK.repoStatus();"
@@ -91,18 +105,30 @@ version:
 			observes="Tasks:SVNK-CompareDiffActiveFile"
 			label="&svnk.label.comparefile;"
 			tooltiptext="&svnk.tooltip.comparefile;"
-			class="menuitem-iconic SVNK-Diff-Icon"/>
+			class="menuitem-iconic SVNK-Diff-Icon"
+			type="menu"
+			orient="horizontal">
+			<menupopup
+				id="toolsToolbar-SVNK-CompareDiffActiveFile-menupopup"
+				onpopupshowing="SVNK.createMenu(this,'diff');">
+			</menupopup>
+		</toolbarbutton>
 		<toolbarbutton
 			id="toolsToolbar-SVNK-ViewPropertiesActiveFile"
 			preference="svnk.toolbarProperties"
-			observes="Tasks:SVNK-ViewPropertiesActiveFile"
 			label="&svnk.label.viewproperties;"
 			tooltiptext="&svnk.tooltip.viewproperties;"
-			class="menuitem-iconic SVNK-Properties-Icon"/>
+			class="menuitem-iconic SVNK-Properties-Icon"
+			type="menu"
+			orient="horizontal">
+			<menupopup
+				id="toolsToolbar-SVNK-ViewPropertiesActiveFile-menupopup"
+				onpopupshowing="SVNK.createMenu(this,'properties');">
+			</menupopup>
+		</toolbarbutton>
 		<toolbarbutton
 			id="toolsToolbar-SVNK-ViewLogActiveFile"
 			preference="svnk.toolbarLog"
-			observes="Tasks:SVNK-ViewLogActiveFile"
 			label="&svnk.label.viewlogfile;"
 			tooltiptext="&svnk.tooltip.viewlogfile;"
 			class="menuitem-iconic SVNK-Log-Icon"
