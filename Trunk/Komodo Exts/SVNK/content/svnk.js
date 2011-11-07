@@ -11,6 +11,7 @@
 if (!org) var org = {};
 if (!org.simpo) org.simpo = {};
 if (!org.simpo.svnk) org.simpo.svnk = {};
+if (!org.simpo.svnk.objects) org.simpo.svnk.objects = {};
 
 try {
 
@@ -908,8 +909,10 @@ org.simpo.md5 = function() {
     };
 };
 
+if (!org.simpo.svnk.objects.main) org.simpo.svnk.objects.main = new org.simpo.svnk.main();
+
 // Global namespace violation?
-var SVNK = new org.simpo.svnk.main();
+var SVNK = org.simpo.svnk.objects.main;
 
 } catch (e) {
     this.logger.logStringMessage(e);
