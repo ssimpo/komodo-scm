@@ -84,11 +84,8 @@ org.simpo.svnk.main = function() {
         //this._runTortoiseCommand('log',type,'ErrorViewLog');
     };
     
-    this.createMenu = function(menuNode,command) {
-        var lookup = {};
-        this._removeChildNodes(menuNode);
-        this._addProjectsToMenu(menuNode,lookup,command);
-        this._addOpenFilesToMenu(menuNode,lookup,command);
+    this.createMenu = function(node,command) {
+        var menu = new org.simpo.svnk.menuBuilder(node,command);
     };
     
     this.menuItemClick = function(item,command) {
@@ -108,88 +105,7 @@ org.simpo.svnk.main = function() {
             );
         }
     };
-    
-    this._addOpenFilesToMenu = function(menuNode,lookup,command) {
-        var md5Parser = new org.simpo.md5();
-        var views = ko.views.manager.getAllViews();
-        var seperator = (menuNode.childNodes.length < 1);
-        
-        for (var i = 0; i < views.length; i++) {
-            var file = this._getCurrentDocument(views[i]).file;
-            var name = file.baseName;
-            var path = file.path;
-            
-            var id = 'i' + md5Parser.calcMD5(path);
-            if (!(id in lookup)) {
-                lookup[id] = true;
-                if (!seperator) {
-                    this._appendMenuSeperator(menuNode);
-                    seperator = true;
-                }
-                
-                menuNode.appendChild(
-                    this._createMenuItem(command,name,path,'File',path)
-                );
-            }
-        }
-    };
-    
-    this._addProjectsToMenu = function(menuNode,lookup,command) {
-        var md5Parser = new org.simpo.md5();
-        var projects = this._getProjects();
-        var seperator = (menuNode.childNodes.length < 1);
-        
-        for (var i=0; i < projects.length; i++) {
-            var name = this._getProjectName(projects[i]);
-            var path = this._getProjectPath(projects[i]);
-            
-            var id = 'i' + md5Parser.calcMD5(path);
-            if (!(id in lookup)) {
-                lookup[id] = true;
-                if (!seperator) {
-                    this._appendMenuSeperator(menuNode);
-                    seperator = true;
-                }
-                
-                menuNode.appendChild(
-                    this._createMenuItem(command,name,path,'Project',path)
-                );
-            }
-        }
-    };
-    
-    this._appendMenuSeperator = function(menuNode) {
-        var doc = this._getCurrentDocument(ko.windowManager.getMainWindow());
-        menuNode.appendChild(doc.createElement('menuseparator'));
-    };
-    
-    this._createMenuItem = function(command,label,value,icon,tooltip) {
-        var doc = this._getCurrentDocument(ko.windowManager.getMainWindow());
-        
-        var item = doc.createElement('menuitem');
-        item.setAttribute('label',label);
-        item.setAttribute('value',value);
-        if ((icon !== null) && (icon !== undefined)) {
-            item.setAttribute('class','menuitem-iconic SVNK-'+icon+'-Icon');
-        }
-        if ((tooltip !== null) && (tooltip !== undefined)) {
-            item.setAttribute('tooltiptext',tooltip);
-        }
-        item.setAttribute('onclick','SVNK.menuItemClick(this,"'+command+'");');
-        
-        return item;
-    };
-    
-    this._removeChildNodes = function(node) {
-        if ((node === undefined) || (node === null)) {
-            return;
-        }
-        
-        while (node.hasChildNodes()) {
-            node.removeChild(node.firstChild());
-        }
-    };
-    
+
     this.viewProperties = function(type) {
         // summary:
         //      View the SVN properties for item(s).
@@ -752,6 +668,98 @@ org.simpo.svnk.main = function() {
             return {error:true,value:e};
         }
     };
+};
+
+org.simpo.svnk.menuBuilder = function(node,command) {
+    this.logger = Components.classes["@mozilla.org/consoleservice;1"].getService(Components.interfaces.nsIConsoleService);
+    this.lookup = {};
+    this.menuNode = node;
+    this.command = command;
+    
+    this._addOpenFilesToMenu = function() {
+        var md5Parser = new org.simpo.md5();
+        var views = ko.views.manager.getAllViews();
+        var seperator = (this.menuNode.childNodes.length < 1);
+        
+        for (var i = 0; i < views.length; i++) {
+            var file = SVNK._getCurrentDocument(views[i]).file;
+            var name = file.baseName;
+            var path = file.path;
+            
+            var id = 'i' + md5Parser.calcMD5(path);
+            if (!(id in this.lookup)) {
+                this.lookup[id] = true;
+                if (!seperator) {
+                    this._appendMenuSeperator();
+                    seperator = true;
+                }
+                
+                this.menuNode.appendChild(
+                    this._createMenuItem(name,path,'File',path)
+                );
+            }
+        }
+    };
+    
+    this._addProjectsToMenu = function() {
+        var md5Parser = new org.simpo.md5();
+        var projects = SVNK._getProjects();
+        var seperator = (this.menuNode.childNodes.length < 1);
+        
+        for (var i=0; i < projects.length; i++) {
+            var name = SVNK._getProjectName(projects[i]);
+            var path = SVNK._getProjectPath(projects[i]);
+            
+            var id = 'i' + md5Parser.calcMD5(path);
+            if (!(id in this.lookup)) {
+                this.lookup[id] = true;
+                if (!seperator) {
+                    this._appendMenuSeperator();
+                    seperator = true;
+                }
+                
+                this.menuNode.appendChild(
+                    this._createMenuItem(name,path,'Project',path)
+                );
+            }
+        }
+    };
+    
+    this._appendMenuSeperator = function() {
+        var doc = SVNK._getCurrentDocument(ko.windowManager.getMainWindow());
+        this.menuNode.appendChild(doc.createElement('menuseparator'));
+    };
+    
+    this._createMenuItem = function(label,value,icon,tooltip) {
+        var doc = SVNK._getCurrentDocument(ko.windowManager.getMainWindow());
+        
+        var item = doc.createElement('menuitem');
+        item.setAttribute('label',label);
+        item.setAttribute('value',value);
+        if ((icon !== null) && (icon !== undefined)) {
+            item.setAttribute('class','menuitem-iconic SVNK-'+icon+'-Icon');
+        }
+        if ((tooltip !== null) && (tooltip !== undefined)) {
+            item.setAttribute('tooltiptext',tooltip);
+        }
+        item.setAttribute('onclick','SVNK.menuItemClick(this,"'+this.command+'");');
+        
+        return item;
+    };
+    
+    this._removeChildNodes = function() {
+        if ((this.menuNode === undefined) || (this.menuNode === null)) {
+            return;
+        }
+        
+        while (this.menuNode.hasChildNodes()) {
+            this.menuNode.removeChild(node.firstChild());
+        }
+    };
+    
+    this._removeChildNodes();
+    this._addProjectsToMenu();
+    this._addOpenFilesToMenu();
 };
 
 org.simpo.md5 = function() {
