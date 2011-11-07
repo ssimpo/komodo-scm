@@ -683,7 +683,7 @@ org.simpo.svnk.menuBuilder = function(node,command) {
         var seperator = (this.menuNode.childNodes.length < 1);
         
         for (var i = 0; i < views.length; i++) {
-            var file = SVNK._getCurrentDocument(views[i]).file;
+            var file = this.main._getCurrentDocument(views[i]).file;
             var name = file.baseName;
             var path = file.path;
             
@@ -704,12 +704,12 @@ org.simpo.svnk.menuBuilder = function(node,command) {
     
     this._addProjectsToMenu = function() {
         var md5Parser = new org.simpo.md5();
-        var projects = SVNK._getProjects();
+        var projects = this.main._getProjects();
         var seperator = (this.menuNode.childNodes.length < 1);
         
         for (var i=0; i < projects.length; i++) {
-            var name = SVNK._getProjectName(projects[i]);
-            var path = SVNK._getProjectPath(projects[i]);
+            var name = this.main._getProjectName(projects[i]);
+            var path = this.main._getProjectPath(projects[i]);
             
             var id = 'i' + md5Parser.calcMD5(path);
             if (!(id in this.lookup)) {
@@ -727,12 +727,12 @@ org.simpo.svnk.menuBuilder = function(node,command) {
     };
     
     this._appendMenuSeperator = function() {
-        var doc = SVNK._getCurrentDocument(ko.windowManager.getMainWindow());
+        var doc = this.main._getCurrentDocument(ko.windowManager.getMainWindow());
         this.menuNode.appendChild(doc.createElement('menuseparator'));
     };
     
     this._createMenuItem = function(label,value,icon,tooltip) {
-        var doc = SVNK._getCurrentDocument(ko.windowManager.getMainWindow());
+        var doc = this.main._getCurrentDocument(ko.windowManager.getMainWindow());
         
         var item = doc.createElement('menuitem');
         item.setAttribute('label',label);
@@ -757,6 +757,13 @@ org.simpo.svnk.menuBuilder = function(node,command) {
             this.menuNode.removeChild(node.firstChild());
         }
     };
+    
+    if (!this.main) {
+        if (!org.simpo.svnk.objects.main) {
+            org.simpo.svnk.objects.main = new org.simpo.svnk.main();
+        }
+        this.main = org.simpo.svnk.objects.main;
+    }
     
     this._removeChildNodes();
     this._addProjectsToMenu();
@@ -910,9 +917,6 @@ org.simpo.md5 = function() {
 };
 
 if (!org.simpo.svnk.objects.main) org.simpo.svnk.objects.main = new org.simpo.svnk.main();
-
-// Global namespace violation?
-var SVNK = org.simpo.svnk.objects.main;
 
 } catch (e) {
     this.logger.logStringMessage(e);
