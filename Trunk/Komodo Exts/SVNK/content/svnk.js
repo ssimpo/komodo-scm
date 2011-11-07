@@ -10,10 +10,11 @@
 // Non violation of global namespace.
 if (!org) var org = {};
 if (!org.simpo) org.simpo = {};
+if (!org.simpo.svnk) org.simpo.svnk = {};
 
 try {
 
-org.simpo.svnk = function() {
+org.simpo.svnk.main = function() {
     // summary:
     //      Main class containing the core-code for this addon.
     
@@ -85,13 +86,30 @@ org.simpo.svnk = function() {
     
     this.createMenu = function(menuNode,command) {
         var lookup = {};
-        
         this._removeChildNodes(menuNode);
-        this._addProjectsToMenu(menuNode,lookup);
-        this._addOpenFilesToMenu(menuNode,lookup);
+        this._addProjectsToMenu(menuNode,lookup,command);
+        this._addOpenFilesToMenu(menuNode,lookup,command);
     };
     
-    this._addOpenFilesToMenu = function(menuNode,lookup) {
+    this.menuItemClick = function(item,command) {
+        this.logger.logStringMessage(item.value);
+        this.logger.logStringMessage(command);
+        
+        try {
+            //if (this._handleDirtyFiles(type)) {
+                var feedback = this._runTortoiseProc(item.value, command);
+                if (feedback.error == true) {
+                    this.logger.logStringMessage(feedback.value);
+                }
+            //}
+        } catch(e) {
+            this.logger.logStringMessage(
+                "Unknown Error"
+            );
+        }
+    };
+    
+    this._addOpenFilesToMenu = function(menuNode,lookup,command) {
         var md5Parser = new org.simpo.md5();
         var views = ko.views.manager.getAllViews();
         var seperator = (menuNode.childNodes.length < 1);
@@ -110,13 +128,13 @@ org.simpo.svnk = function() {
                 }
                 
                 menuNode.appendChild(
-                    this._createMenuItem(name,path,'File',path)
+                    this._createMenuItem(command,name,path,'File',path)
                 );
             }
         }
     };
     
-    this._addProjectsToMenu = function(menuNode,lookup) {
+    this._addProjectsToMenu = function(menuNode,lookup,command) {
         var md5Parser = new org.simpo.md5();
         var projects = this._getProjects();
         var seperator = (menuNode.childNodes.length < 1);
@@ -134,7 +152,7 @@ org.simpo.svnk = function() {
                 }
                 
                 menuNode.appendChild(
-                    this._createMenuItem(name,path,'Project',path)
+                    this._createMenuItem(command,name,path,'Project',path)
                 );
             }
         }
@@ -145,7 +163,7 @@ org.simpo.svnk = function() {
         menuNode.appendChild(doc.createElement('menuseparator'));
     };
     
-    this._createMenuItem = function(label,value,icon,tooltip) {
+    this._createMenuItem = function(command,label,value,icon,tooltip) {
         var doc = this._getCurrentDocument(ko.windowManager.getMainWindow());
         
         var item = doc.createElement('menuitem');
@@ -157,6 +175,7 @@ org.simpo.svnk = function() {
         if ((tooltip !== null) && (tooltip !== undefined)) {
             item.setAttribute('tooltiptext',tooltip);
         }
+        item.setAttribute('onclick','SVNK.menuItemClick(this,"'+command+'");');
         
         return item;
     };
@@ -882,7 +901,7 @@ org.simpo.md5 = function() {
 };
 
 // Global namespace violation?
-var SVNK = new org.simpo.svnk();
+var SVNK = new org.simpo.svnk.main();
 
 } catch (e) {
     this.logger.logStringMessage(e);
