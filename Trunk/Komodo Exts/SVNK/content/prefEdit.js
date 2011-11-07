@@ -11,6 +11,7 @@
 if (!org) var org = {};
 if (!org.simpo) org.simpo = {};
 if (!org.simpo.svnk) org.simpo.svnk = {};
+if (!org.simpo.svnk.objects) org.simpo.svnk.objects = {};
 
 try {
 org.simpo.svnk.pref = {

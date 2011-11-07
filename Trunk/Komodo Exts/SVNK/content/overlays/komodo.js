@@ -11,6 +11,7 @@
 if (!org) var org = {};
 if (!org.simpo) org.simpo = {};
 if (!org.simpo.svnk) org.simpo.svnk = {};
+if (!org.simpo.svnk.objects) org.simpo.svnk.objects = {};
 
 org.simpo.svnk.toolLoader = {
     logger:Components.classes["@mozilla.org/consoleservice;1"].getService(Components.interfaces.nsIConsoleService),

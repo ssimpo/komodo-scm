@@ -44,7 +44,7 @@ version:
 			orient="horizontal">
 			<menupopup
 				id="toolsToolbar-SVNK-CommitFile-menupopup"
-				onpopupshowing="SVNK.createMenu(this,'commit');">
+				onpopupshowing="org.simpo.svnk.objects.main.createMenu(this,'commit');">
 			</menupopup>
 		</toolbarbutton>
 		<toolbarbutton
@@ -59,7 +59,7 @@ version:
 			orient="horizontal">
 			<menupopup
 				id="toolsToolbar-SVNK-UpdateFile-menupopup"
-				onpopupshowing="SVNK.createMenu(this,'update');">
+				onpopupshowing="org.simpo.svnk.objects.main.createMenu(this,'update');">
 			</menupopup>
 		</toolbarbutton>
 		<toolbarbutton
@@ -110,7 +110,7 @@ version:
 			orient="horizontal">
 			<menupopup
 				id="toolsToolbar-SVNK-CompareDiffActiveFile-menupopup"
-				onpopupshowing="SVNK.createMenu(this,'diff');">
+				onpopupshowing="org.simpo.svnk.objects.main.createMenu(this,'diff');">
 			</menupopup>
 		</toolbarbutton>
 		<toolbarbutton
@@ -123,7 +123,7 @@ version:
 			orient="horizontal">
 			<menupopup
 				id="toolsToolbar-SVNK-ViewPropertiesActiveFile-menupopup"
-				onpopupshowing="SVNK.createMenu(this,'properties');">
+				onpopupshowing="org.simpo.svnk.objects.main.createMenu(this,'properties');">
 			</menupopup>
 		</toolbarbutton>
 		<toolbarbutton
@@ -136,7 +136,7 @@ version:
 			orient="horizontal">
 			<menupopup
 				id="toolsToolbar-SVNK-ViewLogActiveFile-menupopup"
-				onpopupshowing="SVNK.createMenu(this,'log');">
+				onpopupshowing="org.simpo.svnk.objects.main.createMenu(this,'log');">
 			</menupopup>
 		</toolbarbutton>
 		<toolbarseparator />

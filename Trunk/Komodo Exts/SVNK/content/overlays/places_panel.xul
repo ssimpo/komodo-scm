@@ -30,34 +30,32 @@ version:
 		src="chrome://svnk/content/svnk.js"/>
 	
 	<commandset id="allcommands">
-		<command id="SVNK.repoBrowser();" oncommand="SVNK.repoBrowser();"/>
-        <command id="SVNK.repoStatus();" oncommand="SVNK.repoStatus();"/>
 		
-		<command id="Tasks:SVNK-UpdateProject" oncommand="SVNK.update('project');"/>
-		<command id="Tasks:SVNK-UpdatePath" oncommand="SVNK.update('selectedpaths');"/>
-		<command id="Tasks:SVNK-UpdateActiveFile" oncommand="SVNK.update('activefile');"/>
-		<command id="Tasks:SVNK-UpdateActiveDirectory" oncommand="SVNK.update('activedirectory');"/>
+		<command id="Tasks:SVNK-UpdateProject" oncommand="org.simpo.svnk.objects.main.update('project');"/>
+		<command id="Tasks:SVNK-UpdatePath" oncommand="org.simpo.svnk.objects.main.update('selectedpaths');"/>
+		<command id="Tasks:SVNK-UpdateActiveFile" oncommand="org.simpo.svnk.objects.main.update('activefile');"/>
+		<command id="Tasks:SVNK-UpdateActiveDirectory" oncommand="org.simpo.svnk.objects.main.update('activedirectory');"/>
 		
-		<command id="Tasks:SVNK-CommitProject" oncommand="SVNK.commit('project');"/>
-		<command id="Tasks:SVNK-CommitPath" oncommand="SVNK.commit('selectedpaths');"/>
-		<command id="Tasks:SVNK-CommitActiveFile" oncommand="SVNK.commit('activefile');"/>
-		<command id="Tasks:SVNK-CommitActiveDirectory" oncommand="SVNK.commit('activedirectory');"/>
+		<command id="Tasks:SVNK-CommitProject" oncommand="org.simpo.svnk.objects.main.commit('project');"/>
+		<command id="Tasks:SVNK-CommitPath" oncommand="org.simpo.svnk.objects.main.commit('selectedpaths');"/>
+		<command id="Tasks:SVNK-CommitActiveFile" oncommand="org.simpo.svnk.objects.main.commit('activefile');"/>
+		<command id="Tasks:SVNK-CommitActiveDirectory" oncommand="org.simpo.svnk.objects.main.commit('activedirectory');"/>
 		
-		<command id="Tasks:SVNK-CompareDiffActiveFile" oncommand="SVNK.diff('activefile');"/>
-		<command id="Tasks:SVNK-CompareDiff" oncommand="SVNK.diff('selectedpaths');"/>
+		<command id="Tasks:SVNK-CompareDiffActiveFile" oncommand="org.simpo.svnk.objects.main.diff('activefile');"/>
+		<command id="Tasks:SVNK-CompareDiff" oncommand="org.simpo.svnk.objects.main.diff('selectedpaths');"/>
 		
-		<command id="Tasks:SVNK-ViewPropertiesActiveFile" oncommand="SVNK.viewProperties('activefile');"/>
-		<command id="Tasks:SVNK-ViewProperties" oncommand="SVNK.viewProperties('selectedpaths');"/>
+		<command id="Tasks:SVNK-ViewPropertiesActiveFile" oncommand="org.simpo.svnk.objects.main.viewProperties('activefile');"/>
+		<command id="Tasks:SVNK-ViewProperties" oncommand="org.simpo.svnk.objects.main.viewProperties('selectedpaths');"/>
 		
-		<command id="Tasks:SVNK-ViewLogActiveFile" oncommand="SVNK.viewLog('activefile');"/>
-		<command id="Tasks:SVNK-ViewLog" oncommand="SVNK.viewLog('selectedpaths');"/>
+		<command id="Tasks:SVNK-ViewLogActiveFile" oncommand="org.simpo.svnk.objects.main.viewLog('activefile');"/>
+		<command id="Tasks:SVNK-ViewLog" oncommand="org.simpo.svnk.objects.main.viewLog('selectedpaths');"/>
 		
         <!--activefile_then_project-->
-		<command id="Tasks:SVNK-Rename" oncommand="SVNK.rename();"/>
+		<command id="Tasks:SVNK-Rename" oncommand="org.simpo.svnk.objects.main.rename();"/>
 		
-		<command id="Tasks:SVNK-Revert" oncommand="SVNK.revert('selectedpaths');"/>
+		<command id="Tasks:SVNK-Revert" oncommand="org.simpo.svnk.objects.main.revert('selectedpaths');"/>
 		
-		<command id="Tasks:SVNK-Delete" oncommand="SVNK.delete('selectedpaths');"/>
+		<command id="Tasks:SVNK-Delete" oncommand="org.simpo.svnk.objects.main.delete('selectedpaths');"/>
 		
 		<command id="Tasks:SVNK-ShowAbout" oncommand="openDialog('chrome://svnk/content/dialogs/about.xul', 'about', 'chrome,modal,centerscreen');"/>
 	</commandset>
