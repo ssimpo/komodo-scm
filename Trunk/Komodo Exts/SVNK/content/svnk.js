@@ -677,72 +677,130 @@ org.simpo.svnk.menuBuilder = function(node,command) {
     this.menuNode = node;
     this.command = command;
     
-    this._addOpenFilesToMenu = function() {
-        var md5Parser = new org.simpo.md5();
-        var views = ko.views.manager.getAllViews();
-        var seperator = (this.menuNode.childNodes.length < 1);
+    this._addMainMenuItems = function() {
+        var prop = this._getMenuItemProperties(
+            this.main._getCurrentDocument(ko.views.manager.currentView).file,'file'
+        );
+        if (!this._checkLookup(prop.value)) {
+            this.menuNode.appendChild(this._createMenuItem(prop,'File'));
+        }
         
-        for (var i = 0; i < views.length; i++) {
-            var file = this.main._getCurrentDocument(views[i]).file;
-            var name = file.baseName;
-            var path = file.path;
-            
-            var id = 'i' + md5Parser.calcMD5(path);
-            if (!(id in this.lookup)) {
-                this.lookup[id] = true;
-                if (!seperator) {
-                    this._appendMenuSeperator();
-                    seperator = true;
-                }
+        prop = this._getMenuItemProperties(
+            ko.projects.manager.getCurrentProject().getFile(),'project'
+        );
+        if (!this._checkLookup(prop.value)) {
+            this.menuNode.appendChild(this._createMenuItem(prop,'Project'));
+        }
+        
+        prop = this._getMenuItemProperties(
+            this.main._getCurrentDocument(ko.views.manager.currentView).file,'directory'
+        );
+        if (!this._checkLookup(prop.value)) {
+            this.menuNode.appendChild(this._createMenuItem(prop,'Directory'));
+        }
+    };
+    
+    this._getMenuItemProperties = function(file,type) {
+        switch(type.toLowerCase()) {
+            case 'file':
+                return {'label':file.baseName,'value':file.path,'tooltip':file.path};
+            case 'directory':
+                var label = file.dirName.replace(/\\/g,'/');
+                label = label.split('/');
+                label = '/'+label[label.length-1];
                 
-                this.menuNode.appendChild(
-                    this._createMenuItem(name,path,'File',path)
+                return {'label':label,'value':file.dirName,'tooltip':file.dirName};
+            case 'project':
+                var label = file.baseName.replace('.komodoproject','');
+                label = label.replace('.kpf','');
+                
+                return {'label':label,'value':file.dirName,'tooltip':file.dirName};
+        }
+        
+        return {};
+    };
+    
+    this._addOpenFilesToMenu = function() {
+        var views = ko.views.manager.getAllViews();
+        
+        if (views.length > 1) {
+            var menu = this._appendSubMenu('Open files');
+            for (var i = 0; i < views.length; i++) {
+                var prop = this._getMenuItemProperties(
+                    this.main._getCurrentDocument(views[i]).file,'file'
                 );
+                
+                if (!this._checkLookup(prop.value)) {
+                    menu.appendChild(this._createMenuItem(prop,'File'));
+                }
+            }
+        }
+    };
+    
+    this._addOpenDirectoriesToMenu = function() {
+        var views = ko.views.manager.getAllViews();
+        
+        if (views.length > 1) {
+            var menu = this._appendSubMenu('Directories');
+            for (var i = 0; i < views.length; i++) {
+                var prop = this._getMenuItemProperties(
+                    this.main._getCurrentDocument(views[i]).file,'directory'
+                );
+                
+                if (!this._checkLookup(prop.value)) {
+                    menu.appendChild(this._createMenuItem(prop,'Directory'));
+                }
             }
         }
     };
     
     this._addProjectsToMenu = function() {
-        var md5Parser = new org.simpo.md5();
         var projects = this.main._getProjects();
-        var seperator = (this.menuNode.childNodes.length < 1);
         
-        for (var i=0; i < projects.length; i++) {
-            var name = this.main._getProjectName(projects[i]);
-            var path = this.main._getProjectPath(projects[i]);
-            
-            var id = 'i' + md5Parser.calcMD5(path);
-            if (!(id in this.lookup)) {
-                this.lookup[id] = true;
-                if (!seperator) {
-                    this._appendMenuSeperator();
-                    seperator = true;
-                }
+        if (projects.length > 1) {
+            var menu = this._appendSubMenu('Projects');
+            for (var i=0; i < projects.length; i++) {
+                var prop = this._getMenuItemProperties(projects[i].getFile(),'project');
                 
-                this.menuNode.appendChild(
-                    this._createMenuItem(name,path,'Project',path)
-                );
+                if (!this._checkLookup(prop.value)) {
+                    menu.appendChild(this._createMenuItem(prop,'Project'));
+                }
             }
         }
     };
     
-    this._appendMenuSeperator = function() {
-        var doc = this.main._getCurrentDocument(ko.windowManager.getMainWindow());
-        this.menuNode.appendChild(doc.createElement('menuseparator'));
+    this._checkLookup = function(txt) {
+        var id = 'i' + this.md5Parser.calcMD5(txt);
+        
+        if (!(id in this.lookup)) {
+            this.lookup[id] = true;
+            return false;
+        }
+        
+        return true;
     };
     
-    this._createMenuItem = function(label,value,icon,tooltip) {
+    this._appendSubMenu = function(label) {
+        var menu = this.doc.createElement('menu');
+        var menup = this.doc.createElement('menupopup');
+        menu.appendChild(menup);
+        this.menuNode.appendChild(menu);
+        menu.label = label;
+        return menup;
+    };
+    
+    this._appendMenuSeperator = function() {
+        this.menuNode.appendChild(this.doc.createElement('menuseparator'));
+    };
+    
+    this._createMenuItem = function(file,icon) {
         var doc = this.main._getCurrentDocument(ko.windowManager.getMainWindow());
         
         var item = doc.createElement('menuitem');
-        item.setAttribute('label',label);
-        item.setAttribute('value',value);
-        if ((icon !== null) && (icon !== undefined)) {
-            item.setAttribute('class','menuitem-iconic SVNK-'+icon+'-Icon');
-        }
-        if ((tooltip !== null) && (tooltip !== undefined)) {
-            item.setAttribute('tooltiptext',tooltip);
-        }
+        item.setAttribute('label',file.label);
+        item.setAttribute('value',file.value);
+        item.setAttribute('class','menuitem-iconic SVNK-'+icon+'-Icon');
+        item.setAttribute('tooltiptext',file.tooltip);
         item.setAttribute('onclick','SVNK.menuItemClick(this,"'+this.command+'");');
         
         return item;
@@ -758,16 +816,23 @@ org.simpo.svnk.menuBuilder = function(node,command) {
         }
     };
     
+    
+    
     if (!this.main) {
         if (!org.simpo.svnk.objects.main) {
             org.simpo.svnk.objects.main = new org.simpo.svnk.main();
         }
         this.main = org.simpo.svnk.objects.main;
     }
+    this.md5Parser = new org.simpo.md5();
+    this.doc = this.main._getCurrentDocument(ko.windowManager.getMainWindow());
     
     this._removeChildNodes();
-    this._addProjectsToMenu();
+    this._addMainMenuItems();
+    this._appendMenuSeperator();
     this._addOpenFilesToMenu();
+    this._addProjectsToMenu();
+    this._addOpenDirectoriesToMenu();
 };
 
 org.simpo.md5 = function() {
