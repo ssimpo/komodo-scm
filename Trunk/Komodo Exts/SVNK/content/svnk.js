@@ -672,10 +672,6 @@ org.simpo.svnk.main = function() {
 };
 
 org.simpo.svnk.menuBuilder = function(node,command) {
-    this.logger = Components.classes["@mozilla.org/consoleservice;1"].getService(Components.interfaces.nsIConsoleService);
-    this.lookup = {};
-    this.menuNode = node;
-    this.command = command;
     
     this._addMainMenuItems = function() {
         var prop = this._getMenuItemProperties(
@@ -793,16 +789,14 @@ org.simpo.svnk.menuBuilder = function(node,command) {
         this.menuNode.appendChild(this.doc.createElement('menuseparator'));
     };
     
-    this._createMenuItem = function(file,icon) {
-        var doc = this.main._getCurrentDocument(ko.windowManager.getMainWindow());
-        
-        var item = doc.createElement('menuitem');
-        item.setAttribute('label',file.label);
-        item.setAttribute('value',file.value);
+    this._createMenuItem = function(prop,icon) {
+        var item = this.doc.createElement('menuitem');
+        for (key in prop) { item.setAttribute(key,prop[key]); }
         item.setAttribute('class','menuitem-iconic SVNK-'+icon+'-Icon');
-        item.setAttribute('tooltiptext',file.tooltip);
-        item.setAttribute('onclick','SVNK.menuItemClick(this,"'+this.command+'");');
-        
+        item.setAttribute(
+            'onclick',
+            'org.simpo.svnk.objects.main.menuItemClick(this,"'+this.command+'");'
+        );
         return item;
     };
     
@@ -816,23 +810,34 @@ org.simpo.svnk.menuBuilder = function(node,command) {
         }
     };
     
+    this._init = function() {
+        this.logger = Components.classes["@mozilla.org/consoleservice;1"].getService(Components.interfaces.nsIConsoleService);
+        this.lookup = {};
     
-    
-    if (!this.main) {
-        if (!org.simpo.svnk.objects.main) {
-            org.simpo.svnk.objects.main = new org.simpo.svnk.main();
+        if (!this.main) {
+            if (!org.simpo.svnk.objects.main) {
+                org.simpo.svnk.objects.main = new org.simpo.svnk.main();
+            }
+            this.main = org.simpo.svnk.objects.main;
         }
-        this.main = org.simpo.svnk.objects.main;
-    }
-    this.md5Parser = new org.simpo.md5();
-    this.doc = this.main._getCurrentDocument(ko.windowManager.getMainWindow());
+        
+        this.md5Parser = new org.simpo.md5();
+        this.doc = this.main._getCurrentDocument(ko.windowManager.getMainWindow());
+    };
     
-    this._removeChildNodes();
-    this._addMainMenuItems();
-    this._appendMenuSeperator();
-    this._addOpenFilesToMenu();
-    this._addProjectsToMenu();
-    this._addOpenDirectoriesToMenu();
+    this.startup = function() {
+        this._init();
+        this._removeChildNodes();
+        this._addMainMenuItems();
+        this._appendMenuSeperator();
+        this._addOpenFilesToMenu();
+        this._addProjectsToMenu();
+        this._addOpenDirectoriesToMenu();
+    };
+    
+    this.menuNode = node;
+    this.command = command;
+    this.startup();
 };
 
 org.simpo.md5 = function() {
