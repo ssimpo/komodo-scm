@@ -35,7 +35,7 @@ version:
             orient="horizontal">
 			<menupopup
 				id="toolsToolbar-SVNK-RepoBrowser-menupopup"
-				onpopupshowing="org.simpo.svnk.objects.main.createMenu(this,'repobrowser');">
+				onpopupshowing="org.simpo.svnk.objects.main.createMenu(event,this,'repobrowser');">
 			</menupopup>
         </toolbarbutton>
 		<toolbarbutton
@@ -49,7 +49,7 @@ version:
             orient="horizontal">
 			<menupopup
 				id="toolsToolbar-SVNK-Update-menupopup"
-				onpopupshowing="org.simpo.svnk.objects.main.createMenu(this,'commit');">
+				onpopupshowing="org.simpo.svnk.objects.main.createMenu(event,this,'commit');">
 			</menupopup>
         </toolbarbutton>
 		<toolbarbutton
@@ -63,7 +63,7 @@ version:
             orient="horizontal">
 			<menupopup
 				id="toolsToolbar-SVNK-Update-menupopup"
-				onpopupshowing="org.simpo.svnk.objects.main.createMenu(this,'update');">
+				onpopupshowing="org.simpo.svnk.objects.main.createMenu(event,this,'update');">
 			</menupopup>
         </toolbarbutton>
 		<toolbarbutton
@@ -84,7 +84,7 @@ version:
 			orient="horizontal">
 			<menupopup
 				id="toolsToolbar-SVNK-CompareDiffActiveFile-menupopup"
-				onpopupshowing="org.simpo.svnk.objects.main.createMenu(this,'diff');">
+				onpopupshowing="org.simpo.svnk.objects.main.createMenu(event,this,'diff');">
 			</menupopup>
 		</toolbarbutton>
 		<toolbarbutton
@@ -97,7 +97,7 @@ version:
 			orient="horizontal">
 			<menupopup
 				id="toolsToolbar-SVNK-ViewPropertiesActiveFile-menupopup"
-				onpopupshowing="org.simpo.svnk.objects.main.createMenu(this,'properties');">
+				onpopupshowing="org.simpo.svnk.objects.main.createMenu(event,this,'properties');">
 			</menupopup>
 		</toolbarbutton>
 		<toolbarbutton
@@ -110,7 +110,7 @@ version:
 			orient="horizontal">
 			<menupopup
 				id="toolsToolbar-SVNK-ViewLogActiveFile-menupopup"
-				onpopupshowing="org.simpo.svnk.objects.main.createMenu(this,'log');">
+				onpopupshowing="org.simpo.svnk.objects.main.createMenu(event,this,'log');">
 			</menupopup>
 		</toolbarbutton>
 		<toolbarseparator />

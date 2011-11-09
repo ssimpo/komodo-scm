@@ -85,8 +85,10 @@ org.simpo.svnk.main = function() {
         //this._runTortoiseCommand('log',type,'ErrorViewLog');
     };
     
-    this.createMenu = function(node,command) {
-        var menu = new org.simpo.svnk.menuBuilder(node,command);
+    this.createMenu = function(event,node,command) {
+        if (event.target == event.currentTarget) {
+            var menu = new org.simpo.svnk.menuBuilder(node,command);
+        }
     };
     
     this.menuItemClick = function(item,command) {
@@ -719,8 +721,6 @@ org.simpo.svnk.menuBuilder = function(node,command) {
                 this.menuNode.appendChild(this._createMenuItem(prop,'Project'));
             }
         }
-        
-        return count;
     };
     
     this._getMenuItemProperties = function(file,type) {
@@ -833,7 +833,7 @@ org.simpo.svnk.menuBuilder = function(node,command) {
         if ((this.menuNode === undefined) || (this.menuNode === null)) {
             return;
         }
-        
+        this.logger.logStringMessage(this.menuNode.id);
         while (this.menuNode.hasChildNodes()) {
             this.menuNode.removeChild(this.menuNode.firstChild);
         }
