@@ -66,22 +66,22 @@ version:
 				<label value="&svnk.label.repobrowser;" />
 			</hbox>
 			<checkbox
-				id="SVNK-option-toolbar-commitProject"
-                preference="svnk.toolbarCommitProject"
+				id="SVNK-option-toolbar-commit"
+                preference="svnk.toolbarCommitSelect"
 				checked="true"
 				class="SVNK-option-toolbar-checkbox" />
 			<hbox>
-				<image class="SVNK-CommitProject-Icon" width="16" height="16" />
+				<image class="SVNK-Commit-Icon" width="16" height="16" />
 				<label value="&svnk.label.commitproject;" />
 			</hbox>
 		</row><row>
             <checkbox
-				id="SVNK-option-toolbar-updateProject"
-                preference="svnk.toolbarUpdateProject"
+				id="SVNK-option-toolbar-update"
+                preference="svnk.toolbarUpdateSelect"
 				checked="true"
 				class="SVNK-option-toolbar-checkbox" />
 			<hbox>
-				<image class="SVNK-UpdateProject-Icon" width="16" height="16" />
+				<image class="SVNK-Update-Icon" width="16" height="16" />
 				<label value="&svnk.label.updateproject;" />
 			</hbox>
 			<checkbox
@@ -111,44 +111,6 @@ version:
 			<hbox>
 				<image class="SVNK-Log-Icon" width="16" height="16" />
 				<label value="&svnk.label.viewlogentry;" />
-			</hbox>
-		</row><row>
-			<checkbox
-				id="SVNK-option-toolbar-commitFile"
-                preference="svnk.toolbarCommitFile"
-				checked="false"
-				class="SVNK-option-toolbar-checkbox" />
-			<hbox>
-				<image class="SVNK-Commit-Icon" width="16" height="16" />
-				<label value="&svnk.label.commitfile;" />
-			</hbox>
-			<checkbox
-				id="SVNK-option-toolbar-updateFile"
-                preference="svnk.toolbarUpdateFile"
-				checked="false"
-				class="SVNK-option-toolbar-checkbox" />
-			<hbox>
-				<image class="SVNK-Update-Icon" width="16" height="16" />
-				<label value="&svnk.label.updatefile;" />
-			</hbox>
-		</row><row>
-			<checkbox
-				id="SVNK-option-toolbar-commitDirectory"
-                preference="svnk.toolbarCommitDirectory"
-				checked="false"
-				class="SVNK-option-toolbar-checkbox" />
-			<hbox>
-				<image class="SVNK-CommitDirectory-Icon" width="16" height="16" />
-				<label value="&svnk.label.commitdirectory;" />
-			</hbox>
-			<checkbox
-				id="SVNK-option-toolbar-updateDirectory"
-                preference="svnk.toolbarUpdateDirectory"
-				checked="false"
-				class="SVNK-option-toolbar-checkbox" />
-			<hbox>
-				<image class="SVNK-UpdateDirectory-Icon" width="16" height="16" />
-				<label value="&svnk.label.updatedirectory;" />
 			</hbox>
 		</row><row>
 			<checkbox

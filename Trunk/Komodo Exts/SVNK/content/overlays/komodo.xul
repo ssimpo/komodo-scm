@@ -69,24 +69,23 @@ version:
 		<toolbarbutton
 			id="toolsToolbar-SVNK-RepoStatus"
 			preference="svnk.toolbarRepoStatus"
-			observes="SVNK.repoStatus();"
 			label="&svnk.label.repostatus;"
 			tooltiptext="&svnk.tooltip.repostatus;"
-			class="menuitem-iconic SVNK-RepoStatus-Icon"/>
+			class="menuitem-iconic SVNK-RepoStatus-Icon"
+			type="menu"
+            orient="horizontal">
+			<menupopup
+				id="toolsToolbar-SVNK-RepoStatus-menupopup"
+				onpopupshowing="org.simpo.svnk.objects.main.createMenu(event,this,'repostatus');">
+			</menupopup>
+		</toolbarbutton>
 		<toolbarbutton
 			id="toolsToolbar-SVNK-CompareDiffActiveFile"
 			preference="svnk.toolbarDiff"
 			observes="Tasks:SVNK-CompareDiffActiveFile"
 			label="&svnk.label.comparefile;"
 			tooltiptext="&svnk.tooltip.comparefile;"
-			class="menuitem-iconic SVNK-Diff-Icon"
-			type="menu"
-			orient="horizontal">
-			<menupopup
-				id="toolsToolbar-SVNK-CompareDiffActiveFile-menupopup"
-				onpopupshowing="org.simpo.svnk.objects.main.createMenu(event,this,'diff');">
-			</menupopup>
-		</toolbarbutton>
+			class="menuitem-iconic SVNK-Diff-Icon"/>
 		<toolbarbutton
 			id="toolsToolbar-SVNK-ViewPropertiesActiveFile"
 			preference="svnk.toolbarProperties"
