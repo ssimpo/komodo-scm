@@ -28,70 +28,44 @@ version:
 		<toolbarbutton
 			id="toolsToolbar-SVNK-RepoBrowser"
 			preference="svnk.toolbarRepoBrowser"
-			observes="SVNK.repoBrowser();"
 			label="&svnk.label.repobrowser;"
 			tooltiptext="&svnk.tooltip.repobrowser;"
-			class="menuitem-iconic SVNK-RepoBrowser-Icon"/>
-		<toolbarbutton
-			id="toolsToolbar-SVNK-CommitFile"
-			preference="svnk.toolbarCommitFile"
-			hidden="true"
-			observes="Tasks:SVNK-CommitActiveFile"
-			label="&svnk.label.commitfile;"
-			tooltiptext="&svnk.tooltip.commitfile;"
-			class="menuitem-iconic SVNK-Commit-Icon"
-			type="menu"
-			orient="horizontal">
+			class="menuitem-iconic SVNK-RepoBrowser-Icon"
+            type="menu"
+            orient="horizontal">
 			<menupopup
-				id="toolsToolbar-SVNK-CommitFile-menupopup"
-				onpopupshowing="org.simpo.svnk.objects.main.createMenu(this,'commit');">
+				id="toolsToolbar-SVNK-RepoBrowser-menupopup"
+				onpopupshowing="org.simpo.svnk.objects.main.createMenu(this,'repobrowser');">
 			</menupopup>
-		</toolbarbutton>
+        </toolbarbutton>
 		<toolbarbutton
-			id="toolsToolbar-SVNK-UpdateFile"
-			preference="svnk.toolbarUpdateFile"
-			hidden="true"
-			observes="Tasks:SVNK-UpdateActiveFile"
-			label="&svnk.label.updatefile;"
-			tooltiptext="&svnk.tooltip.updatefile;"
-			class="menuitem-iconic SVNK-Update-Icon"
-			type="menu"
-			orient="horizontal">
-			<menupopup
-				id="toolsToolbar-SVNK-UpdateFile-menupopup"
-				onpopupshowing="org.simpo.svnk.objects.main.createMenu(this,'update');">
-			</menupopup>
-		</toolbarbutton>
-		<toolbarbutton
-			id="toolsToolbar-SVNK-CommitProject"
-			preference="svnk.toolbarCommitProject"
-			observes="Tasks:SVNK-CommitProject"
+			id="toolsToolbar-SVNK-Commit"
+			preference="svnk.toolbarCommitSelect"
+            hidden="false"
 			label="&svnk.label.commitproject;"
 			tooltiptext="&svnk.tooltip.commitproject;"
-			class="menuitem-iconic SVNK-CommitProject-Icon"/>
+			class="menuitem-iconic SVNK-Commit-Icon"
+            type="menu"
+            orient="horizontal">
+			<menupopup
+				id="toolsToolbar-SVNK-Update-menupopup"
+				onpopupshowing="org.simpo.svnk.objects.main.createMenu(this,'commit');">
+			</menupopup>
+        </toolbarbutton>
 		<toolbarbutton
-			id="toolsToolbar-SVNK-UpdateProject"
-			preference="svnk.toolbarUpdateProject"
-			observes="Tasks:SVNK-UpdateProject"
+			id="toolsToolbar-SVNK-Update"
+			preference="svnk.toolbarUpdateSelect"
+            hidden="false"
 			label="&svnk.label.updateproject;"
 			tooltiptext="&svnk.tooltip.updateproject;"
-			class="menuitem-iconic SVNK-UpdateProject-Icon"/>
-		<toolbarbutton
-			id="toolsToolbar-SVNK-CommitDirectory"
-			preference="svnk.toolbarCommitDirectory"
-			hidden="true"
-			observes="Tasks:SVNK-CommitActiveDirectory"
-			label="&svnk.label.commitdirectory;"
-			tooltiptext="&svnk.tooltip.commitdirectory;"
-			class="menuitem-iconic SVNK-CommitDirectory-Icon"/>
-		<toolbarbutton
-			id="toolsToolbar-SVNK-UpdateDirectory"
-			preference="svnk.toolbarUpdateDirectory"
-			hidden="true"
-			observes="Tasks:SVNK-UpdateActiveDirectory"
-			label="&svnk.label.updatedirectory;"
-			tooltiptext="&svnk.tooltip.updatedirectory;"
-			class="menuitem-iconic SVNK-UpdateDirectory-Icon"/>
+			class="menuitem-iconic SVNK-Update-Icon"
+            type="menu"
+            orient="horizontal">
+			<menupopup
+				id="toolsToolbar-SVNK-Update-menupopup"
+				onpopupshowing="org.simpo.svnk.objects.main.createMenu(this,'update');">
+			</menupopup>
+        </toolbarbutton>
 		<toolbarbutton
 			id="toolsToolbar-SVNK-RepoStatus"
 			preference="svnk.toolbarRepoStatus"
