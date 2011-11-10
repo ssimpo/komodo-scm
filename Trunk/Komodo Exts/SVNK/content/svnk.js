@@ -728,66 +728,27 @@ org.simpo.svnk.menuBuilder = function(node,command) {
         var pFile = this._getActiveProjectFile();
         
         if (pFile !== false) {
-            var prop = this._getMenuItemProperties(pFile,'project');
-            if (!this._checkLookup(prop.value)) {
-                this.menuNode.appendChild(this._createMenuItem(prop,'Project'));
+            if (!this._checkLookup(pFile.dirName)) {
+                this.menuNode.appendChild(this._createProjectMenuItem(pFile));
             }
         }
         
         if (aFile !== false) {
-            var prop = this._getMenuItemProperties(aFile,'directory');
-            if (!this._checkLookup(prop.value)) {
-                this.menuNode.appendChild(this._createMenuItem(prop,'Directory'));
+            if (!this._checkLookup(aFile.dirName)) {
+                this.menuNode.appendChild(this._createDirectoryMenuItem(aFile));
             }
-        }
-        
-        if (aFile !== false) {
+            
             if (this.command.toLowerCase() != 'repobrowser') {
-                var prop = this._getMenuItemProperties(aFile,'file');
-                if (!this._checkLookup(prop.value)) {
-                    this.menuNode.appendChild(this._createMenuItem(prop,'File'));
+                if (!this._checkLookup(aFile.path)) {
+                    this.menuNode.appendChild(this._createFileMenuItem(aFile));
                 }
             }
         }
     };
     
-    this._getMenuItemProperties = function(file,type) {
-        // summary:
-        //      Get a properties object from a Komodo file object.  Properties
-        //      are for passing to a method used in menu item creation.
-        // file: object koDoc.file
-        //      The komodo file object to parse values from.
-        // type: string (file|directory|project)
-        //      The type of properties to return
-        // returns: object
-        //      The properties object in format: {
-        //          label:'menuitem label',
-        //          value:'menuitem value',
-        //          tooltip:'menuitem tooltip text'
-        //      }
-        
-        switch(type.toLowerCase()) {
-            case 'file':
-                return {'label':file.baseName,'value':file.path,'tooltiptext':file.path};
-            case 'directory':
-                var label = file.dirName.replace(/\\/g,'/');
-                label = label.split('/');
-                label = '/'+label[label.length-1];
-                
-                return {'label':label,'value':file.dirName,'tooltiptext':file.dirName};
-            case 'project':
-                var label = file.baseName.replace('.komodoproject','');
-                label = label.replace('.kpf','');
-                
-                return {'label':label,'value':file.dirName,'tooltiptext':file.dirName};
-        }
-        
-        return {};
-    };
-    
     this._addOpenFilesToMenu = function() {
         // summary:
-        //      Create and deloy a sub-menu from currently open files.  Items
+        //      Create and deploy a sub-menu from currently open files.  Items
         //      are checked to ensure they are not already in the menu.
         // returns: integer
         //      The number of items added.
@@ -798,12 +759,9 @@ org.simpo.svnk.menuBuilder = function(node,command) {
         if (views.length > 1) {
             var menu = this._appendSubMenu('Open files');
             for (var i = 0; i < views.length; i++) {
-                var prop = this._getMenuItemProperties(
-                    this.main._getCurrentDocument(views[i]).file,'file'
-                );
-                
-                if (!this._checkLookup(prop.value)) {
-                    menu.appendChild(this._createMenuItem(prop,'File'));
+                var file = this.main._getCurrentDocument(views[i]).file;
+                if (!this._checkLookup(file.path)) {
+                    menu.appendChild(this._createFileMenuItem(file));
                     count++;
                 }
             }
@@ -818,7 +776,7 @@ org.simpo.svnk.menuBuilder = function(node,command) {
     
     this._addOpenDirectoriesToMenu = function() {
         // summary:
-        //      Create and deloy a sub-menu from currently in-use directory (
+        //      Create and deploy a sub-menu from currently in-use directory (
         //      ie.  the directories containing open files).  Items are
         //      checked to ensure they are not already in the menu.
         // returns: integer
@@ -830,12 +788,9 @@ org.simpo.svnk.menuBuilder = function(node,command) {
         if (views.length > 1) {
             var menu = this._appendSubMenu('Directories');
             for (var i = 0; i < views.length; i++) {
-                var prop = this._getMenuItemProperties(
-                    this.main._getCurrentDocument(views[i]).file,'directory'
-                );
-                
-                if (!this._checkLookup(prop.value)) {
-                    menu.appendChild(this._createMenuItem(prop,'Directory'));
+                var file = this.main._getCurrentDocument(views[i]).file;
+                if (!this._checkLookup(file.dirName)) {
+                    menu.appendChild(this._createDirectoryMenuItem(file));
                     count++;
                 }
             }
@@ -850,7 +805,7 @@ org.simpo.svnk.menuBuilder = function(node,command) {
     
     this._addProjectsToMenu = function() {
         // summary:
-        //      Create and deloy a sub-menu from currently open projects.
+        //      Create and deploy a sub-menu from currently open projects.
         //      Items are checked to ensure they are not already in the menu.
         // returns: integer
         //      The number of items added.
@@ -861,10 +816,9 @@ org.simpo.svnk.menuBuilder = function(node,command) {
         if (projects.length > 1) {
             var menu = this._appendSubMenu('Projects');
             for (var i=0; i < projects.length; i++) {
-                var prop = this._getMenuItemProperties(projects[i].getFile(),'project');
-                
-                if (!this._checkLookup(prop.value)) {
-                    menu.appendChild(this._createMenuItem(prop,'Project'));
+                var file = projects[i].getFile();
+                if (!this._checkLookup(file.dirName)) {
+                    menu.appendChild(this._createProjectMenuItem(file));
                     count++;
                 }
             }
@@ -911,7 +865,7 @@ org.simpo.svnk.menuBuilder = function(node,command) {
     
     this._appendMenuSeperator = function() {
         // summary:
-        //      Add a menu seperator if menu has items.
+        //      Add a menu separator if menu has items.
         // returns: object XMLNode
         //      The menuseparator element.
         
@@ -923,24 +877,95 @@ org.simpo.svnk.menuBuilder = function(node,command) {
         return seperator;
     };
     
-    this._createMenuItem = function(prop,icon) {
+    this._createFileMenuItem = function(file) {
         // summary:
-        //      Create a menu item from the given parameters.
+        //      Create a menu item from the given komodo file-object.
+        // file: object koDoc.file
+        //      File object to parse for menu-data.
+        // returns: object XMLNode
+        //      The menuitem element.
+        
+        return this._createMenuItem({
+            'label':file.baseName, 'value':file.path,
+            'tooltiptext':file.path, 'class':this.FILEICON,
+            'onclick':this.JSONCLICKCMD
+        });
+    };
+    
+    this._createDirectoryMenuItem = function(file) {
+        // summary:
+        //      Create a menu item from the given komodo file-object (use
+        //      directory information of file).
+        // file: object koDoc.file
+        //      File object to parse for menu-data.
+        // returns: object XMLNode
+        //      The menuitem element.
+        
+        return this._createMenuItem({
+            'label':this._getDirectoryLabel(file), 'value':file.dirName,
+            'tooltiptext':file.dirName, 'class':this.DIRECTORYICON,
+            'onclick':this.JSONCLICKCMD
+        });
+    };
+    
+    this._createProjectMenuItem = function(file) {
+        // summary:
+        //      Create a menu item from the given komodo file-object.
+        // file: object koDoc.file
+        //      File object to parse for menu-data (this should be a
+        //      project file object.)
+        // returns: object XMLNode
+        //      The menuitem element.
+        
+        return this._createMenuItem({
+            'label':this._getProjectLabel(file), 'value':file.dirName,
+            'tooltiptext':file.dirName, 'class':this.PROJECTICON,
+            'onclick':this.JSONCLICKCMD
+        });
+    };
+    
+    this._createMenuItem = function(prop) {
+        // summary:
+        //      Create a menu item from the given properties.
         // prop: object
-        //      Properties for the menuitem element.
-        // icon: string
-        //      The icon to use (this is the class used on menuitem).
+        //      The properties to add to the menuitem element.
         // returns: object XMLNode
         //      The menuitem element.
         
         var item = this.doc.createElement('menuitem');
         for (key in prop) { item.setAttribute(key,prop[key]); }
-        item.setAttribute('class','menuitem-iconic SVNK-'+icon+'-Icon');
-        item.setAttribute(
-            'onclick',
-            'org.simpo.svnk.objects.main.menuItemClick(this,"'+this.command+'");'
-        );
         return item;
+    };
+    
+    this._getDirectoryLabel = function(file) {
+        // summary:
+        //      Create text for a menuitem label for a directory from
+        //      a file object.
+        // file: object koDoc.file
+        //      File object to parse.
+        // returns: string
+        //      The menuitem element.
+        
+        var label = file.dirName.replace(/\\/g,'/');
+        label = label.split('/');
+        label = '/'+label[label.length-1];
+        
+        return label;
+    };
+    
+    this._getProjectLabel = function(file) {
+        // summary:
+        //      Create text for a menuitem label for a project from
+        //      a file object.
+        // file: object koDoc.file
+        //      File object to parse.
+        // returns: string
+        //      The menuitem element.
+        
+        var label = file.baseName.replace('.komodoproject','');
+        label = label.replace('.kpf','');
+        
+        return label;
     };
     
     this._removeChildNodes = function() {
@@ -958,7 +983,7 @@ org.simpo.svnk.menuBuilder = function(node,command) {
     
     this._init = function() {
         // summary:
-        //      Setup and intialisation for this class.
+        //      Setup and initialization for this class.
         
         this.logger = Components.classes["@mozilla.org/consoleservice;1"].getService(Components.interfaces.nsIConsoleService);
         this.lookup = {};
@@ -972,11 +997,16 @@ org.simpo.svnk.menuBuilder = function(node,command) {
         
         this.md5Parser = new org.simpo.md5();
         this.doc = this.main._getCurrentDocument(ko.windowManager.getMainWindow());
+        
+        this.PROJECTICON = 'menuitem-iconic SVNK-Project-Icon';
+        this.DIRECTORYICON = 'menuitem-iconic SVNK-Directory-Icon';
+        this.FILEICON = 'menuitem-iconic SVNK-File-Icon';
+        this.JSONCLICKCMD = 'org.simpo.svnk.objects.main.menuItemClick(this,"'+this.command+'");';
     };
     
     this.startup = function() {
         // summary:
-        //      Method fired after object intialisation.
+        //      Method fired after object initialization.
         
         this._removeChildNodes();
         this._checkLookup('chrome://komodo/content/startpage/startpage.xml#view-startpage');
