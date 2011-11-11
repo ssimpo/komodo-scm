@@ -856,10 +856,10 @@ org.simpo.svnk.menuBuilder = function(node,command) {
         //      The menupopup element of the submenu.
         
         var menu = this.doc.createElement('menu');
+        menu.setAttribute('label',label);
         var menup = this.doc.createElement('menupopup');
         menu.appendChild(menup);
         this.menuNode.appendChild(menu);
-        menu.label = label;
         return menup;
     };
     
