@@ -8,12 +8,14 @@ version:
 -->
 <!ENTITY svnk.label.repobrowser "Repo Browser">
 <!ENTITY svnk.label.repostatus "Check for updates">
+<!ENTITY svnk.label.commit "Commit">
 <!ENTITY svnk.label.commitproject "Commit Project">
 <!ENTITY svnk.label.commitdirectory "Commit Directory">
 <!ENTITY svnk.label.commitfile "Commit File">
 <!ENTITY svnk.label.commitpath "Commit path(s) to repository">
 <!ENTITY svnk.label.comparefile "Compare file">
 <!ENTITY svnk.label.comparefile.long "Compare file to repository version">
+<!ENTITY svnk.label.update "Update">
 <!ENTITY svnk.label.updateproject "Update Project">
 <!ENTITY svnk.label.updatedirectory "Update Directory">
 <!ENTITY svnk.label.updatepath "Update path(s) from repository">
@@ -21,7 +23,7 @@ version:
 <!ENTITY svnk.label.viewproperties "View properties">
 <!ENTITY svnk.label.viewproperties.long "View file SVN properties">
 <!ENTITY svnk.label.viewproperties2.long "View file/folder SVN properties">
-<!ENTITY svnk.label.viewlogfile "View SVN file log">
+<!ENTITY svnk.label.viewlogfile "View SVN log">
 <!ENTITY svnk.label.viewlogfile2 "View SVN file/folder log">
 <!ENTITY svnk.label.showabout "About SVN-K">
 <!ENTITY svnk.label.viewlogentry "View entry">
@@ -33,18 +35,20 @@ version:
 <!ENTITY svnk.label.revert "Revert file/folder">
 <!ENTITY svnk.label.delete "Delete file/folder">
 
-<!ENTITY svnk.tooltip.repostatus "Check the SVN repository for updates on the current project">
-<!ENTITY svnk.tooltip.viewlogfile "View the SVN log for the current file">
-<!ENTITY svnk.tooltip.viewproperties "View SVN properties of the current file">
+<!ENTITY svnk.tooltip.repostatus "Check the SVN repository for updates">
+<!ENTITY svnk.tooltip.viewlogfile "View the SVN log">
+<!ENTITY svnk.tooltip.viewproperties "View SVN properties">
 <!ENTITY svnk.tooltip.comparefile "Compare current file to repository version">
+<!ENTITY svnk.tooltip.commit "Commit to SVN repository">
 <!ENTITY svnk.tooltip.commitfile "Commit file to SVN repository">
 <!ENTITY svnk.tooltip.commitproject "Commit current project to SVN">
 <!ENTITY svnk.tooltip.commitdirectory "Commit current directory to SVN">
+<!ENTITY svnk.tooltip.update "Update from SVN">
 <!ENTITY svnk.tooltip.updateproject "Update current project from SVN">
 <!ENTITY svnk.tooltip.updatedirectory "Update current directory from SVN">
 <!ENTITY svnk.tooltip.updatepath "Update current selected path from SVN">
 <!ENTITY svnk.tooltip.updatefile "Update file from SVN repository">
-<!ENTITY svnk.tooltip.repobrowser "Repository Browser for current project">
+<!ENTITY svnk.tooltip.repobrowser "Repository Browser">
 <!ENTITY svnk.tooltip.showabout "Information about SVN-K">
 <!ENTITY svnk.tooltip.viewlogentry "View log entry in popup window">
 <!ENTITY svnk.tooltip.compareentry "Compare to current working copy version">

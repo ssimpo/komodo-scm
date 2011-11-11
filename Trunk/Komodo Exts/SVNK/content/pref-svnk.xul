@@ -72,7 +72,7 @@ version:
 				class="SVNK-option-toolbar-checkbox" />
 			<hbox>
 				<image class="SVNK-Commit-Icon" width="16" height="16" />
-				<label value="&svnk.label.commitproject;" />
+				<label value="&svnk.label.commit;" />
 			</hbox>
 		</row><row>
             <checkbox
@@ -82,7 +82,7 @@ version:
 				class="SVNK-option-toolbar-checkbox" />
 			<hbox>
 				<image class="SVNK-Update-Icon" width="16" height="16" />
-				<label value="&svnk.label.updateproject;" />
+				<label value="&svnk.label.update;" />
 			</hbox>
 			<checkbox
 				id="SVNK-option-toolbar-diff"
