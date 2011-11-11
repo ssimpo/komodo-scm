@@ -42,8 +42,8 @@ version:
 			id="toolsToolbar-SVNK-Commit"
 			preference="svnk.toolbarCommitSelect"
             hidden="false"
-			label="&svnk.label.commitproject;"
-			tooltiptext="&svnk.tooltip.commitproject;"
+			label="&svnk.label.commit;"
+			tooltiptext="&svnk.tooltip.commit;"
 			class="menuitem-iconic SVNK-Commit-Icon"
             type="menu"
             orient="horizontal">
@@ -56,8 +56,8 @@ version:
 			id="toolsToolbar-SVNK-Update"
 			preference="svnk.toolbarUpdateSelect"
             hidden="false"
-			label="&svnk.label.updateproject;"
-			tooltiptext="&svnk.tooltip.updateproject;"
+			label="&svnk.label.update;"
+			tooltiptext="&svnk.tooltip.update;"
 			class="menuitem-iconic SVNK-Update-Icon"
             type="menu"
             orient="horizontal">
@@ -87,7 +87,7 @@ version:
 			tooltiptext="&svnk.tooltip.comparefile;"
 			class="menuitem-iconic SVNK-Diff-Icon"/>
 		<toolbarbutton
-			id="toolsToolbar-SVNK-ViewPropertiesActiveFile"
+			id="toolsToolbar-SVNK-ViewProperties"
 			preference="svnk.toolbarProperties"
 			label="&svnk.label.viewproperties;"
 			tooltiptext="&svnk.tooltip.viewproperties;"
@@ -100,7 +100,7 @@ version:
 			</menupopup>
 		</toolbarbutton>
 		<toolbarbutton
-			id="toolsToolbar-SVNK-ViewLogActiveFile"
+			id="toolsToolbar-SVNK-ViewLog"
 			preference="svnk.toolbarLog"
 			label="&svnk.label.viewlogfile;"
 			tooltiptext="&svnk.tooltip.viewlogfile;"
