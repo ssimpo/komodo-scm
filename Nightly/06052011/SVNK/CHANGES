@@ -1,9 +1,0 @@
-Version 1.0.1:
-* Inclusion of context-menu items for TortoiseSVN; these are in the places view.
-
-Version 1.0.2:
-* Add locale support; only local is en-GB.
-
-Version 1.0.3:
-* Changed the icons so that it is using its own icons rather than stealing
-from TortoiseSVN
