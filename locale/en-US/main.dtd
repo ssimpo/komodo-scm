@@ -4,7 +4,7 @@ author:
 license:
 	LGPL <http://www.gnu.org/licenses/lgpl.html>
 version:
-	0.2.0
+	0.2.1
 -->
 <!ENTITY svnk.label.repobrowser "Repo Browser">
 <!ENTITY svnk.label.repostatus "Check for updates">
