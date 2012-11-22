@@ -17,7 +17,7 @@ org.simpo.svnk.toolLoader = {
     logger:Components.classes["@mozilla.org/consoleservice;1"].getService(Components.interfaces.nsIConsoleService),
     toolbarbuttons:null,
     
-    showHideButtons:function() {
+    showHideButtons: function(){
         // summary:
         //      Show/Hide buttons on the toolbar based on preference setting.
         // note:
@@ -25,8 +25,8 @@ org.simpo.svnk.toolLoader = {
         //      dosen't run against other addon buttons or core Komodo buttons.
         
         var toolbarbuttons = org.simpo.svnk.toolLoader.toolbarbuttons;
-        for (var i = 0; i < toolbarbuttons.length; i++) {
-            if (toolbarbuttons[i].id.toLowerCase().indexOf("svnk") != -1) {
+        for(var i = 0; i < toolbarbuttons.length; i++){
+            if(toolbarbuttons[i].id.toLowerCase().indexOf("svnk") != -1){
                 var tBB = toolbarbuttons[i];
                 var pref = tBB.getAttribute('preference');
                 org.simpo.svnk.toolLoader._showHideButton(tBB,pref);
@@ -34,7 +34,7 @@ org.simpo.svnk.toolLoader = {
         }
     },
     
-    _showHideButton:function(button,pref) {
+    _showHideButton: function(button,pref){
         // summary:
         //      Show/Hide a toolbar button depending on the
         //      supplied preference-ID.
@@ -43,7 +43,7 @@ org.simpo.svnk.toolLoader = {
         // pref: string
         //      The preference-ID to base the show/hide on.
         
-        if (pref) {
+        if(pref){
             var defaultValue = !button.hidden;
             var prefValue = org.simpo.svnk.pref.getPrefBoolean(
                 pref, defaultValue
@@ -57,8 +57,8 @@ org.simpo.svnk.toolLoader = {
 org.simpo.svnk.toolLoader.toolbarbuttons = document.getElementsByTagName("toolbarbutton");
 
 window.addEventListener(
-    'load',org.simpo.svnk.toolLoader.showHideButtons,false
+    'load', org.simpo.svnk.toolLoader.showHideButtons, false
 );
 window.addEventListener(
-    'codeintel_activated_window',org.simpo.svnk.toolLoader.showHideButtons,true
+    'codeintel_activated_window', org.simpo.svnk.toolLoader.showHideButtons, true
 );

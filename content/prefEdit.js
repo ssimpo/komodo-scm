@@ -18,7 +18,7 @@ org.simpo.svnk.pref = {
     prefBrowser:Components.classes['@activestate.com/koPrefService;1'].getService(Components.interfaces.koIPrefService).prefs,
     logger:Components.classes["@mozilla.org/consoleservice;1"].getService(Components.interfaces.nsIConsoleService),
     
-    setPrefString:function(prefID,prefValue) {
+    setPrefString: function(prefID,prefValue){
         // summary:
         //      Set a Komodo String preference.
         // prefId: string
@@ -26,13 +26,13 @@ org.simpo.svnk.pref = {
         // prefValue: string
         //      The string value to set preference to.
         
-        if (parent.hPrefWindow) {
+        if(parent.hPrefWindow){
             parent.hPrefWindow.prefset.setStringPref(prefID, prefValue);
         }
         org.simpo.svnk.pref.prefBrowser.setStringPref(prefID, prefValue);
     },
     
-    setPrefBoolean:function(prefID,prefValue) {
+    setPrefBoolean: function(prefID,prefValue){
         // summary:
         //      Set a Komodo Boolean preference.
         // prefId: string
@@ -40,13 +40,13 @@ org.simpo.svnk.pref = {
         // prefValue: boolean
         //      The true|false value to set preference to.
         
-        if (parent.hPrefWindow) {
+        if(parent.hPrefWindow){
             parent.hPrefWindow.prefset.setBooleanPref(prefID, prefValue);
         }
         org.simpo.svnk.pref.prefBrowser.setBooleanPref(prefID, prefValue);
     },
     
-    getPrefString:function(prefID) {
+    getPrefString: function(prefID){
         // summary:
         //      Get a Komodo string preference.
         // prefID: string
@@ -54,9 +54,9 @@ org.simpo.svnk.pref = {
         // returns: string
         //      The preference value or blank-string if preference not found.
         
-        if (org.simpo.svnk.pref.prefBrowser.hasStringPref(prefID)) {
+        if(org.simpo.svnk.pref.prefBrowser.hasStringPref(prefID)){
             return org.simpo.svnk.pref.prefBrowser.getStringPref(prefID);
-        } else {
+        }else{
             return '';
         }
     },
@@ -72,10 +72,10 @@ org.simpo.svnk.pref = {
         // returns: boolean
         //      The preference value or defaultValue if preference not found.
         
-        if (org.simpo.svnk.pref.prefBrowser.hasBooleanPref(prefID)) {
+        if(org.simpo.svnk.pref.prefBrowser.hasBooleanPref(prefID)){
             return org.simpo.svnk.pref.prefBrowser.getBooleanPref(prefID);
-        } else {
-            if (parent.hPrefWindow) {
+        }else{
+            if(parent.hPrefWindow){
                 parent.hPrefWindow.prefset.setBooleanPref(prefID, defaultValue);
             }
             org.simpo.svnk.pref.setPrefBoolean(prefID, defaultValue);
@@ -85,6 +85,6 @@ org.simpo.svnk.pref = {
     }
 };
 
-} catch (e) {
+}catch(e){
     Components.utils.reportError(e);
 }
