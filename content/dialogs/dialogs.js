@@ -13,29 +13,38 @@ if (!org.simpo) org.simpo = {};
 if (!org.simpo.svnk) org.simpo.svnk = {};
 
 try {
-    org.simpo.svnk.dialogs = function(arguments) {
-        
-        this.returner = arguments[0];
-        
-        this.save = function() {
-            this.returner.command = 'save';
-            window.close();
-	}
+	org.simpo.svnk.dialogs = function(args){
+		var construct = {
+			"returner": null,
+			
+			constructor: function(args){
+				this.returner = args[0];
+			},
+			
+			save: function(){
+				this._setCommandClose('save');
+			},
+			
+			cancel: function() {
+				this._setCommandClose('cancel');
+			},
+			
+			ignore: function() {
+				this._setCommandClose('ignore');
+			},
+			
+			_setCommandClose: function(command){
+				this.returner.command = command;
+				window.close();
+			}
+		}
+		
+		construct.constructor(arguments);
+		return construct;
+	};
 	
-	this.cancel = function() {
-            this.returner.command = 'cancel';
-	    window.close();
-	}
-        
-        this.ignore = function() {
-            this.returner.command = 'ignore';
-	    window.close();
-	}
-        
-    }
-    
-    // Global namespace violation?
-    var SVNKDIALOG = new org.simpo.svnk.dialogs(window.arguments);
+	// Global namespace violation?
+	var SVNKDIALOG = new org.simpo.svnk.dialogs(window.arguments);
 } catch(e) {
-    Components.utils.reportError(e);    
+	Components.utils.reportError(e);    
 }
