@@ -81,7 +81,7 @@
     "}", 
     ""
   ], 
-  "version": "1.0.7", 
+  "version": "1.0.11", 
   "async": "0", 
   "type": "macro", 
   "icon": "chrome://famfamfamsilk/skin/icons/wrench.png"
