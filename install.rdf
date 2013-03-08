@@ -4,7 +4,7 @@
     <Description about="urn:mozilla:install-manifest">
         <em:id>svnk@simp.org</em:id>
         <em:name>SVN-K</em:name>
-        <em:version>0.2.1</em:version>
+        <em:version>0.2.1b</em:version>
         <em:description>Intergation of Subversion (SVN) with Komodo (via TortoiseSVN)</em:description>
         <em:creator>Stephen Simpson</em:creator>
         <em:homepageURL>http://simpo.org/node/32</em:homepageURL>
@@ -20,7 +20,7 @@
 		Intergration of TortoiseSVN into Komodo Edit.  Adds a number of buttons to the iconbar and to various right-click menu-items, which hook into SVN and the current project. Easy browsing of SVN repository; with differences between current file and subversion copy; Commit project files from inside Komodo; ...etc.
                 <em:id>{36E66FA0-F259-11D9-850E-000D935D3368}</em:id>
                 <em:minVersion>6.0</em:minVersion>
-                <em:maxVersion>7.*</em:maxVersion>
+                <em:maxVersion>8.*</em:maxVersion>
             </Description>
         </em:targetApplication>
         <em:targetApplication>
@@ -28,7 +28,7 @@
                 Intergration of TortoiseSVN into Komodo Edit.  Adds a number of buttons to the iconbar and to various right-click menu-items, which hook into SVN and the current project. Easy browsing of SVN repository; with differences between current file and subversion copy; Commit project files from inside Komodo; ...etc.
                 <em:id>{b1042fb5-9e9c-11db-b107-000d935d3368}</em:id>
                 <em:minVersion>6.1</em:minVersion>
-                <em:maxVersion>7.*</em:maxVersion>
+                <em:maxVersion>8.*</em:maxVersion>
             </Description>
         </em:targetApplication>
     </Description>
