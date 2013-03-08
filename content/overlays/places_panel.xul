@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://svnk/skin/svnk.css" type="text/css"?>
+<!DOCTYPE window PUBLIC "-//MOZILLA//DTD XUL V1.0//EN" "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" [
+	<!ENTITY % SVNKDTD SYSTEM "chrome://svnk/locale/main.dtd">
+	%SVNKDTD;
+]>
+<!--
+summary:
+	The main ovelay for the SVN-K addon.
+description:
+	The overlay, works by overlaying the main komodo.xul file.  It also adds against
+	content, which is added via the places addon.
+author:
+	Stephen Simpson <me@simpo.org>
+license:
+	LGPL <http://www.gnu.org/licenses/lgpl.html>
+version:
+	0.2.1
+-->
+<overlay id="SVNK-Places-Overlay"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	
+	<script
+		type="application/x-javascript"
+		src="chrome://svnk/content/functionBind.js"/>
+	<script
+		type="application/x-javascript"
+		src="chrome://svnk/content/svnk.js"/>
+	
+	<commandset id="allcommands">
+		
+		<command id="Tasks:SVNK-UpdateProject" oncommand="org.simpo.svnk.objects.main.update('project');"/>
+		<command id="Tasks:SVNK-UpdatePath" oncommand="org.simpo.svnk.objects.main.update('selectedpaths');"/>
+		<command id="Tasks:SVNK-UpdateActiveFile" oncommand="org.simpo.svnk.objects.main.update('activefile');"/>
+		<command id="Tasks:SVNK-UpdateActiveDirectory" oncommand="org.simpo.svnk.objects.main.update('activedirectory');"/>
+		
+		<command id="Tasks:SVNK-CommitProject" oncommand="org.simpo.svnk.objects.main.commit('project');"/>
+		<command id="Tasks:SVNK-CommitPath" oncommand="org.simpo.svnk.objects.main.commit('selectedpaths');"/>
+		<command id="Tasks:SVNK-CommitActiveFile" oncommand="org.simpo.svnk.objects.main.commit('activefile');"/>
+		<command id="Tasks:SVNK-CommitActiveDirectory" oncommand="org.simpo.svnk.objects.main.commit('activedirectory');"/>
+		
+		<command id="Tasks:SVNK-CompareDiffActiveFile" oncommand="org.simpo.svnk.objects.main.diff('activefile');"/>
+		<command id="Tasks:SVNK-CompareDiff" oncommand="org.simpo.svnk.objects.main.diff('selectedpaths');"/>
+		
+		<command id="Tasks:SVNK-ViewPropertiesActiveFile" oncommand="org.simpo.svnk.objects.main.viewProperties('activefile');"/>
+		<command id="Tasks:SVNK-ViewProperties" oncommand="org.simpo.svnk.objects.main.viewProperties('selectedpaths');"/>
+		
+		<command id="Tasks:SVNK-ViewLogActiveFile" oncommand="org.simpo.svnk.objects.main.viewLog('activefile');"/>
+		<command id="Tasks:SVNK-ViewLog" oncommand="org.simpo.svnk.objects.main.viewLog('selectedpaths');"/>
+		
+        <!--activefile_then_project-->
+		<command id="Tasks:SVNK-Rename" oncommand="org.simpo.svnk.objects.main.rename();"/>
+		
+		<command id="Tasks:SVNK-Revert" oncommand="org.simpo.svnk.objects.main.revert('selectedpaths');"/>
+		
+		<command id="Tasks:SVNK-Delete" oncommand="org.simpo.svnk.objects.main.delete('selectedpaths');"/>
+		
+		<command id="Tasks:SVNK-ShowAbout" oncommand="openDialog('chrome://svnk/content/dialogs/about.xul', 'about', 'chrome,modal,centerscreen');"/>
+	</commandset>
+ 
+	<!-- Context-menu for files and folders in the places view -->
+	<!-- NB: Places is actually a addon its-self -->
+	<menupopup id="places-files-popup">
+		<menu id="places-files-popup-SVNK" label="Version Control">
+			<menupopup id="places-files-popup-SVNK-popup">
+				<menuitem
+					id="places-files-popup-SVNK-Commit"
+					observes="Tasks:SVNK-CommitPath"
+					label="&svnk.label.commitpath;"
+					tooltiptext="&svnk.tooltip.commitpath;"
+					class="menuitem-iconic SVNK-Commit-Icon"
+					hideUnless="file folder"/>
+				<menuitem
+					id="places-files-popup-SVNK-Update"
+					observes="Tasks:SVNK-UpdatePath"
+					label="&svnk.label.updatepath;"
+					tooltiptext="&svnk.tooltip.updatepath;"
+					class="menuitem-iconic SVNK-Update-Icon"
+					hideUnless="file folder"/>
+				<menuitem
+					id="places-files-popup-SVNK-CompareDiff"
+					observes="Tasks:SVNK-CompareDiff"
+					label="&svnk.label.comparefile.long;"
+					tooltiptext="&svnk.tooltip.selected.comparefile;"
+					class="menuitem-iconic SVNK-Diff-Icon"
+					hideUnless="file folder"/>
+				<menuitem
+					id="places-files-popup-SVNK-ViewProperties"
+					observes="Tasks:SVNK-ViewProperties"
+					label="&svnk.label.viewproperties2.long;"
+					tooltiptext="&svnk.tooltip.selected.viewproperties;"
+					class="menuitem-iconic SVNK-Properties-Icon"
+					hideUnless="file folder"/>
+				<menuitem
+					id="places-files-popup-SVNK-Rename"
+					observes="Tasks:SVNK-Rename"
+					label="&svnk.label.rename;"
+					tooltiptext="&svnk.tooltip.selected.rename;"
+					class="menuitem-iconic SVNK-Rename-Icon"
+					hideUnless="file folder"
+					testHideIf="t:multipleSelection"/>
+				<menuitem
+					id="places-files-popup-SVNK-Revert"
+					observes="Tasks:SVNK-Revert"
+					label="&svnk.label.revert;"
+					tooltiptext="&svnk.tooltip.selected.revert;"
+					class="menuitem-iconic SVNK-Revert-Icon"
+					hideUnless="file folder"/>
+				<menuitem
+					id="places-files-popup-SVNK-Delete"
+					observes="Tasks:SVNK-Delete"
+					label="&svnk.label.delete;"
+					tooltiptext="&svnk.tooltip.selected.delete;"
+					class="menuitem-iconic SVNK-Delete-Icon"
+					hideUnless="file folder"/>
+				<menuitem
+					id="places-files-popup-SVNK-ShowAbout"
+					observes="Tasks:SVNK-ShowAbout"
+					label="&svnk.label.showabout;"
+					tooltiptext="&svnk.tooltip.showabout;"
+					class="menuitem-iconic"/>
+			</menupopup>
+		</menu>
+	</menupopup>
+</overlay>
