@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
-<?xml-stylesheet href="chrome://svnk/skin/svnk.css" type="text/css"?>
+<?xml-stylesheet href="chrome://komodoscm/skin/komodoscm.css" type="text/css"?>
 <!DOCTYPE window PUBLIC "-//MOZILLA//DTD XUL V1.0//EN" "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" [
-	<!ENTITY % SVNKDTD SYSTEM "chrome://svnk/locale/main.dtd">
-	%SVNKDTD;
+	<!ENTITY % KSCMDTD SYSTEM "chrome://komodoscm/locale/main.dtd">
+	%KSCMDTD;
 ]>
 <!--
 summary:
-	The main ovelay for the SVN-K addon.
+	The main ovelay for the KomodoSCM addon.
 description:
 	The overlay, works by overlaying the main komodo.xul file.  It also adds against
 	content, which is added via the places addon.
@@ -17,109 +17,109 @@ license:
 version:
 	0.2.1b
 -->
-<overlay id="SVNK-Places-Overlay"
+<overlay id="KSCM-Places-Overlay"
 	xmlns:html="http://www.w3.org/1999/xhtml"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 	
 	<script
 		type="application/x-javascript"
-		src="chrome://svnk/content/functionBind.js"/>
+		src="chrome://komodoscm/content/functionBind.js"/>
 	<script
 		type="application/x-javascript"
-		src="chrome://svnk/content/svnk.js"/>
+		src="chrome://komodoscm/content/komodoscm.js"/>
 	
 	<commandset id="allcommands">
 		
-		<command id="Tasks:SVNK-UpdateProject" oncommand="org.simpo.svnk.objects.main.update('project');"/>
-		<command id="Tasks:SVNK-UpdatePath" oncommand="org.simpo.svnk.objects.main.update('selectedpaths');"/>
-		<command id="Tasks:SVNK-UpdateActiveFile" oncommand="org.simpo.svnk.objects.main.update('activefile');"/>
-		<command id="Tasks:SVNK-UpdateActiveDirectory" oncommand="org.simpo.svnk.objects.main.update('activedirectory');"/>
+		<command id="Tasks:KSCM-UpdateProject" oncommand="org.simpo.komodoscm.objects.main.update('project');"/>
+		<command id="Tasks:KSCM-UpdatePath" oncommand="org.simpo.komodoscm.objects.main.update('selectedpaths');"/>
+		<command id="Tasks:KSCM-UpdateActiveFile" oncommand="org.simpo.komodoscm.objects.main.update('activefile');"/>
+		<command id="Tasks:KSCM-UpdateActiveDirectory" oncommand="org.simpo.komodoscm.objects.main.update('activedirectory');"/>
 		
-		<command id="Tasks:SVNK-CommitProject" oncommand="org.simpo.svnk.objects.main.commit('project');"/>
-		<command id="Tasks:SVNK-CommitPath" oncommand="org.simpo.svnk.objects.main.commit('selectedpaths');"/>
-		<command id="Tasks:SVNK-CommitActiveFile" oncommand="org.simpo.svnk.objects.main.commit('activefile');"/>
-		<command id="Tasks:SVNK-CommitActiveDirectory" oncommand="org.simpo.svnk.objects.main.commit('activedirectory');"/>
+		<command id="Tasks:KSCM-CommitProject" oncommand="org.simpo.komodoscm.objects.main.commit('project');"/>
+		<command id="Tasks:KSCM-CommitPath" oncommand="org.simpo.komodoscm.objects.main.commit('selectedpaths');"/>
+		<command id="Tasks:KSCM-CommitActiveFile" oncommand="org.simpo.komodoscm.objects.main.commit('activefile');"/>
+		<command id="Tasks:KSCM-CommitActiveDirectory" oncommand="org.simpo.komodoscm.objects.main.commit('activedirectory');"/>
 		
-		<command id="Tasks:SVNK-CompareDiffActiveFile" oncommand="org.simpo.svnk.objects.main.diff('activefile');"/>
-		<command id="Tasks:SVNK-CompareDiff" oncommand="org.simpo.svnk.objects.main.diff('selectedpaths');"/>
+		<command id="Tasks:KSCM-CompareDiffActiveFile" oncommand="org.simpo.komodoscm.objects.main.diff('activefile');"/>
+		<command id="Tasks:KSCM-CompareDiff" oncommand="org.simpo.komodoscm.objects.main.diff('selectedpaths');"/>
 		
-		<command id="Tasks:SVNK-ViewPropertiesActiveFile" oncommand="org.simpo.svnk.objects.main.viewProperties('activefile');"/>
-		<command id="Tasks:SVNK-ViewProperties" oncommand="org.simpo.svnk.objects.main.viewProperties('selectedpaths');"/>
+		<command id="Tasks:KSCM-ViewPropertiesActiveFile" oncommand="org.simpo.komodoscm.objects.main.viewProperties('activefile');"/>
+		<command id="Tasks:KSCM-ViewProperties" oncommand="org.simpo.komodoscm.objects.main.viewProperties('selectedpaths');"/>
 		
-		<command id="Tasks:SVNK-ViewLogActiveFile" oncommand="org.simpo.svnk.objects.main.viewLog('activefile');"/>
-		<command id="Tasks:SVNK-ViewLog" oncommand="org.simpo.svnk.objects.main.viewLog('selectedpaths');"/>
+		<command id="Tasks:KSCM-ViewLogActiveFile" oncommand="org.simpo.komodoscm.objects.main.viewLog('activefile');"/>
+		<command id="Tasks:KSCM-ViewLog" oncommand="org.simpo.komodoscm.objects.main.viewLog('selectedpaths');"/>
 		
         <!--activefile_then_project-->
-		<command id="Tasks:SVNK-Rename" oncommand="org.simpo.svnk.objects.main.rename();"/>
+		<command id="Tasks:KSCM-Rename" oncommand="org.simpo.komodoscm.objects.main.rename();"/>
 		
-		<command id="Tasks:SVNK-Revert" oncommand="org.simpo.svnk.objects.main.revert('selectedpaths');"/>
+		<command id="Tasks:KSCM-Revert" oncommand="org.simpo.komodoscm.objects.main.revert('selectedpaths');"/>
 		
-		<command id="Tasks:SVNK-Delete" oncommand="org.simpo.svnk.objects.main.delete('selectedpaths');"/>
+		<command id="Tasks:KSCM-Delete" oncommand="org.simpo.komodoscm.objects.main.delete('selectedpaths');"/>
 		
-		<command id="Tasks:SVNK-ShowAbout" oncommand="openDialog('chrome://svnk/content/dialogs/about.xul', 'about', 'chrome,modal,centerscreen');"/>
+		<command id="Tasks:KSCM-ShowAbout" oncommand="openDialog('chrome://komodoscm/content/dialogs/about.xul', 'about', 'chrome,modal,centerscreen');"/>
 	</commandset>
  
 	<!-- Context-menu for files and folders in the places view -->
 	<!-- NB: Places is actually a addon its-self -->
 	<menupopup id="places-files-popup">
-		<menu id="places-files-popup-SVNK" label="Version Control">
-			<menupopup id="places-files-popup-SVNK-popup">
+		<menu id="places-files-popup-KSCM" label="Version Control">
+			<menupopup id="places-files-popup-KSCM-popup">
 				<menuitem
-					id="places-files-popup-SVNK-Commit"
-					observes="Tasks:SVNK-CommitPath"
-					label="&svnk.label.commitpath;"
-					tooltiptext="&svnk.tooltip.commitpath;"
-					class="menuitem-iconic SVNK-Commit-Icon"
+					id="places-files-popup-KSCM-Commit"
+					observes="Tasks:KSCM-CommitPath"
+					label="&komodoscm.label.commitpath;"
+					tooltiptext="&komodoscm.tooltip.commitpath;"
+					class="menuitem-iconic KSCM-Commit-Icon"
 					hideUnless="file folder"/>
 				<menuitem
-					id="places-files-popup-SVNK-Update"
-					observes="Tasks:SVNK-UpdatePath"
-					label="&svnk.label.updatepath;"
-					tooltiptext="&svnk.tooltip.updatepath;"
-					class="menuitem-iconic SVNK-Update-Icon"
+					id="places-files-popup-KSCM-Update"
+					observes="Tasks:KSCM-UpdatePath"
+					label="&komodoscm.label.updatepath;"
+					tooltiptext="&komodoscm.tooltip.updatepath;"
+					class="menuitem-iconic KSCM-Update-Icon"
 					hideUnless="file folder"/>
 				<menuitem
-					id="places-files-popup-SVNK-CompareDiff"
-					observes="Tasks:SVNK-CompareDiff"
-					label="&svnk.label.comparefile.long;"
-					tooltiptext="&svnk.tooltip.selected.comparefile;"
-					class="menuitem-iconic SVNK-Diff-Icon"
+					id="places-files-popup-KSCM-CompareDiff"
+					observes="Tasks:KSCM-CompareDiff"
+					label="&komodoscm.label.comparefile.long;"
+					tooltiptext="&komodoscm.tooltip.selected.comparefile;"
+					class="menuitem-iconic KSCM-Diff-Icon"
 					hideUnless="file folder"/>
 				<menuitem
-					id="places-files-popup-SVNK-ViewProperties"
-					observes="Tasks:SVNK-ViewProperties"
-					label="&svnk.label.viewproperties2.long;"
-					tooltiptext="&svnk.tooltip.selected.viewproperties;"
-					class="menuitem-iconic SVNK-Properties-Icon"
+					id="places-files-popup-KSCM-ViewProperties"
+					observes="Tasks:KSCM-ViewProperties"
+					label="&komodoscm.label.viewproperties2.long;"
+					tooltiptext="&komodoscm.tooltip.selected.viewproperties;"
+					class="menuitem-iconic KSCM-Properties-Icon"
 					hideUnless="file folder"/>
 				<menuitem
-					id="places-files-popup-SVNK-Rename"
-					observes="Tasks:SVNK-Rename"
-					label="&svnk.label.rename;"
-					tooltiptext="&svnk.tooltip.selected.rename;"
-					class="menuitem-iconic SVNK-Rename-Icon"
+					id="places-files-popup-KSCM-Rename"
+					observes="Tasks:KSCM-Rename"
+					label="&komodoscm.label.rename;"
+					tooltiptext="&komodoscm.tooltip.selected.rename;"
+					class="menuitem-iconic KSCM-Rename-Icon"
 					hideUnless="file folder"
 					testHideIf="t:multipleSelection"/>
 				<menuitem
-					id="places-files-popup-SVNK-Revert"
-					observes="Tasks:SVNK-Revert"
-					label="&svnk.label.revert;"
-					tooltiptext="&svnk.tooltip.selected.revert;"
-					class="menuitem-iconic SVNK-Revert-Icon"
+					id="places-files-popup-KSCM-Revert"
+					observes="Tasks:KSCM-Revert"
+					label="&komodoscm.label.revert;"
+					tooltiptext="&komodoscm.tooltip.selected.revert;"
+					class="menuitem-iconic KSCM-Revert-Icon"
 					hideUnless="file folder"/>
 				<menuitem
-					id="places-files-popup-SVNK-Delete"
-					observes="Tasks:SVNK-Delete"
-					label="&svnk.label.delete;"
-					tooltiptext="&svnk.tooltip.selected.delete;"
-					class="menuitem-iconic SVNK-Delete-Icon"
+					id="places-files-popup-KSCM-Delete"
+					observes="Tasks:KSCM-Delete"
+					label="&komodoscm.label.delete;"
+					tooltiptext="&komodoscm.tooltip.selected.delete;"
+					class="menuitem-iconic KSCM-Delete-Icon"
 					hideUnless="file folder"/>
 				<menuitem
-					id="places-files-popup-SVNK-ShowAbout"
-					observes="Tasks:SVNK-ShowAbout"
-					label="&svnk.label.showabout;"
-					tooltiptext="&svnk.tooltip.showabout;"
+					id="places-files-popup-KSCM-ShowAbout"
+					observes="Tasks:KSCM-ShowAbout"
+					label="&komodoscm.label.showabout;"
+					tooltiptext="&komodoscm.tooltip.showabout;"
 					class="menuitem-iconic"/>
 			</menupopup>
 		</menu>

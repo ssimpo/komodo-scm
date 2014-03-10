@@ -1,0 +1,116 @@
+.KSCM-Project-Icon {
+    list-style-image: url("chrome://komodoscm/skin/images/project16x16.png");
+}
+
+.KSCM-Directory-Icon {
+    list-style-image: url("chrome://komodoscm/skin/images/directory16x16.png");
+}
+
+.KSCM-File-Icon {
+    list-style-image: url("chrome://komodoscm/skin/images/file16x16.png");
+}
+
+.KSCM-RepoBrowser-Icon {
+    list-style-image: url("chrome://komodoscm/skin/images/repobrowser16x16.png");
+}
+
+.KSCM-RepoStatus-Icon {
+    list-style-image: url("chrome://komodoscm/skin/images/repostatus16x16.png");
+}
+
+.KSCM-Commit-Icon {
+    list-style-image: url("chrome://komodoscm/skin/images/commit16x16.png");
+}
+
+.KSCM-CommitDirectory-Icon {
+    list-style-image: url("chrome://komodoscm/skin/images/commitDirectory16x16.png");
+}
+
+.KSCM-CommitProject-Icon {
+    list-style-image: url("chrome://komodoscm/skin/images/commitProject16x16.png");
+}
+
+.KSCM-Update-Icon {
+    list-style-image: url("chrome://komodoscm/skin/images/update16x16.png");
+}
+
+.KSCM-UpdateDirectory-Icon {
+    list-style-image: url("chrome://komodoscm/skin/images/updateDirectory16x16.png");
+}
+
+.KSCM-UpdateProject-Icon {
+    list-style-image: url("chrome://komodoscm/skin/images/updateProject16x16.png");
+}
+
+.KSCM-Diff-Icon {
+    list-style-image: url("chrome://komodoscm/skin/images/diff16x16.png");
+}
+
+.KSCM-Properties-Icon {
+    list-style-image: url("chrome://komodoscm/skin/images/properties16x16.png");
+}
+
+.KSCM-Log-Icon {
+    list-style-image: url("chrome://komodoscm/skin/images/log16x16.png");
+}
+
+.KSCM-Rename-Icon {
+    list-style-image: url("chrome://komodoscm/skin/images/rename16x16.png");
+}
+
+.KSCM-Delete-Icon {
+    list-style-image: url("chrome://komodoscm/skin/images/delete16x16.png");
+}
+
+.KSCM-Revert-Icon {
+    list-style-image: url("chrome://komodoscm/skin/images/revert16x16.png");
+}
+
+.KSCM-standardDialog-width {
+    width:400px;
+}
+
+.KSCM-standardPartDialog-width {
+    width:300px;
+}
+
+.KSCM-standardDialog-Margin {
+    margin:5px;
+}
+
+.KSCM-dialogWhiteBox {
+    background-color:#ffffff;padding:5px;border:1px solid #999999;
+}
+
+.KSCM-dialog-bigger {
+    font-size: larger;
+}
+
+.KSCM-dialog-smaller {
+    font-size: 0.9em;
+}
+
+.KSCM-option-toolbar-checkbox {
+    margin-left:20px;
+}
+
+.preferences-KSCM-pathToProc-textbox {
+    width:350px;
+}
+
+pre.plain {
+    padding:5px; font-family: sans-serif;
+}
+
+separator.groove-thin {
+    border-top: 1px solid #999999;
+    margin-top:5px;margin-bottom:10px;
+}
+
+treechildren::-moz-tree-row(red1) {
+    background-color: #ff9999;
+}
+
+treechildren::-moz-tree-row(yellow1) {
+    background-color: #ffff99;
+}

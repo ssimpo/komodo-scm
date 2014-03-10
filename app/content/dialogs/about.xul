@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
-<?xml-stylesheet href="chrome://svnk/skin/svnk.css" type="text/css"?>
+<?xml-stylesheet href="chrome://komodoscm/skin/komodoscm.css" type="text/css"?>
 <!DOCTYPE window PUBLIC "-//MOZILLA//DTD XUL V1.0//EN" "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" [
-	<!ENTITY % SVNKDTD SYSTEM "chrome://svnk/locale/main.dtd">
-	%SVNKDTD;
+	<!ENTITY % KSCMDTD SYSTEM "chrome://komodoscm/locale/main.dtd">
+	%KSCMDTD;
 ]>
 <!--
 summary:
-	The main ovelay for the SVN-K addon.
+	The main ovelay for the KomodoSCM addon.
 description:
 	The overlay, works by overlaying the main komodo.xul file.  It also adds against
 	content, which is added via the places addon.
@@ -19,9 +19,9 @@ version:
 	0.2.1b
 -->
 <dialog
-    id="SVNK-aboutDialog"
-    class="SVNK-standardDialog-width"
-    title="SVN-K addon"
+    id="KSCM-aboutDialog"
+    class="KSCM-standardDialog-width"
+    title="KomodoSCM addon"
     buttons="accept"
     buttonlabelaccept="OK"
     xmlns:html="http://www.w3.org/1999/xhtml"
@@ -34,12 +34,12 @@ version:
 
 <vbox>
     <hbox>
-        <image src='chrome://svnk/skin/images/icon64x64.png' width='64' height='64'/>
+        <image src='chrome://komodoscm/skin/images/icon64x64.png' width='64' height='64'/>
     
-        <vbox class="SVNK-standardPartDialog-width">
-            <label value="SVN-K" class="header SVNK-about-header" />
-            <description class="SVNK-standardPartDialog-width SVNK-dialog-smaller">
-		SVN-K is an addon for Komodo IDE and Komodo Edit, which intergrates the editors with SVN.  The current setup issues commands via TortoiseSVN allowing easy use of Tortoise's easy-to-use GUI.
+        <vbox class="KSCM-standardPartDialog-width">
+            <label value="KomodoSCM" class="header KSCM-about-header" />
+            <description class="KSCM-standardPartDialog-width KSCM-dialog-smaller">
+		KomodoSCM is an addon for Komodo IDE and Komodo Edit, which intergrates the editors with SVN.  The current setup issues commands via TortoiseSVN allowing easy use of Tortoise's easy-to-use GUI.
 	    </description><html:br/><html:br/>
 	    <image
 		src="https://www.paypalobjects.com/WEBSCR-640-20110429-1/en_GB/i/btn/btn_donate_LG.gif"

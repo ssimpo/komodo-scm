@@ -1,5 +1,5 @@
 // summary:
-//      Main JavaScript content for SVN-K.
+//      Main JavaScript content for KomodoSCM.
 // author:
 //      Stephen Simpson <me@simpo.org>
 // license:
@@ -10,10 +10,10 @@
 // Non violation of global namespace.
 if (!org) var org = {};
 if (!org.simpo) org.simpo = {};
-if (!org.simpo.svnk) org.simpo.svnk = {};
-if (!org.simpo.svnk.objects) org.simpo.svnk.objects = {};
+if (!org.simpo.komodoscm) org.simpo.komodoscm = {};
+if (!org.simpo.komodoscm.objects) org.simpo.komodoscm.objects = {};
 
-org.simpo.svnk.toolLoader = {
+org.simpo.komodoscm.toolLoader = {
     logger:Components.classes["@mozilla.org/consoleservice;1"].getService(Components.interfaces.nsIConsoleService),
     toolbarbuttons:null,
     
@@ -21,15 +21,15 @@ org.simpo.svnk.toolLoader = {
         // summary:
         //      Show/Hide buttons on the toolbar based on preference setting.
         // note:
-        //      Will only execute against IDs containing 'svnk' so that it
+        //      Will only execute against IDs containing 'komodoscm' so that it
         //      dosen't run against other addon buttons or core Komodo buttons.
         
-        var toolbarbuttons = org.simpo.svnk.toolLoader.toolbarbuttons;
+        var toolbarbuttons = org.simpo.komodoscm.toolLoader.toolbarbuttons;
         for(var i = 0; i < toolbarbuttons.length; i++){
-            if(toolbarbuttons[i].id.toLowerCase().indexOf("svnk") != -1){
+            if(toolbarbuttons[i].id.toLowerCase().indexOf("komodoscm") != -1){
                 var tBB = toolbarbuttons[i];
                 var pref = tBB.getAttribute('preference');
-                org.simpo.svnk.toolLoader._showHideButton(tBB,pref);
+                org.simpo.komodoscm.toolLoader._showHideButton(tBB,pref);
             } 
         }
     },
@@ -45,7 +45,7 @@ org.simpo.svnk.toolLoader = {
         
         if(pref){
             var defaultValue = !button.hidden;
-            var prefValue = org.simpo.svnk.pref.getPrefBoolean(
+            var prefValue = org.simpo.komodoscm.pref.getPrefBoolean(
                 pref, defaultValue
             );
             button.hidden = !prefValue; 
@@ -54,11 +54,11 @@ org.simpo.svnk.toolLoader = {
     
 };
 
-org.simpo.svnk.toolLoader.toolbarbuttons = document.getElementsByTagName("toolbarbutton");
+org.simpo.komodoscm.toolLoader.toolbarbuttons = document.getElementsByTagName("toolbarbutton");
 
 window.addEventListener(
-    'load', org.simpo.svnk.toolLoader.showHideButtons, false
+    'load', org.simpo.komodoscm.toolLoader.showHideButtons, false
 );
 window.addEventListener(
-    'codeintel_activated_window', org.simpo.svnk.toolLoader.showHideButtons, true
+    'codeintel_activated_window', org.simpo.komodoscm.toolLoader.showHideButtons, true
 );

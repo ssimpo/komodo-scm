@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin" type="text/css"?>
+<?xml-stylesheet href="chrome://komodo/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://komodo/skin/global/global.css" type="text/css"?>
+<?xml-stylesheet href="chrome://komodo/skin/bindings/buttons.css" type="text/css"?>
+<?xml-stylesheet href="chrome://komodoscm/skin/komodoscm.css" type="text/css"?>
+<!DOCTYPE window PUBLIC "-//MOZILLA//DTD XUL V1.0//EN" "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" [
+	<!ENTITY % KSCMDTD SYSTEM "chrome://komodoscm/locale/main.dtd">
+	%KSCMDTD;
+]>
+<!--
+summary:
+	The preferences form for KomodoSCM addon.
+author:
+	Stephen Simpson <me@simpo.org>
+license:
+	LGPL <http://www.gnu.org/licenses/lgpl.html>
+version:
+	0.2.1b
+-->
+<page
+    xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    title="KomodoSCM Preferences"
+    orient="vertical">
+	
+	<script type="application/x-javascript;version=1.7"
+		src="chrome://komodo/content/library/logging.js" />
+    <script type="application/x-javascript;version=1.7"
+		src="chrome://komodo/content/library/filepickers.js" />
+	
+	<groupbox orient="vertical" width="400px;">
+		<caption label="&komodoscm.label.prefTitle;"/>
+		<vbox class="KSCM-standardDialog-Margin">
+			<label control="preferences-KSCM-pathToProc" value="&komodoscm.label.prefPathToProc;" />
+			<hbox>
+				<textbox
+					id="KSCM-option-pathToProc"
+                    preference="komodoscm.pathtoproc"
+					class="KSCM-standardPartDialog-width"
+					value="" />
+				<button label="&komodoscm.label.prefBrowseButton;" oncommand="org.simpo.komodoscm.options.browse();"/>
+			</hbox>
+			<description class="KSCM-standardPartDialog-width">&komodoscm.description.pathtoproc;</description>
+		</vbox>
+	</groupbox>
+    
+	<groupbox orient="vertical" width="400px">
+		<caption label="Toolbar icons"/>
+		<grid>
+		<columns>
+			<column/>
+			<column/>
+			<column/>
+			<column/>
+		</columns><rows>
+		<row>
+			<checkbox
+				id="KSCM-option-toolbar-repoBrowser"
+                preference="komodoscm.toolbarRepoBrowser"
+				checked="true"
+				class="KSCM-option-toolbar-checkbox" />
+			<hbox>
+				<image class="KSCM-RepoBrowser-Icon" width="16" height="16" />
+				<label value="&komodoscm.label.repobrowser;" />
+			</hbox>
+			<checkbox
+				id="KSCM-option-toolbar-commit"
+                preference="komodoscm.toolbarCommitSelect"
+				checked="true"
+				class="KSCM-option-toolbar-checkbox" />
+			<hbox>
+				<image class="KSCM-Commit-Icon" width="16" height="16" />
+				<label value="&komodoscm.label.commit;" />
+			</hbox>
+		</row><row>
+            <checkbox
+				id="KSCM-option-toolbar-update"
+                preference="komodoscm.toolbarUpdateSelect"
+				checked="true"
+				class="KSCM-option-toolbar-checkbox" />
+			<hbox>
+				<image class="KSCM-Update-Icon" width="16" height="16" />
+				<label value="&komodoscm.label.update;" />
+			</hbox>
+			<checkbox
+				id="KSCM-option-toolbar-diff"
+                preference="komodoscm.toolbarDiff"
+				checked="true"
+				class="KSCM-option-toolbar-checkbox" />
+			<hbox>
+				<image class="KSCM-Diff-Icon" width="16" height="16" />
+				<label value="&komodoscm.label.comparefile;" />
+			</hbox>
+        </row><row>
+            <checkbox
+				id="KSCM-option-toolbar-properties"
+                preference="komodoscm.toolbarProperties"
+				checked="true"
+				class="KSCM-option-toolbar-checkbox" />
+			<hbox>
+				<image class="KSCM-Properties-Icon" width="16" height="16" />
+				<label value="&komodoscm.label.viewproperties;" />
+			</hbox>
+			<checkbox
+				id="KSCM-option-toolbar-log"
+                preference="komodoscm.toolbarLog"
+				checked="true"
+				class="KSCM-option-toolbar-checkbox" />
+			<hbox>
+				<image class="KSCM-Log-Icon" width="16" height="16" />
+				<label value="&komodoscm.label.viewlogentry;" />
+			</hbox>
+		</row><row>
+			<checkbox
+				id="KSCM-option-toolbar-repoStatus"
+                preference="komodoscm.toolbarRepoStatus"
+				checked="false"
+				class="KSCM-option-toolbar-checkbox" />
+			<hbox>
+				<image class="KSCM-RepoStatus-Icon" width="16" height="16" />
+				<label value="&komodoscm.label.repostatus;" />
+			</hbox>
+			<hbox></hbox>
+			<hbox></hbox>
+		</row>
+		</rows></grid>
+	</groupbox>
+	
+	<script
+		type="application/x-javascript"
+		src="chrome://komodoscm/content/functionBind.js"/>
+	<script
+		type="application/x-javascript"
+		src="chrome://komodoscm/content/prefEdit.js"/>
+	<script
+		type="application/x-javascript"
+		src="chrome://komodoscm/content/pref-komodoscm.js"/>
+</page>

@@ -1435,7 +1435,7 @@
     <g
        id="g3608-7"
        transform="matrix(0.1440726,0.194183,0.17306033,-0.16165721,-78.87706,734.09989)"
-       inkscape:export-filename="H:\KomodoEdit\Komodo Exts\SVNK\skin\default\images\commit.png"
+       inkscape:export-filename="H:\KomodoEdit\Komodo Exts\KSCM\skin\default\images\commit.png"
        inkscape:export-xdpi="5.7567582"
        inkscape:export-ydpi="5.7567582"
        style="fill:url(#radialGradient3671);fill-opacity:1;stroke:#005d00;stroke-opacity:1">
@@ -1444,14 +1444,14 @@
          d="m 1549.3845,1467.8024 -194.5,0.031 c 34.266,198.9346 116.328,398.3753 -16.82,543.1053 l -204.2113,15.7385 c 80.2339,-191.5748 89.7283,-341.1484 0,-558.8438 l -193.49998,-0.625 152.56248,-216.4375 152.5938,-216.4687 151.9375,216.75 151.9375,216.75 0,0 z"
          id="path2820-4"
          sodipodi:nodetypes="ccccccccccc"
-         inkscape:export-filename="H:\KomodoEdit\Komodo Exts\SVNK\skin\default\images\update.png"
+         inkscape:export-filename="H:\KomodoEdit\Komodo Exts\KSCM\skin\default\images\update.png"
          inkscape:export-xdpi="5.7567582"
          inkscape:export-ydpi="5.7567582" />
     </g>
     <g
        id="g4015"
        transform="matrix(0.47423931,0,0,0.397903,270.17786,-32.903418)"
-       inkscape:export-filename="H:\KomodoEdit\Komodo Exts\SVNK\skin\default\images\diff.png"
+       inkscape:export-filename="H:\KomodoEdit\Komodo Exts\KSCM\skin\default\images\diff.png"
        inkscape:export-xdpi="7.1962848"
        inkscape:export-ydpi="7.1962848">
       <g
@@ -1593,7 +1593,7 @@
     <g
        id="g4212"
        transform="matrix(0.37594195,0,0,0.38605668,508.62638,237.4904)"
-       inkscape:export-filename="H:\KomodoEdit\Komodo Exts\SVNK\skin\default\images\repobrowser.png"
+       inkscape:export-filename="H:\KomodoEdit\Komodo Exts\KSCM\skin\default\images\repobrowser.png"
        inkscape:export-xdpi="9.5983057"
        inkscape:export-ydpi="9.5983057">
       <g
@@ -1649,7 +1649,7 @@
     </g>
     <g
        id="g4503"
-       inkscape:export-filename="H:\KomodoEdit\Komodo Exts\SVNK\skin\default\images\properties.png"
+       inkscape:export-filename="H:\KomodoEdit\Komodo Exts\KSCM\skin\default\images\properties.png"
        inkscape:export-xdpi="9.6000004"
        inkscape:export-ydpi="9.6000004"
        transform="matrix(0.51512678,0,0,0.51512678,-11.980176,502.38597)">
@@ -1819,7 +1819,7 @@
            style="font-size:144px">It means that TortoiseSVN is hooked in with the IDE. </flowPara></flowRoot>    </g>
     <g
        id="g4955"
-       inkscape:export-filename="H:\KomodoEdit\Komodo Exts\SVNK\skin\default\images\log.png"
+       inkscape:export-filename="H:\KomodoEdit\Komodo Exts\KSCM\skin\default\images\log.png"
        inkscape:export-xdpi="9.6000004"
        inkscape:export-ydpi="9.6000004"
        transform="matrix(0.55104331,0,0,0.55104331,11.67287,-1.1842661)">
@@ -1929,7 +1929,7 @@
     <g
        id="g3070"
        transform="matrix(0.9578008,0,0,0.80426717,-483.42182,531.20246)"
-       inkscape:export-filename="H:\Komodo Ext\SVNK\skin\default\images\rename.png"
+       inkscape:export-filename="H:\Komodo Ext\KSCM\skin\default\images\rename.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300">
       <g
@@ -1997,7 +1997,7 @@
     </g>
     <g
        id="g3836"
-       inkscape:export-filename="H:\Komodo Ext\SVNK\skin\default\images\delete16x16.png"
+       inkscape:export-filename="H:\Komodo Ext\KSCM\skin\default\images\delete16x16.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"
        transform="translate(-777.14287,217.14286)">
@@ -2022,7 +2022,7 @@
     </g>
     <g
        id="g4060"
-       inkscape:export-filename="H:\Komodo Ext\SVNK\skin\default\images\1con16x16.png"
+       inkscape:export-filename="H:\Komodo Ext\KSCM\skin\default\images\1con16x16.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"
        transform="translate(-57.142857,-202.85714)">
@@ -2104,13 +2104,13 @@
          style="fill:url(#radialGradient3671-8);fill-opacity:1;stroke:#005d00;stroke-opacity:1"
          inkscape:export-ydpi="5.7567582"
          inkscape:export-xdpi="5.7567582"
-         inkscape:export-filename="H:\KomodoEdit\Komodo Exts\SVNK\skin\default\images\commit.png"
+         inkscape:export-filename="H:\KomodoEdit\Komodo Exts\KSCM\skin\default\images\commit.png"
          transform="matrix(0.194183,-0.1440726,-0.16165721,-0.17306033,1087.8273,836.2642)"
          id="g3608-7-2">
         <path
            inkscape:export-ydpi="5.7567582"
            inkscape:export-xdpi="5.7567582"
-           inkscape:export-filename="H:\KomodoEdit\Komodo Exts\SVNK\skin\default\images\update.png"
+           inkscape:export-filename="H:\KomodoEdit\Komodo Exts\KSCM\skin\default\images\update.png"
            sodipodi:nodetypes="ccccccccccc"
            id="path2820-4-3"
            d="m 1549.3845,1467.8024 -194.5,0.031 c 34.266,198.9346 116.328,398.3753 -16.82,543.1053 l -204.2113,15.7385 c 80.2339,-191.5748 89.7283,-341.1484 0,-558.8438 l -193.49998,-0.625 152.56248,-216.4375 152.5938,-216.4687 151.9375,216.75 151.9375,216.75 0,0 z"
@@ -2120,7 +2120,7 @@
     <g
        id="g3608-7-1"
        transform="matrix(0.1440726,0.194183,0.17306033,-0.16165721,564.6694,917.33242)"
-       inkscape:export-filename="H:\KomodoEdit\Komodo Exts\SVNK\skin\default\images\commit.png"
+       inkscape:export-filename="H:\KomodoEdit\Komodo Exts\KSCM\skin\default\images\commit.png"
        inkscape:export-xdpi="5.7567582"
        inkscape:export-ydpi="5.7567582"
        style="fill:url(#radialGradient3161);fill-opacity:1;stroke:#005d00;stroke-opacity:1">
@@ -2129,26 +2129,26 @@
          d="m 1549.3845,1467.8024 -194.5,0.031 c 34.266,198.9346 116.328,398.3753 -16.82,543.1053 l -204.2113,15.7385 c 80.2339,-191.5748 89.7283,-341.1484 0,-558.8438 l -193.49998,-0.625 152.56248,-216.4375 152.5938,-216.4687 151.9375,216.75 151.9375,216.75 0,0 z"
          id="path2820-4-4"
          sodipodi:nodetypes="ccccccccccc"
-         inkscape:export-filename="H:\KomodoEdit\Komodo Exts\SVNK\skin\default\images\update.png"
+         inkscape:export-filename="H:\KomodoEdit\Komodo Exts\KSCM\skin\default\images\update.png"
          inkscape:export-xdpi="5.7567582"
          inkscape:export-ydpi="5.7567582" />
     </g>
     <g
        id="g3947"
-       inkscape:export-filename="H:\Komodo Ext\SVNK\skin\default\images\updateProject16x16.png"
+       inkscape:export-filename="H:\Komodo Ext\KSCM\skin\default\images\updateProject16x16.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300">
       <g
          style="fill:url(#radialGradient3204);fill-opacity:1;stroke:#005d00;stroke-opacity:1"
          inkscape:export-ydpi="5.7567582"
          inkscape:export-xdpi="5.7567582"
-         inkscape:export-filename="H:\KomodoEdit\Komodo Exts\SVNK\skin\default\images\commit.png"
+         inkscape:export-filename="H:\KomodoEdit\Komodo Exts\KSCM\skin\default\images\commit.png"
          transform="matrix(0.1440726,0.194183,0.17306033,-0.16165721,81.81226,928.76099)"
          id="g3608-7-8">
         <path
            inkscape:export-ydpi="5.7567582"
            inkscape:export-xdpi="5.7567582"
-           inkscape:export-filename="H:\KomodoEdit\Komodo Exts\SVNK\skin\default\images\update.png"
+           inkscape:export-filename="H:\KomodoEdit\Komodo Exts\KSCM\skin\default\images\update.png"
            sodipodi:nodetypes="ccccccccccc"
            id="path2820-4-8"
            d="m 1549.3845,1467.8024 -194.5,0.031 c 34.266,198.9346 116.328,398.3753 -16.82,543.1053 l -204.2113,15.7385 c 80.2339,-191.5748 89.7283,-341.1484 0,-558.8438 l -193.49998,-0.625 152.56248,-216.4375 152.5938,-216.4687 151.9375,216.75 151.9375,216.75 0,0 z"
@@ -2158,13 +2158,13 @@
          style="fill:url(#radialGradient3165);fill-opacity:1;stroke:#005d00;stroke-opacity:1"
          inkscape:export-ydpi="5.7567582"
          inkscape:export-xdpi="5.7567582"
-         inkscape:export-filename="H:\KomodoEdit\Komodo Exts\SVNK\skin\default\images\commit.png"
+         inkscape:export-filename="H:\KomodoEdit\Komodo Exts\KSCM\skin\default\images\commit.png"
          transform="matrix(0.19755816,0.13940847,0.11384711,-0.20765781,140.06206,1083.4719)"
          id="g3608-7-27">
         <path
            inkscape:export-ydpi="5.7567582"
            inkscape:export-xdpi="5.7567582"
-           inkscape:export-filename="H:\KomodoEdit\Komodo Exts\SVNK\skin\default\images\update.png"
+           inkscape:export-filename="H:\KomodoEdit\Komodo Exts\KSCM\skin\default\images\update.png"
            sodipodi:nodetypes="ccccccccccc"
            id="path2820-4-9"
            d="m 1549.3845,1467.8024 -194.5,0.031 c 34.266,198.9346 116.328,398.3753 -16.82,543.1053 l -204.2113,15.7385 c 80.2339,-191.5748 89.7283,-341.1484 0,-558.8438 l -193.49998,-0.625 152.56248,-216.4375 152.5938,-216.4687 151.9375,216.75 151.9375,216.75 0,0 z"
@@ -2174,20 +2174,20 @@
     <g
        transform="matrix(-1,0,0,-1,1441.8616,1619.5819)"
        id="g3947-7"
-       inkscape:export-filename="H:\Komodo Ext\SVNK\skin\default\images\commitProject16x16.png"
+       inkscape:export-filename="H:\Komodo Ext\KSCM\skin\default\images\commitProject16x16.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300">
       <g
          style="fill:url(#radialGradient3204-1);fill-opacity:1;stroke:#005d00;stroke-opacity:1"
          inkscape:export-ydpi="5.7567582"
          inkscape:export-xdpi="5.7567582"
-         inkscape:export-filename="H:\KomodoEdit\Komodo Exts\SVNK\skin\default\images\commit.png"
+         inkscape:export-filename="H:\KomodoEdit\Komodo Exts\KSCM\skin\default\images\commit.png"
          transform="matrix(0.1440726,0.194183,0.17306033,-0.16165721,81.81226,928.76099)"
          id="g3608-7-8-1">
         <path
            inkscape:export-ydpi="5.7567582"
            inkscape:export-xdpi="5.7567582"
-           inkscape:export-filename="H:\KomodoEdit\Komodo Exts\SVNK\skin\default\images\update.png"
+           inkscape:export-filename="H:\KomodoEdit\Komodo Exts\KSCM\skin\default\images\update.png"
            sodipodi:nodetypes="ccccccccccc"
            id="path2820-4-8-1"
            d="m 1549.3845,1467.8024 -194.5,0.031 c 34.266,198.9346 116.328,398.3753 -16.82,543.1053 l -204.2113,15.7385 c 80.2339,-191.5748 89.7283,-341.1484 0,-558.8438 l -193.49998,-0.625 152.56248,-216.4375 152.5938,-216.4687 151.9375,216.75 151.9375,216.75 0,0 z"
@@ -2197,13 +2197,13 @@
          style="fill:url(#radialGradient3998);fill-opacity:1;stroke:#005d00;stroke-opacity:1"
          inkscape:export-ydpi="5.7567582"
          inkscape:export-xdpi="5.7567582"
-         inkscape:export-filename="H:\KomodoEdit\Komodo Exts\SVNK\skin\default\images\commit.png"
+         inkscape:export-filename="H:\KomodoEdit\Komodo Exts\KSCM\skin\default\images\commit.png"
          transform="matrix(0.19755816,0.13940847,0.11384711,-0.20765781,140.06206,1083.4719)"
          id="g3608-7-27-5">
         <path
            inkscape:export-ydpi="5.7567582"
            inkscape:export-xdpi="5.7567582"
-           inkscape:export-filename="H:\KomodoEdit\Komodo Exts\SVNK\skin\default\images\update.png"
+           inkscape:export-filename="H:\KomodoEdit\Komodo Exts\KSCM\skin\default\images\update.png"
            sodipodi:nodetypes="ccccccccccc"
            id="path2820-4-9-2"
            d="m 1549.3845,1467.8024 -194.5,0.031 c 34.266,198.9346 116.328,398.3753 -16.82,543.1053 l -204.2113,15.7385 c 80.2339,-191.5748 89.7283,-341.1484 0,-558.8438 l -193.49998,-0.625 152.56248,-216.4375 152.5938,-216.4687 151.9375,216.75 151.9375,216.75 0,0 z"
@@ -2212,7 +2212,7 @@
     </g>
     <g
        id="g4108"
-       inkscape:export-filename="H:\Komodo Ext\SVNK\skin\default\images\updateDirectory.png"
+       inkscape:export-filename="H:\Komodo Ext\KSCM\skin\default\images\updateDirectory.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"
        transform="translate(77.142857,-78.505202)">
@@ -2242,13 +2242,13 @@
          style="fill:url(#radialGradient3671-7);fill-opacity:1;stroke:#005d00;stroke-opacity:1"
          inkscape:export-ydpi="5.7567582"
          inkscape:export-xdpi="5.7567582"
-         inkscape:export-filename="H:\KomodoEdit\Komodo Exts\SVNK\skin\default\images\commit.png"
+         inkscape:export-filename="H:\KomodoEdit\Komodo Exts\KSCM\skin\default\images\commit.png"
          transform="matrix(0.1440726,0.194183,0.17306033,-0.16165721,-299.6163,1246.187)"
          id="g3608-7-82">
         <path
            inkscape:export-ydpi="5.7567582"
            inkscape:export-xdpi="5.7567582"
-           inkscape:export-filename="H:\KomodoEdit\Komodo Exts\SVNK\skin\default\images\update.png"
+           inkscape:export-filename="H:\KomodoEdit\Komodo Exts\KSCM\skin\default\images\update.png"
            sodipodi:nodetypes="ccccccccccc"
            id="path2820-4-45"
            d="m 1549.3845,1467.8024 -194.5,0.031 c 34.266,198.9346 116.328,398.3753 -16.82,543.1053 l -204.2113,15.7385 c 80.2339,-191.5748 89.7283,-341.1484 0,-558.8438 l -193.49998,-0.625 152.56248,-216.4375 152.5938,-216.4687 151.9375,216.75 151.9375,216.75 0,0 z"
@@ -2258,7 +2258,7 @@
     </g>
     <g
        id="g4115"
-       inkscape:export-filename="H:\Komodo Ext\SVNK\skin\default\images\commitDirectory.png"
+       inkscape:export-filename="H:\Komodo Ext\KSCM\skin\default\images\commitDirectory.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300">
       <g
@@ -2287,13 +2287,13 @@
          style="fill:url(#radialGradient3671-7-5);fill-opacity:1;stroke:#005d00;stroke-opacity:1"
          inkscape:export-ydpi="5.7567582"
          inkscape:export-xdpi="5.7567582"
-         inkscape:export-filename="H:\KomodoEdit\Komodo Exts\SVNK\skin\default\images\commit.png"
+         inkscape:export-filename="H:\KomodoEdit\Komodo Exts\KSCM\skin\default\images\commit.png"
          transform="matrix(-0.1440726,-0.194183,-0.17306033,0.16165721,1055.3036,1354.642)"
          id="g3608-7-82-1">
         <path
            inkscape:export-ydpi="5.7567582"
            inkscape:export-xdpi="5.7567582"
-           inkscape:export-filename="H:\KomodoEdit\Komodo Exts\SVNK\skin\default\images\update.png"
+           inkscape:export-filename="H:\KomodoEdit\Komodo Exts\KSCM\skin\default\images\update.png"
            sodipodi:nodetypes="ccccccccccc"
            id="path2820-4-45-4"
            d="m 1549.3845,1467.8024 -194.5,0.031 c 34.266,198.9346 116.328,398.3753 -16.82,543.1053 l -204.2113,15.7385 c 80.2339,-191.5748 89.7283,-341.1484 0,-558.8438 l -193.49998,-0.625 152.56248,-216.4375 152.5938,-216.4687 151.9375,216.75 151.9375,216.75 0,0 z"
@@ -2303,7 +2303,7 @@
     <g
        id="g4314"
        transform="translate(-28.571429,88.571431)"
-       inkscape:export-filename="H:\Komodo Ext\SVNK\skin\default\images\project.png"
+       inkscape:export-filename="H:\Komodo Ext\KSCM\skin\default\images\project.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300">
       <g
@@ -2401,7 +2401,7 @@
     </g>
     <g
        id="g4219"
-       inkscape:export-filename="H:\Komodo Ext\SVNK\skin\default\images\directory.png"
+       inkscape:export-filename="H:\Komodo Ext\KSCM\skin\default\images\directory.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300">
       <rect
@@ -2425,13 +2425,13 @@
     </g>
     <g
        id="g4247"
-       inkscape:export-filename="H:\Komodo Ext\SVNK\skin\default\images\project.png"
+       inkscape:export-filename="H:\Komodo Ext\KSCM\skin\default\images\project.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300">
       <g
          inkscape:export-ydpi="300"
          inkscape:export-xdpi="300"
-         inkscape:export-filename="H:\Komodo Ext\SVNK\skin\default\images\file.png"
+         inkscape:export-filename="H:\Komodo Ext\KSCM\skin\default\images\file.png"
          transform="matrix(0.47042212,0,0,0.47042212,-597.8764,172.65554)"
          id="g3808-7-0-6-2">
         <rect
@@ -2480,7 +2480,7 @@
       <g
          inkscape:export-ydpi="300"
          inkscape:export-xdpi="300"
-         inkscape:export-filename="H:\Komodo Ext\SVNK\skin\default\images\directory.png"
+         inkscape:export-filename="H:\Komodo Ext\KSCM\skin\default\images\directory.png"
          id="g4219-0"
          transform="translate(88.571445,-407.14288)">
         <rect
