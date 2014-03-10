@@ -3,14 +3,14 @@
 <?xml-stylesheet href="chrome://komodo/skin/" type="text/css"?>
 <?xml-stylesheet href="chrome://komodo/skin/global/global.css" type="text/css"?>
 <?xml-stylesheet href="chrome://komodo/skin/bindings/buttons.css" type="text/css"?>
-<?xml-stylesheet href="chrome://svnk/skin/svnk.css" type="text/css"?>
+<?xml-stylesheet href="chrome://komodoscm/skin/komodoscm.css" type="text/css"?>
 <!DOCTYPE window PUBLIC "-//MOZILLA//DTD XUL V1.0//EN" "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" [
-	<!ENTITY % SVNKDTD SYSTEM "chrome://svnk/locale/main.dtd">
-	%SVNKDTD;
+	<!ENTITY % KSCMDTD SYSTEM "chrome://komodoscm/locale/main.dtd">
+	%KSCMDTD;
 ]>
 <!--
 summary:
-	The preferences form for SVN-K addon.
+	The preferences form for KomodoSCM addon.
 author:
 	Stephen Simpson <me@simpo.org>
 license:
@@ -22,15 +22,15 @@ version:
     xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
     xmlns:html="http://www.w3.org/1999/xhtml"
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-    title="SVN-K Preferences"
+    title="KomodoSCM Preferences"
     orient="vertical">
     
     <iframe
-        src="chrome://svnk/content/pref-svnk.xul"
+        src="chrome://komodoscm/content/pref-komodoscm.xul"
         width="415" height="300"
         type="chrome" />
     
     <hbox align="right" style="margin-top:5px">
-        <button label="&svnk.button.Okay;" onclick="parent.close();"></button>
+        <button label="&komodoscm.button.Okay;" onclick="parent.close();"></button>
     </hbox>
 </window>

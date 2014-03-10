@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
-<?xml-stylesheet href="chrome://svnk/skin/svnk.css" type="text/css"?>
+<?xml-stylesheet href="chrome://komodoscm/skin/komodoscm.css" type="text/css"?>
 <!DOCTYPE window PUBLIC "-//MOZILLA//DTD XUL V1.0//EN" "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" [
-	<!ENTITY % SVNKDTD SYSTEM "chrome://svnk/locale/main.dtd">
-	%SVNKDTD;
+	<!ENTITY % KSCMDTD SYSTEM "chrome://komodoscm/locale/main.dtd">
+	%KSCMDTD;
 ]>
 <!--
 summary:
-	The preferences form for SVN-K addon.
+	The preferences form for KomodoSCM addon.
 author:
 	Stephen Simpson <me@simpo.org>
 license:
@@ -14,18 +14,18 @@ license:
 version:
 	0.2.1b
 -->
-<overlay id="prefs-SVNK-overlay"
+<overlay id="prefs-KSCM-overlay"
     xmlns:html="http://www.w3.org/1999/xhtml"
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
     <treechildren id="panelChildren">
-        <treeitem id="SVNK_prefs" insertafter="placesPref">
+        <treeitem id="KSCM_prefs" insertafter="placesPref">
             <treerow>
                 <treecell class="treecell-indent"
-                    url="chrome://svnk/content/pref-svnk.xul"
-                    label="SVN-K"
-                    helptag="SVN-K"/>
+                    url="chrome://komodoscm/content/pref-komodoscm.xul"
+                    label="KomodoSCM"
+                    helptag="KomodoSCM"/>
             </treerow>
         </treeitem>
     </treechildren>

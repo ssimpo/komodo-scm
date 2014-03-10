@@ -1,5 +1,5 @@
 // summary:
-//      Main JavaScript content for SVN-K.
+//      Main JavaScript content for KomodoSCM.
 // author:
 //      Stephen Simpson <me@simpo.org>
 // license:
@@ -10,19 +10,19 @@
 // Non violation of global namespace.
 if (!org) var org = {};
 if (!org.simpo) org.simpo = {};
-if (!org.simpo.svnk) org.simpo.svnk = {};
-if (!org.simpo.svnk.objects) org.simpo.svnk.objects = {};
+if (!org.simpo.komodoscm) org.simpo.komodoscm = {};
+if (!org.simpo.komodoscm.objects) org.simpo.komodoscm.objects = {};
 
 try {
 
-org.simpo.svnk.main = function() {
+org.simpo.komodoscm.main = function() {
     // summary:
     //      Main class containing the core-code for this addon.
     
     
     // strings: object
     //      String-bundle class for error reporting ... etc.
-    this.strings = Components.classes["@mozilla.org/intl/stringbundle;1"].getService(Components.interfaces.nsIStringBundleService).createBundle("chrome://svnk/locale/main.properties");
+    this.strings = Components.classes["@mozilla.org/intl/stringbundle;1"].getService(Components.interfaces.nsIStringBundleService).createBundle("chrome://komodoscm/locale/main.properties");
     this.entries = {};
     this.prefBrowser = Components.classes['@activestate.com/koPrefService;1'].getService(Components.interfaces.koIPrefService).prefs;
     this.logger = Components.classes["@mozilla.org/consoleservice;1"].getService(Components.interfaces.nsIConsoleService);
@@ -87,7 +87,7 @@ org.simpo.svnk.main = function() {
     
     this.createMenu = function(event,node,command) {
         if (event.target == event.currentTarget) {
-            var menu = new org.simpo.svnk.menuBuilder(node,command);
+            var menu = new org.simpo.komodoscm.menuBuilder(node,command);
         }
     };
     
@@ -554,7 +554,7 @@ org.simpo.svnk.main = function() {
         // returns: string
         //      The user response (ie. save|ignore|cancel).
         
-        var chrome = 'chrome://svnk/content/dialogs/saveYesNo.xul';
+        var chrome = 'chrome://komodoscm/content/dialogs/saveYesNo.xul';
         var title = 'Unsaved information';
         var options = 'modal=yes,centerscreen=yes';
         var returner = {'command':null};
@@ -574,7 +574,7 @@ org.simpo.svnk.main = function() {
         // returns: string
         //      The user response (ie. save|ignore|cancel).
         
-        var chrome = 'chrome://svnk/content/dialogs/saveYesNo.xul';
+        var chrome = 'chrome://komodoscm/content/dialogs/saveYesNo.xul';
         var title = 'Unsaved information';
         var options = 'modal=yes,centerscreen=yes';
         var returner = {'command':null};
@@ -626,7 +626,7 @@ org.simpo.svnk.main = function() {
         // returns: object
         //      The result of running the command as supplied by _runCommand().
         
-        var pathToProc = this._getPrefString('svnk.pathtoproc');
+        var pathToProc = this._getPrefString('komodoscm.pathtoproc');
         if (pathToProc != '') {
             pathToProc = '"'+pathToProc+'\\TortoiseProc.exe" ';
         } else {
@@ -674,7 +674,7 @@ org.simpo.svnk.main = function() {
     };
 };
 
-org.simpo.svnk.menuBuilder = function(node,command) {
+org.simpo.komodoscm.menuBuilder = function(node,command) {
     
     this._getActiveFile = function() {
         // summary:
@@ -989,19 +989,19 @@ org.simpo.svnk.menuBuilder = function(node,command) {
         this.lookup = {};
     
         if (!this.main) {
-            if (!org.simpo.svnk.objects.main) {
-                org.simpo.svnk.objects.main = new org.simpo.svnk.main();
+            if (!org.simpo.komodoscm.objects.main) {
+                org.simpo.komodoscm.objects.main = new org.simpo.komodoscm.main();
             }
-            this.main = org.simpo.svnk.objects.main;
+            this.main = org.simpo.komodoscm.objects.main;
         }
         
         this.md5Parser = new org.simpo.md5();
         this.doc = this.main._getCurrentDocument(ko.windowManager.getMainWindow());
         
-        this.PROJECTICON = 'menuitem-iconic SVNK-Project-Icon';
-        this.DIRECTORYICON = 'menuitem-iconic SVNK-Directory-Icon';
-        this.FILEICON = 'menuitem-iconic SVNK-File-Icon';
-        this.JSONCLICKCMD = 'org.simpo.svnk.objects.main.menuItemClick(this,"'+this.command+'");';
+        this.PROJECTICON = 'menuitem-iconic KSCM-Project-Icon';
+        this.DIRECTORYICON = 'menuitem-iconic KSCM-Directory-Icon';
+        this.FILEICON = 'menuitem-iconic KSCM-File-Icon';
+        this.JSONCLICKCMD = 'org.simpo.komodoscm.objects.main.menuItemClick(this,"'+this.command+'");';
     };
     
     this.startup = function() {
@@ -1182,7 +1182,7 @@ org.simpo.md5 = function() {
     };
 };
 
-if (!org.simpo.svnk.objects.main) org.simpo.svnk.objects.main = new org.simpo.svnk.main();
+if (!org.simpo.komodoscm.objects.main) org.simpo.komodoscm.objects.main = new org.simpo.komodoscm.main();
 
 } catch (e) {
     this.logger.logStringMessage(e);

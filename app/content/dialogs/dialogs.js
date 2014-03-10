@@ -1,5 +1,5 @@
 // summary:
-//      Main JavaScript content for SVN-K.
+//      Main JavaScript content for KomodoSCM.
 // author:
 //      Stephen Simpson <me@simpo.org>
 // license:
@@ -10,10 +10,10 @@
 // Non violation of global namespace.
 if (!org) var org = {};
 if (!org.simpo) org.simpo = {};
-if (!org.simpo.svnk) org.simpo.svnk = {};
+if (!org.simpo.komodoscm) org.simpo.komodoscm = {};
 
 try {
-	org.simpo.svnk.dialogs = function(args){
+	org.simpo.komodoscm.dialogs = function(args){
 		var construct = {
 			"returner": null,
 			
@@ -44,7 +44,7 @@ try {
 	};
 	
 	// Global namespace violation?
-	var SVNKDIALOG = new org.simpo.svnk.dialogs(window.arguments);
+	var KSCMDIALOG = new org.simpo.komodoscm.dialogs(window.arguments);
 } catch(e) {
 	Components.utils.reportError(e);    
 }

@@ -1,9 +1,9 @@
-content svnk jar:svnk.jar!/content/ xpcnativewrappers=yes
-skin svnk default jar:svnk.jar!/skin/default/
-locale svnk en-US jar:svnk.jar!/locale/en-US/
+content komodoscm jar:komodoscm.jar!/content/ xpcnativewrappers=yes
+skin komodoscm default jar:komodoscm.jar!/skin/default/
+locale komodoscm en-US jar:komodoscm.jar!/locale/en-US/
 
 #Komodo
-overlay chrome://komodo/content/komodo.xul chrome://svnk/content/overlays/places_panel.xul
-overlay chrome://komodo/content/komodo.xul chrome://svnk/content/overlays/komodo.xul
-overlay chrome://komodo/content/pref/pref.xul chrome://svnk/content/overlays/preferences.xul
-overlay chrome://places/content/places_panel.xul chrome://svnk/content/overlays/places_panel.xul
+overlay chrome://komodo/content/komodo.xul chrome://komodoscm/content/overlays/places_panel.xul
+overlay chrome://komodo/content/komodo.xul chrome://komodoscm/content/overlays/komodo.xul
+overlay chrome://komodo/content/pref/pref.xul chrome://komodoscm/content/overlays/preferences.xul
+overlay chrome://places/content/places_panel.xul chrome://komodoscm/content/overlays/places_panel.xul

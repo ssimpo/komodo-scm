@@ -10,11 +10,11 @@
 // Non violation of global namespace.
 if (!org) var org = {};
 if (!org.simpo) org.simpo = {};
-if (!org.simpo.svnk) org.simpo.svnk = {};
-if (!org.simpo.svnk.objects) org.simpo.svnk.objects = {};
+if (!org.simpo.komodoscm) org.simpo.komodoscm = {};
+if (!org.simpo.komodoscm.objects) org.simpo.komodoscm.objects = {};
 
 try {
-org.simpo.svnk.pref = {
+org.simpo.komodoscm.pref = {
     prefBrowser:Components.classes['@activestate.com/koPrefService;1'].getService(Components.interfaces.koIPrefService).prefs,
     logger:Components.classes["@mozilla.org/consoleservice;1"].getService(Components.interfaces.nsIConsoleService),
     
@@ -29,7 +29,7 @@ org.simpo.svnk.pref = {
         if(parent.hPrefWindow){
             parent.hPrefWindow.prefset.setStringPref(prefID, prefValue);
         }
-        org.simpo.svnk.pref.prefBrowser.setStringPref(prefID, prefValue);
+        org.simpo.komodoscm.pref.prefBrowser.setStringPref(prefID, prefValue);
     },
     
     setPrefBoolean: function(prefID,prefValue){
@@ -43,7 +43,7 @@ org.simpo.svnk.pref = {
         if(parent.hPrefWindow){
             parent.hPrefWindow.prefset.setBooleanPref(prefID, prefValue);
         }
-        org.simpo.svnk.pref.prefBrowser.setBooleanPref(prefID, prefValue);
+        org.simpo.komodoscm.pref.prefBrowser.setBooleanPref(prefID, prefValue);
     },
     
     getPrefString: function(prefID){
@@ -54,8 +54,8 @@ org.simpo.svnk.pref = {
         // returns: string
         //      The preference value or blank-string if preference not found.
         
-        if(org.simpo.svnk.pref.prefBrowser.hasStringPref(prefID)){
-            return org.simpo.svnk.pref.prefBrowser.getStringPref(prefID);
+        if(org.simpo.komodoscm.pref.prefBrowser.hasStringPref(prefID)){
+            return org.simpo.komodoscm.pref.prefBrowser.getStringPref(prefID);
         }else{
             return '';
         }
@@ -72,13 +72,13 @@ org.simpo.svnk.pref = {
         // returns: boolean
         //      The preference value or defaultValue if preference not found.
         
-        if(org.simpo.svnk.pref.prefBrowser.hasBooleanPref(prefID)){
-            return org.simpo.svnk.pref.prefBrowser.getBooleanPref(prefID);
+        if(org.simpo.komodoscm.pref.prefBrowser.hasBooleanPref(prefID)){
+            return org.simpo.komodoscm.pref.prefBrowser.getBooleanPref(prefID);
         }else{
             if(parent.hPrefWindow){
                 parent.hPrefWindow.prefset.setBooleanPref(prefID, defaultValue);
             }
-            org.simpo.svnk.pref.setPrefBoolean(prefID, defaultValue);
+            org.simpo.komodoscm.pref.setPrefBoolean(prefID, defaultValue);
             
             return defaultValue;
         }

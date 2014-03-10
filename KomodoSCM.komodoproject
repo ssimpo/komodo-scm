@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Komodo Project File - DO NOT EDIT -->
-<project id="f21aa918-637b-41f1-bddb-ec65079e1e12" kpf_version="5" name="SVNK.komodoproject">
+<project id="f21aa918-637b-41f1-bddb-ec65079e1e12" kpf_version="5" name="KomodoSCM.komodoproject">
 <livefolder id="1d758263-9aee-4103-a303-486c706ad323" idref="f21aa918-637b-41f1-bddb-ec65079e1e12" name=".komodotools" url=".komodotools">
 </livefolder>
 <preference-set idref="f21aa918-637b-41f1-bddb-ec65079e1e12" id="project" preftype="project">
   <boolean id="genericLinter:JSON">1</boolean>
   <string relative="path" id="import_dirname"></string>
-  <string id="import_exclude_matches">*.gz;.hgkeep;.komodotools</string>
+  <string id="import_exclude_matches">*.gz;.hgkeep;.komodotools;*.komodoproject</string>
   <string id="import_include_matches"></string>
   <string id="jshint_linter_chooser">default</string>
   <string id="jslint_linter_chooser">default</string>

@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
-<?xml-stylesheet href="chrome://svnk/skin/svnk.css" type="text/css"?>
+<?xml-stylesheet href="chrome://komodoscm/skin/komodoscm.css" type="text/css"?>
 <!DOCTYPE window PUBLIC "-//MOZILLA//DTD XUL V1.0//EN" "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" [
-	<!ENTITY % SVNKDTD SYSTEM "chrome://svnk/locale/main.dtd">
-	%SVNKDTD;
+	<!ENTITY % KSCMDTD SYSTEM "chrome://komodoscm/locale/main.dtd">
+	%KSCMDTD;
 ]>
 <!--
 summary:
-	The main ovelay for the SVN-K addon.
+	The main ovelay for the KomodoSCM addon.
 description:
 	The overlay, works by overlaying the main komodo.xul file.  It also adds against
 	content, which is added via the places addon.
@@ -17,7 +17,7 @@ license:
 version:
 	0.2.1b
 -->
-<overlay id="SVNK-Komodo-Overlay"
+<overlay id="KSCM-Komodo-Overlay"
 	xmlns:html="http://www.w3.org/1999/xhtml"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
@@ -26,90 +26,90 @@ version:
 	<toolbar id="toolsToolbar">
 		<toolbarseparator />
 		<toolbarbutton
-			id="toolsToolbar-SVNK-RepoBrowser"
-			preference="svnk.toolbarRepoBrowser"
-			label="&svnk.label.repobrowser;"
-			tooltiptext="&svnk.tooltip.repobrowser;"
-			class="menuitem-iconic SVNK-RepoBrowser-Icon"
+			id="toolsToolbar-KSCM-RepoBrowser"
+			preference="komodoscm.toolbarRepoBrowser"
+			label="&komodoscm.label.repobrowser;"
+			tooltiptext="&komodoscm.tooltip.repobrowser;"
+			class="menuitem-iconic KSCM-RepoBrowser-Icon"
             type="menu"
             orient="horizontal">
 			<menupopup
-				id="toolsToolbar-SVNK-RepoBrowser-menupopup"
-				onpopupshowing="org.simpo.svnk.objects.main.createMenu(event,this,'repobrowser');">
+				id="toolsToolbar-KSCM-RepoBrowser-menupopup"
+				onpopupshowing="org.simpo.komodoscm.objects.main.createMenu(event,this,'repobrowser');">
 			</menupopup>
         </toolbarbutton>
 		<toolbarbutton
-			id="toolsToolbar-SVNK-Commit"
-			preference="svnk.toolbarCommitSelect"
+			id="toolsToolbar-KSCM-Commit"
+			preference="komodoscm.toolbarCommitSelect"
             hidden="false"
-			label="&svnk.label.commit;"
-			tooltiptext="&svnk.tooltip.commit;"
-			class="menuitem-iconic SVNK-Commit-Icon"
+			label="&komodoscm.label.commit;"
+			tooltiptext="&komodoscm.tooltip.commit;"
+			class="menuitem-iconic KSCM-Commit-Icon"
             type="menu"
             orient="horizontal">
 			<menupopup
-				id="toolsToolbar-SVNK-Update-menupopup"
-				onpopupshowing="org.simpo.svnk.objects.main.createMenu(event,this,'commit');">
+				id="toolsToolbar-KSCM-Update-menupopup"
+				onpopupshowing="org.simpo.komodoscm.objects.main.createMenu(event,this,'commit');">
 			</menupopup>
         </toolbarbutton>
 		<toolbarbutton
-			id="toolsToolbar-SVNK-Update"
-			preference="svnk.toolbarUpdateSelect"
+			id="toolsToolbar-KSCM-Update"
+			preference="komodoscm.toolbarUpdateSelect"
             hidden="false"
-			label="&svnk.label.update;"
-			tooltiptext="&svnk.tooltip.update;"
-			class="menuitem-iconic SVNK-Update-Icon"
+			label="&komodoscm.label.update;"
+			tooltiptext="&komodoscm.tooltip.update;"
+			class="menuitem-iconic KSCM-Update-Icon"
             type="menu"
             orient="horizontal">
 			<menupopup
-				id="toolsToolbar-SVNK-Update-menupopup"
-				onpopupshowing="org.simpo.svnk.objects.main.createMenu(event,this,'update');">
+				id="toolsToolbar-KSCM-Update-menupopup"
+				onpopupshowing="org.simpo.komodoscm.objects.main.createMenu(event,this,'update');">
 			</menupopup>
         </toolbarbutton>
 		<toolbarbutton
-			id="toolsToolbar-SVNK-RepoStatus"
-			preference="svnk.toolbarRepoStatus"
-			label="&svnk.label.repostatus;"
-			tooltiptext="&svnk.tooltip.repostatus;"
-			class="menuitem-iconic SVNK-RepoStatus-Icon"
+			id="toolsToolbar-KSCM-RepoStatus"
+			preference="komodoscm.toolbarRepoStatus"
+			label="&komodoscm.label.repostatus;"
+			tooltiptext="&komodoscm.tooltip.repostatus;"
+			class="menuitem-iconic KSCM-RepoStatus-Icon"
 			type="menu"
             orient="horizontal">
 			<menupopup
-				id="toolsToolbar-SVNK-RepoStatus-menupopup"
-				onpopupshowing="org.simpo.svnk.objects.main.createMenu(event,this,'repostatus');">
+				id="toolsToolbar-KSCM-RepoStatus-menupopup"
+				onpopupshowing="org.simpo.komodoscm.objects.main.createMenu(event,this,'repostatus');">
 			</menupopup>
 		</toolbarbutton>
 		<toolbarbutton
-			id="toolsToolbar-SVNK-CompareDiffActiveFile"
-			preference="svnk.toolbarDiff"
-			observes="Tasks:SVNK-CompareDiffActiveFile"
-			label="&svnk.label.comparefile;"
-			tooltiptext="&svnk.tooltip.comparefile;"
-			class="menuitem-iconic SVNK-Diff-Icon"/>
+			id="toolsToolbar-KSCM-CompareDiffActiveFile"
+			preference="komodoscm.toolbarDiff"
+			observes="Tasks:KSCM-CompareDiffActiveFile"
+			label="&komodoscm.label.comparefile;"
+			tooltiptext="&komodoscm.tooltip.comparefile;"
+			class="menuitem-iconic KSCM-Diff-Icon"/>
 		<toolbarbutton
-			id="toolsToolbar-SVNK-ViewProperties"
-			preference="svnk.toolbarProperties"
-			label="&svnk.label.viewproperties;"
-			tooltiptext="&svnk.tooltip.viewproperties;"
-			class="menuitem-iconic SVNK-Properties-Icon"
+			id="toolsToolbar-KSCM-ViewProperties"
+			preference="komodoscm.toolbarProperties"
+			label="&komodoscm.label.viewproperties;"
+			tooltiptext="&komodoscm.tooltip.viewproperties;"
+			class="menuitem-iconic KSCM-Properties-Icon"
 			type="menu"
 			orient="horizontal">
 			<menupopup
-				id="toolsToolbar-SVNK-ViewPropertiesActiveFile-menupopup"
-				onpopupshowing="org.simpo.svnk.objects.main.createMenu(event,this,'properties');">
+				id="toolsToolbar-KSCM-ViewPropertiesActiveFile-menupopup"
+				onpopupshowing="org.simpo.komodoscm.objects.main.createMenu(event,this,'properties');">
 			</menupopup>
 		</toolbarbutton>
 		<toolbarbutton
-			id="toolsToolbar-SVNK-ViewLog"
-			preference="svnk.toolbarLog"
-			label="&svnk.label.viewlogfile;"
-			tooltiptext="&svnk.tooltip.viewlogfile;"
-			class="menuitem-iconic SVNK-Log-Icon"
+			id="toolsToolbar-KSCM-ViewLog"
+			preference="komodoscm.toolbarLog"
+			label="&komodoscm.label.viewlogfile;"
+			tooltiptext="&komodoscm.tooltip.viewlogfile;"
+			class="menuitem-iconic KSCM-Log-Icon"
 			type="menu"
 			orient="horizontal">
 			<menupopup
-				id="toolsToolbar-SVNK-ViewLogActiveFile-menupopup"
-				onpopupshowing="org.simpo.svnk.objects.main.createMenu(event,this,'log');">
+				id="toolsToolbar-KSCM-ViewLogActiveFile-menupopup"
+				onpopupshowing="org.simpo.komodoscm.objects.main.createMenu(event,this,'log');">
 			</menupopup>
 		</toolbarbutton>
 		<toolbarseparator />
@@ -117,61 +117,61 @@ version:
 	
 	<!-- Create a submenu in the tools menu for TortoiseSVN actions -->
 	<menupopup id="popup_tools">
-		<menu id="popup-tools-SVNK" label="Version Control">
-			<menupopup id="popup-tools-SVNK-popup">
+		<menu id="popup-tools-KSCM" label="Version Control">
+			<menupopup id="popup-tools-KSCM-popup">
 				<menuitem
-					id="popup-tools-SVNK-RepoBrowser"
-					observes="SVNK.repoBrowser();"
-					label="&svnk.label.repobrowser;"
-					tooltiptext="&svnk.tooltip.repobrowser;"
-					class="menuitem-iconic SVNK-RepoBrowser-Icon"/>
+					id="popup-tools-KSCM-RepoBrowser"
+					observes="KSCM.repoBrowser();"
+					label="&komodoscm.label.repobrowser;"
+					tooltiptext="&komodoscm.tooltip.repobrowser;"
+					class="menuitem-iconic KSCM-RepoBrowser-Icon"/>
 				<menuitem
-					id="popup-tools-SVNK-CommitProject"
-					observes="Tasks:SVNK-CommitProject"
-					label="&svnk.label.commitproject;"
-					tooltiptext="&svnk.tooltip.commitproject;"
-					class="menuitem-iconic SVNK-CommitProject-Icon"/>
+					id="popup-tools-KSCM-CommitProject"
+					observes="Tasks:KSCM-CommitProject"
+					label="&komodoscm.label.commitproject;"
+					tooltiptext="&komodoscm.tooltip.commitproject;"
+					class="menuitem-iconic KSCM-CommitProject-Icon"/>
 				<menuitem
-					id="popup-tools-SVNK-UpdateProject"
-					observes="Tasks:SVNK-UpdateProject"
-					label="&svnk.label.updateproject;"
-					tooltiptext="&svnk.tooltip.updateproject;"
-					class="menuitem-iconic SVNK-UpdateProject-Icon"/>
+					id="popup-tools-KSCM-UpdateProject"
+					observes="Tasks:KSCM-UpdateProject"
+					label="&komodoscm.label.updateproject;"
+					tooltiptext="&komodoscm.tooltip.updateproject;"
+					class="menuitem-iconic KSCM-UpdateProject-Icon"/>
 				<menuitem
-					id="popup-tools-SVNK-CommitDirectory"
-					observes="Tasks:SVNK-CommitActiveDirectory"
-					label="&svnk.label.commitdirectory;"
-					tooltiptext="&svnk.tooltip.commitdirectory;"
-					class="menuitem-iconic SVNK-CommitDirectory-Icon"/>
+					id="popup-tools-KSCM-CommitDirectory"
+					observes="Tasks:KSCM-CommitActiveDirectory"
+					label="&komodoscm.label.commitdirectory;"
+					tooltiptext="&komodoscm.tooltip.commitdirectory;"
+					class="menuitem-iconic KSCM-CommitDirectory-Icon"/>
 				<menuitem
-					id="popup-tools-SVNK-UpdateDirectory"
-					observes="Tasks:SVNK-UpdateActiveDirectory"
-					label="&svnk.label.updatedirectory;"
-					tooltiptext="&svnk.tooltip.updatedirectory;"
-					class="menuitem-iconic SVNK-UpdateDirectory-Icon"/>
+					id="popup-tools-KSCM-UpdateDirectory"
+					observes="Tasks:KSCM-UpdateActiveDirectory"
+					label="&komodoscm.label.updatedirectory;"
+					tooltiptext="&komodoscm.tooltip.updatedirectory;"
+					class="menuitem-iconic KSCM-UpdateDirectory-Icon"/>
 				<menuitem
-					id="popup-tools-SVNK-CompareDiffActiveFile"
-					observes="Tasks:SVNK-CompareDiffActiveFile"
-					label="&svnk.label.comparefile.long;"
-					tooltiptext="&svnk.tooltip.comparefile;"
-					class="menuitem-iconic SVNK-Diff-Icon"/>
+					id="popup-tools-KSCM-CompareDiffActiveFile"
+					observes="Tasks:KSCM-CompareDiffActiveFile"
+					label="&komodoscm.label.comparefile.long;"
+					tooltiptext="&komodoscm.tooltip.comparefile;"
+					class="menuitem-iconic KSCM-Diff-Icon"/>
 				<menuitem
-					id="popup-tools-SVNK-ViewPropertiesActiveFile"
-					label="&svnk.label.viewproperties.long;"
-					observes="Tasks:SVNK-ViewPropertiesActiveFile"
-					tooltiptext="&svnk.tooltip.viewproperties;"
-					class="menuitem-iconic SVNK-Properties-Icon"/>
+					id="popup-tools-KSCM-ViewPropertiesActiveFile"
+					label="&komodoscm.label.viewproperties.long;"
+					observes="Tasks:KSCM-ViewPropertiesActiveFile"
+					tooltiptext="&komodoscm.tooltip.viewproperties;"
+					class="menuitem-iconic KSCM-Properties-Icon"/>
 				<menuitem
-					id="popup-tools-SVNK-ViewLogActiveFile"
-					observes="Tasks:SVNK-ViewLogActiveFile"
-					label="&svnk.label.viewlogfile;"
-					tooltiptext="&svnk.tooltip.viewlogfile;"
-					class="menuitem-iconic SVNK-Log-Icon"/>
+					id="popup-tools-KSCM-ViewLogActiveFile"
+					observes="Tasks:KSCM-ViewLogActiveFile"
+					label="&komodoscm.label.viewlogfile;"
+					tooltiptext="&komodoscm.tooltip.viewlogfile;"
+					class="menuitem-iconic KSCM-Log-Icon"/>
 				<menuitem
-					id="popup-tools-SVNK-ShowAbout"
-					observes="Tasks:SVNK-ShowAbout"
-					label="&svnk.label.showabout;"
-					tooltiptext="&svnk.tooltip.showabout;"
+					id="popup-tools-KSCM-ShowAbout"
+					observes="Tasks:KSCM-ShowAbout"
+					label="&komodoscm.label.showabout;"
+					tooltiptext="&komodoscm.tooltip.showabout;"
 					class="menuitem-iconic"/>
 			</menupopup>
 		</menu>
@@ -179,55 +179,55 @@ version:
 	
 	<!-- Context-menu for tab in editor -->
 	<menupopup id="tabContextMenu">
-		<menu id="tab-context-popup-SVNK" label="Version Control">
-			<menupopup id="tab-context-popup-SVNK-popup">
+		<menu id="tab-context-popup-KSCM" label="Version Control">
+			<menupopup id="tab-context-popup-KSCM-popup">
 				<menuitem
-					id="tab-context-SVNK-Commit"
-					observes="Tasks:SVNK-CommitActiveFile"
-					label="&svnk.label.commitfile;"
-					tooltiptext="&svnk.tooltip.commitfile;"
-					class="menuitem-iconic SVNK-Commit-Icon"/>
+					id="tab-context-KSCM-Commit"
+					observes="Tasks:KSCM-CommitActiveFile"
+					label="&komodoscm.label.commitfile;"
+					tooltiptext="&komodoscm.tooltip.commitfile;"
+					class="menuitem-iconic KSCM-Commit-Icon"/>
 				<menuitem
-					id="tab-context-SVNK-Update"
-					observes="Tasks:SVNK-UpdateActiveFile"
-					label="&svnk.label.updatefile;"
-					tooltiptext="&svnk.tooltip.updatefile;"
-					class="menuitem-iconic SVNK-Update-Icon"/>
+					id="tab-context-KSCM-Update"
+					observes="Tasks:KSCM-UpdateActiveFile"
+					label="&komodoscm.label.updatefile;"
+					tooltiptext="&komodoscm.tooltip.updatefile;"
+					class="menuitem-iconic KSCM-Update-Icon"/>
 				<menuitem
-					id="tab-context-SVNK-CommitDirectory"
-					observes="Tasks:SVNK-CommitActiveDirectory"
-					label="&svnk.label.commitdirectory;"
-					tooltiptext="&svnk.tooltip.commitdirectory;"
-					class="menuitem-iconic SVNK-CommitDirectory-Icon"/>
+					id="tab-context-KSCM-CommitDirectory"
+					observes="Tasks:KSCM-CommitActiveDirectory"
+					label="&komodoscm.label.commitdirectory;"
+					tooltiptext="&komodoscm.tooltip.commitdirectory;"
+					class="menuitem-iconic KSCM-CommitDirectory-Icon"/>
 				<menuitem
-					id="tab-context-SVNK-UpdateDirectory"
-					observes="Tasks:SVNK-UpdateActiveDirectory"
-					label="&svnk.label.updatedirectory;"
-					tooltiptext="&svnk.tooltip.updatedirectory;"
-					class="menuitem-iconic SVNK-UpdateDirectory-Icon"/>
+					id="tab-context-KSCM-UpdateDirectory"
+					observes="Tasks:KSCM-UpdateActiveDirectory"
+					label="&komodoscm.label.updatedirectory;"
+					tooltiptext="&komodoscm.tooltip.updatedirectory;"
+					class="menuitem-iconic KSCM-UpdateDirectory-Icon"/>
 				<menuitem
-					id="tab-context-SVNK-CompareDiff"
-					observes="Tasks:SVNK-CompareDiffActiveFile"
-					label="&svnk.label.comparefile;"
-					tooltiptext="&svnk.tooltip.comparefile;"
-					class="menuitem-iconic SVNK-Diff-Icon"/>
+					id="tab-context-KSCM-CompareDiff"
+					observes="Tasks:KSCM-CompareDiffActiveFile"
+					label="&komodoscm.label.comparefile;"
+					tooltiptext="&komodoscm.tooltip.comparefile;"
+					class="menuitem-iconic KSCM-Diff-Icon"/>
 				<menuitem
-					id="tab-context-SVNK-ViewProperties"
-					observes="Tasks:SVNK-ViewPropertiesActiveFile"
-					label="&svnk.label.viewproperties;"
-					tooltiptext="&svnk.tooltip.viewproperties;"
-					class="menuitem-iconic SVNK-Properties-Icon"/>
+					id="tab-context-KSCM-ViewProperties"
+					observes="Tasks:KSCM-ViewPropertiesActiveFile"
+					label="&komodoscm.label.viewproperties;"
+					tooltiptext="&komodoscm.tooltip.viewproperties;"
+					class="menuitem-iconic KSCM-Properties-Icon"/>
 				<menuitem
-					id="tab-context-SVNK-ViewLog"
-					observes="Tasks:SVNK-ViewLogActiveFile"
-					label="&svnk.label.viewlogentry;"
-					tooltiptext="&svnk.tooltip.viewlogfile;"
-					class="menuitem-iconic SVNK-Log-Icon"/>
+					id="tab-context-KSCM-ViewLog"
+					observes="Tasks:KSCM-ViewLogActiveFile"
+					label="&komodoscm.label.viewlogentry;"
+					tooltiptext="&komodoscm.tooltip.viewlogfile;"
+					class="menuitem-iconic KSCM-Log-Icon"/>
 				<menuitem
-					id="tab-context-SVNK-ShowAbout"
-					observes="Tasks:SVNK-ShowAbout"
-					label="&svnk.label.showabout;"
-					tooltiptext="&svnk.tooltip.showabout;"
+					id="tab-context-KSCM-ShowAbout"
+					observes="Tasks:KSCM-ShowAbout"
+					label="&komodoscm.label.showabout;"
+					tooltiptext="&komodoscm.tooltip.showabout;"
 					class="menuitem-iconic"/>
 			</menupopup>
 		</menu>
@@ -235,8 +235,8 @@ version:
 	
 	<script
 		type="application/x-javascript"
-		src="chrome://svnk/content/prefEdit.js"/>
+		src="chrome://komodoscm/content/prefEdit.js"/>
 	<script
 		type="application/x-javascript"
-		src="chrome://svnk/content/overlays/komodo.js"/>
+		src="chrome://komodoscm/content/overlays/komodo.js"/>
 </overlay>
