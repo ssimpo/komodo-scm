@@ -1,11 +1,11 @@
 // summary:
 //      Set/Get preference settings.
 // author:
-//      Stephen Simpson <me@simpo.org>
+//      <%= creator %> <me@simpo.org>
 // license:
 //      LGPL <http://www.gnu.org/licenses/lgpl.html>
 // version:
-//      0.2.1b
+//      <%= version %>
 
 // Non violation of global namespace.
 if (!org) var org = {};

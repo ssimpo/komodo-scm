@@ -1,11 +1,11 @@
 // summary:
 //      Function binding code.
 // author:
-//      Stephen Simpson <me@simpo.org>
+//      <%= creator %> <me@simpo.org>
 // license:
 //      LGPL <http://www.gnu.org/licenses/lgpl.html>
 // version:
-//      0.2.1b
+//      <%= version %>
 
 // Current version of Komodo does not support Function.bind; this emulates
 // that functionality.

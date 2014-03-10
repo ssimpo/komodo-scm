@@ -12,11 +12,11 @@ description:
 	The overlay, works by overlaying the main komodo.xul file.  It also adds against
 	content, which is added via the places addon.
 author:
-	Stephen Simpson <me@simpo.org>
+	<%= creator %> <me@simpo.org>
 license:
 	LGPL <http://www.gnu.org/licenses/lgpl.html>
 version:
-	0.2.1b
+	<%= version %>
 -->
 <dialog
     id="KSCM-aboutDialog"
