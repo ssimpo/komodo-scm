@@ -44,7 +44,7 @@
     "", 
     "var cwd = koDirs.mozBinDir;", 
     "", 
-    "cmd = '\"' + projectDir + '\\\\.komodotools\\\\bin\\\\moveBuild.bat\" \"' + projectDir + '\" \"' + pythonExe + '\" \"' + app + '\"';", 
+    "cmd = '\"' + projectDir + '\\\\.komodotools\\\\moveBuild.bat\" \"' + projectDir + '\" \"' + pythonExe + '\" \"' + app + '\"';", 
     "", 
     "cmd += \" {'cwd': u'\"+cwd+\"'}\";", 
     "ko.run.runEncodedCommand(window, cmd, function(){", 
