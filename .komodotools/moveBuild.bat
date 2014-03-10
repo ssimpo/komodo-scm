@@ -1,6 +1,6 @@
 rem Set path variables
-set appPath=%~1\app
-set fromBuildPath=%~1\app\build
+set appPath=%~1\build\app
+set fromBuildPath=%~1\build\app\build
 set toBuildPath=%~1\build
 
 rem Run the build tool to create the xpi
@@ -16,5 +16,5 @@ for /d /r "%fromBuildPath%" %%i in (*) do if exist "%toBuildPath%\%%~ni" (dir "%
 move /y "%fromBuildPath%\*.*" "%toBuildPath%"
 rd /s /q "%fromBuildPath%"
 
-rem Delete the xpi as it is only a duplicate of the one in ./build/xpi
-del /q /f "%appPath%\*.xpi"
+rem Delete the app path (assumes temp!)
+rd /s /q "%appPath%"
