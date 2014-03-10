@@ -5,7 +5,7 @@
 </file>
 <folder id="b14785cc-dccb-4afe-9f8d-d97f6d830e66" idref="f21aa918-637b-41f1-bddb-ec65079e1e12" name="Project">
 </folder>
-<preference-set idref="f21aa918-637b-41f1-bddb-ec65079e1e12">
+<preference-set idref="f21aa918-637b-41f1-bddb-ec65079e1e12" id="project" preftype="project">
   <string id="spellcheckLangID">en-US</string>
 </preference-set>
 </project>
