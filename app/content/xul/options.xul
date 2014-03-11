@@ -26,7 +26,7 @@ version:
     orient="vertical">
     
     <iframe
-        src="chrome://komodoscm/content/pref-komodoscm.xul"
+        src="chrome://komodoscm/content/xul/pref-komodoscm.xul"
         width="415" height="300"
         type="chrome" />
     

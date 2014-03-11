@@ -23,7 +23,7 @@ version:
         <treeitem id="KSCM_prefs" insertafter="placesPref">
             <treerow>
                 <treecell class="treecell-indent"
-                    url="chrome://komodoscm/content/pref-komodoscm.xul"
+                    url="chrome://komodoscm/content/xul/pref-komodoscm.xul"
                     label="KomodoSCM"
                     helptag="KomodoSCM"/>
             </treerow>
