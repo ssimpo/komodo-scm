@@ -40,10 +40,10 @@ version:
     
     <script
 	type="application/x-javascript"
-	src="chrome://komodoscm/content/functionBind.js"/>
+	src="chrome://komodoscm/content/scripts/js/functionBind.js"/>
     <script
 	type="application/x-javascript"
-	src="chrome://komodoscm/content/dialogs/dialogs.js"/>
+	src="chrome://komodoscm/content/scripts/js/dialogs.js"/>
     <script type="application/javascript">
 	var description = document.getElementById('KSCM-Dialog-Description');
 	description.innerHTML = window.arguments[1];

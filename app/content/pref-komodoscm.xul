@@ -130,11 +130,11 @@ version:
 	
 	<script
 		type="application/x-javascript"
-		src="chrome://komodoscm/content/functionBind.js"/>
+		src="chrome://komodoscm/content/scripts/js/functionBind.js"/>
 	<script
 		type="application/x-javascript"
-		src="chrome://komodoscm/content/prefEdit.js"/>
+		src="chrome://komodoscm/content/scripts/js/prefEdit.js"/>
 	<script
 		type="application/x-javascript"
-		src="chrome://komodoscm/content/pref-komodoscm.js"/>
+		src="chrome://komodoscm/content/scripts/js/pref-komodoscm.js"/>
 </page>
