@@ -554,7 +554,7 @@ org.simpo.komodoscm.main = function() {
         // returns: string
         //      The user response (ie. save|ignore|cancel).
         
-        var chrome = 'chrome://komodoscm/content/dialogs/saveYesNo.xul';
+        var chrome = 'chrome://komodoscm/content/xul/dialogs/saveYesNo.xul';
         var title = 'Unsaved information';
         var options = 'modal=yes,centerscreen=yes';
         var returner = {'command':null};
@@ -574,7 +574,7 @@ org.simpo.komodoscm.main = function() {
         // returns: string
         //      The user response (ie. save|ignore|cancel).
         
-        var chrome = 'chrome://komodoscm/content/dialogs/saveYesNo.xul';
+        var chrome = 'chrome://komodoscm/content/xul/dialogs/saveYesNo.xul';
         var title = 'Unsaved information';
         var options = 'modal=yes,centerscreen=yes';
         var returner = {'command':null};

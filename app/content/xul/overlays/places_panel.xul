@@ -57,7 +57,7 @@ version:
 		
 		<command id="Tasks:KSCM-Delete" oncommand="org.simpo.komodoscm.objects.main.delete('selectedpaths');"/>
 		
-		<command id="Tasks:KSCM-ShowAbout" oncommand="openDialog('chrome://komodoscm/content/dialogs/about.xul', 'about', 'chrome,modal,centerscreen');"/>
+		<command id="Tasks:KSCM-ShowAbout" oncommand="openDialog('chrome://komodoscm/content/xul/dialogs/about.xul', 'about', 'chrome,modal,centerscreen');"/>
 	</commandset>
  
 	<!-- Context-menu for files and folders in the places view -->
