@@ -235,8 +235,8 @@ version:
 	
 	<script
 		type="application/x-javascript"
-		src="chrome://komodoscm/content/prefEdit.js"/>
+		src="chrome://komodoscm/content/scripts/js/prefEdit.js"/>
 	<script
 		type="application/x-javascript"
-		src="chrome://komodoscm/content/overlays/komodo.js"/>
+		src="chrome://komodoscm/content/scripts/js/komodo.js"/>
 </overlay>

@@ -24,10 +24,10 @@ version:
 	
 	<script
 		type="application/x-javascript"
-		src="chrome://komodoscm/content/functionBind.js"/>
+		src="chrome://komodoscm/content/scripts/js/functionBind.js"/>
 	<script
 		type="application/x-javascript"
-		src="chrome://komodoscm/content/komodoscm.js"/>
+		src="chrome://komodoscm/content/scripts/js/komodoscm.js"/>
 	
 	<commandset id="allcommands">
 		
