@@ -1,8 +1,13 @@
+"use strict";
+
 var EXPORTED_SYMBOLS = ["require"];
 
 var _this = this;
 var _loadedPackages = {};
-var _packagePaths = {};
+var _packagePaths = {
+	"activestate.com": "#",
+	"mozilla.org": "#"
+};
 var _cacheBust = false;
 
 var require = function(config, moduleIds, callback){
@@ -59,43 +64,43 @@ function _require(config, moduleIds, callback){
 	
 	moduleIds.forEach(function(moduleId){
 		var context = {};
-		Components.utils.import(
-			_resolveModuleId(moduleId, paths, cacheBust),
-			context
-		);
-		params.push(context.main);
+		var modulePath = _resolveModuleId(moduleId, paths, cacheBust);
+		
+		if(modulePath !== "#"){
+			Components.utils.import(modulePath, context);
+			params.push(context.main);
+		}else{
+			params.push(_resolveComponant(moduleId));
+		}
 	});
 	
 	callback.apply(_this, params);
 }
 
-function _loadPackagePaths(config, useTemp){
+function _resolveComponant(componantId){
 	// summary:
-	//		Load the package paths from a config object.
+	//		Load and return a XpCom/PyXpCom componant.
 	// description:
-	//		Load the package paths from a given config object. A temparary
-	//		package path mapping object is created and returned.  Depending on
-	//		on the value of useTemp (default: true), the global paths are
-	//		also overriden so it affects future operations.
-	// config: object
-	//		The config object to parse for packages.
-	// useTemp: boolean
-	//		Overwrite the global package paths?
-	// returns: object
-	//		Object in the format:
-	//			{"<package id>":"<package root directory path (absolute)>"}.
+	//		Load and return a XpCom/PyXpCom componant.  IT relies on the
+	//		lookup componantInterfaceLookup being populated with the required
+	//		mapping between the id nmae and the interface name.
+	// componantId: string
+	//		Ther id of the componant to load (eg. activestate.com/koOs).
+	// returner: object|function
+	//		The loaded object or function.
 	
-	useTemp = ((useTemp === undefined) ? true : useTemp);
-	var tempPackagePaths = cloneObject(_packagePaths);
+	if(_isProperty(componantInterfaceLookup, componantId)){
+		return _loadComponent(
+			componantId,
+			componantInterfaceLookup[componantId]
+		);
+	}else{
+		var error = new Error("Could not load componant: " + componantId);
+		Components.utils.reportError(error);
+		throw error;
+	}
 	
-	config.packages.forEach(function(packageDetails){
-		tempPackagePaths[packageDetails.name] = packageDetails.location;
-		if(!useTemp){
-			_packagePaths[packageDetails.name] = packageDetails.location;
-		}
-	});
-	
-	return tempPackagePaths;
+	return null;
 }
 
 function _resolveModuleId(moduleId, paths, cacheBust){
@@ -121,19 +126,20 @@ function _resolveModuleId(moduleId, paths, cacheBust){
 	
 	var idParts = moduleId.split("/");
 	var cPackage = idParts.shift();
-	var filePath =
-		"/" + idParts.join("/") + ".js?cachBust="
-		+ _getCacheVarForModule(moduleId, cacheBust);
 	
 	if(_isProperty(paths, cPackage)){
-		filePath = paths[cPackage] + filePath;
+		if (paths[cPackage] === "#"){
+			return "#";
+		}else{
+			return paths[cPackage] + "/" + idParts.join("/") + ".js?cachBust=" + _getCacheVarForModule(moduleId, cacheBust);
+		}
 	}else{
 		var error = new Error("Could not load module: " + moduleId);
 		Components.utils.reportError(error);
 		throw error;
 	}
 	
-	return filePath;
+	return null;
 }
 
 function _getCacheVarForModule(moduleName, cacheBust){
@@ -173,6 +179,35 @@ function _getCacheVarForModule(moduleName, cacheBust){
 	}
 }
 
+function _loadPackagePaths(config, useTemp){
+	// summary:
+	//		Load the package paths from a config object.
+	// description:
+	//		Load the package paths from a given config object. A temparary
+	//		package path mapping object is created and returned.  Depending on
+	//		on the value of useTemp (default: true), the global paths are
+	//		also overriden so it affects future operations.
+	// config: object
+	//		The config object to parse for packages.
+	// useTemp: boolean
+	//		Overwrite the global package paths?
+	// returns: object
+	//		Object in the format:
+	//			{"<package id>":"<package root directory path (absolute)>"}.
+	
+	useTemp = ((useTemp === undefined) ? true : useTemp);
+	var tempPackagePaths = cloneObject(_packagePaths);
+	
+	config.packages.forEach(function(packageDetails){
+		tempPackagePaths[packageDetails.name] = packageDetails.location;
+		if(!useTemp){
+			_packagePaths[packageDetails.name] = packageDetails.location;
+		}
+	});
+	
+	return tempPackagePaths;
+}
+
 function _getRandomId(){
 	// summary:
 	//		Generate a random interger.
@@ -209,3 +244,13 @@ function _isProperty(value, propName){
 
 	return ((Object.prototype.hasOwnProperty.call(value, propName)) || (propName in value));
 }
+
+function _loadComponent(classname, infterface){	
+	return Components.classes["@" + classname + ";1"].getService(Components.interfaces[infterface]);
+};
+
+var componantInterfaceLookup = {
+	"activestate.com/koOs": "koIOs",
+	"mozilla.org/consoleservice": "nsIConsoleService"
+	
+};
