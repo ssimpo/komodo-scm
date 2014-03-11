@@ -3,10 +3,14 @@ var EXPORTED_SYMBOLS = ["require"];
 var _this = this;
 var _loadedLibraries = {};
 var _libraryPaths = {};
+var _cacheBust = false;
 
 var require = function(config, moduleIds, callback){
 	if(moduleIds === undefined){
 		_loadLibraryPaths(config, false);
+		if(_isProperty(config, "cacheBust")){
+			_cacheBust = config.cacheBust;
+		}
 	}else{
 		if(callback === undefined){
 			callback = moduleIds;
@@ -17,17 +21,24 @@ var require = function(config, moduleIds, callback){
 			? moduleIds
 			: [moduleIds];
 			
-		var paths = _loadLibraryPaths(config);
-		_require(paths, moduleIds, callback);
+		_require(config, moduleIds, callback);
 	}
 }
 
-function _require(paths, moduleIds, callback){
+function _require(config, moduleIds, callback){
+	var paths = _loadLibraryPaths(config);
+	var cacheBust = ((_isProperty(config, "cacheBust"))
+		? config.cacheBust
+		: _cacheBust
+	);
 	var params = [];
 	
 	moduleIds.forEach(function(moduleId){
 		var context = {};
-		Components.utils.import(_resolveModuleId(moduleId, paths), context);
+		Components.utils.import(
+			_resolveModuleId(moduleId, paths, cacheBust),
+			context
+		);
 		params.push(context.main);
 	});
 	
@@ -48,12 +59,12 @@ function _loadLibraryPaths(config, useTemp){
 	return tempLibraryPaths;
 }
 
-function _resolveModuleId(moduleId, paths){
+function _resolveModuleId(moduleId, paths, cacheBust){
 	var idParts = moduleId.split("/");
 	var library = idParts.shift();
 	var filePath =
 		"/" + idParts.join("/") + ".js?cachBust="
-		+ _getCacheVar(moduleId)+1;
+		+ _getCacheVar(moduleId, cacheBust);
 	
 	if(_isProperty(paths, library)){
 		filePath = paths[library] + filePath;
@@ -66,12 +77,18 @@ function _resolveModuleId(moduleId, paths){
 	return filePath;
 }
 
-function _getCacheVar(libraryName){
-	if(!_isProperty(_loadedLibraries, libraryName)){
-		_loadedLibraries[libraryName] = _getRandomId();
+function _getCacheVar(libraryName, cacheBust){
+	if(cacheBust === false){
+		if(!_isProperty(_loadedLibraries, libraryName)){
+			_loadedLibraries[libraryName] = _getRandomId();
+		}
+		
+		return _loadedLibraries[libraryName];
+	}else if(cacheBust === true){
+		return _getRandomId();
+	}else{
+		return cacheBust;
 	}
-	
-	return _loadedLibraries[libraryName];
 }
 
 function _getRandomId(){
