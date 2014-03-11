@@ -1,55 +1,49 @@
-var EXPORTED_SYMBOLS = ["loadLibrary"];
+var EXPORTED_SYMBOLS = ["require"];
 
 var _this = this;
-var _scriptPath = "/scripts/js";
 var _loadedLibraries = {};
 
-var loadLibrary = function(libraryName, scope, protocol){
-	if(Object.prototype.toString.call(libraryName) === '[object Array]'){
-		libraryName.forEach(function(loadLibraryParams){
-			_loadLibrary.apply(_this, loadLibraryParams);
-		});
-	}else{
-		_loadLibrary.call(_this, libraryName, scope, protocol);
+var require = function(config, moduleIds, callback){
+	if(callback === undefined){
+		moduleIds = config;
+		callback = modules;
+		config = _this.config;
 	}
-}
-
-function _loadLibrary(libraryName, scope, protocol){
-	protocol = protocol || "chrome";
-		
-	if((protocol === "file") || (protocol === "chrome")){
-		if(protocol === "file"){
-			protocol = protocol + ":///";
-			var path = _calculateFilePath(scope);
-		}else{
-			protocol = protocol + "://";
-			var path = _calculateChromePath();
-		}
-		path += _scriptPath;
-	}else{
-		protocol = "file:///";
-		var path = protocol.replace(/\\/g, "/");
-	}
-	path += "/" + libraryName + ".js?cacheBust=" + _getCacheVar(libraryName);
+	moduleIds = (Object.prototype.toString.call(moduleIds) === '[object Array]')
+		? moduleIds
+		: [moduleIds];
 	
-	Components.utils.import(protocol + _fixPath(path), scope);
+	_require(config, moduleIds, callback);
 }
 
-function _fixPath(path){
-	return path.replace(/\\/g, "/").replace(/\/\//g, "/");
+function _require(config, moduleIds, callback){
+	var params = [];
+	
+	moduleIds.forEach(function(moduleId){
+		var context = {};
+		Components.utils.import(_resolveModuleId(moduleId, config), context);
+		params.push(context.main);
+	});
+	
+	callback.apply(_this, params);
 }
 
-function _calculateChromePath(){
-	return "komodoscm/content"
-}
-
-function _calculateFilePath(scope){
-	var ko = ko || scope.ko;
-	return ko.interpolate.interpolateString('%p').replace(/\\/g, "/") + "/app/content";
-}
-
-function _getGlobal(){
-	return Function('return this')() || (42, eval)('this');
+function _resolveModuleId(moduleId, config){
+	var idParts = moduleId.split("/");
+	var library = idParts.shift();
+	var filePath =
+		"/" + idParts.join("/") + ".js?cachBust="
+		+ _getCacheVar(moduleId);
+	
+	if(_isProperty(config, library)){
+		filePath = config[library] + filePath;
+	}else{
+		var error = new Error("Could not load module: " + moduleId);
+		Components.utils.reportError(error);
+		throw error;
+	}
+	
+	return filePath;
 }
 
 function _getCacheVar(libraryName){

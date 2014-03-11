@@ -1,6 +1,6 @@
-var EXPORTED_SYMBOLS = ["getComponent"];
+var EXPORTED_SYMBOLS = ["main"];
 
-function getComponent(classname, library, infterface){
+function main(classname, library, infterface){
 	library = library || "activestate.com";
 	infterface = infterface || _calculateKomodoInterfaceName(classname);
 	
