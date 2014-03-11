@@ -251,6 +251,9 @@ function _loadComponent(classname, infterface){
 
 var componantInterfaceLookup = {
 	"activestate.com/koOs": "koIOs",
-	"mozilla.org/consoleservice": "nsIConsoleService"
-	
+	"mozilla.org/consoleservice": "nsIConsoleService",
+	"mozilla.org/intl/stringbundle": "nsIStringBundleService",
+	"activestate.com/koPrefService": "koIPrefService",
+	"activestate.com/koRunService": "koIRunService",
+	"mozilla.org/appshell/window-mediator": "nsIWindowMediator"
 };
