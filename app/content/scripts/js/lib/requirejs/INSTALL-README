@@ -1,0 +1,6 @@
+Please us git clone to create 4 RequireJs repositories in this directory:
+
+git clone https://github.com/requirejs/text.git
+git clone https://github.com/requirejs/i18n.git
+git clone https://github.com/requirejs/domReady.git
+git clone https://github.com/ssimpo/requirejs.git
