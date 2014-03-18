@@ -1,6 +1,7 @@
 define([], function(){
 	var interfaceNameLookup = {
-		"mozilla.org/xre/app-info":"nsIXULRuntime"
+		"mozilla.org/xre/app-info":"nsIXULRuntime",
+		"mozilla.org/file/local":"nsIFile"
 	};
 	var interfaceNameMappings = {};
 	
@@ -53,7 +54,7 @@ define([], function(){
 				);
 			}else{
 				onload.error("Could not find the requested component ("+name+").");
-			}
+			}	
 		}
 	};
 });
