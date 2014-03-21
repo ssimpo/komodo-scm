@@ -7,12 +7,20 @@ var rootDir = '../../';
 var appDir = rootDir + 'app/';
 var buildDir = rootDir + appDir + 'build/';
 
-Q.nfcall(fs.deleteDir, buildDir).then(function() {
-	console.log("Deleted build app directory");
-	
+doDeleteAppBuildDirectory(buildDir,appDir);
+
+
+function doDeleteAppBuildDirectory(buildDir, appDir) {
+  Q.nfcall(fs.deleteDir, buildDir).then(function() {
+    console.log("Deleted build app directory");
+    doCopyAppDirectoryForBuilding(appDir, buildDir);
+  });
+}
+
+function doCopyAppDirectoryForBuilding(appDir, buildDir) {
 	fs.xcopy(
-		'../../app', '../../build/app', {
-			'directories': {
+		appDir, buildDir, {
+      'directories': {
 				'excludes': [/[\/\\]\.git$/, /[\/\\]tests$/, /[\/\\]docs$/]
 			},
 			'files': {
@@ -20,13 +28,17 @@ Q.nfcall(fs.deleteDir, buildDir).then(function() {
 			}
 		}
 	).then(function(){
-		getEmData(appDir + 'install.rdf').then(function(em){
-			console.log(em);
-		});
+		doGetEmData(appDir, 'install.rdf');
 	}, function(error){
 		console.error("FAIL", error);
 	});
-});
+}
+
+function doGetEmData(appDir, rdfFileName, buildDir) {
+  getEmData(appDir + rdfFileName).then(function(em){
+		console.log(em);
+	});
+}
 
 function reportProgress(progress) {
   console.log(progress);
