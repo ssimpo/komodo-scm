@@ -49,7 +49,9 @@ function getFilesForTemplateReplace(buildDir, em) {
 			'includes': [/\.html$/, /\.js$/, /\.xul$/, /\.properties$/, /\.css$/, /\.dtd$/]
 		}
 	}).then(function(files) {
-    replaceTemplateData(files, em);
+    replaceTemplateData(files, em).then(function(){
+      
+    });
   }, reportError);
 }
 

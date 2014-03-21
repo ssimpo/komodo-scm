@@ -1,25 +1,28 @@
-var Q = require('q');
+var QQ = require('promise-stack');
 var Path = require('path');
 var fs = require('fs');
 
 function replaceTemplateData(files, data){
+  var Q = new QQ();
 	var rx = /\<\%\=.*?\%>/m;
   
   files.forEach(function(file){
     if (!file.directory) {
       console.log("Parsing: " + Path.resolve(file.path));
-      readFile(file.path).then(function(content){
+      readFile(file.path, Q).then(function(content){
         var test = rx.test(content);
         if(rx.test(content)){
           console.log("Parsing Template Tagscls: " + Path.resolve(file.path));
           while(rx.test(content)){
             content = replaceTemplateTagWithData(content, data);
           }
-          writeFile(file.path, content).then(undefined, reportError);
+          writeFile(file.path, content, Q).then(undefined, reportError);
         }
       }, reportError);
     }
 	});
+  
+  return Q;
 }
 
 function replaceTemplateTagWithData(text, data){
@@ -40,7 +43,7 @@ function replaceTemplateTagWithData(text, data){
 	return text
 }
 
-function readFile(file){
+function readFile(file, Q){
   return Q.nfcall(fs.readFile, file, {"encoding":"utf8"});
 }
 
@@ -48,7 +51,7 @@ function trimStr(str){
 	return str.replace(/^\s+|\s+$/g, '');
 }
 
-function writeFile(file, content){
+function writeFile(file, content, Q){
   return Q.nfcall(fs.writeFile, file, content, {"encoding":"utf8"});
 }
 
