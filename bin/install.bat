@@ -1,0 +1,2 @@
+@call setlocal
+@npm install
