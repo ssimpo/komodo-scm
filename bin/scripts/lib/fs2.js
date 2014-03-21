@@ -21,6 +21,7 @@ fs.xcopy = function(source, dest, filters) {
 		files.forEach(function(file){
 			if (file.directory) {
 				var destFile = _getDestinationFile(file.path, dest, source);
+				console.log("1: Creating: " + Path.resolve(destFile));
 				Q.nfcall(fs.createDir, destFile).then(function(){
 					if (fs.debug) {
 						console.log("Created: " + Path.resolve(destFile));
@@ -30,6 +31,7 @@ fs.xcopy = function(source, dest, filters) {
 				});
 			}else{
 				var destFile = _getDestinationFile(file.path, dest, source);
+				console.log("2: Creating: " + Path.resolve(destFile));
 				Q.nfcall(fs.copyFile, file.path, destFile).then(function(){
 					if (fs.debug) {
 						console.log("Copied: " + Path.resolve(file.path));
@@ -47,7 +49,11 @@ fs.xcopy = function(source, dest, filters) {
 }
 
 function _getDestinationFile(sourceFullPath, destBase, source) {
-	return Path.normalize(destBase + sourceFullPath.replace(source, ""));
+	sourceFullPath = Path.resolve(sourceFullPath);
+	destBase = Path.resolve(destBase);
+	source = Path.resolve(source);
+
+	return destBase + sourceFullPath.replace(source, "");
 }
 
 function _getAllFiles(path, files, Q, filters) {
