@@ -1,14 +1,15 @@
 var Q = require('q');
 var fs = require('./lib/fs2');
 var getEmData = require('./lib/rdfParser.js');
+var replaceTemplateData = require('./lib/templateReplacer.js');
 fs.debug = true;
 
 var rootDir = '../../';
 var appDir = rootDir + 'app/';
-var buildDir = rootDir + appDir + 'build/';
+var buildDir = rootDir + 'build/app/';
 
-//doDeleteAppBuildDirectory(buildDir,appDir);
-doGetEmData(buildDir, 'install.rdf');
+doDeleteAppBuildDirectory(buildDir, appDir);
+//doGetEmData(buildDir, 'install.rdf');
 
 
 function doDeleteAppBuildDirectory(buildDir, appDir) {
@@ -36,9 +37,20 @@ function doCopyAppDirectoryForBuilding(appDir, buildDir) {
 }
 
 function doGetEmData(buildDir, rdfFileName) {
+  console.log("Reading: " + rdfFileName);
   getEmData(appDir + rdfFileName).then(function(em){
-		console.log(em);
+    getFilesForTemplateReplace(buildDir, em);
 	});
+}
+
+function getFilesForTemplateReplace(buildDir, em) {
+  fs.getAllFiles(buildDir, {
+    'files': {
+			'includes': [/\.html$/, /\.js$/, /\.xul$/, /\.properties$/, /\.css$/, /\.dtd$/]
+		}
+	}).then(function(files) {
+    replaceTemplateData(files, em);
+  }, reportError);
 }
 
 function reportProgress(progress) {
