@@ -8,10 +8,10 @@ fs.getAllFiles =  function(path, filters) {
 	var files = [];
 	var Q = new QQ();
 	Q.data = files;
-	filters = _initFilters(filters);
+	filters = fs._initFilters(filters);
 	path = Path.normalize(path);
 	
-	return _getAllFiles(path, files, Q, filters);
+	return fs._getAllFiles(path, files, Q, filters);
 };
 
 fs.xcopy = function(source, dest, filters) {
@@ -20,7 +20,7 @@ fs.xcopy = function(source, dest, filters) {
 	fs.getAllFiles(source, filters).then(function(files){
 		files.forEach(function(file){
 			if (file.directory) {
-				var destFile = _getDestinationFile(file.path, dest, source);
+				var destFile = fs._getDestinationFile(file.path, dest, source);
 				Q.nfcall(fs.createDir, destFile).then(function(){
 					if (fs.debug) {
 						console.log("Created: " + Path.resolve(destFile));
@@ -29,7 +29,7 @@ fs.xcopy = function(source, dest, filters) {
 					console.error(error);
 				});
 			}else{
-				var destFile = _getDestinationFile(file.path, dest, source);
+				var destFile = fs._getDestinationFile(file.path, dest, source);
 				Q.nfcall(fs.copyFile, file.path, destFile).then(function(){
 					if (fs.debug) {
 						console.log("Copied: " + Path.resolve(file.path));
@@ -46,7 +46,7 @@ fs.xcopy = function(source, dest, filters) {
 	return Q;
 }
 
-function _getDestinationFile(sourceFullPath, destBase, source) {
+fs._getDestinationFile = function(sourceFullPath, destBase, source) {
 	sourceFullPath = Path.resolve(sourceFullPath);
 	destBase = Path.resolve(destBase);
 	source = Path.resolve(source);
@@ -54,7 +54,7 @@ function _getDestinationFile(sourceFullPath, destBase, source) {
 	return destBase + sourceFullPath.replace(source, "");
 }
 
-function _getAllFiles(path, files, Q, filters) {
+fs._getAllFiles = function(path, files, Q, filters) {
 	if (fs.debug) {
 		console.log("Examining directory: " + Path.resolve(path));
 	}
@@ -63,7 +63,7 @@ function _getAllFiles(path, files, Q, filters) {
 		cfiles.forEach(function(file) {
 			var filePath = Path.normalize(path + '/' + file);
 			Q.nfcall(fs.stat, filePath).then(function(stats){
-				if (_filterFiles(filePath, filters, stats.isDirectory())) {
+				if (fs._filterFiles(filePath, filters, stats.isDirectory())) {
 					
 					files.push({
 						'path': filePath,
@@ -71,7 +71,7 @@ function _getAllFiles(path, files, Q, filters) {
 					});
 					
 					if(stats.isDirectory()) {
-						_getAllFiles(filePath, files, Q, filters);
+						fs._getAllFiles(filePath, files, Q, filters);
 					}
 					
 				}
@@ -82,7 +82,7 @@ function _getAllFiles(path, files, Q, filters) {
 	return Q;
 }
 
-function _initFilters(filters) {
+fs._initFilters = function(filters) {
 	filters = filters || {};
 	
 	filters.directories = filters.directories || {};
@@ -96,21 +96,21 @@ function _initFilters(filters) {
 	return filters
 }
 
-function _filterFiles(file, filters, isDirectory) {
+fs._filterFiles = function(file, filters, isDirectory) {
 	if (isDirectory) {
-		if (applyFilter(file, filters.directories.includes)) {
-			return !applyFilter(file, filters.directories.excludes);
+		if (fs._applyFilter(file, filters.directories.includes)) {
+			return !fs._applyFilter(file, filters.directories.excludes);
 		}
 	} else {
-		if (applyFilter(file, filters.files.includes)) {
-			return !applyFilter(file, filters.files.excludes);
+		if (fs._applyFilter(file, filters.files.includes)) {
+			return !fs._applyFilter(file, filters.files.excludes);
 		}
 	}
 	
 	return false;
 }
 
-function applyFilter(file, filters) {
+fs._applyFilter = function(file, filters) {
 	var pass = false;
 	
 	filters.every(function(filter) {
