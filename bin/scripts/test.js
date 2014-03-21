@@ -1,13 +1,14 @@
 var Q = require('q');
-var fs = require('./fs2');
-var getEmData = require('./rdfParser.js');
+var fs = require('./lib/fs2');
+var getEmData = require('./lib/rdfParser.js');
 fs.debug = true;
 
 var rootDir = '../../';
 var appDir = rootDir + 'app/';
 var buildDir = rootDir + appDir + 'build/';
 
-doDeleteAppBuildDirectory(buildDir,appDir);
+//doDeleteAppBuildDirectory(buildDir,appDir);
+doGetEmData(buildDir, 'install.rdf');
 
 
 function doDeleteAppBuildDirectory(buildDir, appDir) {
@@ -28,13 +29,13 @@ function doCopyAppDirectoryForBuilding(appDir, buildDir) {
 			}
 		}
 	).then(function(){
-		doGetEmData(appDir, 'install.rdf');
+		doGetEmData(buildDir, 'install.rdf');
 	}, function(error){
 		console.error("FAIL", error);
 	});
 }
 
-function doGetEmData(appDir, rdfFileName, buildDir) {
+function doGetEmData(buildDir, rdfFileName) {
   getEmData(appDir + rdfFileName).then(function(em){
 		console.log(em);
 	});
