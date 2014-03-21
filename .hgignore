@@ -4,3 +4,4 @@ build/**/
 **/Thumbs.db
 app/content/scripts/js/lib/requirejs/**/
 !app/content/scripts/js/lib/requirejs/*
+bin/scripts/node_modules
