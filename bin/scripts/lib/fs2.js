@@ -98,38 +98,24 @@ function _initFilters(filters) {
 
 function _filterFiles(file, filters, isDirectory) {
 	if (isDirectory) {
-		if (applyIncludeFilter(file, filters.directories.includes)) {
-			return !applyExcludeFilter(file, filters.directories.excludes);
+		if (applyFilter(file, filters.directories.includes)) {
+			return !applyFilter(file, filters.directories.excludes);
 		}
 	} else {
-		if (applyIncludeFilter(file, filters.files.includes)) {
-			return !applyExcludeFilter(file, filters.files.excludes);
+		if (applyFilter(file, filters.files.includes)) {
+			return !applyFilter(file, filters.files.excludes);
 		}
 	}
 	
 	return false;
 }
 
-function applyExcludeFilter(file, filters) {
+function applyFilter(file, filters) {
 	var pass = false;
 	
 	filters.every(function(filter) {
 		if (filter.test(file)) {
 			pass = true;
-			return false;
-		}
-		return true;
-	});
-	
-	return pass;
-}
-
-function applyIncludeFilter(file, filters) {
-	var pass = true;
-	
-	filters.every(function(filter) {
-		if (!filter.test(file)) {
-			pass = false;
 			return false;
 		}
 		return true;
