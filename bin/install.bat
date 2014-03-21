@@ -1,2 +1,3 @@
 @call setlocal
-@npm install
+@call cd scripts
+@call npm install

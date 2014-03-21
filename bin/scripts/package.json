@@ -23,14 +23,16 @@
   ],
   "dependencies" : {
     "q": "~1.0.0",
-    "promise-stack": "https://github.com/ssimpo/promise-stack.git",
     "fs-extended": "~0.2.0",
     "xmldom": "~0.1.0",
     "adm-zip": "~0.4.0",
     "jasmine-node": "~1.14.0",
     "grunt-cli": "~0.1.0",
     "grunt-jasmine-node": "~0.2.0",
-    "grunt-execute": "~0.1.0"
+    "grunt-execute": "~0.1.0",
+    "promise-stack": "https://github.com/ssimpo/promise-stack.git"
+  },
+  "devDependencies": {
   },
   "license": "MIT",
   "engines": {
